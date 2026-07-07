@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --markaj-primary: #0a2b5e;
+    --markaj-mineral: #8c929d;
+    --markaj-crepi: #dbcfb0;
+    --markaj-crepi-light: #e8e3d3;
+    --markaj-white: #ffffff;
+    --markaj-surface: #fafaf8;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-markaj-white font-body text-body text-markaj-primary antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .form-input {
+    @apply w-full min-h-11 rounded-markaj border border-markaj-mineral/25 bg-markaj-white px-4 py-3 font-body text-base text-markaj-primary focus:border-markaj-primary focus:outline-none focus:ring-1 focus:ring-markaj-primary;
+  }
+
+  /* Texture overlays — always subtle, never overpowering */
+  .bg-texture-concrete {
+    @apply relative bg-markaj-white;
+  }
+
+  .bg-texture-concrete::before {
+    content: "";
+    @apply pointer-events-none absolute inset-0 bg-repeat opacity-[0.04];
+    background-image: url("/textures/concrete.svg");
+    background-size: 400px 400px;
+  }
+
+  .bg-texture-paint {
+    @apply relative bg-markaj-white;
+  }
+
+  .bg-texture-paint::before {
+    content: "";
+    @apply pointer-events-none absolute inset-0 bg-repeat opacity-[0.05];
+    background-image: url("/textures/paint.svg");
+    background-size: 300px 300px;
+  }
+
+  .bg-texture-crepi {
+    @apply relative bg-markaj-crepi-light;
+  }
+
+  .bg-texture-crepi::before {
+    content: "";
+    @apply pointer-events-none absolute inset-0 bg-repeat opacity-[0.12];
+    background-image: url("/textures/crepi.svg");
+    background-size: 350px 350px;
+  }
+
+  /* Dark section variant */
+  .bg-texture-concrete-dark {
+    @apply relative bg-markaj-primary;
+  }
+
+  .bg-texture-concrete-dark::before {
+    content: "";
+    @apply pointer-events-none absolute inset-0 bg-repeat opacity-[0.06];
+    background-image: url("/textures/concrete.svg");
+    background-size: 400px 400px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

@@ -1,0 +1,97 @@
+"use client";
+
+import { Button } from "@/components/ui/Button";
+import { Logo } from "@/components/ui/Logo";
+import { mainNav } from "@/lib/content/navigation";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
+export function Header() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
+  return (
+    <header className="sticky top-0 z-50 border-b border-markaj-mineral/10 bg-markaj-white/95 backdrop-blur-sm">
+      <div className="mx-auto flex max-w-content items-center justify-between gap-4 px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
+        <Logo className="scale-90 sm:scale-100" />
+
+        <nav className="hidden items-center gap-6 xl:gap-8 lg:flex" aria-label="Navigation principale">
+          {mainNav.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="min-h-11 inline-flex items-center font-body text-body-sm font-medium text-markaj-primary transition-colors hover:text-markaj-primary-light"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="hidden items-center gap-4 lg:flex">
+          <Button href="/contact" variant="primary" size="sm">
+            Demander un devis
+          </Button>
+        </div>
+
+        <button
+          type="button"
+          className="flex min-h-11 min-w-11 items-center justify-center rounded-markaj lg:hidden"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-expanded={mobileOpen}
+        >
+          <span className="sr-only">Menu</span>
+          <div className="flex flex-col gap-1.5">
+            <span className={cn("block h-0.5 w-6 bg-markaj-primary transition-transform duration-200", mobileOpen && "translate-y-2 rotate-45")} />
+            <span className={cn("block h-0.5 w-6 bg-markaj-primary transition-opacity duration-200", mobileOpen && "opacity-0")} />
+            <span className={cn("block h-0.5 w-6 bg-markaj-primary transition-transform duration-200", mobileOpen && "-translate-y-2 -rotate-45")} />
+          </div>
+        </button>
+      </div>
+
+      {mobileOpen && (
+        <nav
+          className="animate-menu-in border-t border-markaj-mineral/10 bg-markaj-white px-4 py-4 sm:px-6 lg:hidden"
+          aria-label="Navigation mobile"
+        >
+          <ul className="space-y-1">
+            {mainNav.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="flex min-h-11 items-center font-body text-body font-medium text-markaj-primary"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+            <li className="pt-3">
+              <Button href="/contact" variant="primary" size="md" className="w-full" onClick={() => setMobileOpen(false)}>
+                Demander un devis
+              </Button>
+            </li>
+            <li>
+              <Button
+                href="tel:+41794301813"
+                variant="secondary"
+                size="md"
+                className="w-full"
+                onClick={() => setMobileOpen(false)}
+              >
+                079 430 18 13
+              </Button>
+            </li>
+          </ul>
+        </nav>
+      )}
+    </header>
+  );
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
+  <filter id="paint">
+    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" seed="2"/>
+    <feColorMatrix type="saturate" values="0"/>
+    <feGaussianBlur stdDeviation="0.5"/>
+  </filter>
+  <rect width="300" height="300" fill="#DBCFB0" filter="url(#paint)" opacity="0.5"/>
+</svg>
