@@ -11,7 +11,7 @@ interface HeroProps {
 
 export function Hero({ title, subtitle, primaryCta, secondaryCta }: HeroProps) {
   return (
-    <Section background="white" texture="concrete" className="py-14 sm:py-20 md:py-30">
+    <Section background="white" texture="paint" className="py-14 sm:py-20 md:py-30">
       <AnimateIn className="max-w-3xl">
         <h1 className="font-heading text-[1.75rem] leading-tight text-balance text-markaj-primary sm:text-heading-1 md:text-display">
           {title}

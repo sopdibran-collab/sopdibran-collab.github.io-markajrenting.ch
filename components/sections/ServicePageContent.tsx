@@ -42,7 +42,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
         </AnimateIn>
       </Section>
 
-      <Section background="surface" texture="concrete">
+      <Section background="surface" texture="paint">
         <AnimateIn>
           <SectionHeading
             subtitle="Processus"

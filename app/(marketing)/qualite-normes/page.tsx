@@ -57,7 +57,7 @@ export default function QualiteNormesPage() {
         </div>
       </Section>
 
-      <Section background="surface" texture="concrete">
+      <Section background="surface" texture="paint">
         <SectionHeading subtitle="Normes" title="Quelles normes suivons-nous ?" />
         <div className="grid gap-8 md:grid-cols-2">
           {normes.map((norme) => (

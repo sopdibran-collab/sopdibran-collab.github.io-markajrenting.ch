@@ -44,7 +44,7 @@ export default function BlogPostPage({ params }: PageProps) {
         <Breadcrumbs items={[{ label: "Blog", href: "/blog" }, { label: post.title }]} />
       </div>
 
-      <Section background="white" texture="concrete" className="py-16">
+      <Section background="white" texture="paint" className="py-16">
         <article className="mx-auto max-w-prose">
           <p className="font-body text-body-sm text-markaj-mineral">
             {new Date(post.date).toLocaleDateString("fr-CH", { day: "numeric", month: "long", year: "numeric" })} · {post.readTime} · {post.category}

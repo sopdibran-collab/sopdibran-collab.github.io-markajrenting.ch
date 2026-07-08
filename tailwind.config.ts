@@ -72,9 +72,9 @@ const config: Config = {
         "menu-in": "menu-in 0.2s ease-out both",
       },
       backgroundImage: {
-        "texture-concrete": "url('/textures/concrete.svg')",
-        "texture-paint": "url('/textures/paint.svg')",
-        "texture-crepi": "url('/textures/crepi.svg')",
+        "texture-noise": "url('/textures/markaj-noise-soft-01.webp')",
+        "texture-plaster": "url('/textures/markaj-plaster-soft-01.webp')",
+        "texture-concrete": "url('/textures/markaj-concrete-smooth-01.webp')",
       },
     },
   },

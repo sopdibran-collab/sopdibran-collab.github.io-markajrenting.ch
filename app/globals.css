@@ -10,6 +10,11 @@
     --markaj-crepi-light: #e8e3d3;
     --markaj-white: #ffffff;
     --markaj-surface: #fafaf8;
+    /* Texture palette */
+    --markaj-tex-white: #fdfdfd;
+    --markaj-tex-warm: #ece7e0;
+    --markaj-tex-sand: #d5cfc9;
+    --markaj-tex-stone: #afa8a3;
   }
 
   html {
@@ -48,50 +53,61 @@
     @apply w-full min-h-11 rounded-markaj border border-markaj-mineral/25 bg-markaj-white px-4 py-3 font-body text-base text-markaj-primary focus:border-markaj-primary focus:outline-none focus:ring-1 focus:ring-markaj-primary;
   }
 
-  /* Texture overlays — always subtle, never overpowering */
-  .bg-texture-concrete {
-    @apply relative bg-markaj-white;
-  }
+  /*
+   * Texture overlays — solid section background + ::before grain only.
+   * Opacities kept barely perceptible; never the first thing you notice.
+   */
 
-  .bg-texture-concrete::before {
-    content: "";
-    @apply pointer-events-none absolute inset-0 bg-repeat opacity-[0.04];
-    background-image: url("/textures/concrete.svg");
-    background-size: 400px 400px;
-  }
-
+  /* Principal — fine noise on white / surface sections */
   .bg-texture-paint {
-    @apply relative bg-markaj-white;
+    @apply relative;
   }
 
   .bg-texture-paint::before {
     content: "";
-    @apply pointer-events-none absolute inset-0 bg-repeat opacity-[0.05];
-    background-image: url("/textures/paint.svg");
-    background-size: 300px 300px;
+    @apply pointer-events-none absolute inset-0 bg-repeat;
+    background-image: url("/textures/markaj-noise-soft-01.webp");
+    background-size: 512px 512px;
+    opacity: 0.04;
   }
 
+  /* Secondary — soft plaster on warm / crepi sections */
   .bg-texture-crepi {
-    @apply relative bg-markaj-crepi-light;
+    @apply relative;
   }
 
   .bg-texture-crepi::before {
     content: "";
-    @apply pointer-events-none absolute inset-0 bg-repeat opacity-[0.12];
-    background-image: url("/textures/crepi.svg");
-    background-size: 350px 350px;
+    @apply pointer-events-none absolute inset-0 bg-repeat;
+    background-image: url("/textures/markaj-plaster-soft-01.webp");
+    background-size: 512px 512px;
+    opacity: 0.05;
   }
 
-  /* Dark section variant */
+  /* Accent — smooth concrete mineral (sparing use) */
+  .bg-texture-concrete {
+    @apply relative;
+  }
+
+  .bg-texture-concrete::before {
+    content: "";
+    @apply pointer-events-none absolute inset-0 bg-repeat;
+    background-image: url("/textures/markaj-concrete-smooth-01.webp");
+    background-size: 512px 512px;
+    opacity: 0.035;
+  }
+
+  /* Dark sections — ultra-subtle light grain */
   .bg-texture-concrete-dark {
-    @apply relative bg-markaj-primary;
+    @apply relative;
   }
 
   .bg-texture-concrete-dark::before {
     content: "";
-    @apply pointer-events-none absolute inset-0 bg-repeat opacity-[0.06];
-    background-image: url("/textures/concrete.svg");
-    background-size: 400px 400px;
+    @apply pointer-events-none absolute inset-0 bg-repeat;
+    background-image: url("/textures/markaj-noise-soft-01.webp");
+    background-size: 512px 512px;
+    opacity: 0.03;
   }
 }
 

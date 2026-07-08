@@ -38,7 +38,7 @@ export default function DesignSystemPage() {
 
       <main>
         {/* Intro */}
-        <Section background="white" texture="concrete" className="py-20">
+        <Section background="white" texture="paint" className="py-20">
           <Badge variant="outline" className="mb-4">
             Phase 1 — Design System
           </Badge>
@@ -208,28 +208,28 @@ export default function DesignSystemPage() {
             intro="Textures désaturées à faible opacité — jamais au détriment de la lisibilité."
           />
           <div className="grid gap-6 md:grid-cols-3">
-            <div className="bg-texture-concrete overflow-hidden rounded-markaj border border-markaj-mineral/15 p-8">
+            <div className="bg-texture-paint overflow-hidden rounded-markaj border border-markaj-mineral/15 bg-markaj-white p-8">
               <p className="relative z-10 font-heading text-heading-4 text-markaj-primary">
-                Béton lissé
+                Grain fin (noise)
               </p>
               <p className="relative z-10 mt-2 font-body text-body-sm text-markaj-mineral">
-                bg-texture-concrete · opacité 4%
+                markaj-noise-soft-01 · opacité 4%
               </p>
             </div>
-            <div className="bg-texture-paint overflow-hidden rounded-markaj border border-markaj-mineral/15 p-8">
+            <div className="bg-texture-crepi overflow-hidden rounded-markaj border border-markaj-mineral/15 bg-markaj-crepi-light p-8">
               <p className="relative z-10 font-heading text-heading-4 text-markaj-primary">
-                Peinture au rouleau
+                Enduit lissé (plaster)
               </p>
               <p className="relative z-10 mt-2 font-body text-body-sm text-markaj-mineral">
-                bg-texture-paint · opacité 5%
+                markaj-plaster-soft-01 · opacité 5%
               </p>
             </div>
-            <div className="bg-texture-crepi overflow-hidden rounded-markaj border border-markaj-mineral/15 p-8">
+            <div className="bg-texture-concrete overflow-hidden rounded-markaj border border-markaj-mineral/15 bg-[#d5cfc9] p-8">
               <p className="relative z-10 font-heading text-heading-4 text-markaj-primary">
-                Crépi intérieur
+                Béton adouci (concrete)
               </p>
               <p className="relative z-10 mt-2 font-body text-body-sm text-markaj-mineral">
-                bg-texture-crepi · opacité 12%
+                markaj-concrete-smooth-01 · opacité 3.5%
               </p>
             </div>
           </div>

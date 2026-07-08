@@ -44,7 +44,7 @@ export default function ZonesPage() {
         </div>
       </Section>
 
-      <Section background="surface" texture="concrete">
+      <Section background="surface" texture="paint">
         <SectionHeading subtitle="Villes couvertes" title="Où intervenons-nous ?" />
         <div className="grid gap-8 md:grid-cols-2">
           {zones.map((zone) => (
