@@ -14,7 +14,7 @@ export const generalFaq: FaqItem[] = [
   {
     question: "Dans quelles zones intervenez-vous ?",
     answer:
-      "Nous intervenons principalement en Suisse romande, avec une priorité sur le canton de Fribourg et ses environs (Romont, Bulle). Nous couvrons également des secteurs du canton de Vaud (Lausanne, Vevey, Morges).",
+      "Nous intervenons dans toute la Suisse romande : cantons de Fribourg (Fribourg, Romont, Bulle), Vaud, Genève, Neuchâtel, Valais, Jura, ainsi que dans la partie francophone du canton de Berne. Notre siège se trouve à Fribourg.",
   },
   {
     question: "Êtes-vous assurés ?",

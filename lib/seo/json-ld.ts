@@ -13,12 +13,13 @@ export const GEO_COORDINATES = {
 };
 
 export const AREA_SERVED = [
-  "Fribourg",
-  "Romont",
-  "Bulle",
-  "Lausanne",
-  "Vevey",
-  "Morges",
+  "Canton de Fribourg",
+  "Canton de Vaud",
+  "Canton de Genève",
+  "Canton de Neuchâtel",
+  "Canton du Valais",
+  "Canton du Jura",
+  "Canton de Berne (partie francophone)",
   "Suisse romande",
 ];
 
@@ -47,7 +48,7 @@ export function buildOrganizationSchema(): JsonLdObject {
       addressCountry: address.country,
     },
     areaServed: AREA_SERVED.map((place) => ({
-      "@type": "Place",
+      "@type": "AdministrativeArea",
       name: place,
     })),
     knowsAbout: [
@@ -95,7 +96,7 @@ export function buildLocalBusinessSchema(): JsonLdObject {
       },
     ],
     areaServed: AREA_SERVED.map((place) => ({
-      "@type": "City",
+      "@type": "AdministrativeArea",
       name: place,
     })),
     parentOrganization: {
@@ -216,7 +217,7 @@ export function buildServiceSchema(service: Service): JsonLdObject {
     url: absoluteUrl(`/services/${service.slug}`),
     provider: { "@id": `${url}/#localbusiness` },
     areaServed: AREA_SERVED.map((place) => ({
-      "@type": "City",
+      "@type": "AdministrativeArea",
       name: place,
     })),
     serviceType: service.title,

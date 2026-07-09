@@ -9,7 +9,7 @@ interface CtaBannerProps {
 
 export function CtaBanner({
   title = "Un projet de rénovation ou de finition ?",
-  description = "Contactez Markaj Renting SA pour un devis gratuit et personnalisé. Nous intervenons en Suisse romande, avec priorité sur Fribourg et environs.",
+  description = "Contactez Markaj Renting SA pour un devis gratuit et personnalisé. Nous intervenons dans toute la Suisse romande.",
 }: CtaBannerProps) {
   return (
     <Section background="primary" texture="concrete-dark">
