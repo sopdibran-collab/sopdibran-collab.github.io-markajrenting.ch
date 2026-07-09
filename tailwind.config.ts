@@ -48,14 +48,16 @@ const config: Config = {
         content: "72rem",
         prose: "42rem",
       },
+      /* Direction « Trait de chantier » : angles vifs partout */
       borderRadius: {
-        markaj: "0.375rem",
+        markaj: "0",
       },
+      /* Ombres franches sans flou — matière posée, pas d'effet SaaS */
       boxShadow: {
-        card: "0 1px 3px 0 rgb(10 43 94 / 0.06), 0 1px 2px -1px rgb(10 43 94 / 0.06)",
-        "card-hover": "0 4px 12px 0 rgb(10 43 94 / 0.1), 0 2px 4px -2px rgb(10 43 94 / 0.06)",
-        button: "0 1px 2px 0 rgb(10 43 94 / 0.15)",
-        "button-hover": "0 4px 14px 0 rgb(10 43 94 / 0.2)",
+        card: "none",
+        "card-hover": "6px 6px 0 0 rgb(219 207 176 / 0.9)",
+        button: "5px 5px 0 0 #DBCFB0",
+        "button-hover": "2px 2px 0 0 #DBCFB0",
       },
       keyframes: {
         "fade-in-up": {
@@ -67,9 +69,10 @@ const config: Config = {
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
       },
+      /* Mouvements nets et décidés — pas de fondus mous */
       animation: {
-        "fade-in-up": "fade-in-up 0.65s ease-out both",
-        "menu-in": "menu-in 0.2s ease-out both",
+        "fade-in-up": "fade-in-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both",
+        "menu-in": "menu-in 0.18s cubic-bezier(0.22, 1, 0.36, 1) both",
       },
       backgroundImage: {
         "texture-noise": "url('/textures/markaj-noise-soft-01.webp')",

@@ -1,18 +1,39 @@
-import { AnimateIn } from "@/components/ui/AnimateIn";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 
 interface HeroProps {
   title: string;
   subtitle: string;
+  eyebrow?: string;
+  eyebrowIndex?: string;
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
 }
 
-export function Hero({ title, subtitle, primaryCta, secondaryCta }: HeroProps) {
+/*
+ * No AnimateIn here on purpose: the H1 is the LCP element and must be
+ * visible in the initial HTML, before any JavaScript runs.
+ */
+export function Hero({
+  title,
+  subtitle,
+  eyebrow = "Markaj Renting SA — Fribourg",
+  eyebrowIndex,
+  primaryCta,
+  secondaryCta,
+}: HeroProps) {
   return (
-    <Section background="white" texture="paint" className="py-14 sm:py-20 md:py-30">
-      <AnimateIn className="max-w-3xl">
+    <Section
+      background="white"
+      texture="paint"
+      className="bg-grid-chantier py-14 sm:py-20 md:py-30"
+    >
+      <div className="max-w-3xl">
+        {eyebrow && (
+          <p className="marque-cote mb-4" data-index={eyebrowIndex}>
+            {eyebrow}
+          </p>
+        )}
         <h1 className="font-heading text-[1.75rem] leading-tight text-balance text-markaj-primary sm:text-heading-1 md:text-display">
           {title}
         </h1>
@@ -33,7 +54,7 @@ export function Hero({ title, subtitle, primaryCta, secondaryCta }: HeroProps) {
             )}
           </div>
         )}
-      </AnimateIn>
+      </div>
     </Section>
   );
 }

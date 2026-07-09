@@ -46,7 +46,7 @@ export default function BlogPostPage({ params }: PageProps) {
 
       <Section background="white" texture="paint" className="py-16">
         <article className="mx-auto max-w-prose">
-          <p className="font-body text-body-sm text-markaj-mineral">
+          <p className="font-mono text-caption font-semibold uppercase tracking-[0.12em] text-markaj-mineral-dark">
             {new Date(post.date).toLocaleDateString("fr-CH", { day: "numeric", month: "long", year: "numeric" })} · {post.readTime} · {post.category}
           </p>
           <h1 className="mt-4 font-heading text-heading-1 text-markaj-primary md:text-display">

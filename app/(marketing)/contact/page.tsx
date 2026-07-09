@@ -1,7 +1,7 @@
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { ContactForm } from "@/components/sections/ContactForm";
 import { Hero } from "@/components/sections/Hero";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { buildBreadcrumbSchema } from "@/lib/seo/json-ld";
@@ -36,100 +36,16 @@ export default function ContactPage() {
           <div>
             <SectionHeading
               subtitle="Devis"
+              index="01"
               title="Demande de devis"
               intro="Décrivez votre projet et nous vous recontactons pour planifier une visite sur site."
             />
-            <form className="space-y-5" action="#" method="POST">
-              <div className="grid gap-5 sm:grid-cols-2">
-                <div>
-                  <label htmlFor="prenom" className="mb-1.5 block font-body text-body-sm font-medium text-markaj-primary">
-                    Prénom *
-                  </label>
-                  <input
-                    type="text"
-                    id="prenom"
-                    name="prenom"
-                    required
-                    className="form-input"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="nom" className="mb-1.5 block font-body text-body-sm font-medium text-markaj-primary">
-                    Nom *
-                  </label>
-                  <input
-                    type="text"
-                    id="nom"
-                    name="nom"
-                    required
-                    className="form-input"
-                  />
-                </div>
-              </div>
-              <div>
-                <label htmlFor="email" className="mb-1.5 block font-body text-body-sm font-medium text-markaj-primary">
-                  E-mail *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  className="form-input"
-                />
-              </div>
-              <div>
-                <label htmlFor="telephone" className="mb-1.5 block font-body text-body-sm font-medium text-markaj-primary">
-                  Téléphone
-                </label>
-                <input
-                  type="tel"
-                  id="telephone"
-                  name="telephone"
-                  className="form-input"
-                />
-              </div>
-              <div>
-                <label htmlFor="service" className="mb-1.5 block font-body text-body-sm font-medium text-markaj-primary">
-                  Type de travaux
-                </label>
-                <select
-                  id="service"
-                  name="service"
-                  className="form-input"
-                >
-                  <option value="">Sélectionnez un service</option>
-                  <option value="platrerie">Plâtrerie</option>
-                  <option value="peinture">Peinture</option>
-                  <option value="faux-plafonds">Faux-plafonds</option>
-                  <option value="isolation">Isolation</option>
-                  <option value="renovation">Rénovation</option>
-                  <option value="facades">Façades</option>
-                  <option value="autre">Autre</option>
-                </select>
-              </div>
-              <div>
-                <label htmlFor="message" className="mb-1.5 block font-body text-body-sm font-medium text-markaj-primary">
-                  Décrivez votre projet *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  required
-                  className="form-input"
-                  placeholder="Surface approximative, localisation, délais souhaités…"
-                />
-              </div>
-              <Button type="submit" variant="primary" size="lg">
-                Envoyer la demande
-              </Button>
-            </form>
+            <ContactForm />
           </div>
 
           {/* Coordonnées */}
           <div>
-            <SectionHeading subtitle="Coordonnées" title="Nous trouver" />
+            <SectionHeading subtitle="Coordonnées" index="02" title="Nous trouver" />
             <address className="not-italic">
               <p className="font-heading text-heading-4 text-markaj-primary">{siteConfig.legalName}</p>
               <p className="mt-3 font-body text-body text-markaj-mineral-dark">
@@ -160,7 +76,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="mt-8 overflow-hidden rounded-markaj border border-markaj-mineral/15">
+            <div className="mt-8 overflow-hidden border border-markaj-primary/15">
               <iframe
                 title="Localisation Markaj Renting SA à Fribourg"
                 src="https://maps.google.com/maps?q=Route+de+Schiffenen+40,+1700+Fribourg&t=&z=15&ie=UTF8&iwloc=&output=embed"

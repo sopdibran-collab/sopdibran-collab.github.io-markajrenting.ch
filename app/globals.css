@@ -50,7 +50,8 @@
 
 @layer components {
   .form-input {
-    @apply w-full min-h-11 rounded-markaj border border-markaj-mineral/25 bg-markaj-white px-4 py-3 font-body text-base text-markaj-primary focus:border-markaj-primary focus:outline-none focus:ring-1 focus:ring-markaj-primary;
+    @apply w-full min-h-11 rounded-markaj border bg-markaj-white px-4 py-3 font-body text-base text-markaj-primary focus:border-markaj-primary focus:outline-none focus:ring-1 focus:ring-markaj-primary;
+    border-color: rgb(10 43 94 / 0.25);
   }
 
   /*
@@ -108,6 +109,205 @@
     background-image: url("/textures/markaj-noise-soft-01.webp");
     background-size: 512px 512px;
     opacity: 0.03;
+  }
+
+  /*
+   * ============================================================
+   * Direction « Trait de chantier » — système signature du site.
+   * Langage du dessin technique : angles vifs, ombres franches,
+   * repères de cotation, étiquettes monospace.
+   * ============================================================
+   */
+
+  /* Trame millimétrée pour les sections hero / clés (fond quasi invisible) */
+  .bg-grid-chantier {
+    background-image:
+      linear-gradient(to right, rgb(10 43 94 / 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(10 43 94 / 0.04) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* 1 — Bouton « Bloc » : matière posée, ombre franche décalée (pas de flou) */
+  .btn-bloc {
+    @apply relative inline-flex min-h-12 items-center justify-center gap-3 border-2 border-markaj-primary bg-markaj-primary px-7 font-mono text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-markaj-white transition-all duration-150 ease-out;
+    box-shadow: 5px 5px 0 0 theme("colors.markaj.crepi");
+  }
+
+  .btn-bloc:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px 0 0 theme("colors.markaj.crepi");
+  }
+
+  .btn-bloc:active {
+    transform: translate(5px, 5px);
+    box-shadow: 0 0 0 0 theme("colors.markaj.crepi");
+  }
+
+  .btn-bloc:focus-visible {
+    @apply outline-none ring-2 ring-markaj-primary ring-offset-2;
+  }
+
+  /* Modificateur sable : bouton crépi, ombre bleu nuit (pour fonds sombres) */
+  .btn-bloc--sable {
+    @apply border-markaj-crepi bg-markaj-crepi text-markaj-primary;
+    box-shadow: 5px 5px 0 0 theme("colors.markaj.primary-dark");
+  }
+
+  .btn-bloc--sable:hover {
+    box-shadow: 2px 2px 0 0 theme("colors.markaj.primary-dark");
+  }
+
+  .btn-bloc--sable:active {
+    box-shadow: 0 0 0 0 theme("colors.markaj.primary-dark");
+  }
+
+  /* 2 — Bouton « Cote » : repères de cotation qui referment le cadre au survol */
+  .btn-cote {
+    @apply relative inline-flex min-h-12 items-center justify-center bg-transparent px-7 font-mono text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-markaj-primary transition-colors duration-200;
+    border: 1px solid rgb(10 43 94 / 0.45);
+  }
+
+  .btn-cote::before,
+  .btn-cote::after {
+    content: "";
+    @apply pointer-events-none absolute h-3 w-3 transition-all duration-300 ease-out;
+  }
+
+  .btn-cote::before {
+    top: -5px;
+    left: -5px;
+    border-top: 2px solid theme("colors.markaj.primary");
+    border-left: 2px solid theme("colors.markaj.primary");
+  }
+
+  .btn-cote::after {
+    bottom: -5px;
+    right: -5px;
+    border-bottom: 2px solid theme("colors.markaj.primary");
+    border-right: 2px solid theme("colors.markaj.primary");
+  }
+
+  .btn-cote:hover {
+    @apply bg-markaj-primary text-markaj-white;
+  }
+
+  .btn-cote:hover::before,
+  .btn-cote:hover::after {
+    height: calc(100% + 10px);
+    width: calc(100% + 10px);
+  }
+
+  .btn-cote:focus-visible {
+    @apply outline-none ring-2 ring-markaj-primary ring-offset-2;
+  }
+
+  /* Variante claire pour fonds bleu nuit */
+  .btn-cote--light {
+    @apply text-markaj-white;
+    border-color: rgb(255 255 255 / 0.5);
+  }
+
+  .btn-cote--light::before {
+    border-top-color: theme("colors.markaj.crepi");
+    border-left-color: theme("colors.markaj.crepi");
+  }
+
+  .btn-cote--light::after {
+    border-bottom-color: theme("colors.markaj.crepi");
+    border-right-color: theme("colors.markaj.crepi");
+  }
+
+  .btn-cote--light:hover {
+    @apply bg-markaj-white text-markaj-primary;
+  }
+
+  /* 3 — Bouton « Niveau » : ligne de niveau qui se remplit au survol */
+  .btn-niveau {
+    @apply relative inline-flex min-h-11 items-center gap-2.5 bg-transparent px-1 pb-3 pt-2 font-mono text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-markaj-primary;
+  }
+
+  .btn-niveau::before {
+    content: "";
+    @apply h-2 w-2 shrink-0 bg-markaj-crepi;
+    border: 1px solid theme("colors.markaj.primary");
+  }
+
+  .btn-niveau::after {
+    content: "";
+    @apply absolute bottom-0 left-0 h-0.5 w-full origin-left bg-markaj-primary transition-transform duration-300 ease-out;
+    transform: scaleX(0.32);
+  }
+
+  .btn-niveau:hover::after {
+    transform: scaleX(1);
+  }
+
+  .btn-niveau:focus-visible {
+    @apply outline-none ring-2 ring-markaj-primary ring-offset-2;
+  }
+
+  /* Variante claire pour fonds bleu nuit */
+  .btn-niveau--light {
+    @apply text-markaj-white;
+  }
+
+  .btn-niveau--light::before {
+    @apply bg-markaj-crepi;
+    border-color: rgb(255 255 255 / 0.6);
+  }
+
+  .btn-niveau--light::after {
+    @apply bg-markaj-crepi;
+  }
+
+  /* Dans une carte-lien : la ligne de niveau se remplit au survol du groupe */
+  .group:hover .btn-niveau::after {
+    transform: scaleX(1);
+  }
+
+  /* Panneau « calque technique » : trame millimétrée + croix de repérage */
+  .panel-chantier {
+    @apply relative bg-markaj-white p-8;
+    border: 1px solid rgb(10 43 94 / 0.18);
+    background-image:
+      linear-gradient(to right, rgb(10 43 94 / 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(10 43 94 / 0.045) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .panel-chantier::before,
+  .panel-chantier::after {
+    content: "+";
+    @apply pointer-events-none absolute font-mono text-sm leading-none text-markaj-primary/50;
+  }
+
+  .panel-chantier::before {
+    top: 6px;
+    left: 8px;
+  }
+
+  .panel-chantier::after {
+    bottom: 6px;
+    right: 8px;
+  }
+
+  /* Étiquette de cotation : remplace l'eyebrow uppercase générique */
+  .marque-cote {
+    @apply inline-flex items-baseline gap-3 font-mono text-caption font-semibold uppercase tracking-[0.18em] text-markaj-mineral-dark;
+  }
+
+  .marque-cote::before {
+    content: attr(data-index) " /";
+    @apply text-markaj-crepi-dark;
+  }
+
+  /* Variante claire pour sections bleu nuit */
+  .marque-cote--light {
+    @apply text-markaj-white/80;
+  }
+
+  .marque-cote--light::before {
+    @apply text-markaj-crepi;
   }
 }
 

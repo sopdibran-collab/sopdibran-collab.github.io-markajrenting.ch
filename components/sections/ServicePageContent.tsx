@@ -15,6 +15,7 @@ interface ServicePageContentProps {
 
 export function ServicePageContent({ service }: ServicePageContentProps) {
   const glossary = getGlossaryForService(service.slug);
+  const hasGlossary = glossary.length > 0;
   return (
     <>
       <div className="mx-auto max-w-content px-4 pt-6 sm:px-6 lg:px-8">
@@ -46,6 +47,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
         <AnimateIn>
           <SectionHeading
             subtitle="Processus"
+            index="01"
             title="Comment se déroule un chantier ?"
           />
         </AnimateIn>
@@ -68,6 +70,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
         <AnimateIn>
           <SectionHeading
             subtitle="Matériaux & normes"
+            index="02"
             title="Quels matériaux et normes appliquons-nous ?"
           />
         </AnimateIn>
@@ -75,7 +78,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
           {service.materials.map((material, index) => (
             <AnimateIn key={material} delay={index * 40}>
               <li className="flex items-start gap-3 font-body text-body text-markaj-mineral-dark">
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-markaj-primary" />
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-markaj-primary" />
                 {material}
               </li>
             </AnimateIn>
@@ -88,6 +91,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
           <AnimateIn>
             <SectionHeading
               subtitle="Glossaire"
+              index="03"
               title={`Quels termes techniques liés à la ${service.title.toLowerCase()} ?`}
             />
           </AnimateIn>
@@ -106,12 +110,14 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
 
       <FaqSection
         title={`Questions fréquentes sur la ${service.title.toLowerCase()}`}
+        index={hasGlossary ? "04" : "03"}
         items={service.faq}
       />
 
       <Section background="white">
         <SectionHeading
           subtitle="Liens utiles"
+          index={hasGlossary ? "05" : "04"}
           title="Découvrir aussi"
         />
         <div className="flex flex-wrap gap-4 font-body text-body">

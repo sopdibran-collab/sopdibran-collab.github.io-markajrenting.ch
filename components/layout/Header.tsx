@@ -5,16 +5,31 @@ import { Logo } from "@/components/ui/Logo";
 import { mainNav } from "@/lib/content/navigation";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
+  }, [mobileOpen]);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMobileOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, [mobileOpen]);
 
   return (
@@ -41,11 +56,13 @@ export function Header() {
         </div>
 
         <button
+          ref={toggleRef}
           type="button"
           className="flex min-h-11 min-w-11 items-center justify-center rounded-markaj lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
           aria-expanded={mobileOpen}
+          aria-controls="mobile-nav"
         >
           <span className="sr-only">Menu</span>
           <div className="flex flex-col gap-1.5">
@@ -58,6 +75,7 @@ export function Header() {
 
       {mobileOpen && (
         <nav
+          id="mobile-nav"
           className="animate-menu-in border-t border-markaj-mineral/10 bg-markaj-white px-4 py-4 sm:px-6 lg:hidden"
           aria-label="Navigation mobile"
         >

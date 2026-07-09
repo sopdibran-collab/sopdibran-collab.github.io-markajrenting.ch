@@ -13,15 +13,15 @@ interface RealisationCardProps {
 export function RealisationCard({ project, index }: RealisationCardProps) {
   return (
     <AnimateIn delay={index * 80}>
-      <article className="group overflow-hidden rounded-markaj border border-markaj-mineral/15 bg-markaj-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
+      <article className="group overflow-hidden border border-markaj-primary/15 bg-markaj-white transition-all duration-200 ease-out hover:-translate-x-0.5 hover:-translate-y-0.5 hover:border-markaj-primary/40 hover:shadow-card-hover">
         <div className="grid grid-cols-2" role="img" aria-label={`${project.title} — avant et après, ${project.location}`}>
           <div className={cn("flex h-40 items-end p-4 sm:h-48", project.beforeColor)} aria-hidden="true">
-            <span className="rounded-markaj bg-markaj-primary/80 px-2 py-1 font-body text-caption text-markaj-white">
+            <span className="bg-markaj-primary/85 px-2 py-1 font-mono text-caption font-semibold uppercase tracking-[0.12em] text-markaj-white">
               Avant
             </span>
           </div>
           <div className={cn("flex h-40 items-end p-4 sm:h-48", project.afterColor)} aria-hidden="true">
-            <span className="rounded-markaj bg-markaj-primary/80 px-2 py-1 font-body text-caption text-markaj-white">
+            <span className="bg-markaj-primary/85 px-2 py-1 font-mono text-caption font-semibold uppercase tracking-[0.12em] text-markaj-white">
               Après
             </span>
           </div>

@@ -13,6 +13,7 @@ export function ZonesTeaser() {
       <AnimateIn>
         <SectionHeading
           subtitle="Zones d'intervention"
+          index="03"
           title="Actifs en Suisse romande, priorité Fribourg"
           intro="Basés à Fribourg, nous intervenons régulièrement dans le canton et les régions voisines du canton de Vaud."
         />
@@ -22,7 +23,7 @@ export function ZonesTeaser() {
           <AnimateIn key={zone.slug} delay={index * 60}>
             <Link
               href="/zones"
-              className="group flex min-h-24 items-center rounded-markaj border border-markaj-mineral/15 bg-markaj-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card-hover"
+              className="group flex min-h-24 items-center border border-markaj-primary/15 bg-markaj-white p-5 transition-all duration-200 ease-out hover:-translate-x-0.5 hover:-translate-y-0.5 hover:border-markaj-primary/40 hover:shadow-card-hover"
             >
               <div>
                 <p className="font-body text-caption uppercase tracking-wider text-markaj-mineral">
