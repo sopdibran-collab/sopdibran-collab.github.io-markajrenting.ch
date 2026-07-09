@@ -43,7 +43,7 @@ export default function ServicesPage() {
       </Section>
 
       <Section background="surface" texture="paint">
-        <SectionHeading subtitle="Expertises" title="Six domaines d'intervention" />
+        <SectionHeading subtitle="Expertises" index="01" title="Six domaines d'intervention" />
         <div className="grid gap-6 md:grid-cols-2">
           {services.map((service) => (
             <Link key={service.slug} href={`/services/${service.slug}`} className="group">
@@ -53,9 +53,7 @@ export default function ServicesPage() {
                   {service.title}
                 </h2>
                 <p className="mt-3 font-body text-body text-markaj-mineral-dark">{service.definition}</p>
-                <span className="mt-4 inline-block font-body text-body-sm font-medium text-markaj-primary">
-                  Voir le détail →
-                </span>
+                <span className="btn-niveau mt-4">Voir le détail</span>
               </Card>
             </Link>
           ))}

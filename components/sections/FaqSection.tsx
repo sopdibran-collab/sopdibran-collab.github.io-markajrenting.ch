@@ -6,17 +6,19 @@ import type { FaqItem } from "@/lib/content/services";
 interface FaqSectionProps {
   title?: string;
   intro?: string;
+  index?: string;
   items: FaqItem[];
 }
 
 export function FaqSection({
   title = "Questions fréquentes",
   intro,
+  index,
   items,
 }: FaqSectionProps) {
   return (
     <Section background="surface">
-      <SectionHeading subtitle="FAQ" title={title} intro={intro} />
+      <SectionHeading subtitle="FAQ" index={index} title={title} intro={intro} />
       <div className="max-w-3xl">
         <Accordion items={items} />
       </div>

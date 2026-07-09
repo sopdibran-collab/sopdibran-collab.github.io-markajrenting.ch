@@ -57,8 +57,8 @@ export default function QualiteNormesPage() {
         </div>
       </Section>
 
-      <Section background="surface" texture="concrete">
-        <SectionHeading subtitle="Normes" title="Quelles normes suivons-nous ?" />
+      <Section background="surface" texture="paint">
+        <SectionHeading subtitle="Normes" index="01" title="Quelles normes suivons-nous ?" />
         <div className="grid gap-8 md:grid-cols-2">
           {normes.map((norme) => (
             <div key={norme.title} className="border-l-2 border-markaj-primary/20 pl-6">
@@ -72,23 +72,24 @@ export default function QualiteNormesPage() {
       <Section background="white">
         <SectionHeading
           subtitle="Gestion de chantier"
+          index="02"
           title="Comment assurons-nous la conformité ?"
         />
         <ul className="max-w-prose space-y-4">
           <li className="flex items-start gap-3 font-body text-body text-markaj-mineral-dark">
-            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-markaj-primary" />
+            <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-markaj-primary" />
             Devis détaillé par postes de travaux, aligné sur le cahier des charges
           </li>
           <li className="flex items-start gap-3 font-body text-body text-markaj-mineral-dark">
-            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-markaj-primary" />
+            <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-markaj-primary" />
             Matériaux certifiés et conformes aux fiches techniques fabricant
           </li>
           <li className="flex items-start gap-3 font-body text-body text-markaj-mineral-dark">
-            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-markaj-primary" />
+            <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-markaj-primary" />
             Suivi de chantier par un chef d&apos;équipe expérimenté
           </li>
           <li className="flex items-start gap-3 font-body text-body text-markaj-mineral-dark">
-            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-markaj-primary" />
+            <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-markaj-primary" />
             Visite de réception avec le client et traitement des réserves
           </li>
         </ul>

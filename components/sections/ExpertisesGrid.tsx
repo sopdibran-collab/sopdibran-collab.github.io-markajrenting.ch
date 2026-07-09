@@ -12,6 +12,7 @@ export function ExpertisesGrid() {
       <AnimateIn>
         <SectionHeading
           subtitle="Nos expertises"
+          index="01"
           title="Plâtrerie, peinture et finition de bâtiment"
           intro="Six domaines d'intervention pour couvrir l'ensemble de vos besoins en neuf et en rénovation, avec un seul interlocuteur qualifié."
         />
@@ -28,9 +29,7 @@ export function ExpertisesGrid() {
                 <p className="mt-2 font-body text-body-sm text-markaj-mineral">
                   {service.intro.slice(0, 120)}…
                 </p>
-                <span className="mt-4 inline-block font-body text-body-sm font-medium text-markaj-primary">
-                  En savoir plus →
-                </span>
+                <span className="btn-niveau mt-4">En savoir plus</span>
               </Card>
             </Link>
           </AnimateIn>

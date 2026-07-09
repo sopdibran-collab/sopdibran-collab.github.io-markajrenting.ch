@@ -44,18 +44,12 @@ export default function ZonesPage() {
         </div>
       </Section>
 
-      <Section background="surface" texture="concrete">
-        <SectionHeading subtitle="Villes couvertes" title="Où intervenons-nous ?" />
+      <Section background="surface" texture="paint">
+        <SectionHeading subtitle="Villes couvertes" index="01" title="Où intervenons-nous ?" />
         <div className="grid gap-8 md:grid-cols-2">
           {zones.map((zone) => (
-            <article
-              key={zone.slug}
-              id={zone.slug}
-              className="rounded-markaj border border-markaj-mineral/15 bg-markaj-white p-6"
-            >
-              <p className="font-body text-caption uppercase tracking-wider text-markaj-mineral">
-                Canton {zone.canton}
-              </p>
+            <article key={zone.slug} id={zone.slug} className="panel-chantier">
+              <p className="marque-cote">Canton {zone.canton}</p>
               <h2 className="mt-1 font-heading text-heading-3 text-markaj-primary">{zone.name}</h2>
               <p className="mt-3 font-body text-body text-markaj-mineral-dark">{zone.description}</p>
               <h3 className="mt-4 font-body text-body-sm font-semibold text-markaj-primary">
@@ -76,6 +70,7 @@ export default function ZonesPage() {
       <Section background="white">
         <SectionHeading
           subtitle="Services"
+          index="02"
           title="Quels services sont disponibles dans votre zone ?"
           intro="Quelle que soit votre localisation dans notre périmètre, l'ensemble de nos expertises est disponible."
         />

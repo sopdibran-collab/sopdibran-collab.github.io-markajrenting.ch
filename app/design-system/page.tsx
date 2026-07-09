@@ -38,7 +38,7 @@ export default function DesignSystemPage() {
 
       <main>
         {/* Intro */}
-        <Section background="white" texture="concrete" className="py-20">
+        <Section background="white" texture="paint" className="py-20">
           <Badge variant="outline" className="mb-4">
             Phase 1 — Design System
           </Badge>
@@ -134,9 +134,9 @@ export default function DesignSystemPage() {
           <SectionHeading
             subtitle="Actions"
             title="Boutons"
-            intro="Trois variantes : primary (conversion), secondary (alternative), ghost (lien discret)."
+            intro="Trois variantes « Trait de chantier » : Bloc (conversion), Cote (alternative), Niveau (lien discret)."
           />
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex flex-wrap items-center gap-8">
             <Button variant="primary" size="lg">
               Demander un devis
             </Button>
@@ -147,16 +147,21 @@ export default function DesignSystemPage() {
               En savoir plus
             </Button>
           </div>
-          <div className="mt-8 rounded-markaj bg-markaj-primary p-8">
-            <p className="mb-4 font-body text-body-sm text-markaj-white/70">
-              Sur fond sombre
+          <div className="mt-8 bg-markaj-primary p-8">
+            <p className="mb-6 font-body text-body-sm text-markaj-white/70">
+              Sur fond sombre — tone=&quot;dark&quot;
             </p>
-            <Button
-              variant="secondary"
-              className="border-markaj-white text-markaj-white hover:bg-markaj-white hover:text-markaj-primary"
-            >
-              Voir nos réalisations
-            </Button>
+            <div className="flex flex-wrap items-center gap-8">
+              <Button variant="primary" tone="dark">
+                Demander un devis
+              </Button>
+              <Button variant="secondary" tone="dark">
+                Voir nos réalisations
+              </Button>
+              <Button variant="ghost" tone="dark">
+                079 430 18 13
+              </Button>
+            </div>
           </div>
         </Section>
 
@@ -208,28 +213,28 @@ export default function DesignSystemPage() {
             intro="Textures désaturées à faible opacité — jamais au détriment de la lisibilité."
           />
           <div className="grid gap-6 md:grid-cols-3">
-            <div className="bg-texture-concrete overflow-hidden rounded-markaj border border-markaj-mineral/15 p-8">
+            <div className="bg-texture-paint overflow-hidden rounded-markaj border border-markaj-mineral/15 bg-markaj-white p-8">
               <p className="relative z-10 font-heading text-heading-4 text-markaj-primary">
-                Béton lissé
+                Grain fin (noise)
               </p>
               <p className="relative z-10 mt-2 font-body text-body-sm text-markaj-mineral">
-                bg-texture-concrete · opacité 4%
+                markaj-noise-soft-01 · opacité 4%
               </p>
             </div>
-            <div className="bg-texture-paint overflow-hidden rounded-markaj border border-markaj-mineral/15 p-8">
+            <div className="bg-texture-crepi overflow-hidden rounded-markaj border border-markaj-mineral/15 bg-markaj-crepi-light p-8">
               <p className="relative z-10 font-heading text-heading-4 text-markaj-primary">
-                Peinture au rouleau
+                Enduit lissé (plaster)
               </p>
               <p className="relative z-10 mt-2 font-body text-body-sm text-markaj-mineral">
-                bg-texture-paint · opacité 5%
+                markaj-plaster-soft-01 · opacité 5%
               </p>
             </div>
-            <div className="bg-texture-crepi overflow-hidden rounded-markaj border border-markaj-mineral/15 p-8">
+            <div className="bg-texture-concrete overflow-hidden rounded-markaj border border-markaj-mineral/15 bg-[#d5cfc9] p-8">
               <p className="relative z-10 font-heading text-heading-4 text-markaj-primary">
-                Crépi intérieur
+                Béton adouci (concrete)
               </p>
               <p className="relative z-10 mt-2 font-body text-body-sm text-markaj-mineral">
-                bg-texture-crepi · opacité 12%
+                markaj-concrete-smooth-01 · opacité 3.5%
               </p>
             </div>
           </div>
@@ -279,6 +284,122 @@ export default function DesignSystemPage() {
             intro="Sous-titre en capitales espacées, titre serif, paragraphe d'introduction optionnel."
             align="center"
           />
+        </Section>
+
+        {/* ============================================================ */}
+        {/* PROPOSITION 2026 — direction « Trait de chantier »           */}
+        {/* ============================================================ */}
+        <Section background="white" id="proposition">
+          <div className="mb-12 border-l-4 border-markaj-crepi bg-markaj-surface p-6">
+            <p className="font-mono text-caption font-semibold uppercase tracking-[0.18em] text-markaj-crepi-dark">
+              Direction validée — appliquée à tout le site
+            </p>
+            <h2 className="mt-3 font-heading text-heading-2 text-markaj-primary">
+              Direction « Trait de chantier »
+            </h2>
+            <p className="mt-3 max-w-prose font-body text-body text-markaj-mineral-dark">
+              Langage graphique emprunté au dessin technique et au relevé de
+              chantier : angles vifs, ombres franches sans flou, repères de
+              cotation, étiquettes monospace numérotées. Aucun composant
+              SaaS générique — une signature propre au bâtiment.
+            </p>
+          </div>
+
+          {/* Étiquette de cotation */}
+          <div className="mb-12">
+            <p className="mb-4 font-body text-caption uppercase tracking-wider text-markaj-mineral">
+              Étiquette de cotation (remplace l&apos;eyebrow générique)
+            </p>
+            <div className="flex flex-col gap-3">
+              <span className="marque-cote" data-index="01">Expertises</span>
+              <span className="marque-cote" data-index="02">Zones d&apos;intervention</span>
+              <span className="marque-cote" data-index="03">Réalisations</span>
+            </div>
+          </div>
+
+          {/* Boutons proposés — fond clair */}
+          <div className="mb-12">
+            <p className="mb-4 font-body text-caption uppercase tracking-wider text-markaj-mineral">
+              Boutons proposés — fond clair
+            </p>
+            <div className="flex flex-wrap items-center gap-8">
+              <button type="button" className="btn-bloc">
+                Demander un devis
+              </button>
+              <button type="button" className="btn-cote">
+                Nos réalisations
+              </button>
+              <button type="button" className="btn-niveau">
+                Voir toutes les zones
+              </button>
+            </div>
+            <ul className="mt-6 max-w-prose space-y-1 font-body text-body-sm text-markaj-mineral-dark">
+              <li>
+                <strong className="text-markaj-primary">Bloc</strong> — ombre
+                franche décalée façon matériau posé ; s&apos;enfonce au clic.
+              </li>
+              <li>
+                <strong className="text-markaj-primary">Cote</strong> — les
+                repères d&apos;angle referment le cadre au survol, comme une
+                cotation d&apos;architecte.
+              </li>
+              <li>
+                <strong className="text-markaj-primary">Niveau</strong> — la
+                ligne se remplit comme un niveau à bulle qu&apos;on ajuste.
+              </li>
+            </ul>
+          </div>
+
+          {/* Boutons proposés — fond sombre */}
+          <div className="mb-12 bg-markaj-primary p-10">
+            <p className="mb-6 font-body text-caption uppercase tracking-wider text-markaj-white/60">
+              Sur fond bleu nuit
+            </p>
+            <div className="flex flex-wrap items-center gap-8">
+              <button type="button" className="btn-bloc btn-bloc--sable">
+                Demander un devis
+              </button>
+              <button type="button" className="btn-cote btn-cote--light">
+                Nous contacter
+              </button>
+            </div>
+          </div>
+
+          {/* Panneau calque technique */}
+          <div>
+            <p className="mb-4 font-body text-caption uppercase tracking-wider text-markaj-mineral">
+              Panneau « calque technique » (cartes, chiffres clés, process)
+            </p>
+            <div className="grid gap-6 md:grid-cols-3">
+              <div className="panel-chantier">
+                <span className="marque-cote" data-index="01">Plâtrerie</span>
+                <p className="mt-4 font-heading text-heading-3 text-markaj-primary">
+                  Cloisons &amp; doublages
+                </p>
+                <p className="mt-2 font-body text-body-sm text-markaj-mineral-dark">
+                  BA13, joints prêts à peindre, finitions selon normes SIA.
+                </p>
+              </div>
+              <div className="panel-chantier">
+                <span className="marque-cote" data-index="02">Peinture</span>
+                <p className="mt-4 font-heading text-heading-3 text-markaj-primary">
+                  Intérieure &amp; extérieure
+                </p>
+                <p className="mt-2 font-body text-body-sm text-markaj-mineral-dark">
+                  Préparation des supports, application soignée.
+                </p>
+              </div>
+              <div className="panel-chantier">
+                <span className="marque-cote" data-index="03">Expérience</span>
+                <p className="mt-4 font-heading text-heading-3 text-markaj-primary">
+                  20 ans de chantiers
+                </p>
+                <p className="mt-2 font-body text-body-sm text-markaj-mineral-dark">
+                  Entreprise familiale, 20 collaborateurs qualifiés.
+                </p>
+              </div>
+            </div>
+          </div>
         </Section>
       </main>
 

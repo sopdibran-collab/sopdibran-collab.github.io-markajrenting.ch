@@ -45,9 +45,7 @@ export default function BlogPage() {
                   {post.title}
                 </h2>
                 <p className="mt-3 font-body text-body text-markaj-mineral-dark">{post.excerpt}</p>
-                <span className="mt-4 inline-block font-body text-body-sm font-medium text-markaj-primary">
-                  Lire l&apos;article →
-                </span>
+                <span className="btn-niveau mt-4">Lire l&apos;article</span>
               </Card>
             </Link>
           ))}

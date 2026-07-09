@@ -16,6 +16,7 @@ export function Logo({ variant = "full", className, href = "/" }: LogoProps) {
 
   const content = (
     <span
+      aria-hidden="true"
       className={cn(
         "inline-flex flex-col items-center gap-1",
         variant === "monogram" && "items-start",

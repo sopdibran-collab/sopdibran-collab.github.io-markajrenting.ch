@@ -33,6 +33,7 @@ export default function FaqPage() {
       />
 
       <FaqSection
+        index="01"
         items={generalFaq}
         intro="Vous ne trouvez pas la réponse à votre question ? Contactez-nous directement par téléphone ou via le formulaire de contact."
       />

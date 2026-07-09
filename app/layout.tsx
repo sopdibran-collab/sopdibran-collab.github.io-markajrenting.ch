@@ -15,6 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://markajrenting.ch"),
   title: {
     default: "Markaj Renting SA",
     template: "%s | Markaj Renting SA",

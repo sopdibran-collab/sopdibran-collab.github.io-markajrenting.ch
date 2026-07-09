@@ -34,6 +34,7 @@ export default function RealisationsPage() {
         <AnimateIn>
           <SectionHeading
             subtitle="Portfolio"
+            index="01"
             title="Des chantiers concrets, des résultats visibles"
             intro="Chaque projet est mené avec le même souci de qualité : préparation soignée, matériaux professionnels et finitions impeccables."
           />

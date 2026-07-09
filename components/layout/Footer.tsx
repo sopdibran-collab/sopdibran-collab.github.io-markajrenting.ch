@@ -18,7 +18,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 font-body text-body-sm font-semibold uppercase tracking-wider text-markaj-white/60">
+            <h3 className="marque-cote marque-cote--light mb-4">
               Services
             </h3>
             <ul className="space-y-2">
@@ -33,7 +33,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 font-body text-body-sm font-semibold uppercase tracking-wider text-markaj-white/60">
+            <h3 className="marque-cote marque-cote--light mb-4">
               Entreprise
             </h3>
             <ul className="space-y-2">
@@ -48,7 +48,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 font-body text-body-sm font-semibold uppercase tracking-wider text-markaj-white/60">
+            <h3 className="marque-cote marque-cote--light mb-4">
               Contact
             </h3>
             <address className="not-italic">

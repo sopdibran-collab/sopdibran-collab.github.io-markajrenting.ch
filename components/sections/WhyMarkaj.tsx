@@ -35,6 +35,7 @@ export function WhyMarkaj() {
       <AnimateIn>
         <SectionHeading
           subtitle="Pourquoi Markaj Renting SA"
+          index="02"
           title="Le sérieux et la qualité au service de votre chantier"
           intro="Nous mettons notre expérience familiale et notre savoir-faire artisanal au service de projets exigeants, du logement individuel au bâtiment commercial."
         />

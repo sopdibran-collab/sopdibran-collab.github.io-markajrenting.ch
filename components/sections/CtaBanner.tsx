@@ -19,20 +19,22 @@ export function CtaBanner({
             <h2 className="font-heading text-xl text-markaj-white sm:text-heading-2 md:text-heading-1">{title}</h2>
             <p className="mt-3 font-body text-body sm:text-body-lg text-markaj-white/80">{description}</p>
           </div>
-          <div className="flex w-full shrink-0 flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
+          <div className="flex w-full shrink-0 flex-col gap-5 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-8">
             <Button
               href="/contact"
-              variant="secondary"
+              variant="primary"
+              tone="dark"
               size="lg"
-              className="w-full border-markaj-white text-markaj-white hover:bg-markaj-white hover:text-markaj-primary sm:w-auto"
+              className="w-full sm:w-auto"
             >
               Demander un devis
             </Button>
             <Button
               href="tel:+41794301813"
               variant="ghost"
+              tone="dark"
               size="lg"
-              className="w-full text-markaj-white hover:bg-markaj-white/10 hover:text-markaj-white sm:w-auto"
+              className="w-full sm:w-auto"
             >
               079 430 18 13
             </Button>

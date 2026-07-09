@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="350" height="350" viewBox="0 0 350 350">
-  <filter id="crepi">
-    <feTurbulence type="turbulence" baseFrequency="0.08" numOctaves="5" seed="5"/>
-    <feColorMatrix type="saturate" values="0.3"/>
-    <feGaussianBlur stdDeviation="0.3"/>
-  </filter>
-  <rect width="350" height="350" fill="#C9BB9A" filter="url(#crepi)" opacity="0.6"/>
-</svg>
