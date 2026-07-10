@@ -30,7 +30,31 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
       <Hero
         title={`${service.title} en Suisse romande`}
         subtitle={service.intro}
+        primaryCta={{
+          label: `Devis ${service.shortTitle.toLowerCase()}`,
+          href: `/contact?service=${service.slug}`,
+        }}
+        secondaryCta={{ label: "079 430 18 13", href: "tel:+41794301813" }}
       />
+
+      <Section background="crepi" texture="crepi" className="py-8 sm:py-10 md:py-12">
+        <AnimateIn>
+          <div className="grid gap-6 sm:grid-cols-3">
+            <div>
+              <p className="marque-cote mb-2">Bénéfice</p>
+              <p className="font-body text-body text-markaj-mineral-dark">{service.benefit}</p>
+            </div>
+            <div>
+              <p className="marque-cote mb-2">Pour qui</p>
+              <p className="font-body text-body text-markaj-mineral-dark">{service.audience.join(", ")}</p>
+            </div>
+            <div>
+              <p className="marque-cote mb-2">Types de projets</p>
+              <p className="font-body text-body text-markaj-mineral-dark">{service.projectTypes.join(" · ")}</p>
+            </div>
+          </div>
+        </AnimateIn>
+      </Section>
 
       <Section background="white">
         <AnimateIn className="max-w-prose">
@@ -125,11 +149,19 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
           <Link href="/services" className="text-markaj-primary underline-offset-4 hover:underline">Tous les services</Link>
           <Link href="/zones" className="text-markaj-primary underline-offset-4 hover:underline">Zones d&apos;intervention</Link>
           <Link href="/faq" className="text-markaj-primary underline-offset-4 hover:underline">FAQ générale</Link>
-          <Link href="/contact" className="text-markaj-primary underline-offset-4 hover:underline">Contact & devis</Link>
+          <Link
+            href={`/contact?service=${service.slug}`}
+            className="text-markaj-primary underline-offset-4 hover:underline"
+          >
+            Contact & devis
+          </Link>
         </div>
       </Section>
 
-      <CtaBanner />
+      <CtaBanner
+        title={`Un projet de ${service.title.toLowerCase()} ?`}
+        description="Décrivez votre chantier : devis gratuit, réponse sous 5 jours ouvrés, intervention en Suisse romande."
+      />
     </>
   );
 }

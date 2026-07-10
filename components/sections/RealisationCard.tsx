@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { AnimateIn } from "@/components/ui/AnimateIn";
 import { Badge } from "@/components/ui/Badge";
@@ -11,6 +12,11 @@ interface RealisationCardProps {
   /** Carte pleine largeur (mise en avant) sur desktop */
   featured?: boolean;
 }
+
+const statusLabels = {
+  livre: "Livré",
+  "en-cours": "En cours",
+} as const;
 
 export function RealisationCard({ project, index, featured = false }: RealisationCardProps) {
   const hasImagePair = project.images.length > 1;
@@ -51,13 +57,28 @@ export function RealisationCard({ project, index, featured = false }: Realisatio
         <div className="p-5 sm:p-6">
           <div className="flex flex-wrap gap-2">
             <Badge variant="outline">{project.location}</Badge>
-            <Badge>{project.service}</Badge>
-            {project.periode && <Badge variant="crepi">{project.periode}</Badge>}
+            {project.serviceSlug ? (
+              <Link href={`/services/${project.serviceSlug}`}>
+                <Badge>{project.service}</Badge>
+              </Link>
+            ) : (
+              <Badge>{project.service}</Badge>
+            )}
+            <Badge variant="crepi">{statusLabels[project.status]}</Badge>
+            {project.periode && <Badge variant="outline">{project.periode}</Badge>}
+            {!project.periode && project.year && (
+              <Badge variant="outline">{String(project.year)}</Badge>
+            )}
           </div>
           <h2 className="mt-3 font-heading text-heading-4 text-markaj-primary transition-colors group-hover:text-markaj-primary-light">
             {project.title}
           </h2>
           <p className="mt-2 font-body text-body-sm text-markaj-mineral-dark">{project.description}</p>
+          {project.result && (
+            <p className="mt-3 border-l-2 border-markaj-primary/25 pl-3 font-body text-body-sm font-medium text-markaj-primary">
+              {project.result}
+            </p>
+          )}
           {project.materials && (
             <p className="mt-3 font-body text-caption text-markaj-mineral">
               Matériaux : {project.materials}

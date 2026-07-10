@@ -9,6 +9,12 @@ export interface Service {
   shortTitle: string;
   metaDescription: string;
   intro: string;
+  /** Bénéfice client en une phrase */
+  benefit: string;
+  /** Publics concernés */
+  audience: string[];
+  /** Types de projets / usages */
+  projectTypes: string[];
   definition: string;
   process: { step: string; title: string; description: string }[];
   materials: string[];
@@ -24,6 +30,9 @@ export const services: Service[] = [
       "Travaux de plâtrerie à Fribourg et en Suisse romande : cloisons BA13, doublages, ragréages et finitions prêtes à peindre. Devis gratuit.",
     intro:
       "Markaj Renting SA réalise tous vos travaux de plâtrerie en neuf et en rénovation : cloisons, doublages, habillages et finitions conformes aux normes suisses.",
+    benefit: "Surfaces planes, joints soignés et finitions Q3/Q4 prêtes à peindre.",
+    audience: ["Particuliers", "Architectes", "Entreprises", "Régies"],
+    projectTypes: ["Neuf", "Rénovation", "Cloisons & doublages"],
     definition:
       "La plâtrerie regroupe l'ensemble des travaux de pose de plaques de plâtre (BA13), de montage de cloisons, de doublages muraux et de préparation des supports avant peinture. C'est la base d'une finition intérieure de qualité.",
     process: [
@@ -53,6 +62,9 @@ export const services: Service[] = [
       "Peinture intérieure et extérieure en Suisse romande. Préparation des supports, application professionnelle, finitions durables. Markaj Renting SA à Fribourg.",
     intro:
       "Markaj Renting SA assure la peinture intérieure et extérieure de vos bâtiments : préparation minutieuse des supports, choix des produits adaptés et application soignée pour une finition durable.",
+    benefit: "Finitions durables, supports correctement préparés, rendu uniforme.",
+    audience: ["Particuliers", "Régies", "Entreprises"],
+    projectTypes: ["Intérieur", "Extérieur", "Neuf & rénovation"],
     definition:
       "Les travaux de peinture comprennent la préparation des surfaces (ponçage, rebouchage, primaire), l'application de peintures murales, plafonds, boiseries et métaux, en intérieur comme en extérieur.",
     process: [
@@ -82,6 +94,9 @@ export const services: Service[] = [
       "Pose de faux-plafonds en plaques de plâtre, dalles acoustiques et plafonds tendus à Fribourg. Intégration luminaires et ventilation. Markaj Renting SA.",
     intro:
       "Markaj Renting SA conçoit et pose des faux-plafonds sur mesure : acoustique, esthétique et intégration des réseaux (éclairage, ventilation, détection incendie).",
+    benefit: "Plafonds techniques et esthétiques, acoustique et réseaux intégrés.",
+    audience: ["Architectes", "Entreprises", "Bureaux"],
+    projectTypes: ["Tertiaire", "Commerces", "Logements"],
     definition:
       "Un faux-plafond est une structure suspendue sous le plafond porteur, permettant de dissimuler les réseaux techniques, d'améliorer l'acoustique et de créer des ambiances lumineuses architecturales.",
     process: [
@@ -111,6 +126,9 @@ export const services: Service[] = [
       "Isolation thermique et acoustique en Suisse romande : doublages, isolation périphérique, laines minérales. Conformité aux normes suisses. Markaj Renting SA.",
     intro:
       "Markaj Renting SA réalise l'isolation thermique et acoustique de vos bâtiments : doublages intérieurs, isolation périphérique et traitement des ponts thermiques.",
+    benefit: "Confort thermique et acoustique, conformité aux exigences suisses.",
+    audience: ["Particuliers", "Promoteurs", "Architectes"],
+    projectTypes: ["Doublages", "Périphérique", "Minergie"],
     definition:
       "L'isolation consiste à limiter les déperditions de chaleur et les nuisances sonores par la pose de matériaux isolants (laine minérale, mousse, fibres) dans les murs, plafonds et combles.",
     process: [
@@ -140,6 +158,9 @@ export const services: Service[] = [
       "Rénovation intérieure complète en Suisse romande : plâtrerie, peinture, isolation, faux-plafonds. Coordination de chantier par Markaj Renting SA à Fribourg.",
     intro:
       "Markaj Renting SA prend en charge la rénovation intérieure de vos logements, bureaux et commerces : un interlocuteur unique pour la plâtrerie, la peinture, l'isolation et les faux-plafonds.",
+    benefit: "Un seul interlocuteur pour plâtrerie, peinture, isolation et plafonds.",
+    audience: ["Particuliers", "Régies", "Entreprises"],
+    projectTypes: ["Appartements", "Bureaux", "Commerces"],
     definition:
       "La rénovation intérieure regroupe l'ensemble des travaux de transformation d'espaces existants : démolition sélective, reprise des supports, redistribution des volumes et finitions complètes.",
     process: [
@@ -169,6 +190,9 @@ export const services: Service[] = [
       "Rénovation et entretien de façades en Suisse romande : crépi, peinture extérieure, réparations. Markaj Renting SA, entreprise familiale à Fribourg.",
     intro:
       "Markaj Renting SA réalise la rénovation, l'entretien et la mise en peinture de façades : crépis, enduits, réparations structurelles légères et finitions protectrices.",
+    benefit: "Façades protégées, crépis et peintures adaptés au climat suisse.",
+    audience: ["Particuliers", "Régies", "Copropriétés"],
+    projectTypes: ["Ravalement", "Crépi", "Peinture extérieure"],
     definition:
       "Les travaux de façade englobent le ravalement, la réparation de crépis et d'enduits, le traitement des fissures, l'application de peintures de protection et l'amélioration de l'esthétique extérieure du bâtiment.",
     process: [

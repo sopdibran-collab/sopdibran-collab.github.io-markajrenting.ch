@@ -35,9 +35,11 @@ export async function submitContactRequest(
 
   const prenom = getField(formData, "prenom");
   const nom = getField(formData, "nom");
+  const societe = getField(formData, "societe");
   const email = getField(formData, "email");
   const telephone = getField(formData, "telephone");
   const service = getField(formData, "service");
+  const commune = getField(formData, "commune");
   const message = getField(formData, "message");
   const consentement = formData.get("consentement") === "on";
 
@@ -65,9 +67,11 @@ export async function submitContactRequest(
   const lead = {
     prenom,
     nom,
+    societe: societe || "non renseignée",
     email,
     telephone: telephone || "non renseigné",
     service: SERVICE_LABELS[service] ?? "Non précisé",
+    commune: commune || "non renseignée",
     message,
     recuLe: new Date().toISOString(),
   };
@@ -76,9 +80,11 @@ export async function submitContactRequest(
     "Nouvelle demande de devis — markajrenting.ch",
     "",
     `Nom : ${lead.prenom} ${lead.nom}`,
+    `Société : ${lead.societe}`,
     `E-mail : ${lead.email}`,
     `Téléphone : ${lead.telephone}`,
     `Type de travaux : ${lead.service}`,
+    `Commune / chantier : ${lead.commune}`,
     "",
     "Message :",
     lead.message,
