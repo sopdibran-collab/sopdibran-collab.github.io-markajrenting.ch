@@ -31,7 +31,7 @@ export function CtaBanner({
             </Button>
             <Button
               href="tel:+41794301813"
-              variant="ghost"
+              variant="secondary"
               tone="dark"
               size="lg"
               className="w-full sm:w-auto"

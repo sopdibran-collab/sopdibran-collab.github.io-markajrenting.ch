@@ -163,8 +163,8 @@
 
   /* 2 — Bouton « Cote » : repères de cotation qui referment le cadre au survol */
   .btn-cote {
-    @apply relative inline-flex min-h-12 items-center justify-center bg-transparent px-7 font-mono text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-markaj-primary transition-colors duration-200;
-    border: 1px solid rgb(10 43 94 / 0.45);
+    @apply relative inline-flex min-h-12 items-center justify-center bg-markaj-crepi-light px-7 font-mono text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-markaj-primary transition-colors duration-200;
+    border: 1px solid rgb(10 43 94 / 0.55);
   }
 
   .btn-cote::before,
@@ -203,8 +203,8 @@
 
   /* Variante claire pour fonds bleu nuit */
   .btn-cote--light {
-    @apply text-markaj-white;
-    border-color: rgb(255 255 255 / 0.5);
+    @apply bg-transparent text-markaj-white;
+    border-color: rgb(255 255 255 / 0.7);
   }
 
   .btn-cote--light::before {
@@ -249,6 +249,9 @@
   /* Variante claire pour fonds bleu nuit */
   .btn-niveau--light {
     @apply text-markaj-white;
+    border: 1px solid rgb(255 255 255 / 0.45);
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
 
   .btn-niveau--light::before {
