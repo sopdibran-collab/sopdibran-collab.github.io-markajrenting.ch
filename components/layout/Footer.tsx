@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
 import { footerNav } from "@/lib/content/navigation";
 import { siteConfig } from "@/lib/seo/site-config";
@@ -5,6 +6,7 @@ import Link from "next/link";
 
 export function Footer() {
   const { address, contact } = siteConfig;
+  const phoneHref = `tel:${contact.phone.replace(/\s/g, "")}`;
 
   return (
     <footer className="bg-markaj-primary text-markaj-white">
@@ -15,6 +17,11 @@ export function Footer() {
             <p className="mt-4 font-body text-body-sm text-markaj-white/70">
               Entreprise familiale de plâtrerie, peinture et rénovation en Suisse romande depuis plus de 20 ans.
             </p>
+            <div className="mt-6">
+              <Button href="/contact" variant="primary" tone="dark" size="sm">
+                Demander un devis
+              </Button>
+            </div>
           </div>
 
           <div>
@@ -57,7 +64,7 @@ export function Footer() {
                 {address.postalCode} {address.city}
               </p>
               <p className="mt-3 font-body text-body-sm">
-                <a href={`tel:${contact.phone.replace(/\s/g, "")}`} className="text-markaj-white/80 hover:text-markaj-white">
+                <a href={phoneHref} className="text-markaj-white/80 hover:text-markaj-white">
                   {contact.phoneDisplay}
                 </a>
               </p>
@@ -65,6 +72,9 @@ export function Footer() {
                 <a href={`mailto:${contact.email}`} className="text-markaj-white/80 hover:text-markaj-white">
                   {contact.email}
                 </a>
+              </p>
+              <p className="mt-4 font-body text-body-sm text-markaj-white/70">
+                Lun. – Ven. : 07h00 – 17h00
               </p>
             </address>
           </div>

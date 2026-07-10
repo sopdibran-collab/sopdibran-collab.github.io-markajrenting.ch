@@ -1,12 +1,11 @@
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
-import { RealisationCard } from "@/components/sections/RealisationCard";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { Hero } from "@/components/sections/Hero";
+import { RealisationsFilter } from "@/components/sections/RealisationsFilter";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { AnimateIn } from "@/components/ui/AnimateIn";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { realisations } from "@/lib/content/realisations";
 import { buildBreadcrumbSchema } from "@/lib/seo/json-ld";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
@@ -28,6 +27,8 @@ export default function RealisationsPage() {
       <Hero
         title="Nos réalisations"
         subtitle="Une sélection de chantiers menés par Markaj Renting SA : aménagements de bureaux, surélévation d'immeuble et intérieurs bancaires de haut standing."
+        primaryCta={{ label: "Demander un devis", href: "/contact" }}
+        secondaryCta={{ label: "Nos services", href: "/services" }}
       />
 
       <Section background="white" texture="paint">
@@ -36,26 +37,20 @@ export default function RealisationsPage() {
             subtitle="Portfolio"
             index="01"
             title="Des chantiers concrets, des résultats visibles"
-            intro="Chaque projet est mené avec le même souci de qualité : préparation soignée, matériaux professionnels et finitions impeccables."
+            intro="Filtrez par type de travaux ou localisation. Chaque projet est mené avec le même souci de qualité : préparation soignée, matériaux professionnels et finitions impeccables."
           />
         </AnimateIn>
-        <div className="grid gap-8 md:grid-cols-2 md:gap-10">
-          {realisations.map((project, index) => (
-            <RealisationCard
-              key={project.id}
-              project={project}
-              index={index}
-              featured={index === 0}
-            />
-          ))}
-        </div>
+        <RealisationsFilter />
         <p className="mt-10 max-w-prose font-body text-caption text-markaj-mineral">
           Les photos de chantier sont prises par nos équipes. Certaines images de projets livrés
           proviennent de sources externes ; le crédit est précisé sur chaque fiche.
         </p>
       </Section>
 
-      <CtaBanner />
+      <CtaBanner
+        title="Un projet similaire au vôtre ?"
+        description="Décrivez votre chantier : nous vous recontactons sous 5 jours ouvrés pour un devis gratuit et une visite sur site si besoin."
+      />
     </>
   );
 }

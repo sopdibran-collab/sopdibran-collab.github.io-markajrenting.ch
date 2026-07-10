@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
 import { mainNav } from "@/lib/content/navigation";
+import { siteConfig } from "@/lib/seo/site-config";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -10,6 +11,7 @@ import { useEffect, useRef, useState } from "react";
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
+  const phoneHref = `tel:${siteConfig.contact.phone.replace(/\s/g, "")}`;
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -34,7 +36,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-markaj-mineral/10 bg-markaj-white/95 backdrop-blur-sm">
-      <div className="mx-auto flex max-w-content items-center justify-between gap-4 px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
+      <div className="mx-auto flex max-w-content items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4 lg:px-8">
         <Logo className="scale-90 sm:scale-100" />
 
         <nav className="hidden items-center gap-6 xl:gap-8 lg:flex" aria-label="Navigation principale">
@@ -53,27 +55,32 @@ export function Header() {
           <Button href="/contact" variant="primary" size="sm">
             Demander un devis
           </Button>
-          <Button href="tel:+41794301813" variant="secondary" size="sm">
-            079 430 18 13
+          <Button href={phoneHref} variant="secondary" size="sm">
+            {siteConfig.contact.phoneDisplay}
           </Button>
         </div>
 
-        <button
-          ref={toggleRef}
-          type="button"
-          className="flex min-h-11 min-w-11 items-center justify-center rounded-markaj lg:hidden"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
-          aria-expanded={mobileOpen}
-          aria-controls="mobile-nav"
-        >
-          <span className="sr-only">Menu</span>
-          <div className="flex flex-col gap-1.5">
-            <span className={cn("block h-0.5 w-6 bg-markaj-primary transition-transform duration-200", mobileOpen && "translate-y-2 rotate-45")} />
-            <span className={cn("block h-0.5 w-6 bg-markaj-primary transition-opacity duration-200", mobileOpen && "opacity-0")} />
-            <span className={cn("block h-0.5 w-6 bg-markaj-primary transition-transform duration-200", mobileOpen && "-translate-y-2 -rotate-45")} />
-          </div>
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <Button href="/contact" variant="primary" size="sm" className="px-4">
+            Devis
+          </Button>
+          <button
+            ref={toggleRef}
+            type="button"
+            className="flex min-h-11 min-w-11 items-center justify-center rounded-markaj"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-nav"
+          >
+            <span className="sr-only">Menu</span>
+            <div className="flex flex-col gap-1.5">
+              <span className={cn("block h-0.5 w-6 bg-markaj-primary transition-transform duration-200", mobileOpen && "translate-y-2 rotate-45")} />
+              <span className={cn("block h-0.5 w-6 bg-markaj-primary transition-opacity duration-200", mobileOpen && "opacity-0")} />
+              <span className={cn("block h-0.5 w-6 bg-markaj-primary transition-transform duration-200", mobileOpen && "-translate-y-2 -rotate-45")} />
+            </div>
+          </button>
+        </div>
       </div>
 
       {mobileOpen && (
@@ -101,13 +108,13 @@ export function Header() {
             </li>
             <li>
               <Button
-                href="tel:+41794301813"
+                href={phoneHref}
                 variant="secondary"
                 size="md"
                 className="w-full"
                 onClick={() => setMobileOpen(false)}
               >
-                079 430 18 13
+                {siteConfig.contact.phoneDisplay}
               </Button>
             </li>
           </ul>
