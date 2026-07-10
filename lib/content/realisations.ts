@@ -1,73 +1,82 @@
+export interface RealisationImage {
+  src: string;
+  alt: string;
+  /** Étiquette affichée sur la photo (ex. « Pendant le chantier ») */
+  label?: string;
+}
+
 export interface Realisation {
   id: string;
   title: string;
   location: string;
+  periode?: string;
   service: string;
-  materials: string;
+  materials?: string;
   description: string;
-  beforeColor: string;
-  afterColor: string;
+  images: RealisationImage[];
+  /** Crédit photo affiché sur la fiche — certaines images de projets livrés proviennent de sources externes. */
+  credit: string;
 }
 
 export const realisations: Realisation[] = [
   {
-    id: "1",
-    title: "Rénovation complète d'appartement",
-    location: "Fribourg",
-    service: "Rénovation",
-    materials: "BA13, isolation laine de roche, peinture acrylique",
-    description: "Transformation complète d'un appartement de 4 pièces : nouvelles cloisons, isolation des murs extérieurs et peinture intégrale.",
-    beforeColor: "bg-stone-300",
-    afterColor: "bg-markaj-crepi-light",
-  },
-  {
-    id: "2",
-    title: "Faux-plafond acoustique open space",
-    location: "Lausanne",
-    service: "Faux-plafonds",
-    materials: "Dalles minérales acoustiques, suspentes réglementaires",
-    description: "Installation d'un faux-plafond acoustique dans un open space de 200 m² avec intégration de spots LED.",
-    beforeColor: "bg-gray-400",
-    afterColor: "bg-markaj-surface",
-  },
-  {
-    id: "3",
-    title: "Ravalement de façade",
-    location: "Romont",
-    service: "Façades",
-    materials: "Enduit monocouche, peinture siloxane",
-    description: "Réparation de fissures, reprise d'enduit et peinture de façade sur immeuble résidentiel de 6 logements.",
-    beforeColor: "bg-stone-400",
-    afterColor: "bg-markaj-crepi",
-  },
-  {
-    id: "4",
-    title: "Isolation et doublage",
-    location: "Bulle",
-    service: "Isolation",
-    materials: "Laine de verre, pare-vapeur, BA13",
-    description: "Isolation périphérique et doublage de murs extérieurs dans une maison individuelle des années 1970.",
-    beforeColor: "bg-stone-300",
-    afterColor: "bg-white",
-  },
-  {
-    id: "5",
-    title: "Peinture intérieure bureaux",
-    location: "Vevey",
-    service: "Peinture",
-    materials: "Peinture acrylique mate, primaire universel",
-    description: "Peinture de 800 m² de bureaux en phase avec déménagement progressif des collaborateurs.",
-    beforeColor: "bg-gray-300",
-    afterColor: "bg-markaj-surface",
-  },
-  {
-    id: "6",
-    title: "Cloisons et finitions Q4",
-    location: "Fribourg",
+    id: "plateaux-de-bureaux",
+    title: "Aménagement de plateaux de bureaux",
+    location: "Suisse romande",
     service: "Plâtrerie",
-    materials: "BA13, finition Q4, bandes haute résistance",
-    description: "Création de cloisons et redistribution d'espaces dans un cabinet médical avec finition Q4.",
-    beforeColor: "bg-stone-300",
-    afterColor: "bg-white",
+    materials: "Ossatures métalliques, plaques de plâtre, joints Q3, peinture de plafond",
+    description:
+      "Cloisonnement et doublage en plaques de plâtre sur structure métallique, joints prêts à peindre et mise en peinture des plafonds. Nos équipes suivent le plateau de la pose des ossatures jusqu'à la livraison des surfaces.",
+    images: [
+      {
+        src: "/realisations/plateau-tertiaire-chantier.webp",
+        alt: "Cloison en plaques de plâtre jointoyée sur un plateau de bureaux en cours de chantier",
+        label: "Pendant le chantier",
+      },
+      {
+        src: "/realisations/plateau-tertiaire-livraison.webp",
+        alt: "Plateau de bureaux en fin de chantier avec plafond peint en bleu nuit et gaines apparentes",
+        label: "Fin de chantier",
+      },
+    ],
+    credit: "Photos : Markaj Renting SA",
+  },
+  {
+    id: "rue-de-lausanne-119",
+    title: "Surélévation et rénovation d'immeuble — Rue de Lausanne 119",
+    location: "Genève",
+    periode: "2022 – 2023",
+    service: "Rénovation",
+    description:
+      "Surélévation de trois étages d'un immeuble résidentiel et rénovation complète des six étages existants. Nos équipes sont intervenues sur les travaux de second œuvre et de finition de l'ensemble du bâtiment.",
+    images: [
+      {
+        src: "/realisations/rue-de-lausanne-119-surelevation.webp",
+        alt: "Immeuble de la rue de Lausanne 119 après surélévation de trois étages en attique",
+      },
+    ],
+    credit: "Image externe — projet livré",
+  },
+  {
+    id: "credit-suisse-rue-du-rhone",
+    title: "Credit Suisse — Rue du Rhône",
+    location: "Genève",
+    periode: "2016 – 2017",
+    service: "Aménagement intérieur",
+    description:
+      "Aménagement des espaces d'accueil et de réception de la banque : plâtrerie, plafonds et finitions haut de gamme, dans un environnement où le niveau d'exigence ne tolère aucun défaut.",
+    images: [
+      {
+        src: "/realisations/credit-suisse-rue-du-rhone-hall.webp",
+        alt: "Hall d'accueil du Credit Suisse à la rue du Rhône avec plafonds et cloisons finis",
+        label: "Hall d'accueil",
+      },
+      {
+        src: "/realisations/credit-suisse-rue-du-rhone-accueil.webp",
+        alt: "Espace de réception du Credit Suisse avec banque d'accueil en bois et plafonds blancs",
+        label: "Espace de réception",
+      },
+    ],
+    credit: "Images externes — projet livré",
   },
 ];

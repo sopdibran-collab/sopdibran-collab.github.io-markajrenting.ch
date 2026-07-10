@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { Hero } from "@/components/sections/Hero";
@@ -84,6 +86,21 @@ export default function AboutPage() {
           la pose de faux-plafonds. La formation continue et le respect des normes SIA sont au cœur
           de notre démarche qualité.
         </p>
+        <figure className="mt-10 max-w-xl">
+          <div className="overflow-hidden border border-markaj-primary/15">
+            <Image
+              src="/equipe/preparation-chantier.webp"
+              alt="Arbis Mueller, responsable commercial, prépare un chantier avec les collaborateurs autour des plans"
+              width={1125}
+              height={1050}
+              sizes="(min-width: 1024px) 36rem, 100vw"
+              className="h-auto w-full"
+            />
+          </div>
+          <figcaption className="mt-3 font-mono text-caption uppercase tracking-[0.14em] text-markaj-mineral">
+            Arbis Mueller, responsable commercial, avec nos collaborateurs — préparation de chantier
+          </figcaption>
+        </figure>
       </Section>
 
       <Section background="surface">

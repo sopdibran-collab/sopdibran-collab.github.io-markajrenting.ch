@@ -11,9 +11,9 @@ import { buildBreadcrumbSchema } from "@/lib/seo/json-ld";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata = createPageMetadata({
-  title: "Réalisations avant / après",
+  title: "Nos réalisations",
   description:
-    "Découvrez les réalisations Markaj Renting SA : rénovations, plâtrerie, peinture, façades et isolation en Suisse romande.",
+    "Découvrez les réalisations Markaj Renting SA : plateaux de bureaux, surélévation d'immeuble à la rue de Lausanne, Credit Suisse à la rue du Rhône. Plâtrerie, peinture et rénovation.",
   path: "/realisations",
 });
 
@@ -26,8 +26,8 @@ export default function RealisationsPage() {
       </div>
 
       <Hero
-        title="Nos réalisations avant / après"
-        subtitle="Découvrez une sélection de chantiers réalisés par Markaj Renting SA en Suisse romande : rénovations, finitions et transformations d'espaces."
+        title="Nos réalisations"
+        subtitle="Une sélection de chantiers menés par Markaj Renting SA : aménagements de bureaux, surélévation d'immeuble et intérieurs bancaires de haut standing."
       />
 
       <Section background="white" texture="paint">
@@ -41,9 +41,18 @@ export default function RealisationsPage() {
         </AnimateIn>
         <div className="grid gap-8 md:grid-cols-2 md:gap-10">
           {realisations.map((project, index) => (
-            <RealisationCard key={project.id} project={project} index={index} />
+            <RealisationCard
+              key={project.id}
+              project={project}
+              index={index}
+              featured={index === 0}
+            />
           ))}
         </div>
+        <p className="mt-10 max-w-prose font-body text-caption text-markaj-mineral">
+          Les photos de chantier sont prises par nos équipes. Certaines images de projets livrés
+          proviennent de sources externes ; le crédit est précisé sur chaque fiche.
+        </p>
       </Section>
 
       <CtaBanner />
