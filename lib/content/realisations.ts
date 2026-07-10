@@ -100,11 +100,3 @@ export const realisations: Realisation[] = [
     credit: "Images externes — projet livré",
   },
 ];
-
-export const realisationLocations = Array.from(
-  new Set(realisations.map((r) => r.location))
-);
-
-export const realisationServices = Array.from(
-  new Set(realisations.map((r) => r.service))
-);
