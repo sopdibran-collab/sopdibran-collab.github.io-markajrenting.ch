@@ -12,7 +12,7 @@ import Link from "next/link";
 export const metadata = createPageMetadata({
   title: "Zones d'intervention en Suisse romande",
   description:
-    "Markaj Renting SA intervient en Suisse romande : Fribourg, Romont, Bulle, Lausanne, Vevey, Morges. Plâtrerie, peinture et rénovation.",
+    "Markaj Renting SA intervient dans toute la Suisse romande : cantons de Fribourg, Vaud, Genève, Neuchâtel, Valais, Jura et Berne francophone. Plâtrerie, peinture et rénovation.",
   path: "/zones",
 });
 
@@ -31,27 +31,30 @@ export default function ZonesPage() {
 
       <Hero
         title="Zones d'intervention en Suisse romande"
-        subtitle="Basés à Fribourg, nous intervenons principalement dans le canton de Fribourg et les régions voisines du canton de Vaud. Notre proximité nous permet une réactivité optimale et une connaissance approfondie du tissu local."
+        subtitle="Basés à Fribourg, nous intervenons dans tous les cantons francophones de Suisse : Fribourg, Vaud, Genève, Neuchâtel, Valais, Jura et la partie francophone du canton de Berne."
       />
 
       <Section background="white">
         <div className="max-w-prose">
           <p className="font-body text-body-lg text-markaj-mineral-dark">
-            Markaj Renting SA couvre un large périmètre en Suisse romande. Le canton de Fribourg reste
-            notre zone de prédilection, mais nous nous déplaçons régulièrement dans les cantons voisins
-            pour des projets de plâtrerie, peinture, isolation, faux-plafonds et rénovation.
+            Markaj Renting SA couvre l&apos;ensemble de la Suisse romande. Nos équipes se déplacent
+            dans les sept cantons francophones pour des projets de plâtrerie, peinture, isolation,
+            faux-plafonds et rénovation, quels que soient la taille et le type de chantier.
           </p>
         </div>
       </Section>
 
       <Section background="surface" texture="paint">
-        <SectionHeading subtitle="Villes couvertes" index="01" title="Où intervenons-nous ?" />
+        <SectionHeading subtitle="Cantons couverts" index="01" title="Où intervenons-nous ?" />
         <div className="grid gap-8 md:grid-cols-2">
           {zones.map((zone) => (
             <article key={zone.slug} id={zone.slug} className="panel-chantier">
-              <p className="marque-cote">Canton {zone.canton}</p>
+              <p className="marque-cote">{zone.canton}</p>
               <h2 className="mt-1 font-heading text-heading-3 text-markaj-primary">{zone.name}</h2>
               <p className="mt-3 font-body text-body text-markaj-mineral-dark">{zone.description}</p>
+              <p className="mt-4 font-mono text-caption font-semibold uppercase tracking-[0.12em] text-markaj-mineral-dark">
+                {zone.villes.join(" · ")}
+              </p>
               <h3 className="mt-4 font-body text-body-sm font-semibold text-markaj-primary">
                 Types de chantiers
               </h3>

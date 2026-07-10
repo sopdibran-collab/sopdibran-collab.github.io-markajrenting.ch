@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const usefulLinks = [
   { label: "Nos services", href: "/services" },
   { label: "Zones d'intervention", href: "/zones" },
-  { label: "Réalisations avant / après", href: "/realisations" },
+  { label: "Nos réalisations", href: "/realisations" },
   { label: "Questions fréquentes", href: "/faq" },
 ];
 

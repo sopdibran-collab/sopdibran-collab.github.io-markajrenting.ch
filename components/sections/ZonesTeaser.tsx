@@ -6,29 +6,25 @@ import { zones } from "@/lib/content/zones";
 import Link from "next/link";
 
 export function ZonesTeaser() {
-  const featured = zones.slice(0, 4);
-
   return (
     <Section background="white">
       <AnimateIn>
         <SectionHeading
           subtitle="Zones d'intervention"
           index="03"
-          title="Actifs en Suisse romande, priorité Fribourg"
-          intro="Basés à Fribourg, nous intervenons régulièrement dans le canton et les régions voisines du canton de Vaud."
+          title="Actifs dans toute la Suisse romande"
+          intro="Basés à Fribourg, nous intervenons dans les sept cantons francophones de Suisse, pour les particuliers comme pour les professionnels."
         />
       </AnimateIn>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {featured.map((zone, index) => (
+        {zones.map((zone, index) => (
           <AnimateIn key={zone.slug} delay={index * 60}>
             <Link
-              href="/zones"
-              className="group flex min-h-24 items-center border border-markaj-primary/15 bg-markaj-white p-5 transition-all duration-200 ease-out hover:-translate-x-0.5 hover:-translate-y-0.5 hover:border-markaj-primary/40 hover:shadow-card-hover"
+              href={`/zones#${zone.slug}`}
+              className="group flex h-full min-h-24 items-center border border-markaj-primary/15 bg-markaj-white p-5 transition-all duration-200 ease-out hover:-translate-x-0.5 hover:-translate-y-0.5 hover:border-markaj-primary/40 hover:shadow-card-hover"
             >
               <div>
-                <p className="font-body text-caption uppercase tracking-wider text-markaj-mineral">
-                  {zone.canton}
-                </p>
+                <p className="marque-cote">{zone.canton}</p>
                 <h3 className="mt-1 font-heading text-heading-4 text-markaj-primary transition-colors group-hover:text-markaj-primary-light">
                   {zone.name}
                 </h3>
