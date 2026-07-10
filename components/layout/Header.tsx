@@ -49,9 +49,12 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-4 lg:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <Button href="/contact" variant="primary" size="sm">
             Demander un devis
+          </Button>
+          <Button href="tel:+41794301813" variant="secondary" size="sm">
+            079 430 18 13
           </Button>
         </div>
 
