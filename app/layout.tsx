@@ -22,6 +22,13 @@ export const metadata: Metadata = {
   },
   description:
     "Plâtrerie, peinture, faux-plafonds, isolation et rénovation en Suisse romande. Entreprise familiale à Fribourg.",
+  icons: {
+    icon: [
+      { url: "/brand/markaj-favicon.svg", type: "image/svg+xml" },
+      { url: "/brand/markaj-favicon-32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [{ url: "/brand/markaj-apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
 };
 
 export const viewport = {

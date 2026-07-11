@@ -245,13 +245,13 @@ export default function DesignSystemPage() {
           <SectionHeading
             subtitle="Identité"
             title="Logo"
-            intro="Placeholder en attendant les fichiers finaux. Trois variantes prévues."
+            intro="Variantes officielles Markaj Renting SA, optimisées pour le web."
             light
           />
-          <div className="flex flex-wrap items-center gap-12">
+          <div className="flex flex-wrap items-end gap-12">
             <div>
               <p className="mb-3 font-body text-caption uppercase tracking-wider text-markaj-white/60">
-                Complet
+                Horizontal
               </p>
               <div className="rounded-markaj bg-markaj-white p-4">
                 <Logo />
@@ -263,6 +263,22 @@ export default function DesignSystemPage() {
               </p>
               <div className="rounded-markaj bg-markaj-white p-4">
                 <Logo variant="monogram" />
+              </div>
+            </div>
+            <div>
+              <p className="mb-3 font-body text-caption uppercase tracking-wider text-markaj-white/60">
+                Texte seul
+              </p>
+              <div className="rounded-markaj bg-markaj-white p-4">
+                <Logo variant="text" />
+              </div>
+            </div>
+            <div>
+              <p className="mb-3 font-body text-caption uppercase tracking-wider text-markaj-white/60">
+                Vertical
+              </p>
+              <div className="rounded-markaj bg-markaj-white p-4">
+                <Logo variant="vertical" />
               </div>
             </div>
             <div>
