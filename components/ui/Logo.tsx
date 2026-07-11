@@ -9,12 +9,12 @@ interface LogoProps {
   href?: string;
 }
 
-const variantHeights: Record<LogoVariant, string> = {
-  full: "h-10 sm:h-12",
-  white: "h-10 sm:h-12",
-  monogram: "h-9 sm:h-10",
-  vertical: "h-14 sm:h-16",
-  text: "h-6 sm:h-7",
+const variantSizes: Record<LogoVariant, string> = {
+  full: "h-11 w-auto sm:h-12 lg:h-14",
+  white: "h-12 w-auto sm:h-14",
+  monogram: "h-10 w-auto sm:h-11",
+  vertical: "h-16 w-auto sm:h-20",
+  text: "h-5 w-auto sm:h-6",
 };
 
 export function Logo({ variant = "full", className, href = "/" }: LogoProps) {
@@ -26,7 +26,7 @@ export function Logo({ variant = "full", className, href = "/" }: LogoProps) {
       alt={asset.alt}
       width={asset.width}
       height={asset.height}
-      className={cn("w-auto shrink-0", variantHeights[variant], className)}
+      className={cn("shrink-0", variantSizes[variant], className)}
       priority={variant === "full"}
       unoptimized
     />

@@ -37,7 +37,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-markaj-mineral/10 bg-markaj-white/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-content items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4 lg:px-8">
-        <Logo className="scale-90 sm:scale-100" />
+        <Logo />
 
         <nav className="hidden items-center gap-6 xl:gap-8 lg:flex" aria-label="Navigation principale">
           {mainNav.map((item) => (
