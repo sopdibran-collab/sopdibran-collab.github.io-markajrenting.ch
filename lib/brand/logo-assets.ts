@@ -10,8 +10,8 @@ type LogoAsset = {
 export const logoAssets = {
   full: {
     src: "/brand/markaj-horizontal.svg",
-    width: 3496,
-    height: 1244,
+    width: 4000,
+    height: 1532,
     alt: "Markaj Renting SA",
   },
   white: {
@@ -22,20 +22,20 @@ export const logoAssets = {
   },
   monogram: {
     src: "/brand/markaj-favicon.svg",
-    width: 2330,
-    height: 2407,
+    width: 2313,
+    height: 2391,
     alt: "Markaj Renting SA",
   },
   vertical: {
     src: "/brand/markaj-vertical.svg",
-    width: 3274,
-    height: 2300,
+    width: 4000,
+    height: 2702,
     alt: "Markaj Renting SA",
   },
   text: {
     src: "/brand/markaj-textonly.svg",
-    width: 3274,
-    height: 511,
+    width: 4000,
+    height: 948,
     alt: "Markaj Renting SA",
   },
 } as const satisfies Record<LogoVariant, LogoAsset>;
