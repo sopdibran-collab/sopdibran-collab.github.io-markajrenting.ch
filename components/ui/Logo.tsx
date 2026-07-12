@@ -1,6 +1,5 @@
 import { logoAssets, type LogoVariant } from "@/lib/brand/logo-assets";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 import Link from "next/link";
 
 interface LogoProps {
@@ -9,26 +8,27 @@ interface LogoProps {
   href?: string;
 }
 
-const variantHeights: Record<LogoVariant, string> = {
-  full: "h-10 sm:h-12",
-  white: "h-10 sm:h-12",
-  monogram: "h-9 sm:h-10",
-  vertical: "h-14 sm:h-16",
-  text: "h-6 sm:h-7",
+const variantSizes: Record<LogoVariant, string> = {
+  full: "h-auto w-44 sm:w-52 lg:w-60",
+  white: "h-auto w-48 sm:w-56 lg:w-60",
+  monogram: "h-11 w-auto sm:h-12",
+  vertical: "h-20 w-auto sm:h-24",
+  text: "h-6 w-auto sm:h-7",
 };
 
 export function Logo({ variant = "full", className, href = "/" }: LogoProps) {
   const asset = logoAssets[variant];
 
   const image = (
-    <Image
+    // Native img keeps SVG sizing predictable; width/height reserve aspect ratio.
+    <img
       src={asset.src}
       alt={asset.alt}
       width={asset.width}
       height={asset.height}
-      className={cn("w-auto shrink-0", variantHeights[variant], className)}
-      priority={variant === "full"}
-      unoptimized
+      className={cn("block max-w-full shrink-0", variantSizes[variant], className)}
+      decoding="async"
+      fetchPriority={variant === "full" ? "high" : undefined}
     />
   );
 
