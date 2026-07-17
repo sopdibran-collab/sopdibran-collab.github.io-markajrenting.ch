@@ -12,7 +12,7 @@ import Link from "next/link";
 export const metadata = createPageMetadata({
   title: "Zones d'intervention en Suisse romande",
   description:
-    "Markaj Renting SA intervient dans toute la Suisse romande : cantons de Fribourg, Vaud, Genève, Neuchâtel, Valais, Jura et Berne francophone. Plâtrerie, peinture et rénovation.",
+    "Zones d'intervention de Markaj Renting SA en Suisse romande. Fribourg, Vaud, Genève, Neuchâtel, Valais, Jura et Berne francophone.",
   path: "/zones",
 });
 

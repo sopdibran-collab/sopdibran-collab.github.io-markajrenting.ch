@@ -10,7 +10,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata = createPageMetadata({
   title: "Qualité et normes suisses",
   description:
-    "Markaj Renting SA respecte les normes SIA, les exigences d'isolation et les standards de sécurité suisses. Contrôle qualité et gestion de chantier.",
+    "Normes SIA, isolation Minergie et sécurité suisse. Markaj Renting SA garantit la qualité et la conformité de chaque chantier.",
   path: "/qualite-normes",
 });
 

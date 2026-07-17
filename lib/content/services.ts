@@ -27,7 +27,7 @@ export const services: Service[] = [
     title: "Plâtrerie",
     shortTitle: "Plâtrerie",
     metaDescription:
-      "Travaux de plâtrerie à Fribourg et en Suisse romande : cloisons BA13, doublages, ragréages et finitions prêtes à peindre. Devis gratuit.",
+      "Travaux de plâtrerie à Fribourg et en Suisse romande. Cloisons BA13, doublages, finitions Q3/Q4. Devis gratuit.",
     intro:
       "Markaj Renting SA réalise tous vos travaux de plâtrerie en neuf et en rénovation : cloisons, doublages, habillages et finitions conformes aux normes suisses.",
     benefit: "Surfaces planes, joints soignés et finitions Q3/Q4 prêtes à peindre.",
@@ -59,7 +59,7 @@ export const services: Service[] = [
     title: "Peinture",
     shortTitle: "Peinture",
     metaDescription:
-      "Peinture intérieure et extérieure en Suisse romande. Préparation des supports, application professionnelle, finitions durables. Markaj Renting SA à Fribourg.",
+      "Peinture intérieure et extérieure en Suisse romande. Préparation des supports, finitions durables. Devis gratuit sous 5 jours.",
     intro:
       "Markaj Renting SA assure la peinture intérieure et extérieure de vos bâtiments : préparation minutieuse des supports, choix des produits adaptés et application soignée pour une finition durable.",
     benefit: "Finitions durables, supports correctement préparés, rendu uniforme.",
@@ -91,7 +91,7 @@ export const services: Service[] = [
     title: "Faux-plafonds",
     shortTitle: "Faux-plafonds",
     metaDescription:
-      "Pose de faux-plafonds en plaques de plâtre, dalles acoustiques et plafonds tendus à Fribourg. Intégration luminaires et ventilation. Markaj Renting SA.",
+      "Pose de faux-plafonds acoustiques et techniques en Suisse romande. Intégration éclairage, ventilation. Devis gratuit.",
     intro:
       "Markaj Renting SA conçoit et pose des faux-plafonds sur mesure : acoustique, esthétique et intégration des réseaux (éclairage, ventilation, détection incendie).",
     benefit: "Plafonds techniques et esthétiques, acoustique et réseaux intégrés.",
@@ -123,7 +123,7 @@ export const services: Service[] = [
     title: "Isolation",
     shortTitle: "Isolation",
     metaDescription:
-      "Isolation thermique et acoustique en Suisse romande : doublages, isolation périphérique, laines minérales. Conformité aux normes suisses. Markaj Renting SA.",
+      "Isolation thermique et acoustique en Suisse romande. Doublages, isolation périphérique, conformité Minergie. Devis gratuit.",
     intro:
       "Markaj Renting SA réalise l'isolation thermique et acoustique de vos bâtiments : doublages intérieurs, isolation périphérique et traitement des ponts thermiques.",
     benefit: "Confort thermique et acoustique, conformité aux exigences suisses.",
@@ -155,7 +155,7 @@ export const services: Service[] = [
     title: "Rénovation",
     shortTitle: "Rénovation",
     metaDescription:
-      "Rénovation intérieure complète en Suisse romande : plâtrerie, peinture, isolation, faux-plafonds. Coordination de chantier par Markaj Renting SA à Fribourg.",
+      "Rénovation intérieure complète en Suisse romande. Plâtrerie, peinture, isolation et faux-plafonds. Un seul interlocuteur.",
     intro:
       "Markaj Renting SA prend en charge la rénovation intérieure de vos logements, bureaux et commerces : un interlocuteur unique pour la plâtrerie, la peinture, l'isolation et les faux-plafonds.",
     benefit: "Un seul interlocuteur pour plâtrerie, peinture, isolation et plafonds.",
@@ -187,7 +187,7 @@ export const services: Service[] = [
     title: "Façades",
     shortTitle: "Façades",
     metaDescription:
-      "Rénovation et entretien de façades en Suisse romande : crépi, peinture extérieure, réparations. Markaj Renting SA, entreprise familiale à Fribourg.",
+      "Ravalement et peinture de façades en Suisse romande. Crépis, enduits, protection climat suisse. Devis gratuit.",
     intro:
       "Markaj Renting SA réalise la rénovation, l'entretien et la mise en peinture de façades : crépis, enduits, réparations structurelles légères et finitions protectrices.",
     benefit: "Façades protégées, crépis et peintures adaptés au climat suisse.",

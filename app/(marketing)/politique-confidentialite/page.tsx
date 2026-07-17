@@ -7,7 +7,8 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata = createPageMetadata({
   title: "Politique de confidentialité",
-  description: "Politique de confidentialité du site markajrenting.ch — Markaj Renting SA.",
+  description:
+    "Politique de confidentialité de Markaj Renting SA. Protection de vos données personnelles conformément au RGPD et à la LPD suisse.",
   path: "/politique-confidentialite",
 });
 

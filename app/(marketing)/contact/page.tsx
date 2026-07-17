@@ -12,7 +12,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata = createPageMetadata({
   title: "Contact et demande de devis",
   description:
-    "Contactez Markaj Renting SA à Fribourg pour un devis gratuit. Plâtrerie, peinture, rénovation en Suisse romande. Réponse sous 5 jours ouvrés. 079 430 18 13.",
+    "Demandez un devis gratuit pour vos travaux de plâtrerie, peinture ou rénovation en Suisse romande. Réponse sous 5 jours ouvrés.",
   path: "/contact",
 });
 

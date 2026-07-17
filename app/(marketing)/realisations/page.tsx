@@ -13,7 +13,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata = createPageMetadata({
   title: "Nos réalisations",
   description:
-    "Découvrez les réalisations Markaj Renting SA : plateaux de bureaux, surélévation d'immeuble à la rue de Lausanne, Credit Suisse à la rue du Rhône. Plâtrerie, peinture et rénovation.",
+    "Portfolio de chantiers réalisés en Suisse romande. Plateaux de bureaux, rénovation d'immeubles, finitions haut de gamme.",
   path: "/realisations",
 });
 
