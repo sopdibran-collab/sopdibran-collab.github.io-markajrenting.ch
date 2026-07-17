@@ -13,7 +13,7 @@ import Link from "next/link";
 export const metadata = createPageMetadata({
   title: "Blog et guides",
   description:
-    "Guides et conseils Markaj Renting SA : plâtrerie, peinture, isolation et rénovation en Suisse romande.",
+    "Guides et conseils sur la plâtrerie, la peinture, l'isolation et la rénovation en Suisse romande. Articles par les experts Markaj Renting.",
   path: "/blog",
 });
 

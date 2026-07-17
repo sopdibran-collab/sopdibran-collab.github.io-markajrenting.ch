@@ -20,7 +20,10 @@ export function createPageMetadata({
   path = "",
   noindex = false,
 }: PageMetadataOptions): Metadata {
-  const pageUrl = `https://markajrenting.ch${path}`;
+  const pageUrl =
+    path === "/" || path === ""
+      ? "https://markajrenting.ch"
+      : `https://markajrenting.ch${path}`;
   const fullTitle = `${title} | Markaj Renting SA`;
 
   return {

@@ -10,7 +10,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata = createPageMetadata({
   title: "Questions fréquentes",
   description:
-    "FAQ Markaj Renting SA : devis, délais, zones d'intervention, matériaux, garanties et coordination de chantier en Suisse romande.",
+    "Questions fréquentes sur nos services de finition en Suisse romande. Devis, délais, zones d'intervention, matériaux et garanties.",
   path: "/faq",
 });
 

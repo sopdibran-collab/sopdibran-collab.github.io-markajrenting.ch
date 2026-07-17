@@ -7,7 +7,8 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata = createPageMetadata({
   title: "Mentions légales",
-  description: "Mentions légales du site markajrenting.ch — Markaj Renting SA, Fribourg.",
+  description:
+    "Mentions légales de Markaj Renting SA. Informations juridiques de l'entreprise de plâtrerie et peinture basée à Fribourg.",
   path: "/mentions-legales",
 });
 

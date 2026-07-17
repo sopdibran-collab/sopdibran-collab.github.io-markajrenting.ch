@@ -12,7 +12,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata = createPageMetadata({
   title: "À propos de Markaj Renting SA",
   description:
-    "Découvrez l'histoire de Markaj Renting SA : entreprise familiale de plâtrerie et peinture à Fribourg, 20 ans d'expérience, 20 collaborateurs.",
+    "Markaj Renting SA : entreprise familiale à Fribourg, 20 ans d'expérience, 20 collaborateurs. Plâtrerie, peinture et rénovation en Suisse romande.",
   path: "/a-propos",
 });
 
