@@ -45,7 +45,7 @@ export function Section({
       )}
       {...props}
     >
-      <div className={cn("relative z-10", contained && "mx-auto max-w-content px-4 sm:px-6 lg:px-8")}>
+      <div className={cn("relative z-10 min-w-0", contained && "mx-auto max-w-content px-4 sm:px-6 lg:px-8")}>
         {children}
       </div>
     </Component>

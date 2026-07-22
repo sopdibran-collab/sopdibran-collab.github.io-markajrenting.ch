@@ -29,7 +29,7 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
   return (
     <>
       <JsonLd data={buildBreadcrumbSchema([{ label: "Contact" }])} />
-      <div className="mx-auto max-w-content px-6 pt-6 lg:px-8">
+      <div className="mx-auto max-w-content px-4 pt-6 sm:px-6 lg:px-8">
         <Breadcrumbs items={[{ label: "Contact" }]} />
       </div>
 

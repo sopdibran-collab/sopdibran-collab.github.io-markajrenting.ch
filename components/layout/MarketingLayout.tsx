@@ -9,7 +9,7 @@ export function MarketingLayout({ children }: MarketingLayoutProps) {
   return (
     <>
       <Header />
-      <main className="overflow-x-hidden">{children}</main>
+      <main className="min-w-0">{children}</main>
       <Footer />
     </>
   );

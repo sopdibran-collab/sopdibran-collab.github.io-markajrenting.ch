@@ -18,7 +18,7 @@ export default function MentionsLegalesPage() {
   return (
     <>
       <JsonLd data={buildBreadcrumbSchema([{ label: "Mentions légales" }])} />
-      <div className="mx-auto max-w-content px-6 pt-6 lg:px-8">
+      <div className="mx-auto max-w-content px-4 pt-6 sm:px-6 lg:px-8">
         <Breadcrumbs items={[{ label: "Mentions légales" }]} />
       </div>
 

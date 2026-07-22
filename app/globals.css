@@ -20,6 +20,8 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
+    /* clip (not hidden) keeps position:sticky working while blocking page-level x-scroll */
+    overflow-x: clip;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -37,7 +39,15 @@
   }
 
   body {
-    @apply bg-markaj-white font-body text-body text-markaj-primary antialiased;
+    @apply overflow-x-clip bg-markaj-white font-body text-body text-markaj-primary antialiased;
+  }
+
+  /* Intrinsic media must not widen the page (SVG artboards, large photos) */
+  img,
+  svg,
+  video,
+  canvas {
+    max-width: 100%;
   }
 
   h1,
@@ -129,8 +139,10 @@
 
   /* 1 — Bouton « Bloc » : matière posée, ombre franche décalée (pas de flou) */
   .btn-bloc {
-    @apply relative inline-flex min-h-12 items-center justify-center gap-3 border-2 border-markaj-primary bg-markaj-primary px-7 font-mono text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-markaj-white transition-all duration-150 ease-out;
+    @apply relative inline-flex max-w-full min-h-12 shrink-0 items-center justify-center gap-3 border-2 border-markaj-primary bg-markaj-primary px-7 font-mono text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-markaj-white transition-all duration-150 ease-out;
     box-shadow: 5px 5px 0 0 theme("colors.markaj.crepi");
+    /* letter-spacing adds space after the last glyph — avoid clipping when width is tight */
+    padding-inline-end: calc(1.75rem + 0.14em);
   }
 
   .btn-bloc:hover {
@@ -163,8 +175,9 @@
 
   /* 2 — Bouton « Cote » : repères de cotation qui referment le cadre au survol */
   .btn-cote {
-    @apply relative inline-flex min-h-12 items-center justify-center bg-markaj-crepi-light px-7 font-mono text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-markaj-primary transition-colors duration-200;
+    @apply relative inline-flex max-w-full min-h-12 shrink-0 items-center justify-center bg-markaj-crepi-light px-7 font-mono text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-markaj-primary transition-colors duration-200;
     border: 1px solid rgb(10 43 94 / 0.55);
+    padding-inline-end: calc(1.75rem + 0.14em);
   }
 
   .btn-cote::before,
@@ -296,7 +309,7 @@
 
   /* Étiquette de cotation : remplace l'eyebrow uppercase générique */
   .marque-cote {
-    @apply inline-flex items-baseline gap-3 font-mono text-caption font-semibold uppercase tracking-[0.18em] text-markaj-mineral-dark;
+    @apply inline-flex max-w-full flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-caption font-semibold uppercase tracking-[0.18em] text-markaj-mineral-dark;
   }
 
   .marque-cote::before {

@@ -23,13 +23,13 @@ export function RealisationCard({ project, index, featured = false }: Realisatio
 
   return (
     <AnimateIn delay={index * 80} className={cn(featured && "md:col-span-2")}>
-      <article className="group h-full overflow-hidden border border-markaj-primary/15 bg-markaj-white transition-all duration-200 ease-out hover:-translate-x-0.5 hover:-translate-y-0.5 hover:border-markaj-primary/40 hover:shadow-card-hover">
-        <div className={cn("grid", hasImagePair && "grid-cols-2")}>
+      <article className="group h-full min-w-0 overflow-hidden border border-markaj-primary/15 bg-markaj-white transition-all duration-200 ease-out hover:-translate-x-0.5 hover:-translate-y-0.5 hover:border-markaj-primary/40 hover:shadow-card-hover">
+        <div className={cn("grid min-w-0", hasImagePair && "grid-cols-2")}>
           {project.images.map((image) => (
             <figure
               key={image.src}
               className={cn(
-                "relative",
+                "relative min-w-0 overflow-hidden",
                 hasImagePair ? "aspect-[4/3]" : "aspect-[16/10]"
               )}
             >
@@ -54,8 +54,8 @@ export function RealisationCard({ project, index, featured = false }: Realisatio
             </figure>
           ))}
         </div>
-        <div className="p-5 sm:p-6">
-          <div className="flex flex-wrap gap-2">
+        <div className="min-w-0 p-5 sm:p-6">
+          <div className="flex min-w-0 flex-wrap gap-2">
             <Badge variant="outline">{project.location}</Badge>
             {project.serviceSlug ? (
               <Link href={`/services/${project.serviceSlug}`}>

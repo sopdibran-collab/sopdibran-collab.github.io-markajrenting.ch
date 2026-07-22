@@ -37,7 +37,7 @@ export default function QualiteNormesPage() {
   return (
     <>
       <JsonLd data={buildBreadcrumbSchema([{ label: "Qualité & normes" }])} />
-      <div className="mx-auto max-w-content px-6 pt-6 lg:px-8">
+      <div className="mx-auto max-w-content px-4 pt-6 sm:px-6 lg:px-8">
         <Breadcrumbs items={[{ label: "Qualité & normes" }]} />
       </div>
 
