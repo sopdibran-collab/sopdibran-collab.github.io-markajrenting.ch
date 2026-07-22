@@ -36,22 +36,26 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-markaj-mineral/10 bg-markaj-white/95 backdrop-blur-sm">
-      <div className="mx-auto flex max-w-content items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4 lg:px-8">
+      {/*
+        Desktop chrome from xl (1280px): below that, burger + compact CTA.
+        At lg (1024) the logo + 4 links + 2 CTAs squeezed the phone button.
+      */}
+      <div className="mx-auto flex max-w-content min-w-0 items-center justify-between gap-2 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4 lg:px-8">
         <Logo />
 
-        <nav className="hidden items-center gap-6 xl:gap-8 lg:flex" aria-label="Navigation principale">
+        <nav className="hidden items-center gap-6 xl:flex xl:gap-8" aria-label="Navigation principale">
           {mainNav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="min-h-11 inline-flex items-center font-body text-body-sm font-medium text-markaj-primary transition-colors hover:text-markaj-primary-light"
+              className="inline-flex min-h-11 shrink-0 items-center font-body text-body-sm font-medium text-markaj-primary transition-colors hover:text-markaj-primary-light"
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden shrink-0 items-center gap-3 xl:flex">
           <Button href="/contact" variant="primary" size="sm">
             Demander un devis
           </Button>
@@ -60,24 +64,24 @@ export function Header() {
           </Button>
         </div>
 
-        <div className="flex items-center gap-2 lg:hidden">
-          <Button href="/contact" variant="primary" size="sm" className="px-4">
+        <div className="flex min-w-0 shrink-0 items-center gap-1.5 sm:gap-2 xl:hidden">
+          <Button href="/contact" variant="primary" size="sm" className="px-3 sm:px-4">
             Devis
           </Button>
           <button
             ref={toggleRef}
             type="button"
-            className="flex min-h-11 min-w-11 items-center justify-center rounded-markaj"
+            className="flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-markaj"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={mobileOpen}
             aria-controls="mobile-nav"
           >
             <span className="sr-only">Menu</span>
-            <div className="flex flex-col gap-1.5">
-              <span className={cn("block h-0.5 w-6 bg-markaj-primary transition-transform duration-200", mobileOpen && "translate-y-2 rotate-45")} />
+            <div className="flex flex-col gap-1.5" aria-hidden="true">
+              <span className={cn("block h-0.5 w-6 origin-center bg-markaj-primary transition-transform duration-200", mobileOpen && "translate-y-[7px] rotate-45")} />
               <span className={cn("block h-0.5 w-6 bg-markaj-primary transition-opacity duration-200", mobileOpen && "opacity-0")} />
-              <span className={cn("block h-0.5 w-6 bg-markaj-primary transition-transform duration-200", mobileOpen && "-translate-y-2 -rotate-45")} />
+              <span className={cn("block h-0.5 w-6 origin-center bg-markaj-primary transition-transform duration-200", mobileOpen && "-translate-y-[7px] -rotate-45")} />
             </div>
           </button>
         </div>
@@ -86,7 +90,7 @@ export function Header() {
       {mobileOpen && (
         <nav
           id="mobile-nav"
-          className="animate-menu-in border-t border-markaj-mineral/10 bg-markaj-white px-4 py-4 sm:px-6 lg:hidden"
+          className="animate-menu-in border-t border-markaj-mineral/10 bg-markaj-white px-4 py-4 sm:px-6 xl:hidden"
           aria-label="Navigation mobile"
         >
           <ul className="space-y-1">
@@ -101,17 +105,15 @@ export function Header() {
                 </Link>
               </li>
             ))}
-            <li className="pt-3">
-              <Button href="/contact" variant="primary" size="md" className="w-full" onClick={() => setMobileOpen(false)}>
+            <li className="space-y-3 pt-3">
+              <Button href="/contact" variant="primary" size="md" className="w-full max-w-full" onClick={() => setMobileOpen(false)}>
                 Demander un devis
               </Button>
-            </li>
-            <li>
               <Button
                 href={phoneHref}
                 variant="secondary"
                 size="md"
-                className="w-full"
+                className="w-full max-w-full"
                 onClick={() => setMobileOpen(false)}
               >
                 {siteConfig.contact.phoneDisplay}

@@ -41,11 +41,11 @@ export function Hero({
     >
       <div
         className={cn(
-          "grid items-center gap-10",
+          "grid min-w-0 items-center gap-10",
           image && "lg:grid-cols-2 lg:gap-14"
         )}
       >
-        <div className={cn(!image && "max-w-3xl")}>
+        <div className={cn("min-w-0", !image && "max-w-3xl")}>
           {eyebrow && (
             <p className="marque-cote mb-4" data-index={eyebrowIndex}>
               {eyebrow}
@@ -58,14 +58,15 @@ export function Hero({
             {subtitle}
           </p>
           {(primaryCta || secondaryCta) && (
-            <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
+            /* Stack until md: long uppercase CTAs + hard shadows overflow a 2-col row on sm tablets */
+            <div className="mt-8 flex flex-col gap-3 sm:mt-10 md:flex-row md:flex-wrap md:gap-4">
               {primaryCta && (
-                <Button href={primaryCta.href} variant="primary" size="lg" className="w-full sm:w-auto">
+                <Button href={primaryCta.href} variant="primary" size="lg" className="w-full max-w-full md:w-auto">
                   {primaryCta.label}
                 </Button>
               )}
               {secondaryCta && (
-                <Button href={secondaryCta.href} variant="secondary" size="lg" className="w-full sm:w-auto">
+                <Button href={secondaryCta.href} variant="secondary" size="lg" className="w-full max-w-full md:w-auto">
                   {secondaryCta.label}
                 </Button>
               )}
@@ -75,7 +76,7 @@ export function Hero({
         </div>
 
         {image && (
-          <div className="relative aspect-[4/3] w-full overflow-hidden border border-markaj-primary/15 lg:aspect-[5/4]">
+          <div className="relative aspect-[4/3] w-full min-w-0 overflow-hidden border border-markaj-primary/15 lg:aspect-[5/4]">
             <Image
               src={image.src}
               alt={image.alt}

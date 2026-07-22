@@ -10,9 +10,9 @@ export function Footer() {
 
   return (
     <footer className="bg-markaj-primary text-markaj-white">
-      <div className="mx-auto max-w-content px-6 py-16 lg:px-8">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-          <div>
+      <div className="mx-auto max-w-content px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid min-w-0 gap-12 md:grid-cols-2 lg:grid-cols-4">
+          <div className="min-w-0">
             <Logo variant="white" href="/" />
             <p className="mt-4 font-body text-body-sm text-markaj-white/70">
               Entreprise familiale de plâtrerie, peinture et rénovation en Suisse romande depuis plus de 20 ans.
@@ -84,7 +84,7 @@ export function Footer() {
           <p className="font-body text-caption text-markaj-white/50">
             © {new Date().getFullYear()} {siteConfig.legalName}. Tous droits réservés.
           </p>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
             {footerNav.legal.map((item) => (
               <Link key={item.href} href={item.href} className="font-body text-caption text-markaj-white/50 hover:text-markaj-white/80">
                 {item.label}
