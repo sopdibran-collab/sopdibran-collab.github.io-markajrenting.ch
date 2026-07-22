@@ -19,18 +19,26 @@ const statusLabels = {
 } as const;
 
 export function RealisationCard({ project, index, featured = false }: RealisationCardProps) {
-  const hasImagePair = project.images.length > 1;
+  /** Sur carte standard : 2 photos max (avant/après). Featured : jusqu'à 3 pour raconter le chantier. */
+  const images = featured ? project.images.slice(0, 3) : project.images.slice(0, 2);
+  const imageCount = images.length;
 
   return (
     <AnimateIn delay={index * 80} className={cn(featured && "md:col-span-2")}>
       <article className="group h-full min-w-0 overflow-hidden border border-markaj-primary/15 bg-markaj-white transition-all duration-200 ease-out hover:-translate-x-0.5 hover:-translate-y-0.5 hover:border-markaj-primary/40 hover:shadow-card-hover">
-        <div className={cn("grid min-w-0", hasImagePair && "grid-cols-2")}>
-          {project.images.map((image) => (
+        <div
+          className={cn(
+            "grid min-w-0",
+            imageCount === 2 && "grid-cols-2",
+            imageCount >= 3 && "grid-cols-1 sm:grid-cols-3"
+          )}
+        >
+          {images.map((image) => (
             <figure
               key={image.src}
               className={cn(
                 "relative min-w-0 overflow-hidden",
-                hasImagePair ? "aspect-[4/3]" : "aspect-[16/10]"
+                imageCount >= 2 ? "aspect-[4/3]" : "aspect-[16/10]"
               )}
             >
               <Image
@@ -39,8 +47,10 @@ export function RealisationCard({ project, index, featured = false }: Realisatio
                 fill
                 sizes={
                   featured
-                    ? "(min-width: 768px) 600px, 100vw"
-                    : hasImagePair
+                    ? imageCount >= 3
+                      ? "(min-width: 768px) 400px, 33vw"
+                      : "(min-width: 768px) 600px, 100vw"
+                    : imageCount >= 2
                       ? "(min-width: 768px) 300px, 50vw"
                       : "(min-width: 768px) 600px, 100vw"
                 }
