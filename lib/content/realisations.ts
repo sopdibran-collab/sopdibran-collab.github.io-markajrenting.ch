@@ -38,17 +38,44 @@ export const realisations: Realisation[] = [
     materials: "Ossatures métalliques, plaques de plâtre, joints Q3, peinture de plafond",
     description:
       "Cloisonnement et doublage en plaques de plâtre sur structure métallique, joints prêts à peindre et mise en peinture des plafonds. Nos équipes suivent le plateau de la pose des ossatures jusqu'à la livraison des surfaces.",
-    result: "Surfaces livrées prêtes à peindre, planning tenu, un seul interlocuteur du cloisonnement à la peinture.",
+    result:
+      "Surfaces livrées prêtes à peindre, planning tenu, un seul interlocuteur du cloisonnement à la peinture.",
     images: [
+      {
+        src: "/realisations/plateau-tertiaire-ossatures.webp",
+        alt: "Ossatures métalliques et passage de réseaux sur un plateau de bureaux en cours de cloisonnement",
+        label: "Ossatures",
+      },
       {
         src: "/realisations/plateau-tertiaire-chantier.webp",
         alt: "Cloison en plaques de plâtre jointoyée sur un plateau de bureaux en cours de chantier",
-        label: "Pendant le chantier",
+        label: "Joints",
       },
       {
         src: "/realisations/plateau-tertiaire-livraison.webp",
         alt: "Plateau de bureaux en fin de chantier avec plafond peint en bleu nuit et gaines apparentes",
-        label: "Fin de chantier",
+        label: "Livraison",
+      },
+    ],
+    credit: "Photos : Markaj Renting SA",
+  },
+  {
+    id: "circulations-tertiaires",
+    title: "Finitions de circulations tertiaires",
+    location: "Suisse romande",
+    year: 2024,
+    status: "livre",
+    service: "Faux-plafonds",
+    serviceSlug: "faux-plafonds",
+    materials: "Plafonds fibre de bois, cloisons peintes, éclairage intégré",
+    description:
+      "Finition d'une circulation tertiaire : plafond acoustique en fibre de bois, surfaces peintes et intégration des luminaires. Un passage soigné entre zones techniques et espaces livrés.",
+    result: "Circulation livrée propre, acoustique traitée, prêt pour la réception des espaces adjacents.",
+    images: [
+      {
+        src: "/realisations/plateau-tertiaire-circulation.webp",
+        alt: "Circulation tertiaire avec plafond fibre de bois, cloisons peintes et luminaires encastrés",
+        label: "Livraison",
       },
     ],
     credit: "Photos : Markaj Renting SA",
@@ -64,7 +91,8 @@ export const realisations: Realisation[] = [
     serviceSlug: "renovation",
     description:
       "Surélévation de trois étages d'un immeuble résidentiel et rénovation complète des six étages existants. Nos équipes sont intervenues sur les travaux de second œuvre et de finition de l'ensemble du bâtiment.",
-    result: "Second œuvre et finitions livrés sur neuf et existant, en coordination avec les autres corps de métier.",
+    result:
+      "Second œuvre et finitions livrés sur neuf et existant, en coordination avec les autres corps de métier.",
     images: [
       {
         src: "/realisations/rue-de-lausanne-119-surelevation.webp",
@@ -84,7 +112,8 @@ export const realisations: Realisation[] = [
     serviceSlug: "platrerie",
     description:
       "Aménagement des espaces d'accueil et de réception de la banque : plâtrerie, plafonds et finitions haut de gamme, dans un environnement où le niveau d'exigence ne tolère aucun défaut.",
-    result: "Finitions haut de gamme livrées dans un environnement bancaire à forte exigence de qualité.",
+    result:
+      "Finitions haut de gamme livrées dans un environnement bancaire à forte exigence de qualité.",
     images: [
       {
         src: "/realisations/credit-suisse-rue-du-rhone-hall.webp",

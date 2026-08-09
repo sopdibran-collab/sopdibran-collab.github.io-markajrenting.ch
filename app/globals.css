@@ -325,6 +325,18 @@
   .marque-cote--light::before {
     @apply text-markaj-crepi;
   }
+
+  /*
+   * Skip link — hors écran jusqu'au focus clavier.
+   * z-index au-dessus du header sticky (z-50).
+   */
+  .skip-link {
+    @apply sr-only;
+  }
+
+  .skip-link:focus {
+    @apply not-sr-only fixed left-4 top-4 z-[100] inline-flex min-h-11 items-center bg-markaj-primary px-4 py-2 font-body text-body-sm font-semibold text-markaj-white outline-none ring-2 ring-markaj-crepi ring-offset-2;
+  }
 }
 
 @layer utilities {

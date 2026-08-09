@@ -27,9 +27,13 @@ export default function RealisationsPage() {
 
       <Hero
         title="Nos réalisations"
-        subtitle="Une sélection de chantiers menés par Markaj Renting SA : aménagements de bureaux, surélévation d'immeuble et intérieurs bancaires de haut standing."
+        subtitle="Chantiers menés par Markaj Renting SA : plateaux de bureaux (ossatures → livraison), circulations tertiaires, surélévation d'immeuble et intérieurs bancaires."
         primaryCta={{ label: "Demander un devis", href: "/contact" }}
         secondaryCta={{ label: "Nos services", href: "/services" }}
+        image={{
+          src: "/equipe/preparation-chantier.webp",
+          alt: "Équipe Markaj Renting SA en préparation de chantier",
+        }}
       />
 
       <Section background="white" texture="paint">
@@ -38,6 +42,7 @@ export default function RealisationsPage() {
             subtitle="Portfolio"
             index="01"
             title="Des chantiers concrets, des résultats visibles"
+            intro="Photos prises sur nos chantiers. Chaque fiche précise le crédit lorsque l'image provient d'une source externe."
           />
         </AnimateIn>
         <div className="grid gap-8 md:grid-cols-2 md:gap-10">
@@ -52,7 +57,8 @@ export default function RealisationsPage() {
         </div>
         <p className="mt-10 max-w-prose font-body text-caption text-markaj-mineral">
           Les photos de chantier sont prises par nos équipes. Certaines images de projets livrés
-          proviennent de sources externes ; le crédit est précisé sur chaque fiche.
+          proviennent de sources externes ; le crédit est précisé sur chaque fiche. D&apos;autres
+          chantiers Fribourg / Suisse romande seront ajoutés au fur et à mesure des shootings.
         </p>
       </Section>
 

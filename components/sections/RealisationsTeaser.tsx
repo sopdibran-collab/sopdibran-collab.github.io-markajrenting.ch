@@ -10,7 +10,7 @@ interface RealisationsTeaserProps {
   limit?: number;
 }
 
-export function RealisationsTeaser({ limit = 3 }: RealisationsTeaserProps) {
+export function RealisationsTeaser({ limit = 4 }: RealisationsTeaserProps) {
   const projects = realisations.slice(0, limit);
 
   return (
@@ -20,7 +20,7 @@ export function RealisationsTeaser({ limit = 3 }: RealisationsTeaserProps) {
           subtitle="Réalisations"
           index="03"
           title="Des chantiers concrets en Suisse romande"
-          intro="Plateaux de bureaux, rénovation d'immeuble et finitions haut de gamme : des projets livrés pour des clients exigeants."
+          intro="De l'ossature métallique à la livraison : plateaux de bureaux, circulations tertiaires, rénovation d'immeuble et finitions haut de gamme."
         />
       </AnimateIn>
       <div className="grid gap-8 md:grid-cols-2 md:gap-10">
