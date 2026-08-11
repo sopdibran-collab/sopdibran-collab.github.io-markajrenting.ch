@@ -29,32 +29,32 @@ export interface Realisation {
 export const realisations: Realisation[] = [
   {
     id: "plateaux-de-bureaux",
-    title: "Aménagement de plateaux de bureaux",
-    location: "Suisse romande",
+    title: "Rénovation de plateaux de bureaux — OMS",
+    location: "Genève",
     year: 2024,
     status: "livre",
     service: "Plâtrerie",
     serviceSlug: "platrerie",
     materials: "Ossatures métalliques, plaques de plâtre, joints Q3, peinture de plafond",
     description:
-      "Cloisonnement et doublage en plaques de plâtre sur structure métallique, joints prêts à peindre et mise en peinture des plafonds. Nos équipes suivent le plateau de la pose des ossatures jusqu'à la livraison des surfaces.",
+      "Travaux de second œuvre dans le bâtiment de l'Organisation mondiale de la santé (OMS) à Genève : cloisonnement et doublage en plaques de plâtre sur structure métallique, joints prêts à peindre et mise en peinture des plafonds techniques. Nos équipes suivent le plateau de la pose des ossatures jusqu'à la livraison des surfaces.",
     result:
-      "Surfaces livrées prêtes à peindre, planning tenu, un seul interlocuteur du cloisonnement à la peinture.",
+      "Surfaces livrées prêtes à peindre sur un chantier institutionnel à Genève, planning tenu, un seul interlocuteur du cloisonnement à la peinture.",
     images: [
       {
         src: "/realisations/plateau-tertiaire-ossatures.webp",
-        alt: "Ossatures métalliques et passage de réseaux sur un plateau de bureaux en cours de cloisonnement",
+        alt: "Ossatures métalliques et réseaux sur un plateau de bureaux en rénovation à l'OMS Genève",
         label: "Ossatures",
       },
       {
         src: "/realisations/plateau-tertiaire-chantier.webp",
-        alt: "Cloison en plaques de plâtre jointoyée sur un plateau de bureaux en cours de chantier",
+        alt: "Cloison en plaques de plâtre jointoyée sur un plateau de bureaux OMS Genève",
         label: "Joints",
       },
       {
         src: "/realisations/plateau-tertiaire-livraison.webp",
-        alt: "Plateau de bureaux en fin de chantier avec plafond peint en bleu nuit et gaines apparentes",
-        label: "Livraison",
+        alt: "Plateau de bureaux OMS Genève en rénovation — plafond peint en bleu nuit et gaines apparentes",
+        label: "Peinture plafond",
       },
     ],
     credit: "Photos : Markaj Renting SA",
