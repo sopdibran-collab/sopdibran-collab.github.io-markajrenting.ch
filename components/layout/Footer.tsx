@@ -50,9 +50,17 @@ export function Footer() {
           </Link>
         </div>
 
-        <div className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-3">
+        <div className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-3">
           <LinkRow label="Services">
             {footerNav.services.map((item) => (
+              <Link key={item.href} href={item.href} className={chipClass}>
+                {item.label}
+              </Link>
+            ))}
+          </LinkRow>
+
+          <LinkRow label="Zones">
+            {footerNav.zones.map((item) => (
               <Link key={item.href} href={item.href} className={chipClass}>
                 {item.label}
               </Link>

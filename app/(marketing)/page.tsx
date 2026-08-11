@@ -13,9 +13,9 @@ import { siteConfig } from "@/lib/seo/site-config";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata = createPageMetadata({
-  title: "Plâtrerie, peinture et rénovation en Suisse romande",
+  title: "Plâtrerie, peinture et rénovation Fribourg, Lausanne, Genève",
   description:
-    "Entreprise familiale à Fribourg. Plâtrerie, peinture, faux-plafonds, isolation et rénovation en Suisse romande. Devis gratuit sous 5 jours. 20 ans d'expérience.",
+    "Entreprise familiale à Fribourg. Plâtrerie, peinture, isolation et rénovation à Fribourg, Lausanne, Genève et en Suisse romande. Devis gratuit sous 5 jours.",
   path: "/",
 });
 

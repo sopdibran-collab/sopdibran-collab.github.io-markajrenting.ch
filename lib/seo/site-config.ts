@@ -13,7 +13,7 @@ export const siteConfig = {
     country: "CH",
   },
   contact: {
-    email: "info@markajrenting.com",
+    email: "info@markajrenting.ch",
     phone: "+41 79 430 18 13",
     phoneDisplay: "079 430 18 13",
   },
