@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { blogSlugs } from "@/lib/content/blog";
 import { serviceSlugs } from "@/lib/content/services";
+import { zoneSlugs } from "@/lib/content/zones";
 import { siteConfig } from "@/lib/seo/site-config";
 
 const baseUrl = siteConfig.url;
@@ -21,6 +22,7 @@ const staticRoutes: RouteEntry[] = [
   { path: "/qualite-normes", changeFrequency: "yearly", priority: 0.7 },
   { path: "/blog", changeFrequency: "weekly", priority: 0.75 },
   { path: "/contact", changeFrequency: "yearly", priority: 0.9 },
+  { path: "/plan-du-site", changeFrequency: "monthly", priority: 0.5 },
   { path: "/mentions-legales", changeFrequency: "yearly", priority: 0.3 },
   { path: "/politique-confidentialite", changeFrequency: "yearly", priority: 0.3 },
 ];
@@ -41,6 +43,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.85,
+    });
+  });
+
+  zoneSlugs.forEach((slug) => {
+    routes.push({
+      url: `${baseUrl}/zones/${slug}`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
     });
   });
 

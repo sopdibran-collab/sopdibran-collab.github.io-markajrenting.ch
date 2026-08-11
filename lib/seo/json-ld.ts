@@ -29,6 +29,28 @@ function absoluteUrl(path: string): string {
   return `${url}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
+/** areaServed enrichi : cantons + villes avec URL vers pages zone. */
+export function buildAreaServedSchema(zoneList: Zone[]): JsonLdObject[] {
+  const cantons = AREA_SERVED.map((place) => ({
+    "@type": "AdministrativeArea",
+    name: place,
+  }));
+
+  const cities = zoneList.flatMap((zone) =>
+    zone.villes.map((city) => ({
+      "@type": "City",
+      name: city,
+      url: absoluteUrl(`/zones/${zone.slug}`),
+      containedInPlace: {
+        "@type": "AdministrativeArea",
+        name: zone.name,
+      },
+    }))
+  );
+
+  return [...cantons, ...cities];
+}
+
 export function buildOrganizationSchema(): JsonLdObject {
   return {
     "@context": "https://schema.org",
@@ -208,7 +230,7 @@ export function buildDefinedTermSetSchema(
   };
 }
 
-export function buildServiceSchema(service: Service): JsonLdObject {
+export function buildServiceSchema(service: Service, zoneList: Zone[] = []): JsonLdObject {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -216,10 +238,13 @@ export function buildServiceSchema(service: Service): JsonLdObject {
     description: service.definition,
     url: absoluteUrl(`/services/${service.slug}`),
     provider: { "@id": `${url}/#localbusiness` },
-    areaServed: AREA_SERVED.map((place) => ({
-      "@type": "AdministrativeArea",
-      name: place,
-    })),
+    areaServed:
+      zoneList.length > 0
+        ? buildAreaServedSchema(zoneList)
+        : AREA_SERVED.map((place) => ({
+            "@type": "AdministrativeArea",
+            name: place,
+          })),
     serviceType: service.title,
   };
 }
@@ -248,24 +273,64 @@ export function buildArticleSchema(post: BlogPost): JsonLdObject {
   };
 }
 
-export function buildZonesItemListSchema(zones: Zone[]): JsonLdObject {
+export function buildZonesItemListSchema(zoneList: Zone[]): JsonLdObject {
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "Zones d'intervention Markaj Renting SA",
     description:
       "Villes et régions couvertes par Markaj Renting SA en Suisse romande.",
-    itemListElement: zones.map((zone, index) => ({
+    itemListElement: zoneList.map((zone, index) => ({
       "@type": "ListItem",
       position: index + 1,
       name: zone.name,
       description: zone.description,
-      url: absoluteUrl(`/zones#${zone.slug}`),
+      url: absoluteUrl(`/zones/${zone.slug}`),
     })),
   };
 }
 
-export function buildServicePageSchemas(service: Service): JsonLdObject[] {
+export function buildZonePageSchemas(zone: Zone): JsonLdObject[] {
+  return [
+    buildBreadcrumbSchema([
+      { label: "Zones d'intervention", href: "/zones" },
+      { label: zone.shortName },
+    ]),
+    buildFaqPageSchema(zone.faqLocal),
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: `Plâtrerie, peinture et rénovation — ${zone.name}`,
+      description: zone.metaDescription,
+      url: absoluteUrl(`/zones/${zone.slug}`),
+      provider: { "@id": `${url}/#localbusiness` },
+      areaServed: [
+        {
+          "@type": "AdministrativeArea",
+          name: zone.name,
+        },
+        ...zone.villes.map((city) => ({
+          "@type": "City",
+          name: city,
+          url: absoluteUrl(`/zones/${zone.slug}`),
+        })),
+      ],
+      serviceType: [
+        "Plâtrerie",
+        "Peinture",
+        "Isolation",
+        "Faux-plafonds",
+        "Rénovation",
+        "Façades",
+      ],
+    },
+  ];
+}
+
+export function buildServicePageSchemas(
+  service: Service,
+  zoneList: Zone[] = []
+): JsonLdObject[] {
   const glossary = getGlossaryForService(service.slug);
 
   return [
@@ -273,7 +338,7 @@ export function buildServicePageSchemas(service: Service): JsonLdObject[] {
       { label: "Services", href: "/services" },
       { label: service.title },
     ]),
-    buildServiceSchema(service),
+    buildServiceSchema(service, zoneList),
     buildFaqPageSchema(service.faq),
     buildHowToSchema(
       `Processus de chantier ${service.title.toLowerCase()} — Markaj Renting SA`,

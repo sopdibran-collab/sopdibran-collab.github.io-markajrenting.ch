@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Playfair_Display, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -8,9 +8,9 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
-const inter = Inter({
+const sourceSans = Source_Sans_3({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-source-sans",
   display: "swap",
 });
 
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | Markaj Renting SA",
   },
   description:
-    "Plâtrerie, peinture, faux-plafonds, isolation et rénovation en Suisse romande. Entreprise familiale à Fribourg.",
+    "Plâtrerie, peinture, faux-plafonds, isolation et rénovation à Fribourg, Lausanne, Genève et en Suisse romande. Entreprise familiale à Fribourg.",
 };
 
 export const viewport = {
@@ -36,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr-CH" className={`${playfair.variable} ${inter.variable}`}>
+    <html lang="fr-CH" className={`${playfair.variable} ${sourceSans.variable}`}>
       <body className="min-h-screen font-body antialiased">{children}</body>
     </html>
   );

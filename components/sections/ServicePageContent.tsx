@@ -6,6 +6,7 @@ import { AnimateIn } from "@/components/ui/AnimateIn";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import type { Service } from "@/lib/content/services";
+import { zones } from "@/lib/content/zones";
 import { getGlossaryForService } from "@/lib/seo/glossary";
 import Link from "next/link";
 
@@ -16,6 +17,8 @@ interface ServicePageContentProps {
 export function ServicePageContent({ service }: ServicePageContentProps) {
   const glossary = getGlossaryForService(service.slug);
   const hasGlossary = glossary.length > 0;
+  const label = service.title.toLowerCase();
+
   return (
     <>
       <div className="mx-auto max-w-content px-4 pt-6 sm:px-6 lg:px-8">
@@ -28,7 +31,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
       </div>
 
       <Hero
-        title={`${service.title} en Suisse romande`}
+        title={`${service.title} à Fribourg, Lausanne et Genève`}
         subtitle={service.intro}
         primaryCta={{
           label: `Devis ${service.shortTitle.toLowerCase()}`,
@@ -42,15 +45,15 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
           <div className="grid gap-6 sm:grid-cols-3">
             <div>
               <p className="marque-cote mb-2">Bénéfice</p>
-              <p className="font-body text-body text-markaj-mineral-dark">{service.benefit}</p>
+              <p className="font-body text-body text-markaj-primary/90">{service.benefit}</p>
             </div>
             <div>
               <p className="marque-cote mb-2">Pour qui</p>
-              <p className="font-body text-body text-markaj-mineral-dark">{service.audience.join(", ")}</p>
+              <p className="font-body text-body text-markaj-primary/90">{service.audience.join(", ")}</p>
             </div>
             <div>
               <p className="marque-cote mb-2">Types de projets</p>
-              <p className="font-body text-body text-markaj-mineral-dark">{service.projectTypes.join(" · ")}</p>
+              <p className="font-body text-body text-markaj-primary/90">{service.projectTypes.join(" · ")}</p>
             </div>
           </div>
         </AnimateIn>
@@ -59,9 +62,9 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
       <Section background="white">
         <AnimateIn className="max-w-prose">
           <h2 className="font-heading text-heading-3 text-markaj-primary">
-            Qu&apos;est-ce que la {service.title.toLowerCase()} ?
+            Qu&apos;est-ce que la {label} ?
           </h2>
-          <p className="mt-4 font-body text-body-lg text-markaj-mineral-dark">
+          <p className="mt-4 font-body text-body-lg text-markaj-primary/90">
             {service.definition}
           </p>
         </AnimateIn>
@@ -82,7 +85,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
                 <span className="font-heading text-heading-2 text-markaj-crepi-dark">{step.step}</span>
                 <div>
                   <h3 className="font-heading text-heading-4 text-markaj-primary">{step.title}</h3>
-                  <p className="mt-2 font-body text-body-sm text-markaj-mineral-dark">{step.description}</p>
+                  <p className="mt-2 font-body text-body-sm text-markaj-primary/90">{step.description}</p>
                 </div>
               </div>
             </AnimateIn>
@@ -101,7 +104,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
         <ul className="grid max-w-2xl gap-3">
           {service.materials.map((material, index) => (
             <AnimateIn key={material} delay={index * 40}>
-              <li className="flex items-start gap-3 font-body text-body text-markaj-mineral-dark">
+              <li className="flex items-start gap-3 font-body text-body text-markaj-primary/90">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-markaj-primary" />
                 {material}
               </li>
@@ -110,13 +113,44 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
         </ul>
       </Section>
 
+      <Section background="crepi" texture="crepi">
+        <AnimateIn>
+          <SectionHeading
+            subtitle="Zones desservies"
+            index="03"
+            title={`${service.title} près de chez vous`}
+            intro="Nous intervenons dans toute la Suisse romande. Choisissez votre région pour le détail des communes."
+          />
+        </AnimateIn>
+        <div className="flex flex-wrap gap-3">
+          {zones.map((zone) => (
+            <Link
+              key={zone.slug}
+              href={`/zones/${zone.slug}`}
+              className="border border-markaj-primary/20 bg-markaj-white px-4 py-2 font-body text-body-sm font-medium text-markaj-primary transition-colors hover:border-markaj-primary/50"
+            >
+              {label} {zone.shortName}
+            </Link>
+          ))}
+        </div>
+        <p className="mt-6 max-w-prose font-body text-body-sm text-markaj-primary/80">
+          Couverture :{" "}
+          {zones.map((z) => z.villes[0]).join(", ")}
+          {" — "}
+          <Link href="/zones" className="underline-offset-4 hover:underline">
+            toutes les zones d&apos;intervention
+          </Link>
+          .
+        </p>
+      </Section>
+
       {glossary.length > 0 && (
-        <Section background="crepi" texture="crepi">
+        <Section background="surface" texture="paint">
           <AnimateIn>
             <SectionHeading
               subtitle="Glossaire"
-              index="03"
-              title={`Quels termes techniques liés à la ${service.title.toLowerCase()} ?`}
+              index="04"
+              title={`Quels termes techniques liés à la ${label} ?`}
             />
           </AnimateIn>
           <dl className="grid max-w-2xl gap-6">
@@ -124,7 +158,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
               <AnimateIn key={term.name} delay={index * 50}>
                 <div>
                   <dt className="font-heading text-heading-4 text-markaj-primary">{term.name}</dt>
-                  <dd className="mt-2 font-body text-body text-markaj-mineral-dark">{term.description}</dd>
+                  <dd className="mt-2 font-body text-body text-markaj-primary/90">{term.description}</dd>
                 </div>
               </AnimateIn>
             ))}
@@ -133,15 +167,15 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
       )}
 
       <FaqSection
-        title={`Questions fréquentes sur la ${service.title.toLowerCase()}`}
-        index={hasGlossary ? "04" : "03"}
+        title={`Questions fréquentes sur la ${label}`}
+        index={hasGlossary ? "05" : "04"}
         items={service.faq}
       />
 
       <Section background="white">
         <SectionHeading
           subtitle="Liens utiles"
-          index={hasGlossary ? "05" : "04"}
+          index={hasGlossary ? "06" : "05"}
           title="Découvrir aussi"
         />
         <div className="flex flex-wrap gap-4 font-body text-body">
@@ -159,8 +193,8 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
       </Section>
 
       <CtaBanner
-        title={`Un projet de ${service.title.toLowerCase()} ?`}
-        description="Décrivez votre chantier : devis gratuit, réponse sous 5 jours ouvrés, intervention en Suisse romande."
+        title={`Un projet de ${label} ?`}
+        description="Décrivez votre chantier : devis gratuit, réponse sous 5 jours ouvrés, intervention à Fribourg, Lausanne, Genève et en Suisse romande."
       />
     </>
   );

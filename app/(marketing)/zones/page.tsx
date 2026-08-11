@@ -12,7 +12,7 @@ import Link from "next/link";
 export const metadata = createPageMetadata({
   title: "Zones d'intervention en Suisse romande",
   description:
-    "Zones d'intervention de Markaj Renting SA en Suisse romande. Fribourg, Vaud, Genève, Neuchâtel, Valais, Jura et Berne francophone.",
+    "Zones d'intervention de Markaj Renting SA : Fribourg, Lausanne, Genève, Neuchâtel, Valais, Jura et Jura bernois. Plâtrerie, peinture, isolation.",
   path: "/zones",
 });
 
@@ -36,7 +36,7 @@ export default function ZonesPage() {
 
       <Section background="white">
         <div className="max-w-prose">
-          <p className="font-body text-body-lg text-markaj-mineral-dark">
+          <p className="font-body text-body-lg text-markaj-primary/90">
             Markaj Renting SA couvre l&apos;ensemble de la Suisse romande. Nos équipes se déplacent
             dans les sept cantons francophones pour des projets de plâtrerie, peinture, isolation,
             faux-plafonds et rénovation, quels que soient la taille et le type de chantier.
@@ -48,11 +48,15 @@ export default function ZonesPage() {
         <SectionHeading subtitle="Cantons couverts" index="01" title="Où intervenons-nous ?" />
         <div className="grid gap-8 md:grid-cols-2">
           {zones.map((zone) => (
-            <article key={zone.slug} id={zone.slug} className="panel-chantier">
+            <article key={zone.slug} className="panel-chantier">
               <p className="marque-cote">{zone.canton}</p>
-              <h2 className="mt-1 font-heading text-heading-3 text-markaj-primary">{zone.name}</h2>
-              <p className="mt-3 font-body text-body text-markaj-mineral-dark">{zone.description}</p>
-              <p className="mt-4 font-mono text-caption font-semibold uppercase tracking-[0.12em] text-markaj-mineral-dark">
+              <h2 className="mt-1 font-heading text-heading-3 text-markaj-primary">
+                <Link href={`/zones/${zone.slug}`} className="hover:text-markaj-primary-light">
+                  {zone.name}
+                </Link>
+              </h2>
+              <p className="mt-3 font-body text-body text-markaj-primary/90">{zone.description}</p>
+              <p className="mt-4 font-body text-body-sm tracking-wide text-markaj-primary/80">
                 {zone.villes.join(" · ")}
               </p>
               <h3 className="mt-4 font-body text-body-sm font-semibold text-markaj-primary">
@@ -60,11 +64,19 @@ export default function ZonesPage() {
               </h3>
               <ul className="mt-2 space-y-1">
                 {zone.chantiers.map((c) => (
-                  <li key={c} className="font-body text-body-sm text-markaj-mineral">
+                  <li key={c} className="font-body text-body-sm text-markaj-primary/80">
                     — {c}
                   </li>
                 ))}
               </ul>
+              <p className="mt-5">
+                <Link
+                  href={`/zones/${zone.slug}`}
+                  className="font-body text-body-sm font-medium text-markaj-primary underline-offset-4 hover:underline"
+                >
+                  Voir la page {zone.shortName} →
+                </Link>
+              </p>
             </article>
           ))}
         </div>

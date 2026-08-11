@@ -4,7 +4,7 @@ export const generalFaq: FaqItem[] = [
   {
     question: "Comment obtenir un devis ?",
     answer:
-      "Contactez-nous par téléphone au 079 430 18 13, par e-mail à info@markajrenting.com ou via le formulaire de contact. Nous planifions une visite sur site pour établir un devis détaillé et gratuit.",
+      "Contactez-nous par téléphone au 079 430 18 13, par e-mail à info@markajrenting.ch ou via le formulaire de contact. Nous planifions une visite sur site pour établir un devis détaillé et gratuit.",
   },
   {
     question: "Quels sont vos délais d'intervention ?",

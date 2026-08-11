@@ -35,4 +35,4 @@ npm start
 ## Contact entreprise
 
 Markaj Renting SA — Route de Schiffenen 40, 1700 Fribourg  
-info@markajrenting.com — 079 430 18 13
+info@markajrenting.ch — 079 430 18 13

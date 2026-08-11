@@ -20,7 +20,7 @@ export function ZonesTeaser() {
         {zones.map((zone, index) => (
           <AnimateIn key={zone.slug} delay={index * 50}>
             <Link
-              href={`/zones#${zone.slug}`}
+              href={`/zones/${zone.slug}`}
               className="group flex h-full min-h-24 flex-col justify-center border border-markaj-primary/15 bg-markaj-white p-5 transition-all duration-200 ease-out hover:-translate-x-0.5 hover:-translate-y-0.5 hover:border-markaj-primary/40 hover:shadow-card-hover"
             >
               <p className="marque-cote">{zone.canton}</p>

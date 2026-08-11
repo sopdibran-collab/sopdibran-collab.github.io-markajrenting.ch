@@ -25,7 +25,7 @@ const config: Config = {
       },
       fontFamily: {
         heading: ["var(--font-playfair)", "Georgia", "serif"],
-        body: ["var(--font-inter)", "system-ui", "sans-serif"],
+        body: ["var(--font-source-sans)", "ui-sans-serif", "sans-serif"],
       },
       fontSize: {
         "display-lg": ["3.5rem", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
@@ -34,10 +34,10 @@ const config: Config = {
         "heading-2": ["2rem", { lineHeight: "1.25", letterSpacing: "-0.01em" }],
         "heading-3": ["1.5rem", { lineHeight: "1.3" }],
         "heading-4": ["1.25rem", { lineHeight: "1.4" }],
-        "body-lg": ["1.125rem", { lineHeight: "1.7" }],
-        "body": ["1rem", { lineHeight: "1.7" }],
-        "body-sm": ["0.875rem", { lineHeight: "1.6" }],
-        "caption": ["0.75rem", { lineHeight: "1.5", letterSpacing: "0.02em" }],
+        "body-lg": ["1.25rem", { lineHeight: "1.7" }],
+        "body": ["1.125rem", { lineHeight: "1.7" }],
+        "body-sm": ["1rem", { lineHeight: "1.65" }],
+        "caption": ["0.875rem", { lineHeight: "1.5", letterSpacing: "0.02em" }],
       },
       spacing: {
         "18": "4.5rem",

@@ -80,7 +80,7 @@ export default function DesignSystemPage() {
           <SectionHeading
             subtitle="Typographie"
             title="Hiérarchie des textes"
-            intro="Playfair Display pour les titres (élégance, tradition), Inter pour le corps (lisibilité maximale)."
+            intro="Playfair Display pour les titres (élégance, tradition), Source Sans 3 pour le corps (lisibilité)."
           />
           <div className="space-y-8 border-l-2 border-markaj-crepi pl-8">
             <div>
