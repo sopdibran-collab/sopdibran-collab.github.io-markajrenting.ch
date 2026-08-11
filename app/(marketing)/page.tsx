@@ -33,7 +33,7 @@ export default function HomePage() {
         secondaryCta={{ label: `Appeler ${siteConfig.contact.phoneDisplay}`, href: phoneHref }}
         image={{
           src: "/realisations/plateau-tertiaire-livraison.webp",
-          alt: "Plateau de bureaux livré par Markaj Renting SA — plâtrerie et peinture",
+          alt: "Rénovation de plateau de bureaux à l'OMS Genève — plafonds peints et plâtrerie Markaj Renting SA",
         }}
       />
       <ProofStrip />
