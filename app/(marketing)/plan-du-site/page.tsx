@@ -24,6 +24,7 @@ const mainPages = [
   { label: "Zones d'intervention", href: "/zones" },
   { label: "Réalisations", href: "/realisations" },
   { label: "À propos", href: "/a-propos" },
+  { label: "Professionnels", href: "/professionnels" },
   { label: "Qualité & normes", href: "/qualite-normes" },
   { label: "FAQ", href: "/faq" },
   { label: "Blog", href: "/blog" },
