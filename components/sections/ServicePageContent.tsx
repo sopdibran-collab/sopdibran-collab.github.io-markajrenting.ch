@@ -17,7 +17,6 @@ interface ServicePageContentProps {
 
 export function ServicePageContent({ service }: ServicePageContentProps) {
   const glossary = getGlossaryForService(service.slug);
-  const hasGlossary = glossary.length > 0;
   const label = service.title.toLowerCase();
 
   return (
