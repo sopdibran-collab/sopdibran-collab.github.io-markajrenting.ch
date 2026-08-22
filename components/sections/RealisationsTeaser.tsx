@@ -18,7 +18,6 @@ export function RealisationsTeaser({ limit = 4 }: RealisationsTeaserProps) {
       <AnimateIn>
         <SectionHeading
           subtitle="Réalisations"
-          index="03"
           title="Des chantiers concrets en Suisse romande"
           intro="De l'ossature métallique à la livraison : plateaux de bureaux, circulations tertiaires, rénovation d'immeuble et finitions haut de gamme."
         />

@@ -47,7 +47,6 @@ export default function ServicesPage() {
       <Section background="surface" texture="paint">
         <SectionHeading
           subtitle="Expertises"
-          index="01"
           title="Six domaines d'intervention"
           intro="Choisissez un service pour le détail technique, ou demandez directement un devis ciblé."
         />

@@ -4,7 +4,6 @@ import { ExpertisesGrid } from "@/components/sections/ExpertisesGrid";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { Hero } from "@/components/sections/Hero";
 import { MethodSteps } from "@/components/sections/MethodSteps";
-import { ProofStrip } from "@/components/sections/ProofStrip";
 import { RealisationsTeaser } from "@/components/sections/RealisationsTeaser";
 import { WhyMarkaj } from "@/components/sections/WhyMarkaj";
 import { ZonesTeaser } from "@/components/sections/ZonesTeaser";
@@ -27,16 +26,19 @@ export default function HomePage() {
   return (
     <>
       <Hero
-        title="Plâtrerie, peinture et finitions de bâtiment en Suisse romande"
-        subtitle="Entreprise familiale basée à Fribourg, Markaj Renting SA réalise vos travaux de plâtrerie, peinture, faux-plafonds, isolation, rénovation et façades — en neuf comme en rénovation. Plus de 20 ans d'expérience, 20 collaborateurs, finitions conformes aux normes suisses."
+        eyebrow="Fribourg · Suisse romande"
+        title="Plâtrerie, peinture et finitions de bâtiment"
+        subtitle="Entreprise familiale à Fribourg. Travaux soignés en neuf et rénovation — devis gratuit sous 5 jours."
         primaryCta={{ label: "Demander un devis", href: "/contact" }}
-        secondaryCta={{ label: `Appeler ${siteConfig.contact.phoneDisplay}`, href: phoneHref }}
+        secondaryCta={{
+          label: `Appeler ${siteConfig.contact.phoneDisplay}`,
+          href: phoneHref,
+        }}
         image={{
           src: "/realisations/plateau-tertiaire-livraison.webp",
           alt: "Rénovation de plateau de bureaux à l'OMS Genève — plafonds peints et plâtrerie Markaj Renting SA",
         }}
       />
-      <ProofStrip />
       <ExpertisesGrid />
       <MethodSteps />
       <RealisationsTeaser />
@@ -45,7 +47,6 @@ export default function HomePage() {
       <ZonesTeaser />
       <FaqSection
         title="Questions fréquentes"
-        index="07"
         intro="Devis, délais, zones et garanties : les réponses essentielles avant de nous contacter."
         items={homeFaq}
         background="white"

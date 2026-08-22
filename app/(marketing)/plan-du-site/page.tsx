@@ -80,7 +80,7 @@ export default function PlanDuSitePage() {
       <Section background="white">
         <div className="grid gap-12 md:grid-cols-2">
           <div>
-            <SectionHeading subtitle="Pages" index="01" title="Navigation principale" />
+            <SectionHeading subtitle="Pages" title="Navigation principale" />
             <ul className="mt-4 space-y-2">
               {mainPages.map((page) => (
                 <li key={page.href}>
@@ -96,7 +96,7 @@ export default function PlanDuSitePage() {
           </div>
 
           <div>
-            <SectionHeading subtitle="Services" index="02" title="Prestations" />
+            <SectionHeading subtitle="Services" title="Prestations" />
             <ul className="mt-4 space-y-2">
               {services.map((service) => (
                 <li key={service.slug}>
@@ -112,7 +112,7 @@ export default function PlanDuSitePage() {
           </div>
 
           <div>
-            <SectionHeading subtitle="Zones" index="03" title="Zones d'intervention" />
+            <SectionHeading subtitle="Zones" title="Zones d'intervention" />
             <ul className="mt-4 space-y-2">
               {zones.map((zone) => (
                 <li key={zone.slug}>
@@ -128,7 +128,7 @@ export default function PlanDuSitePage() {
           </div>
 
           <div>
-            <SectionHeading subtitle="Blog" index="04" title="Articles" />
+            <SectionHeading subtitle="Blog" title="Articles" />
             <ul className="mt-4 space-y-2">
               {blogPosts.map((post) => (
                 <li key={post.slug}>

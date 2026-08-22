@@ -137,12 +137,25 @@
     background-size: 24px 24px;
   }
 
-  /* 1 — Bouton « Bloc » : matière posée, ombre franche décalée (pas de flou) */
+  /* 1 — Bouton « Bloc » : matière posée, ombre franche décalée (pas de flou)
+     Hauteur / padding gérés par size sm|md|lg sur <Button /> */
   .btn-bloc {
-    @apply relative inline-flex max-w-full min-h-12 shrink-0 items-center justify-center gap-3 border-2 border-markaj-primary bg-markaj-primary px-7 font-mono text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-markaj-white transition-all duration-150 ease-out;
+    @apply relative inline-flex max-w-full shrink-0 items-center justify-center gap-2 border-2 border-markaj-primary bg-markaj-primary font-mono text-[0.8125rem] font-semibold uppercase tracking-[0.12em] text-markaj-white transition-all duration-150 ease-out;
     box-shadow: 5px 5px 0 0 theme("colors.markaj.crepi");
-    /* letter-spacing adds space after the last glyph — avoid clipping when width is tight */
-    padding-inline-end: calc(1.75rem + 0.14em);
+    padding-inline-end: calc(var(--btn-pad-x, 1.75rem) + 0.12em);
+  }
+
+  /* Ombre plus légère sur les CTA compacts (header) */
+  .btn-bloc.min-h-10 {
+    box-shadow: 3px 3px 0 0 theme("colors.markaj.crepi");
+  }
+
+  .btn-bloc.min-h-10:hover {
+    box-shadow: 1px 1px 0 0 theme("colors.markaj.crepi");
+  }
+
+  .btn-bloc.min-h-10:active {
+    box-shadow: 0 0 0 0 theme("colors.markaj.crepi");
   }
 
   .btn-bloc:hover {
@@ -175,9 +188,9 @@
 
   /* 2 — Bouton « Cote » : repères de cotation qui referment le cadre au survol */
   .btn-cote {
-    @apply relative inline-flex max-w-full min-h-12 shrink-0 items-center justify-center bg-markaj-crepi-light px-7 font-mono text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-markaj-primary transition-colors duration-200;
+    @apply relative inline-flex max-w-full shrink-0 items-center justify-center bg-markaj-crepi-light font-mono text-[0.8125rem] font-semibold uppercase tracking-[0.12em] text-markaj-primary transition-colors duration-200;
     border: 1px solid rgb(10 43 94 / 0.55);
-    padding-inline-end: calc(1.75rem + 0.14em);
+    padding-inline-end: calc(var(--btn-pad-x, 1.75rem) + 0.12em);
   }
 
   .btn-cote::before,
@@ -307,23 +320,23 @@
     right: 8px;
   }
 
-  /* Étiquette de cotation : remplace l'eyebrow uppercase générique */
+  /* Étiquette de section — sans numérotation 01/02 (anti template IA) */
   .marque-cote {
-    @apply inline-flex max-w-full flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-caption font-semibold uppercase tracking-[0.18em] text-markaj-mineral-dark;
+    @apply inline-flex max-w-full flex-wrap items-baseline gap-x-2.5 gap-y-1 font-mono text-caption font-semibold uppercase tracking-[0.18em] text-markaj-mineral-dark;
   }
 
   .marque-cote::before {
-    content: attr(data-index) " /";
-    @apply text-markaj-crepi-dark;
+    content: "";
+    @apply h-2 w-2 shrink-0 border border-markaj-primary bg-markaj-crepi;
   }
 
-  /* Variante claire pour sections bleu nuit */
+  /* Variante claire pour sections bleu nuit / hero photo */
   .marque-cote--light {
     @apply text-markaj-white/80;
   }
 
   .marque-cote--light::before {
-    @apply text-markaj-crepi;
+    @apply border-markaj-crepi bg-markaj-crepi;
   }
 
   /*

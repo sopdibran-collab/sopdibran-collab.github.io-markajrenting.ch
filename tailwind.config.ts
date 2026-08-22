@@ -68,11 +68,16 @@ const config: Config = {
           "0%": { opacity: "0", transform: "translateY(-0.5rem)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        "hero-in": {
+          "0%": { opacity: "0", transform: "translateY(0.75rem)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
       },
       /* Mouvements nets et décidés — pas de fondus mous */
       animation: {
         "fade-in-up": "fade-in-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both",
         "menu-in": "menu-in 0.18s cubic-bezier(0.22, 1, 0.36, 1) both",
+        "hero-in": "hero-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both",
       },
       backgroundImage: {
         "texture-noise": "url('/textures/markaj-noise-soft-01.webp')",

@@ -45,7 +45,7 @@ export default function ZonesPage() {
       </Section>
 
       <Section background="surface" texture="paint">
-        <SectionHeading subtitle="Cantons couverts" index="01" title="Où intervenons-nous ?" />
+        <SectionHeading subtitle="Cantons couverts" title="Où intervenons-nous ?" />
         <div className="grid gap-8 md:grid-cols-2">
           {zones.map((zone) => (
             <article key={zone.slug} className="panel-chantier">
@@ -85,7 +85,6 @@ export default function ZonesPage() {
       <Section background="white">
         <SectionHeading
           subtitle="Services"
-          index="02"
           title="Quels services sont disponibles dans votre zone ?"
           intro="Quelle que soit votre localisation dans notre périmètre, l'ensemble de nos expertises est disponible."
         />

@@ -62,7 +62,7 @@ export default function AboutPage() {
       </Section>
 
       <Section background="crepi" texture="crepi">
-        <SectionHeading subtitle="Histoire" index="01" title="Plus de 20 ans d'expérience" />
+        <SectionHeading subtitle="Histoire" title="Plus de 20 ans d'expérience" />
         <div className="space-y-8">
           {timeline.map((item) => (
             <div key={item.year} className="flex gap-6 border-l-2 border-markaj-primary/30 pl-8">
@@ -76,7 +76,6 @@ export default function AboutPage() {
       <Section background="white">
         <SectionHeading
           subtitle="Équipe"
-          index="02"
           title="20 collaborateurs qualifiés"
           intro="Plâtriers, peintres, chefs d'équipe et apprentis : une équipe complète pour mener vos chantiers de A à Z."
         />
@@ -104,7 +103,7 @@ export default function AboutPage() {
       </Section>
 
       <Section background="surface">
-        <SectionHeading subtitle="Valeurs" index="03" title="Ce qui nous guide au quotidien" />
+        <SectionHeading subtitle="Valeurs" title="Ce qui nous guide au quotidien" />
         <div className="grid gap-8 md:grid-cols-2">
           {values.map((value) => (
             <div key={value.title}>

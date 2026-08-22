@@ -10,6 +10,7 @@ import { services } from "@/lib/content/services";
 import { getZoneBySlug, zoneSlugs, zones } from "@/lib/content/zones";
 import { buildZonePageSchemas } from "@/lib/seo/json-ld";
 import { createPageMetadata } from "@/lib/seo/metadata";
+import { siteConfig } from "@/lib/seo/site-config";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -53,7 +54,10 @@ export default function ZoneDetailPage({ params }: PageProps) {
         title={`Plâtrerie, peinture et rénovation — ${zone.name}`}
         subtitle={zone.intro}
         primaryCta={{ label: "Demander un devis", href: "/contact" }}
-        secondaryCta={{ label: "079 430 18 13", href: "tel:+41794301813" }}
+        secondaryCta={{
+          label: `Appeler ${siteConfig.contact.phoneDisplay}`,
+          href: `tel:${siteConfig.contact.phone.replace(/\s/g, "")}`,
+        }}
       />
 
       <Section background="white">
@@ -70,7 +74,6 @@ export default function ZoneDetailPage({ params }: PageProps) {
         <AnimateIn>
           <SectionHeading
             subtitle="Communes"
-            index="01"
             title={`Communes desservies — ${zone.shortName}`}
             intro="Liste non exhaustive : nous intervenons aussi dans les communes environnantes sur devis."
           />
@@ -84,7 +87,6 @@ export default function ZoneDetailPage({ params }: PageProps) {
         <AnimateIn>
           <SectionHeading
             subtitle="Chantiers"
-            index="02"
             title="Types de chantiers dans cette zone"
           />
         </AnimateIn>
@@ -102,7 +104,6 @@ export default function ZoneDetailPage({ params }: PageProps) {
         <AnimateIn>
           <SectionHeading
             subtitle="Services"
-            index="03"
             title={`Prestations disponibles à ${zone.shortName}`}
             intro="L'ensemble de nos expertises est disponible dans cette zone."
           />
@@ -122,7 +123,6 @@ export default function ZoneDetailPage({ params }: PageProps) {
 
       <FaqSection
         title={`Questions fréquentes — ${zone.shortName}`}
-        index="04"
         items={zone.faqLocal}
         background="surface"
       />
@@ -130,7 +130,6 @@ export default function ZoneDetailPage({ params }: PageProps) {
       <Section background="white">
         <SectionHeading
           subtitle="Autres zones"
-          index="05"
           title="Aussi actifs ailleurs en Suisse romande"
         />
         <div className="flex flex-wrap gap-3">
