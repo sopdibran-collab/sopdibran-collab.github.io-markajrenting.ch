@@ -8,7 +8,8 @@ import { cn } from "@/lib/utils";
 
 interface RealisationCardProps {
   project: Realisation;
-  index: number;
+  /** Délai d’apparition (stagger) — optionnel */
+  index?: number;
   /** Carte pleine largeur (mise en avant) sur desktop */
   featured?: boolean;
 }
@@ -18,7 +19,7 @@ const statusLabels = {
   "en-cours": "En cours",
 } as const;
 
-export function RealisationCard({ project, index, featured = false }: RealisationCardProps) {
+export function RealisationCard({ project, index = 0, featured = false }: RealisationCardProps) {
   /** Sur carte standard : 2 photos max (avant/après). Featured : jusqu'à 3 pour raconter le chantier. */
   const images = featured ? project.images.slice(0, 3) : project.images.slice(0, 2);
   const imageCount = images.length;

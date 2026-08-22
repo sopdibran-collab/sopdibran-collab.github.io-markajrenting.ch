@@ -24,16 +24,17 @@ const darkToneStyles: Record<ButtonVariant, string> = {
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
-  sm: "min-h-10 px-5",
-  md: "min-h-12 px-7",
-  lg: "min-h-[3.25rem] px-9",
+  /* Header / chrome : compact mais lisible — pas en dessous de ~12px */
+  sm: "min-h-10 px-4 text-[0.75rem] tracking-[0.11em] [--btn-pad-x:1rem]",
+  md: "min-h-11 px-6 text-[0.8125rem] [--btn-pad-x:1.5rem]",
+  lg: "min-h-12 px-8 text-[0.8125rem] [--btn-pad-x:2rem]",
 };
 
 /* Le bouton « niveau » est un lien souligné : pas de padding horizontal */
 const ghostSizeStyles: Record<ButtonSize, string> = {
-  sm: "min-h-10",
-  md: "min-h-11",
-  lg: "min-h-12",
+  sm: "min-h-10 text-[0.75rem]",
+  md: "min-h-11 text-[0.8125rem]",
+  lg: "min-h-12 text-[0.8125rem]",
 };
 
 type BaseProps = {
@@ -71,6 +72,20 @@ export function Button({
 
   if ("href" in props && props.href) {
     const { href, ...linkProps } = props;
+    const isProtocolLink =
+      href.startsWith("tel:") ||
+      href.startsWith("mailto:") ||
+      href.startsWith("http://") ||
+      href.startsWith("https://");
+
+    if (isProtocolLink) {
+      return (
+        <a href={href} className={classes} {...linkProps}>
+          {children}
+        </a>
+      );
+    }
+
     return (
       <Link href={href} className={classes} {...linkProps}>
         {children}

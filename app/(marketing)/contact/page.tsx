@@ -8,6 +8,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { serviceSlugs } from "@/lib/content/services";
 import { buildBreadcrumbSchema } from "@/lib/seo/json-ld";
 import { createPageMetadata } from "@/lib/seo/metadata";
+import { siteConfig } from "@/lib/seo/site-config";
 
 export const metadata = createPageMetadata({
   title: "Contact et demande de devis",
@@ -36,7 +37,10 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
       <Hero
         title="Demande de devis"
         subtitle="Décrivez votre projet de plâtrerie, peinture, isolation ou rénovation. Devis gratuit, sans engagement — nous vous recontactons sous 5 jours ouvrés."
-        primaryCta={{ label: "079 430 18 13", href: "tel:+41794301813" }}
+        primaryCta={{
+          label: `Appeler ${siteConfig.contact.phoneDisplay}`,
+          href: `tel:${siteConfig.contact.phone.replace(/\s/g, "")}`,
+        }}
       />
 
       <Section background="white">
@@ -44,7 +48,6 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
           <div>
             <SectionHeading
               subtitle="Formulaire"
-              index="01"
               title="Parlez-nous de votre chantier"
               intro="Indiquez le type de travaux et la localisation : nous préparons une réponse concrète et, si besoin, une visite sur site."
             />
@@ -52,7 +55,7 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
           </div>
 
           <div>
-            <SectionHeading subtitle="Coordonnées" index="02" title="Nous joindre" />
+            <SectionHeading subtitle="Coordonnées" title="Nous joindre" />
             <TrustPanel />
           </div>
         </div>

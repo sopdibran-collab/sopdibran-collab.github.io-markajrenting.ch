@@ -27,7 +27,6 @@ export function AudienceStrip() {
       <AnimateIn>
         <SectionHeading
           subtitle="Pour qui"
-          index="05"
           title="Un interlocuteur pour chaque type de projet"
           intro="Nous adaptons notre organisation aux exigences des particuliers, des professionnels de l'immobilier et des maîtres d'œuvre."
         />

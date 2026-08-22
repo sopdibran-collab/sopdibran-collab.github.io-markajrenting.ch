@@ -69,7 +69,7 @@ export default function QualiteNormesPage() {
       </Section>
 
       <Section background="surface" texture="paint">
-        <SectionHeading subtitle="Normes" index="01" title="Quelles normes suivons-nous ?" />
+        <SectionHeading subtitle="Normes" title="Quelles normes suivons-nous ?" />
         <div className="grid gap-8 md:grid-cols-2">
           {normes.map((norme) => (
             <div key={norme.title} className="border-l-2 border-markaj-primary/20 pl-6">
@@ -83,7 +83,6 @@ export default function QualiteNormesPage() {
       <Section background="white">
         <SectionHeading
           subtitle="Gestion de chantier"
-          index="02"
           title="Comment assurons-nous la conformité ?"
         />
         <ul className="max-w-prose space-y-4">
@@ -109,7 +108,6 @@ export default function QualiteNormesPage() {
       <Section background="surface">
         <SectionHeading
           subtitle="Guides"
-          index="03"
           title="Pour aller plus loin"
           intro="Articles techniques pour clarifier les choix de matériaux et d’acoustique avec vos maîtres d’ouvrage."
         />

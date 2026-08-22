@@ -17,20 +17,22 @@ const variantMeta: Record<
   LogoVariant,
   { className: string; width: number; height: number }
 > = {
+  /* Header : marque lisible, un cran au-dessus du footer (hiérarchie chrome) */
   full: {
-    className: "h-auto w-36 max-w-full sm:w-44 md:w-52 lg:w-60",
-    width: 240,
-    height: 92,
+    className: "h-auto w-40 max-w-full sm:w-44",
+    width: 176,
+    height: 67,
   },
+  /* Footer : validé — ne pas réduire */
   white: {
-    className: "h-auto w-40 max-w-full sm:w-48 md:w-56 lg:w-60",
-    width: 240,
-    height: 92,
+    className: "h-9 w-auto max-w-[11rem] sm:h-10 sm:max-w-[13rem]",
+    width: 176,
+    height: 67,
   },
   monogram: {
-    className: "h-10 w-auto max-w-full sm:h-11 md:h-12",
-    width: 48,
-    height: 48,
+    className: "h-9 w-auto max-w-full sm:h-10",
+    width: 40,
+    height: 40,
   },
   vertical: {
     className: "h-16 w-auto max-w-full sm:h-20 md:h-24",
@@ -68,7 +70,7 @@ export function Logo({ variant = "full", className, href = "/" }: LogoProps) {
   return (
     <Link
       href={href}
-      className="inline-flex min-w-0 max-w-[min(100%,11rem)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-markaj-primary focus-visible:ring-offset-2 sm:max-w-[13rem] md:max-w-[15rem] lg:max-w-none"
+      className="inline-flex min-w-0 max-w-[min(100%,11rem)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-markaj-primary focus-visible:ring-offset-2 sm:max-w-[13rem]"
     >
       <span className="sr-only">Markaj Renting SA — Accueil</span>
       {image}

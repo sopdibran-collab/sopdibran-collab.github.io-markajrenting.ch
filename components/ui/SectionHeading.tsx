@@ -3,8 +3,6 @@ import { cn } from "@/lib/utils";
 interface SectionHeadingProps {
   title: string;
   subtitle?: string;
-  /** Numéro de cotation affiché avant le sous-titre, ex. "01" */
-  index?: string;
   intro?: string;
   align?: "left" | "center";
   light?: boolean;
@@ -14,7 +12,6 @@ interface SectionHeadingProps {
 export function SectionHeading({
   title,
   subtitle,
-  index,
   intro,
   align = "left",
   light = false,
@@ -29,10 +26,7 @@ export function SectionHeading({
       )}
     >
       {subtitle && (
-        <p
-          className={cn("marque-cote mb-3", light && "marque-cote--light")}
-          data-index={index}
-        >
+        <p className={cn("marque-cote mb-3", light && "marque-cote--light")}>
           {subtitle}
         </p>
       )}

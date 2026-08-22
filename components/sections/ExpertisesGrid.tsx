@@ -13,7 +13,6 @@ export function ExpertisesGrid() {
       <AnimateIn>
         <SectionHeading
           subtitle="Nos expertises"
-          index="01"
           title="Plâtrerie, peinture et finition de bâtiment"
           intro="Six domaines d'intervention pour le neuf et la rénovation, avec un seul interlocuteur qualifié."
         />

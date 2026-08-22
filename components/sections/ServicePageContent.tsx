@@ -8,6 +8,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import type { Service } from "@/lib/content/services";
 import { zones } from "@/lib/content/zones";
 import { getGlossaryForService } from "@/lib/seo/glossary";
+import { siteConfig } from "@/lib/seo/site-config";
 import Link from "next/link";
 
 interface ServicePageContentProps {
@@ -37,7 +38,10 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
           label: `Devis ${service.shortTitle.toLowerCase()}`,
           href: `/contact?service=${service.slug}`,
         }}
-        secondaryCta={{ label: "079 430 18 13", href: "tel:+41794301813" }}
+        secondaryCta={{
+          label: `Appeler ${siteConfig.contact.phoneDisplay}`,
+          href: `tel:${siteConfig.contact.phone.replace(/\s/g, "")}`,
+        }}
       />
 
       <Section background="crepi" texture="crepi" className="py-8 sm:py-10 md:py-12">
@@ -74,7 +78,6 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
         <AnimateIn>
           <SectionHeading
             subtitle="Processus"
-            index="01"
             title="Comment se déroule un chantier ?"
           />
         </AnimateIn>
@@ -97,7 +100,6 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
         <AnimateIn>
           <SectionHeading
             subtitle="Matériaux & normes"
-            index="02"
             title="Quels matériaux et normes appliquons-nous ?"
           />
         </AnimateIn>
@@ -117,7 +119,6 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
         <AnimateIn>
           <SectionHeading
             subtitle="Zones desservies"
-            index="03"
             title={`${service.title} près de chez vous`}
             intro="Nous intervenons dans toute la Suisse romande. Choisissez votre région pour le détail des communes."
           />
@@ -149,7 +150,6 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
           <AnimateIn>
             <SectionHeading
               subtitle="Glossaire"
-              index="04"
               title={`Quels termes techniques liés à la ${label} ?`}
             />
           </AnimateIn>
@@ -168,14 +168,12 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
 
       <FaqSection
         title={`Questions fréquentes sur la ${label}`}
-        index={hasGlossary ? "05" : "04"}
         items={service.faq}
       />
 
       <Section background="white">
         <SectionHeading
           subtitle="Liens utiles"
-          index={hasGlossary ? "06" : "05"}
           title="Découvrir aussi"
         />
         <div className="flex flex-wrap gap-4 font-body text-body">

@@ -327,9 +327,9 @@ export default function DesignSystemPage() {
               Étiquette de cotation (remplace l&apos;eyebrow générique)
             </p>
             <div className="flex flex-col gap-3">
-              <span className="marque-cote" data-index="01">Expertises</span>
-              <span className="marque-cote" data-index="02">Zones d&apos;intervention</span>
-              <span className="marque-cote" data-index="03">Réalisations</span>
+              <span className="marque-cote">Expertises</span>
+              <span className="marque-cote">Zones d&apos;intervention</span>
+              <span className="marque-cote">Réalisations</span>
             </div>
           </div>
 
@@ -388,7 +388,7 @@ export default function DesignSystemPage() {
             </p>
             <div className="grid gap-6 md:grid-cols-3">
               <div className="panel-chantier">
-                <span className="marque-cote" data-index="01">Plâtrerie</span>
+                <span className="marque-cote">Plâtrerie</span>
                 <p className="mt-4 font-heading text-heading-3 text-markaj-primary">
                   Cloisons &amp; doublages
                 </p>
@@ -397,7 +397,7 @@ export default function DesignSystemPage() {
                 </p>
               </div>
               <div className="panel-chantier">
-                <span className="marque-cote" data-index="02">Peinture</span>
+                <span className="marque-cote">Peinture</span>
                 <p className="mt-4 font-heading text-heading-3 text-markaj-primary">
                   Intérieure &amp; extérieure
                 </p>
@@ -406,7 +406,7 @@ export default function DesignSystemPage() {
                 </p>
               </div>
               <div className="panel-chantier">
-                <span className="marque-cote" data-index="03">Expérience</span>
+                <span className="marque-cote">Expérience</span>
                 <p className="mt-4 font-heading text-heading-3 text-markaj-primary">
                   20 ans de chantiers
                 </p>

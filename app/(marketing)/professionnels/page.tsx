@@ -91,7 +91,6 @@ export default function ProfessionnelsPage() {
       <Section background="surface" texture="paint">
         <SectionHeading
           subtitle="Interlocuteurs"
-          index="01"
           title="Pour qui travaillons-nous ?"
         />
         <div className="grid gap-8 md:grid-cols-2">
@@ -109,7 +108,6 @@ export default function ProfessionnelsPage() {
       <Section background="white">
         <SectionHeading
           subtitle="Capacité"
-          index="02"
           title="Ce que nous engageons sur un dossier"
         />
         <div className="grid gap-8 md:grid-cols-2">
@@ -144,7 +142,7 @@ export default function ProfessionnelsPage() {
       </Section>
 
       <Section background="crepi" texture="crepi">
-        <SectionHeading subtitle="Processus" index="03" title="Déroulement type" />
+        <SectionHeading subtitle="Processus" title="Déroulement type" />
         <ol className="max-w-prose space-y-4">
           {process.map((step, index) => (
             <li

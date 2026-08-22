@@ -40,7 +40,6 @@ export default function RealisationsPage() {
         <AnimateIn>
           <SectionHeading
             subtitle="Portfolio"
-            index="01"
             title="Des chantiers concrets, des résultats visibles"
             intro="Photos prises sur nos chantiers. Chaque fiche précise le crédit lorsque l'image provient d'une source externe."
           />
