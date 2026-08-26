@@ -1,5 +1,6 @@
 "use server";
 
+import { redirect } from "next/navigation";
 import { siteConfig } from "@/lib/seo/site-config";
 
 export type ContactFormState = {
@@ -30,7 +31,7 @@ export async function submitContactRequest(
 ): Promise<ContactFormState> {
   // Honeypot : champ invisible pour les humains, rempli par les bots.
   if (getField(formData, "entreprise_web")) {
-    return { status: "success" };
+    redirect("/merci");
   }
 
   const prenom = getField(formData, "prenom");
@@ -121,5 +122,5 @@ export async function submitContactRequest(
     console.log("[contact] Nouvelle demande de devis :", JSON.stringify(lead, null, 2));
   }
 
-  return { status: "success" };
+  redirect("/merci");
 }
