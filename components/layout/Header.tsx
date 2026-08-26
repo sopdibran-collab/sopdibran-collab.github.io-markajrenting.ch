@@ -35,8 +35,21 @@ export function Header() {
   }, [mobileOpen]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-markaj-mineral/10 bg-markaj-white/95 backdrop-blur-sm">
-      <div className="mx-auto flex max-w-content min-w-0 items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-6 lg:px-8">
+    <>
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-markaj-primary/25 lg:hidden"
+          aria-hidden
+          onClick={() => setMobileOpen(false)}
+        />
+      )}
+      <header
+        className={cn(
+          "z-50 border-b border-markaj-mineral/10 bg-markaj-white/95 backdrop-blur-sm",
+          mobileOpen ? "fixed inset-x-0 top-0 max-h-dvh overflow-y-auto" : "sticky top-0"
+        )}
+      >
+        <div className="mx-auto flex max-w-content min-w-0 items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-6 lg:px-8">
         <Logo />
 
         <nav
@@ -67,12 +80,6 @@ export function Header() {
         </div>
 
         <div className="flex min-w-0 shrink-0 items-center gap-2 lg:hidden">
-          <a
-            href={phoneHref}
-            className="inline-flex min-h-10 items-center px-1 font-body text-body-sm font-semibold text-markaj-primary"
-          >
-            Appeler
-          </a>
           <Button href="/contact" variant="primary" size="sm" className="px-3.5">
             Devis
           </Button>
@@ -150,5 +157,6 @@ export function Header() {
         </nav>
       )}
     </header>
+    </>
   );
 }

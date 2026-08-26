@@ -66,7 +66,7 @@ export function Hero({
               {subtitle}
             </p>
             {(primaryCta || secondaryCta) && (
-              <div className="mt-8 flex flex-col gap-3 sm:mt-10 md:flex-row md:flex-wrap md:gap-4">
+              <div className="mt-8 flex flex-col gap-3 sm:mt-10 md:flex-row md:flex-wrap md:items-center md:gap-4">
                 {primaryCta && (
                   <Button
                     href={primaryCta.href}
@@ -82,9 +82,8 @@ export function Hero({
                   <Button
                     href={secondaryCta.href}
                     variant="secondary"
-                    tone="dark"
-                    size="lg"
-                    className="w-full max-w-full md:w-auto"
+                    size="md"
+                    className="w-full max-w-full min-h-11 md:w-auto md:min-h-12 md:px-8"
                   >
                     {secondaryCta.label}
                   </Button>
@@ -119,7 +118,7 @@ export function Hero({
             {subtitle}
           </p>
           {(primaryCta || secondaryCta) && (
-            <div className="mt-8 flex flex-col gap-3 sm:mt-10 md:flex-row md:flex-wrap md:gap-4">
+            <div className="mt-8 flex flex-col gap-3 sm:mt-10 md:flex-row md:flex-wrap md:items-center md:gap-4">
               {primaryCta && (
                 <Button
                   href={primaryCta.href}
@@ -134,8 +133,8 @@ export function Hero({
                 <Button
                   href={secondaryCta.href}
                   variant="secondary"
-                  size="lg"
-                  className="w-full max-w-full md:w-auto"
+                  size="md"
+                  className="w-full max-w-full min-h-11 md:w-auto md:min-h-12 md:px-8"
                 >
                   {secondaryCta.label}
                 </Button>

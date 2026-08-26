@@ -35,12 +35,9 @@ export function ContactForm({ defaultService = "" }: ContactFormProps) {
           Merci, votre demande a bien été envoyée.
         </p>
         <p className="mt-3 font-body text-body text-markaj-mineral-dark">
-          Nous vous recontactons sous 5 jours ouvrés pour préciser votre besoin et
-          planifier une visite sur site si nécessaire. Pour toute urgence, appelez-nous au{" "}
-          <a href="tel:+41794301813" className="font-medium text-markaj-primary underline underline-offset-4">
-            079 430 18 13
-          </a>
-          .
+          <Link href="/merci" className="font-medium text-markaj-primary underline underline-offset-4">
+            Continuer
+          </Link>
         </p>
       </div>
     );
