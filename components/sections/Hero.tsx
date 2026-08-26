@@ -82,7 +82,6 @@ export function Hero({
                   <Button
                     href={secondaryCta.href}
                     variant="secondary"
-                    tone="dark"
                     size="md"
                     className="w-full max-w-full min-h-11 md:w-auto md:min-h-12 md:px-8"
                   >

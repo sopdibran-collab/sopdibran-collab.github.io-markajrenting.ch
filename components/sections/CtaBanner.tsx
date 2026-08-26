@@ -41,7 +41,7 @@ export function CtaBanner({
               variant="secondary"
               tone="dark"
               size="lg"
-              className="w-full max-w-full sm:w-auto"
+              className="w-full max-w-full !text-markaj-primary sm:w-auto"
             >
               Appeler {siteConfig.contact.phoneDisplay}
             </Button>
