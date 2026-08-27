@@ -7,6 +7,8 @@ export interface Service {
   slug: string;
   title: string;
   shortTitle: string;
+  /** Article défini pour l'accord grammatical (la / l' / les). */
+  definiteArticle: "la" | "l'" | "les";
   metaDescription: string;
   intro: string;
   /** Bénéfice client en une phrase */
@@ -26,10 +28,11 @@ export const services: Service[] = [
     slug: "platrerie",
     title: "Plâtrerie",
     shortTitle: "Plâtrerie",
+    definiteArticle: "la",
     metaDescription:
-      "Plâtrerie à Fribourg, Lausanne, Genève et Bulle. Cloisons BA13, doublages, finitions Q3/Q4. Devis gratuit — 079 430 18 13.",
+      "Plâtrerie à Fribourg et en Suisse romande. Cloisons BA13, doublages, finitions Q3/Q4. Devis gratuit — 079 430 18 13.",
     intro:
-      "Markaj Renting SA réalise vos travaux de plâtrerie à Fribourg, Lausanne, Genève et dans toute la Suisse romande : cloisons, doublages, habillages et finitions conformes aux normes suisses.",
+      "Basés à Fribourg, nous réalisons vos travaux de plâtrerie en Suisse romande : cloisons, doublages, habillages et finitions conformes aux normes suisses.",
     benefit: "Surfaces planes, joints soignés et finitions Q3/Q4 prêtes à peindre.",
     audience: ["Particuliers", "Architectes", "Entreprises", "Régies"],
     projectTypes: ["Neuf", "Rénovation", "Cloisons & doublages"],
@@ -58,10 +61,11 @@ export const services: Service[] = [
     slug: "peinture",
     title: "Peinture",
     shortTitle: "Peinture",
+    definiteArticle: "la",
     metaDescription:
-      "Peinture intérieure et extérieure à Fribourg, Lausanne, Genève et Neuchâtel. Finitions durables. Devis gratuit — 079 430 18 13.",
+      "Peinture intérieure et extérieure à Fribourg et en Suisse romande. Finitions durables. Devis gratuit — 079 430 18 13.",
     intro:
-      "Markaj Renting SA assure la peinture intérieure et extérieure à Fribourg, Lausanne, Genève et en Suisse romande : préparation des supports, produits adaptés et finition durable.",
+      "Basés à Fribourg, nous assurons la peinture intérieure et extérieure en Suisse romande : préparation des supports, produits adaptés et finition durable.",
     benefit: "Finitions durables, supports correctement préparés, rendu uniforme.",
     audience: ["Particuliers", "Régies", "Entreprises"],
     projectTypes: ["Intérieur", "Extérieur", "Neuf & rénovation"],
@@ -90,10 +94,11 @@ export const services: Service[] = [
     slug: "faux-plafonds",
     title: "Faux-plafonds",
     shortTitle: "Faux-plafonds",
+    definiteArticle: "les",
     metaDescription:
-      "Faux-plafonds à Fribourg, Lausanne, Genève et Sion. Acoustique, éclairage, ventilation. Devis gratuit — 079 430 18 13.",
+      "Faux-plafonds à Fribourg et en Suisse romande. Acoustique, éclairage, ventilation. Devis gratuit — 079 430 18 13.",
     intro:
-      "Markaj Renting SA conçoit et pose des faux-plafonds à Fribourg, Lausanne, Genève et en Suisse romande : acoustique, esthétique et intégration des réseaux.",
+      "Basés à Fribourg, nous concevons et posons des faux-plafonds en Suisse romande : acoustique, esthétique et intégration des réseaux.",
     benefit: "Plafonds techniques et esthétiques, acoustique et réseaux intégrés.",
     audience: ["Architectes", "Entreprises", "Bureaux"],
     projectTypes: ["Tertiaire", "Commerces", "Logements"],
@@ -122,10 +127,11 @@ export const services: Service[] = [
     slug: "isolation",
     title: "Isolation",
     shortTitle: "Isolation",
+    definiteArticle: "l'",
     metaDescription:
-      "Isolation thermique et phonique à Fribourg, Lausanne, Genève et Bulle. Doublages, Minergie. Devis gratuit — 079 430 18 13.",
+      "Isolation thermique et phonique à Fribourg et en Suisse romande. Doublages, Minergie. Devis gratuit — 079 430 18 13.",
     intro:
-      "Markaj Renting SA réalise l'isolation thermique et acoustique à Fribourg, Lausanne, Genève et en Suisse romande : doublages, isolation périphérique et ponts thermiques.",
+      "Basés à Fribourg, nous réalisons l'isolation thermique et acoustique en Suisse romande : doublages, isolation périphérique et traitement des ponts thermiques.",
     benefit: "Confort thermique et acoustique, conformité aux exigences suisses.",
     audience: ["Particuliers", "Promoteurs", "Architectes"],
     projectTypes: ["Doublages", "Périphérique", "Minergie"],
@@ -154,10 +160,11 @@ export const services: Service[] = [
     slug: "renovation",
     title: "Rénovation",
     shortTitle: "Rénovation",
+    definiteArticle: "la",
     metaDescription:
-      "Rénovation intérieure à Fribourg, Lausanne, Genève et Bienne. Plâtrerie, peinture, isolation. Devis gratuit — 079 430 18 13.",
+      "Rénovation intérieure à Fribourg et en Suisse romande. Plâtrerie, peinture, isolation. Devis gratuit — 079 430 18 13.",
     intro:
-      "Markaj Renting SA prend en charge la rénovation intérieure à Fribourg, Lausanne, Genève et en Suisse romande : un interlocuteur unique pour plâtrerie, peinture, isolation et faux-plafonds.",
+      "Basés à Fribourg, nous prenons en charge la rénovation intérieure en Suisse romande : un interlocuteur unique pour plâtrerie, peinture, isolation et faux-plafonds.",
     benefit: "Un seul interlocuteur pour plâtrerie, peinture, isolation et plafonds.",
     audience: ["Particuliers", "Régies", "Entreprises"],
     projectTypes: ["Appartements", "Bureaux", "Commerces"],
@@ -186,10 +193,11 @@ export const services: Service[] = [
     slug: "facades",
     title: "Façades",
     shortTitle: "Façades",
+    definiteArticle: "les",
     metaDescription:
-      "Rénovation de façade et crépi à Fribourg, Lausanne, Genève et Sion. Enduits, peinture extérieure. Devis gratuit — 079 430 18 13.",
+      "Rénovation de façade et crépi à Fribourg et en Suisse romande. Enduits, peinture extérieure. Devis gratuit — 079 430 18 13.",
     intro:
-      "Markaj Renting SA réalise ravalement, crépi et peinture de façades à Fribourg, Lausanne, Genève et en Suisse romande : enduits, réparations et finitions protectrices.",
+      "Basés à Fribourg, nous réalisons ravalement, crépi et peinture de façades en Suisse romande : enduits, réparations et finitions protectrices.",
     benefit: "Façades protégées, crépis et peintures adaptés au climat suisse.",
     audience: ["Particuliers", "Régies", "Copropriétés"],
     projectTypes: ["Ravalement", "Crépi", "Peinture extérieure"],

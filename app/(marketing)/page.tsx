@@ -12,9 +12,9 @@ import { siteConfig } from "@/lib/seo/site-config";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata = createPageMetadata({
-  title: "Plâtrerie, peinture et rénovation Fribourg, Lausanne, Genève",
+  title: "Plâtrerie, peinture et rénovation à Fribourg",
   description:
-    "Entreprise familiale à Fribourg. Plâtrerie, peinture, isolation et rénovation à Fribourg, Lausanne, Genève et en Suisse romande. Devis gratuit sous 5 jours.",
+    "Entreprise familiale à Fribourg. Plâtrerie, peinture, isolation et rénovation en Suisse romande. Devis gratuit sous 5 jours.",
   path: "/",
 });
 
@@ -27,8 +27,8 @@ export default function HomePage() {
     <>
       <Hero
         eyebrow="Fribourg · Suisse romande"
-        title="Plâtrerie, peinture et finitions de bâtiment"
-        subtitle="Entreprise familiale à Fribourg. Travaux soignés en neuf et rénovation — devis gratuit sous 5 jours."
+        title="Plâtrerie, peinture et rénovation à Fribourg"
+        subtitle="Entreprise familiale basée à Fribourg. Travaux soignés en neuf et rénovation en Suisse romande — devis gratuit sous 5 jours."
         primaryCta={{ label: "Demander un devis", href: "/contact" }}
         secondaryCta={{
           label: `Appeler ${siteConfig.contact.phoneDisplay}`,

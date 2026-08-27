@@ -6,7 +6,7 @@ import { AnimateIn } from "@/components/ui/AnimateIn";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import type { Service } from "@/lib/content/services";
-import { zones } from "@/lib/content/zones";
+import { SERVICE_TITLE_LOCATION, zones } from "@/lib/content/zones";
 import { getGlossaryForService } from "@/lib/seo/glossary";
 import { siteConfig } from "@/lib/seo/site-config";
 import Link from "next/link";
@@ -15,9 +15,23 @@ interface ServicePageContentProps {
   service: Service;
 }
 
+/** Accord article défini + nom de service (la / l' / les). */
+function withDefiniteArticle(article: Service["definiteArticle"], noun: string) {
+  return article.endsWith("'") ? `${article}${noun}` : `${article} ${noun}`;
+}
+
+/** « à la / à l' / aux » + nom. */
+function withAPlusArticle(article: Service["definiteArticle"], noun: string) {
+  if (article === "les") return `aux ${noun}`;
+  if (article === "l'") return `à l'${noun}`;
+  return `à la ${noun}`;
+}
+
 export function ServicePageContent({ service }: ServicePageContentProps) {
   const glossary = getGlossaryForService(service.slug);
   const label = service.title.toLowerCase();
+  const labelled = withDefiniteArticle(service.definiteArticle, label);
+  const aLabelled = withAPlusArticle(service.definiteArticle, label);
 
   return (
     <>
@@ -31,7 +45,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
       </div>
 
       <Hero
-        title={`${service.title} à Fribourg, Lausanne et Genève`}
+        title={`${service.title} à ${SERVICE_TITLE_LOCATION}`}
         subtitle={service.intro}
         primaryCta={{
           label: `Devis ${service.shortTitle.toLowerCase()}`,
@@ -65,7 +79,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
       <Section background="white">
         <AnimateIn className="max-w-prose">
           <h2 className="font-heading text-heading-3 text-markaj-primary">
-            Qu&apos;est-ce que la {label} ?
+            Qu&apos;est-ce que {labelled} ?
           </h2>
           <p className="mt-4 font-body text-body-lg text-markaj-primary/90">
             {service.definition}
@@ -119,7 +133,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
           <SectionHeading
             subtitle="Zones desservies"
             title={`${service.title} près de chez vous`}
-            intro="Nous intervenons dans toute la Suisse romande. Choisissez votre région pour le détail des communes."
+            intro="Siège à Fribourg, interventions dans toute la Suisse romande. Choisissez votre canton pour le détail des communes."
           />
         </AnimateIn>
         <div className="flex flex-wrap gap-3">
@@ -149,7 +163,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
           <AnimateIn>
             <SectionHeading
               subtitle="Glossaire"
-              title={`Quels termes techniques liés à la ${label} ?`}
+              title={`Quels termes techniques liés ${aLabelled} ?`}
             />
           </AnimateIn>
           <dl className="grid max-w-2xl gap-6">
@@ -166,7 +180,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
       )}
 
       <FaqSection
-        title={`Questions fréquentes sur la ${label}`}
+        title={`Questions fréquentes sur ${labelled}`}
         items={service.faq}
       />
 
@@ -191,7 +205,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
 
       <CtaBanner
         title={`Un projet de ${label} ?`}
-        description="Décrivez votre chantier : devis gratuit, réponse sous 5 jours ouvrés, intervention à Fribourg, Lausanne, Genève et en Suisse romande."
+        description="Décrivez votre chantier : devis gratuit, réponse sous 5 jours ouvrés. Siège à Fribourg, interventions en Suisse romande."
       />
     </>
   );
