@@ -281,5 +281,5 @@ export function getZoneBySlug(slug: string): Zone | undefined {
 
 export const zoneSlugs = zones.map((z) => z.slug);
 
-/** Villes mises en avant dans les titres SEO services (stack type Sopjani). */
-export const SERVICE_TITLE_CITIES = "Fribourg, Lausanne, Genève" as const;
+/** Localité mise en avant dans les titres SEO services (siège Fribourg). */
+export const SERVICE_TITLE_LOCATION = "Fribourg" as const;
