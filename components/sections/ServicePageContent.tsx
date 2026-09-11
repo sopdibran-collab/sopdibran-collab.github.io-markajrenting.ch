@@ -87,7 +87,42 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
         </AnimateIn>
       </Section>
 
-      <Section background="surface" texture="paint">
+      {service.offerings.length > 0 && (
+        <Section background="surface" texture="paint">
+          <AnimateIn className="mb-10 max-w-prose">
+            <p className="marque-cote mb-3">Prestations</p>
+            <p className="font-body text-body-lg text-markaj-mineral-dark">
+              {service.slug === "renovation"
+                ? "Un interlocuteur pour tout le second œuvre — chaque métier détaillé sur sa page dédiée."
+                : `Détail de nos prestations ${aLabelled}, pour particuliers, régies et architectes.`}
+            </p>
+          </AnimateIn>
+          <div className="grid gap-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12">
+            {service.offerings.map((offering, index) => (
+              <AnimateIn key={offering.title} delay={index * 50}>
+                <article>
+                  <h2 className="font-heading text-heading-3 text-markaj-primary">
+                    {offering.title}
+                  </h2>
+                  <p className="mt-3 font-body text-body text-markaj-primary/90">
+                    {offering.description}
+                  </p>
+                  {offering.href && (
+                    <Link
+                      href={offering.href}
+                      className="btn-niveau mt-4 inline-flex"
+                    >
+                      {offering.linkLabel ?? "En savoir plus"}
+                    </Link>
+                  )}
+                </article>
+              </AnimateIn>
+            ))}
+          </div>
+        </Section>
+      )}
+
+      <Section background="white">
         <AnimateIn>
           <SectionHeading
             subtitle="Processus"
@@ -109,7 +144,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
         </div>
       </Section>
 
-      <Section background="white">
+      <Section background="surface" texture="paint">
         <AnimateIn>
           <SectionHeading
             subtitle="Matériaux & normes"
