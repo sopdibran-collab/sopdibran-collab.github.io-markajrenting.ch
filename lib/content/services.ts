@@ -3,6 +3,15 @@ export interface FaqItem {
   answer: string;
 }
 
+/** Sous-prestation alignée Google Business Profile, imbriquée sous la page parent. */
+export interface ServiceOffering {
+  title: string;
+  description: string;
+  /** Lien optionnel vers une page sœur (ex. rénovation, façades). */
+  href?: string;
+  linkLabel?: string;
+}
+
 export interface Service {
   slug: string;
   title: string;
@@ -18,6 +27,8 @@ export interface Service {
   /** Types de projets / usages */
   projectTypes: string[];
   definition: string;
+  /** Prestations GBP imbriquées sous la page parent (pas d'URL séparée). */
+  offerings: ServiceOffering[];
   process: { step: string; title: string; description: string }[];
   materials: string[];
   faq: FaqItem[];
@@ -38,6 +49,28 @@ export const services: Service[] = [
     projectTypes: ["Neuf", "Rénovation", "Cloisons & doublages"],
     definition:
       "La plâtrerie regroupe l'ensemble des travaux de pose de plaques de plâtre (BA13), de montage de cloisons, de doublages muraux et de préparation des supports avant peinture. C'est la base d'une finition intérieure de qualité.",
+    offerings: [
+      {
+        title: "Cloisons en plaques de plâtre",
+        description:
+          "Cloisons BA13 sur ossature métallique ou bois : pose, joints, surfaces prêtes à peindre. Neuf et rénovation, pour particuliers, architectes et entreprises.",
+      },
+      {
+        title: "Joints et finitions Q3 / Q4",
+        description:
+          "Joints et finitions plâtrerie Q3 (standard) ou Q4 (haut de gamme), conformes aux usages suisses. Surfaces planes, prêtes à peindre ou à laquer.",
+      },
+      {
+        title: "Doublages",
+        description:
+          "Doublages muraux en plaques de plâtre, avec ou sans isolant. Habillages et caissons pour une finition nette avant peinture.",
+      },
+      {
+        title: "Reprises de plâtre",
+        description:
+          "Reprises et restauration de plâtre en rénovation : fissures, dégâts, raccordements soignés avant peinture. Idéal appartements, immeubles et locaux.",
+      },
+    ],
     process: [
       { step: "01", title: "Visite et prise de mesures", description: "Analyse du chantier, relevé précis et définition du cahier des charges avec le client ou l'architecte." },
       { step: "02", title: "Préparation des supports", description: "Protection des zones adjacentes, vérification de l'hygrométrie et préparation des ossatures métalliques ou bois." },
@@ -67,10 +100,39 @@ export const services: Service[] = [
     intro:
       "Basés à Fribourg, nous assurons la peinture intérieure et extérieure en Suisse romande : préparation des supports, produits adaptés et finition durable.",
     benefit: "Finitions durables, supports correctement préparés, rendu uniforme.",
-    audience: ["Particuliers", "Régies", "Entreprises"],
+    audience: ["Particuliers", "Régies", "Architectes", "Entreprises"],
     projectTypes: ["Intérieur", "Extérieur", "Neuf & rénovation"],
     definition:
       "Les travaux de peinture comprennent la préparation des surfaces (ponçage, rebouchage, primaire), l'application de peintures murales, plafonds, boiseries et métaux, en intérieur comme en extérieur.",
+    offerings: [
+      {
+        title: "Peinture de surfaces intérieures",
+        description:
+          "Peinture intérieure pour murs et plafonds : préparation soignée, finitions mates ou satinées, chantiers neuf et rénovation. Entreprise familiale à Fribourg, pour particuliers, régies et architectes.",
+      },
+      {
+        title: "Peinture de surfaces extérieures",
+        description:
+          "Peinture extérieure adaptée au climat suisse : façades protégées, supports préparés, rendu durable.",
+      },
+      {
+        title: "Finitions murs et plafonds",
+        description:
+          "Finitions soignées murs et plafonds, prêtes à peindre ou peintes selon le cahier des charges. Finitions Q3/Q4 en plâtrerie, rendu uniforme en peinture. Devis sous 5 jours.",
+      },
+      {
+        title: "Préparation des supports",
+        description:
+          "Lessivage, ponçage, rebouchage et primaire avant peinture. Supports correctement préparés pour une finition durable, en intérieur comme en extérieur.",
+      },
+      {
+        title: "Rénovation intérieure",
+        description:
+          "Rénovation intérieure second œuvre : plâtrerie, peinture, isolation et faux-plafonds avec un seul interlocuteur. Appartements, bureaux et commerces — neuf partiel ou reprise. Devis après visite.",
+        href: "/services/renovation",
+        linkLabel: "Voir la rénovation intérieure",
+      },
+    ],
     process: [
       { step: "01", title: "Diagnostic des supports", description: "Évaluation de l'état des murs, plafonds et boiseries. Identification des traitements nécessaires." },
       { step: "02", title: "Préparation", description: "Protection des sols et mobilier, rebouchage, ponçage, application de primaires d'accrochage." },
@@ -104,6 +166,23 @@ export const services: Service[] = [
     projectTypes: ["Tertiaire", "Commerces", "Logements"],
     definition:
       "Un faux-plafond est une structure suspendue sous le plafond porteur, permettant de dissimuler les réseaux techniques, d'améliorer l'acoustique et de créer des ambiances lumineuses architecturales.",
+    offerings: [
+      {
+        title: "Pose de faux-plafonds",
+        description:
+          "Faux-plafonds techniques et esthétiques : plaques, dalles démontables, intégration réseaux. Tertiaire, commerces et logements.",
+      },
+      {
+        title: "Plafonds acoustiques",
+        description:
+          "Plafonds acoustiques (fibre de bois, absorbants) pour bureaux, circulations et locaux exigeants. Confort sonore + finition soignée.",
+      },
+      {
+        title: "Intégration éclairage / réseaux",
+        description:
+          "Faux-plafonds avec intégration éclairage, CVC et réseaux : accès technique, planning tenu, finition propre. Pour architectes et entreprises en Suisse romande.",
+      },
+    ],
     process: [
       { step: "01", title: "Étude technique", description: "Analyse des contraintes (hauteur sous plafond, réseaux, normes incendie) et choix du système adapté." },
       { step: "02", title: "Ossature", description: "Pose des suspentes, profilés périphériques et structure porteuse selon le plan d'exécution." },
@@ -137,6 +216,30 @@ export const services: Service[] = [
     projectTypes: ["Doublages", "Périphérique", "Minergie"],
     definition:
       "L'isolation consiste à limiter les déperditions de chaleur et les nuisances sonores par la pose de matériaux isolants (laine minérale, mousse, fibres) dans les murs, plafonds et combles.",
+    offerings: [
+      {
+        title: "Isolation thermique",
+        description:
+          "Isolation thermique (doublages, périphérique, ponts thermiques) selon exigences suisses et projets Minergie. Confort et économies d'énergie.",
+      },
+      {
+        title: "Isolation phonique",
+        description:
+          "Isolation phonique pour cloisons, doublages et plafonds : moins de bruit entre pièces ou voisins. Solutions adaptées logements, bureaux et commerces.",
+      },
+      {
+        title: "Isolation périphérique / façade",
+        description:
+          "Isolation périphérique de façade : enveloppe, confort thermique, coordination crépi et peinture. Un seul interlocuteur second œuvre.",
+        href: "/services/facades",
+        linkLabel: "Voir les travaux de façades",
+      },
+      {
+        title: "Doublages isolants",
+        description:
+          "Doublages isolants intérieurs : plaque + isolant pour murs froids ou bruyants. Finition prête à peindre, normes suisses.",
+      },
+    ],
     process: [
       { step: "01", title: "Analyse énergétique", description: "Évaluation des parois, identification des ponts thermiques et définition de l'épaisseur d'isolant nécessaire." },
       { step: "02", title: "Choix des matériaux", description: "Sélection de l'isolant adapté (thermique, acoustique, pare-vapeur) selon la construction et les normes Minergie." },
@@ -164,12 +267,42 @@ export const services: Service[] = [
     metaDescription:
       "Rénovation intérieure à Fribourg et en Suisse romande. Plâtrerie, peinture, isolation. Devis gratuit — 079 430 18 13.",
     intro:
-      "Basés à Fribourg, nous prenons en charge la rénovation intérieure en Suisse romande : un interlocuteur unique pour plâtrerie, peinture, isolation et faux-plafonds.",
+      "Rénovation intérieure second œuvre : plâtrerie, peinture, isolation et faux-plafonds avec un seul interlocuteur. Appartements, bureaux et commerces — neuf partiel ou reprise. Devis après visite.",
     benefit: "Un seul interlocuteur pour plâtrerie, peinture, isolation et plafonds.",
-    audience: ["Particuliers", "Régies", "Entreprises"],
+    audience: ["Particuliers", "Régies", "Architectes", "Entreprises"],
     projectTypes: ["Appartements", "Bureaux", "Commerces"],
     definition:
-      "La rénovation intérieure regroupe l'ensemble des travaux de transformation d'espaces existants : démolition sélective, reprise des supports, redistribution des volumes et finitions complètes.",
+      "La rénovation intérieure regroupe l'ensemble des travaux de transformation d'espaces existants : démolition sélective, reprise des supports, redistribution des volumes et finitions complètes. Entreprise familiale basée à Fribourg, pour particuliers et architectes en Suisse romande.",
+    offerings: [
+      {
+        title: "Plâtrerie",
+        description:
+          "Cloisons, doublages, joints Q3/Q4 et reprises de plâtre — surfaces prêtes à peindre.",
+        href: "/services/platrerie",
+        linkLabel: "Voir la plâtrerie",
+      },
+      {
+        title: "Peinture",
+        description:
+          "Peinture intérieure et extérieure, préparation des supports et finitions durables.",
+        href: "/services/peinture",
+        linkLabel: "Voir la peinture",
+      },
+      {
+        title: "Isolation",
+        description:
+          "Isolation thermique et phonique, doublages isolants et ponts thermiques.",
+        href: "/services/isolation",
+        linkLabel: "Voir l'isolation",
+      },
+      {
+        title: "Faux-plafonds",
+        description:
+          "Faux-plafonds techniques et acoustiques, intégration éclairage et réseaux.",
+        href: "/services/faux-plafonds",
+        linkLabel: "Voir les faux-plafonds",
+      },
+    ],
     process: [
       { step: "01", title: "Diagnostic et devis", description: "Visite du site, compréhension de vos besoins, établissement d'un devis détaillé par postes de travaux." },
       { step: "02", title: "Planification", description: "Établissement du planning, coordination avec les autres corps de métier (électricien, chauffagiste, sanitaire)." },
@@ -199,10 +332,27 @@ export const services: Service[] = [
     intro:
       "Basés à Fribourg, nous réalisons ravalement, crépi et peinture de façades en Suisse romande : enduits, réparations et finitions protectrices.",
     benefit: "Façades protégées, crépis et peintures adaptés au climat suisse.",
-    audience: ["Particuliers", "Régies", "Copropriétés"],
+    audience: ["Particuliers", "Régies", "Copropriétés", "Architectes"],
     projectTypes: ["Ravalement", "Crépi", "Peinture extérieure"],
     definition:
       "Les travaux de façade englobent le ravalement, la réparation de crépis et d'enduits, le traitement des fissures, l'application de peintures de protection et l'amélioration de l'esthétique extérieure du bâtiment.",
+    offerings: [
+      {
+        title: "Ravalement de façade",
+        description:
+          "Ravalement de façade : diagnostic, réparation, enduits et finition protectrice. Un interlocuteur pour peintre, crépi et isolation périphérique. Devis gratuit.",
+      },
+      {
+        title: "Crépi / enduit",
+        description:
+          "Crépi et enduits de façade adaptés au climat suisse : minéral ou organique selon le support. Pose et reprises soignées, en neuf comme en rénovation.",
+      },
+      {
+        title: "Peinture de façade",
+        description:
+          "Peinture de façade pour protéger et valoriser le bâtiment. Préparation du support, choix du système selon l'exposition.",
+      },
+    ],
     process: [
       { step: "01", title: "Inspection de façade", description: "Analyse de l'état du crépi ou de l'enduit, détection des fissures, zones décollement et pathologies d'humidité." },
       { step: "02", title: "Préparation", description: "Nettoyage haute pression ou sablage léger, rebouchage des fissures, traitement anti-mousse si nécessaire." },
