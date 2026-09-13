@@ -9,9 +9,11 @@ import { cn } from "@/lib/utils";
 interface HeroProps {
   title: string;
   subtitle: string;
-  /** Nom de marque affiché en signal hero (pages avec image plein cadre). */
+  /** Nom de marque affiché en signal secondaire (pages avec image plein cadre). */
   brand?: string;
   eyebrow?: string;
+  /** Adresse NAP visible près de la zone Fribourg / téléphone (fold bleed). */
+  addressLine?: string;
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
   image?: {
@@ -31,6 +33,7 @@ export function Hero({
   subtitle,
   brand = siteConfig.name,
   eyebrow,
+  addressLine,
   primaryCta,
   secondaryCta,
   image,
@@ -53,13 +56,22 @@ export function Hero({
         <div className="absolute inset-0 bg-markaj-primary/80" aria-hidden="true" />
         <div className="relative z-10 mx-auto flex min-h-[min(88vh,44rem)] max-w-content flex-col justify-end px-4 pb-14 pt-24 sm:px-6 sm:pb-16 sm:pt-28 lg:px-8 lg:pb-20">
           <div className="max-w-2xl animate-hero-in">
-            <p className="font-heading text-[1.65rem] leading-tight text-markaj-white sm:text-heading-1 md:text-display">
+            <p className="font-heading text-heading-4 leading-snug text-markaj-white/90 sm:text-[1.35rem]">
               {brand}
             </p>
-            {eyebrow && (
-              <p className="marque-cote marque-cote--light mt-4">{eyebrow}</p>
+            {(eyebrow || addressLine) && (
+              <div className="mt-4 flex flex-col gap-1.5 sm:gap-2">
+                {eyebrow && (
+                  <p className="marque-cote marque-cote--light">{eyebrow}</p>
+                )}
+                {addressLine && (
+                  <p className="font-body text-caption leading-relaxed text-markaj-white/75 sm:text-body-sm">
+                    {addressLine}
+                  </p>
+                )}
+              </div>
             )}
-            <h1 className="mt-3 font-heading text-xl leading-snug text-balance text-markaj-crepi sm:text-heading-2 md:text-[1.85rem]">
+            <h1 className="mt-4 font-heading text-[1.75rem] leading-tight text-balance text-markaj-crepi sm:mt-5 sm:text-heading-1 md:text-display">
               {title}
             </h1>
             <p className="mt-4 max-w-xl font-body text-body text-markaj-white/85 sm:text-body-lg">
@@ -111,6 +123,11 @@ export function Hero({
       >
         <div className={cn("min-w-0", !image && "max-w-3xl")}>
           {eyebrow && <p className="marque-cote mb-4">{eyebrow}</p>}
+          {addressLine && (
+            <p className="mb-4 font-body text-caption text-markaj-mineral-dark sm:text-body-sm">
+              {addressLine}
+            </p>
+          )}
           <h1 className="font-heading text-[1.75rem] leading-tight text-balance text-markaj-primary sm:text-heading-1 md:text-display">
             {title}
           </h1>
