@@ -7,12 +7,13 @@ import Link from "next/link";
 
 export function ZonesTeaser() {
   return (
-    <Section background="surface" texture="paint">
+    <Section background="surface" texture="paint" className="!py-8 sm:!py-10 md:!py-12">
       <AnimateIn>
         <SectionHeading
           subtitle="Zones d'intervention"
           title="Actifs dans toute la Suisse romande"
           intro="Basés à Fribourg, nous intervenons dans les sept cantons francophones — pour les particuliers comme pour les professionnels."
+          className="mb-6 sm:mb-8"
         />
       </AnimateIn>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

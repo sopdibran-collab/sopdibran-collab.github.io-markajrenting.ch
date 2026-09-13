@@ -65,14 +65,14 @@ export function WhyMarkaj() {
         <AnimateIn delay={100}>
           <figure className="relative aspect-[4/5] w-full overflow-hidden border border-markaj-primary/15 sm:aspect-[3/4] lg:sticky lg:top-28">
             <Image
-              src="/equipe/preparation-chantier.webp"
-              alt="Équipe Markaj Renting SA en préparation de chantier"
+              src="/images/chantier/pourquoi-chantier-collage.webp"
+              alt="Chantiers Markaj : peinture technique des réseaux, ossatures métalliques et joints BA13"
               fill
               sizes="(min-width: 1024px) 480px, 100vw"
               className="object-cover"
             />
             <figcaption className="absolute bottom-0 left-0 right-0 bg-markaj-primary/85 px-4 py-3 font-body text-body-sm text-markaj-white">
-              Équipe Markaj Renting SA — préparation de chantier
+              Sur chantier — ossatures, joints BA13 et peinture réseaux
             </figcaption>
           </figure>
         </AnimateIn>

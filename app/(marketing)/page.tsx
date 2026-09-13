@@ -5,12 +5,13 @@ import { ExpertisesGrid } from "@/components/sections/ExpertisesGrid";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { Hero } from "@/components/sections/Hero";
 import { MethodSteps } from "@/components/sections/MethodSteps";
+import { ProofStrip } from "@/components/sections/ProofStrip";
 import { RealisationsTeaser } from "@/components/sections/RealisationsTeaser";
 import { WhyMarkaj } from "@/components/sections/WhyMarkaj";
 import { ZonesTeaser } from "@/components/sections/ZonesTeaser";
 import { generalFaq } from "@/lib/content/faq";
-import { siteConfig } from "@/lib/seo/site-config";
 import { createPageMetadata } from "@/lib/seo/metadata";
+import { siteConfig } from "@/lib/seo/site-config";
 
 export const metadata = createPageMetadata({
   title: "Plâtrerie, peinture et rénovation à Fribourg",
@@ -41,9 +42,10 @@ export default function HomePage() {
           alt: "Rénovation de plateau de bureaux à l'OMS Genève — plafonds peints et plâtrerie Markaj Renting SA",
         }}
       />
+      <ProofStrip />
       <ExpertisesGrid />
-      <MethodSteps />
       <RealisationsTeaser />
+      <MethodSteps />
       <WhyMarkaj />
       <AvisGoogle />
       <AudienceStrip />
@@ -53,6 +55,7 @@ export default function HomePage() {
         intro="Devis, délais, zones et garanties : les réponses essentielles avant de nous contacter."
         items={homeFaq}
         background="white"
+        className="!py-8 sm:!py-10 md:!py-12"
       />
       <CtaBanner />
     </>
