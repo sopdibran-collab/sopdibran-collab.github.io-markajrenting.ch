@@ -56,7 +56,7 @@ export function Hero({
         <div className="absolute inset-0 bg-markaj-primary/80" aria-hidden="true" />
         <div className="relative z-10 mx-auto flex min-h-[min(88vh,44rem)] max-w-content flex-col justify-end px-4 pb-14 pt-24 sm:px-6 sm:pb-16 sm:pt-28 lg:px-8 lg:pb-20">
           <div className="max-w-2xl animate-hero-in">
-            <p className="font-heading text-heading-4 leading-snug text-markaj-white/90 sm:text-[1.35rem]">
+            <p className="font-heading text-base leading-snug text-markaj-white/80 sm:text-lg md:text-xl">
               {brand}
             </p>
             {(eyebrow || addressLine) && (
