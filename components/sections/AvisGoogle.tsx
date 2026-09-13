@@ -65,11 +65,11 @@ export function AvisGoogle() {
   const ratingLabel = `${googleRating.ratingValue.toFixed(1).replace(".", ",")} / 5`;
 
   return (
-    <Section background="surface" texture="paint">
+    <Section background="crepi" className="!pt-10 sm:!pt-12 md:!pt-14">
       <AnimateIn>
         <SectionHeading
-          subtitle="Avis Google"
-          title="Ils nous font confiance"
+          subtitle="Ils nous font confiance"
+          title="Avis Google"
           intro={`${ratingLabel} sur Google — ${googleRating.reviewCount} avis clients vérifiés. Retours authentiques sur nos chantiers de plâtrerie, peinture et rénovation.`}
         />
       </AnimateIn>
