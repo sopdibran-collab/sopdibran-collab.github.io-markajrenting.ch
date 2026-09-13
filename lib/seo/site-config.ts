@@ -20,4 +20,7 @@ export const siteConfig = {
   openingHours: [
     "Mo-Fr 07:00-17:00",
   ],
+  /** Profil Google Maps / avis clients (vérifié sep. 2026 : 5,0 · 2 avis). */
+  googleMapsUrl:
+    "https://www.google.com/maps/place/Markaj+Renting+SA/@46.8171518,7.1721405,17z/data=!3m1!4b1!4m6!3m5!1s0xb853626806e4763:0xd40b5c3036a3f68f!8m2!3d46.8171518!4d7.1721405!16s%2Fg%2F11v1bl87tl",
 } as const;

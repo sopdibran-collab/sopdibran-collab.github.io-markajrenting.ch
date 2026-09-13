@@ -1,4 +1,5 @@
 import { AudienceStrip } from "@/components/sections/AudienceStrip";
+import { AvisGoogle } from "@/components/sections/AvisGoogle";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { ExpertisesGrid } from "@/components/sections/ExpertisesGrid";
 import { FaqSection } from "@/components/sections/FaqSection";
@@ -44,6 +45,7 @@ export default function HomePage() {
       <MethodSteps />
       <RealisationsTeaser />
       <WhyMarkaj />
+      <AvisGoogle />
       <AudienceStrip />
       <ZonesTeaser />
       <FaqSection

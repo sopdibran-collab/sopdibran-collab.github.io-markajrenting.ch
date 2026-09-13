@@ -1,3 +1,4 @@
+import { googleRating } from "@/lib/content/avis";
 import type { BlogPost } from "@/lib/content/blog";
 import type { FaqItem } from "@/lib/content/services";
 import type { Service } from "@/lib/content/services";
@@ -123,6 +124,13 @@ export function buildLocalBusinessSchema(): JsonLdObject {
     })),
     parentOrganization: {
       "@id": `${url}/#organization`,
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: googleRating.ratingValue,
+      reviewCount: googleRating.reviewCount,
+      bestRating: googleRating.bestRating,
+      worstRating: googleRating.worstRating,
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
