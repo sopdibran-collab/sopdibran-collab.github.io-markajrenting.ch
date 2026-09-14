@@ -57,12 +57,12 @@ const serviceVisuals: Record<
 
 export function ExpertisesGrid() {
   return (
-    <Section background="surface" texture="paint">
+    <Section background="white">
       <AnimateIn>
         <SectionHeading
           subtitle="Nos expertises"
           title="Plâtrerie, peinture et finition de bâtiment"
-          intro="Six domaines d'intervention pour le neuf et la rénovation — illustrés par de vrais chantiers, avec un seul interlocuteur qualifié."
+          intro="Des savoir-faire complets pour des réalisations durables et soignées — illustrés par de vrais chantiers, avec un seul interlocuteur qualifié."
         />
       </AnimateIn>
 

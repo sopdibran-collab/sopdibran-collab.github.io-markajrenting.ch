@@ -22,6 +22,11 @@ export const metadata = createPageMetadata({
 
 const homeFaq = generalFaq.slice(0, 4);
 
+/**
+ * Mid-page rhythm (layout B + avis) :
+ * navy proof → expertises (white) → pourquoi (sand) → avis (sand) → …
+ * → navy CTA. SEO blocks (réalisations, méthode, zones, FAQ) retained.
+ */
 export default function HomePage() {
   const phoneHref = `tel:${siteConfig.contact.phone.replace(/\s/g, "")}`;
 
@@ -44,10 +49,10 @@ export default function HomePage() {
       />
       <ProofStrip />
       <ExpertisesGrid />
-      <RealisationsTeaser />
-      <MethodSteps />
       <WhyMarkaj />
       <AvisGoogle />
+      <RealisationsTeaser />
+      <MethodSteps />
       <AudienceStrip />
       <ZonesTeaser />
       <FaqSection

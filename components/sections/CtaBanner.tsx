@@ -8,14 +8,18 @@ interface CtaBannerProps {
   description?: string;
 }
 
+/**
+ * Bandeau CTA final — navy plein largeur, bouton devis sable (#DBCFB0).
+ * Layout B : pas de texture, pas d'ombre flottante.
+ */
 export function CtaBanner({
   title = "Parlons de votre chantier",
-  description = "Décrivez votre projet : nous vous recontactons sous 5 jours ouvrés pour un devis gratuit et une visite sur site si besoin.",
+  description = "Nous vous accompagnons de l'idée à la réalisation. Décrivez votre projet : devis gratuit sous 5 jours ouvrés.",
 }: CtaBannerProps) {
   const phoneHref = `tel:${siteConfig.contact.phone.replace(/\s/g, "")}`;
 
   return (
-    <Section background="primary" texture="concrete-dark">
+    <Section background="primary">
       <AnimateIn>
         <div className="flex min-w-0 flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div className="min-w-0 max-w-xl">

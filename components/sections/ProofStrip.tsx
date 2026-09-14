@@ -1,32 +1,67 @@
-import { Section } from "@/components/ui/Section";
+import { MapPin, ShieldCheck } from "lucide-react";
 
-const defaultProofs = [
-  { value: "+20 ans", label: "d'expérience" },
-  { value: "20", label: "collaborateurs" },
-  { value: "Neuf & rénovation", label: "tous types de chantiers" },
-  { value: "Normes SIA", label: "qualité contrôlée" },
-  { value: "Suisse romande", label: "depuis Fribourg" },
+import { cn } from "@/lib/utils";
+
+const proofs = [
+  {
+    title: "20 ans d'expérience",
+    detail: "et d'engagements",
+    icon: "years" as const,
+  },
+  {
+    title: "Normes SIA",
+    detail: "Qualité, sécurité et durabilité",
+    icon: "shield" as const,
+  },
+  {
+    title: "Fribourg siège",
+    detail: "Ancrés en Suisse romande",
+    icon: "pin" as const,
+  },
 ];
 
-interface ProofStripProps {
-  items?: { value: string; label: string }[];
-}
-
-export function ProofStrip({ items = defaultProofs }: ProofStripProps) {
+/**
+ * Fine bandeau de preuves plein largeur — layout B (navy, texte blanc).
+ * Pas d'accent cyan, pas de texture.
+ */
+export function ProofStrip() {
   return (
-    <Section background="crepi" texture="crepi" className="py-8 sm:py-10 md:py-12">
-      <ul className="grid grid-cols-2 gap-5 min-[400px]:gap-6 sm:grid-cols-3 lg:grid-cols-5 lg:gap-4">
-        {items.map((item) => (
-          <li key={item.value} className="min-w-0 border-l-2 border-markaj-primary/25 pl-3 sm:pl-4">
-            <p className="break-words font-heading text-lg leading-tight text-markaj-primary sm:text-heading-4 md:text-heading-3">
-              {item.value}
-            </p>
-            <p className="mt-1 break-words font-body text-caption text-markaj-mineral-dark sm:text-body-sm">
-              {item.label}
-            </p>
+    <section
+      aria-label="Preuves Markaj Renting"
+      className="bg-markaj-primary text-markaj-white"
+    >
+      <ul className="mx-auto grid max-w-content grid-cols-1 divide-y divide-markaj-white/20 px-4 sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:px-6 lg:px-8">
+        {proofs.map((item) => (
+          <li
+            key={item.title}
+            className="flex items-center gap-3 py-3.5 sm:justify-center sm:gap-3.5 sm:px-4 sm:py-4"
+          >
+            <span
+              className={cn(
+                "flex h-9 w-9 shrink-0 items-center justify-center border border-markaj-white/35",
+                item.icon === "years" && "font-heading text-[0.65rem] font-semibold leading-tight tracking-wide"
+              )}
+              aria-hidden
+            >
+              {item.icon === "years" && (
+                <span className="text-center">
+                  20
+                  <br />
+                  ANS
+                </span>
+              )}
+              {item.icon === "shield" && <ShieldCheck className="h-4 w-4" strokeWidth={1.75} />}
+              {item.icon === "pin" && <MapPin className="h-4 w-4" strokeWidth={1.75} />}
+            </span>
+            <div className="min-w-0">
+              <p className="font-body text-body-sm font-semibold text-markaj-white">
+                {item.title}
+              </p>
+              <p className="font-body text-caption text-markaj-white/75">{item.detail}</p>
+            </div>
           </li>
         ))}
       </ul>
-    </Section>
+    </section>
   );
 }
