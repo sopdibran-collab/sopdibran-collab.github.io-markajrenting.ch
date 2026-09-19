@@ -18,7 +18,7 @@ export interface Zone {
 
 /*
  * Zones d'intervention : cantons francophones de Suisse.
- * Le siège est à Fribourg ; chaque zone a du contenu unique pour le SEO local.
+ * Le siège est à Fribourg ; chaque zone a du contenu local distinct.
  */
 export const zones: Zone[] = [
   {
@@ -281,5 +281,5 @@ export function getZoneBySlug(slug: string): Zone | undefined {
 
 export const zoneSlugs = zones.map((z) => z.slug);
 
-/** Localité mise en avant dans les titres SEO services (siège Fribourg). */
+/** Localité mise en avant dans les titres de services (siège Fribourg). */
 export const SERVICE_TITLE_LOCATION = "Fribourg" as const;

@@ -10,7 +10,6 @@ interface CtaBannerProps {
 
 /**
  * Bandeau CTA final — navy plein largeur, bouton devis sable (#DBCFB0).
- * Layout B : pas de texture, pas d'ombre flottante.
  */
 export function CtaBanner({
   title = "Parlons de votre chantier",

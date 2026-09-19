@@ -51,7 +51,7 @@ const serviceVisuals: Record<
   },
   facades: {
     kind: "typo",
-    note: "Photo façades — à venir",
+    note: "Façades",
   },
 };
 
@@ -102,7 +102,7 @@ export function ExpertisesGrid() {
                 ) : (
                   <div className="relative flex min-h-[14rem] flex-col justify-end border-b border-markaj-primary/15 bg-markaj-primary px-5 py-6 sm:min-h-[16rem]">
                     <p className="font-mono text-caption font-semibold uppercase tracking-[0.14em] text-markaj-crepi">
-                      {visual?.note ?? "Photo à venir"}
+                      {visual?.note ?? service.title}
                     </p>
                     <p className="mt-3 font-heading text-3xl leading-none text-markaj-white sm:text-4xl">
                       {service.title}

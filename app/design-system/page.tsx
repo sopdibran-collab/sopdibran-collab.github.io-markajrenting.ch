@@ -8,7 +8,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata = createPageMetadata({
   title: "Design System",
-  description: "Preview interne du design system Markaj Renting SA.",
+  description: "Référence visuelle Markaj Renting SA — couleurs, typographie et composants.",
   path: "/design-system",
   noindex: true,
 });
@@ -31,7 +31,7 @@ export default function DesignSystemPage() {
         <div className="mx-auto flex max-w-content items-center justify-between px-6 py-5 lg:px-8">
           <Logo />
           <span className="font-body text-body-sm text-markaj-mineral">
-            Preview interne — non indexé
+            Référence visuelle — non indexé
           </span>
         </div>
       </header>
@@ -40,14 +40,13 @@ export default function DesignSystemPage() {
         {/* Intro */}
         <Section background="white" texture="paint" className="py-20">
           <Badge variant="outline" className="mb-4">
-            Phase 1 — Design System
+            Design System
           </Badge>
           <h1 className="max-w-3xl font-heading text-display md:text-display-lg text-balance text-markaj-primary">
             Charte visuelle Markaj Renting SA
           </h1>
           <p className="mt-6 max-w-prose text-body-lg text-markaj-mineral-dark">
-            Référence interne pour valider couleurs, typographie, composants UI et textures
-            avant la construction des pages marketing.
+            Couleurs, typographie, composants UI et textures de la charte Markaj.
           </p>
         </Section>
 
@@ -302,13 +301,11 @@ export default function DesignSystemPage() {
           />
         </Section>
 
-        {/* ============================================================ */}
-        {/* PROPOSITION 2026 — direction « Trait de chantier »           */}
-        {/* ============================================================ */}
+        {/* Direction « Trait de chantier » */}
         <Section background="white" id="proposition">
           <div className="mb-12 border-l-4 border-markaj-crepi bg-markaj-surface p-6">
             <p className="font-mono text-caption font-semibold uppercase tracking-[0.18em] text-markaj-crepi-dark">
-              Direction validée — appliquée à tout le site
+              Direction visuelle
             </p>
             <h2 className="mt-3 font-heading text-heading-2 text-markaj-primary">
               Direction « Trait de chantier »
@@ -324,7 +321,7 @@ export default function DesignSystemPage() {
           {/* Étiquette de cotation */}
           <div className="mb-12">
             <p className="mb-4 font-body text-caption uppercase tracking-wider text-markaj-mineral">
-              Étiquette de cotation (remplace l&apos;eyebrow générique)
+              Étiquette de cotation
             </p>
             <div className="flex flex-col gap-3">
               <span className="marque-cote">Expertises</span>
@@ -333,10 +330,10 @@ export default function DesignSystemPage() {
             </div>
           </div>
 
-          {/* Boutons proposés — fond clair */}
+          {/* Boutons — fond clair */}
           <div className="mb-12">
             <p className="mb-4 font-body text-caption uppercase tracking-wider text-markaj-mineral">
-              Boutons proposés — fond clair
+              Boutons — fond clair
             </p>
             <div className="flex flex-wrap items-center gap-8">
               <button type="button" className="btn-bloc">
@@ -366,7 +363,7 @@ export default function DesignSystemPage() {
             </ul>
           </div>
 
-          {/* Boutons proposés — fond sombre */}
+          {/* Boutons — fond sombre */}
           <div className="mb-12 bg-markaj-primary p-10">
             <p className="mb-6 font-body text-caption uppercase tracking-wider text-markaj-white/60">
               Sur fond bleu nuit
@@ -421,7 +418,7 @@ export default function DesignSystemPage() {
 
       <footer className="border-t border-markaj-mineral/15 bg-markaj-white py-8">
         <div className="mx-auto max-w-content px-6 text-center font-body text-body-sm text-markaj-mineral lg:px-8">
-          Design System Markaj Renting SA — Usage interne uniquement
+          Design System Markaj Renting SA
         </div>
       </footer>
     </div>
