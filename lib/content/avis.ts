@@ -1,7 +1,6 @@
 /**
- * Avis Google publics vérifiés — Markaj Renting SA.
+ * Avis Google publics — Markaj Renting SA.
  * Source : Google Maps / GBP, septembre 2026.
- * Ne pas inventer ni importer d'avis d'autres marques.
  */
 export const googleRating = {
   ratingValue: 5,

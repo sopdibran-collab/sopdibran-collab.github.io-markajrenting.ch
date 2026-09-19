@@ -70,7 +70,7 @@ export function AvisGoogle() {
         <SectionHeading
           subtitle="Ils nous font confiance"
           title="Avis Google"
-          intro={`${ratingLabel} sur Google — ${googleRating.reviewCount} avis clients vérifiés. Retours authentiques sur nos chantiers de plâtrerie, peinture et rénovation.`}
+          intro={`${ratingLabel} sur Google — ${googleRating.reviewCount} avis sur nos chantiers de plâtrerie, peinture et rénovation.`}
         />
       </AnimateIn>
 

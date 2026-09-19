@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
-/** Checklist layout B — faits Markaj existants, pas de claims inventés. */
+/** Checklist — faits Markaj existants. */
 const reasons = [
   {
     title: "Entreprise suisse locale, responsable et à taille humaine",

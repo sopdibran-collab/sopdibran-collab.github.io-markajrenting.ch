@@ -12,7 +12,7 @@ interface HeroProps {
   /** Nom de marque affiché en signal secondaire (pages avec image plein cadre). */
   brand?: string;
   eyebrow?: string;
-  /** Adresse NAP visible près de la zone Fribourg / téléphone (fold bleed). */
+  /** Adresse affichée près de la zone Fribourg / téléphone (fold bleed). */
   addressLine?: string;
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };

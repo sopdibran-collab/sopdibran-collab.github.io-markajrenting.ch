@@ -23,9 +23,9 @@ export const metadata = createPageMetadata({
 const homeFaq = generalFaq.slice(0, 4);
 
 /**
- * Mid-page rhythm (layout B + avis) :
+ * Mid-page rhythm :
  * navy proof → expertises (white) → pourquoi (sand) → avis (sand) → …
- * → navy CTA. SEO blocks (réalisations, méthode, zones, FAQ) retained.
+ * → navy CTA.
  */
 export default function HomePage() {
   const phoneHref = `tel:${siteConfig.contact.phone.replace(/\s/g, "")}`;

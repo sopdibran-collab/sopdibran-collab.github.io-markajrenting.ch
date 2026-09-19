@@ -21,8 +21,7 @@ const proofs = [
 ];
 
 /**
- * Fine bandeau de preuves plein largeur — layout B (navy, texte blanc).
- * Pas d'accent cyan, pas de texture.
+ * Fine bandeau de preuves plein largeur — fond navy, texte blanc.
  */
 export function ProofStrip() {
   return (
