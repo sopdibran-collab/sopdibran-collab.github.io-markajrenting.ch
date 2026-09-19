@@ -27,11 +27,22 @@ function withAPlusArticle(article: Service["definiteArticle"], noun: string) {
   return `à la ${noun}`;
 }
 
+/**
+ * Section rhythm (blanc ↔ sable) before navy CTA:
+ * hero white → meta sand → definition white → prestations sand →
+ * process white → matériaux sand → zones white →
+ * glossaire sand (si présent) → FAQ opposite → liens opposite → CTA navy.
+ */
 export function ServicePageContent({ service }: ServicePageContentProps) {
   const glossary = getGlossaryForService(service.slug);
+  const hasGlossary = glossary.length > 0;
   const label = service.title.toLowerCase();
   const labelled = withDefiniteArticle(service.definiteArticle, label);
   const aLabelled = withAPlusArticle(service.definiteArticle, label);
+
+  /* After zones (white): glossaire sand → FAQ white → liens sand; else FAQ sand → liens white. */
+  const faqBackground = hasGlossary ? "white" : "sand";
+  const linksBackground = hasGlossary ? "sand" : "white";
 
   return (
     <>
@@ -57,7 +68,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
         }}
       />
 
-      <Section background="crepi" texture="crepi" className="py-8 sm:py-10 md:py-12">
+      <Section background="sand" className="py-8 sm:py-10 md:py-12">
         <AnimateIn>
           <div className="grid gap-6 sm:grid-cols-3">
             <div>
@@ -88,7 +99,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
       </Section>
 
       {service.offerings.length > 0 && (
-        <Section background="surface" texture="paint">
+        <Section background="sand">
           <AnimateIn className="mb-10 max-w-prose">
             <p className="marque-cote mb-3">Prestations</p>
             <p className="font-body text-body-lg text-markaj-mineral-dark">
@@ -144,7 +155,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
         </div>
       </Section>
 
-      <Section background="surface" texture="paint">
+      <Section background="sand">
         <AnimateIn>
           <SectionHeading
             subtitle="Matériaux & normes"
@@ -163,7 +174,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
         </ul>
       </Section>
 
-      <Section background="crepi" texture="crepi">
+      <Section background="white">
         <AnimateIn>
           <SectionHeading
             subtitle="Zones desservies"
@@ -176,7 +187,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
             <Link
               key={zone.slug}
               href={`/zones/${zone.slug}`}
-              className="border border-markaj-primary/20 bg-markaj-white px-4 py-2 font-body text-body-sm font-medium text-markaj-primary transition-colors hover:border-markaj-primary/50"
+              className="border border-markaj-primary/20 bg-markaj-crepi-light px-4 py-2 font-body text-body-sm font-medium text-markaj-primary transition-colors hover:border-markaj-primary/50"
             >
               {label} {zone.shortName}
             </Link>
@@ -193,8 +204,8 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
         </p>
       </Section>
 
-      {glossary.length > 0 && (
-        <Section background="surface" texture="paint">
+      {hasGlossary && (
+        <Section background="sand">
           <AnimateIn>
             <SectionHeading
               subtitle="Glossaire"
@@ -217,9 +228,10 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
       <FaqSection
         title={`Questions fréquentes sur ${labelled}`}
         items={service.faq}
+        background={faqBackground}
       />
 
-      <Section background="white">
+      <Section background={linksBackground}>
         <SectionHeading
           subtitle="Liens utiles"
           title="Découvrir aussi"

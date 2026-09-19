@@ -1,7 +1,16 @@
 import { cn } from "@/lib/utils";
 import { type HTMLAttributes } from "react";
 
-type SectionBackground = "white" | "surface" | "crepi" | "primary";
+/**
+ * Long-page zebra (blanc ↔ sable) — Markaj tokens only:
+ * - `white` → #FFFFFF
+ * - `sand` / `crepi` → #E8E3D3 (sable)
+ * - `primary` → navy CTA / proof only
+ *
+ * Prefer alternating white ↔ sand between consecutive major sections.
+ * Avoid stacking white + near-white (`surface` / paint noise) — they read as one flat band.
+ */
+type SectionBackground = "white" | "surface" | "crepi" | "sand" | "primary";
 type SectionTexture = "none" | "concrete" | "paint" | "crepi" | "concrete-dark";
 
 interface SectionProps extends HTMLAttributes<HTMLElement> {
@@ -13,8 +22,10 @@ interface SectionProps extends HTMLAttributes<HTMLElement> {
 
 const backgroundStyles: Record<SectionBackground, string> = {
   white: "bg-markaj-white",
+  /** Near-white utility — prefer `sand` for zebra bands on long pages. */
   surface: "bg-markaj-surface",
   crepi: "bg-markaj-crepi-light",
+  sand: "bg-markaj-crepi-light",
   primary: "bg-markaj-primary text-markaj-white",
 };
 

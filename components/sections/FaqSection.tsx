@@ -7,7 +7,7 @@ interface FaqSectionProps {
   title?: string;
   intro?: string;
   items: FaqItem[];
-  background?: "white" | "surface" | "crepi" | "primary";
+  background?: "white" | "surface" | "crepi" | "sand" | "primary";
   className?: string;
 }
 
@@ -15,7 +15,7 @@ export function FaqSection({
   title = "Questions fréquentes",
   intro,
   items,
-  background = "surface",
+  background = "sand",
   className,
 }: FaqSectionProps) {
   return (
