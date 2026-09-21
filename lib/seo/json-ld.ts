@@ -1,4 +1,3 @@
-import { googleRating } from "@/lib/content/avis";
 import type { BlogPost } from "@/lib/content/blog";
 import type { FaqItem } from "@/lib/content/services";
 import type { Service } from "@/lib/content/services";
@@ -85,6 +84,10 @@ export function buildOrganizationSchema(): JsonLdObject {
   };
 }
 
+/**
+ * LocalBusiness NAP only — no AggregateRating / Review.
+ * Google Maps / GBP avis stay in HTML UI (AvisGoogle); mirroring them in JSON-LD fails Vault Schema living checks.
+ */
 export function buildLocalBusinessSchema(): JsonLdObject {
   return {
     "@context": "https://schema.org",
@@ -124,13 +127,6 @@ export function buildLocalBusinessSchema(): JsonLdObject {
     })),
     parentOrganization: {
       "@id": `${url}/#organization`,
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: googleRating.ratingValue,
-      reviewCount: googleRating.reviewCount,
-      bestRating: googleRating.bestRating,
-      worstRating: googleRating.worstRating,
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
