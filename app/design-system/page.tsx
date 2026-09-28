@@ -112,10 +112,9 @@ export default function DesignSystemPage() {
                 Corps de texte
               </p>
               <p className="max-w-prose font-body text-body text-markaj-mineral-dark">
-                Markaj Renting SA est une entreprise familiale active en Suisse romande depuis
-                plus de 20 ans. Nous réalisons des travaux de plâtrerie, peinture, faux-plafonds,
-                isolation et rénovation conformes aux normes suisses (SIA), avec un souci constant
-                de la qualité des finitions.
+                Markaj Renting SA, créée en 2018 à Fribourg, compte 20 collaborateurs. Nous réalisons
+                des travaux de plâtrerie, peinture, faux-plafonds, isolation, rénovation et façades
+                en Suisse romande.
               </p>
             </div>
             <div>
@@ -193,7 +192,7 @@ export default function DesignSystemPage() {
             </Card>
             <Card hover>
               <Badge variant="crepi" className="mb-3">
-                20 ans
+                2018
               </Badge>
               <h3 className="font-heading text-heading-4 text-markaj-primary">
                 Entreprise familiale
@@ -408,7 +407,7 @@ export default function DesignSystemPage() {
               <div className="panel-chantier">
                 <span className="marque-cote">Expérience</span>
                 <p className="mt-4 font-heading text-heading-3 text-markaj-primary">
-                  20 ans de chantiers
+                  Créée en 2018
                 </p>
                 <p className="mt-2 font-body text-body-sm text-markaj-mineral-dark">
                   Entreprise familiale, 20 collaborateurs qualifiés.

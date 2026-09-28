@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { AnimateIn } from "@/components/ui/AnimateIn";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { realisations } from "@/lib/content/realisations";
 import { services } from "@/lib/content/services";
 import { getZoneBySlug, zoneSlugs, zones } from "@/lib/content/zones";
 import { buildZonePageSchemas } from "@/lib/seo/json-ld";
@@ -37,6 +38,7 @@ export default function ZoneDetailPage({ params }: PageProps) {
   if (!zone) notFound();
 
   const otherZones = zones.filter((z) => z.slug !== zone.slug);
+  const published = realisations.filter((project) => project.location === zone.shortName);
 
   return (
     <>
@@ -51,7 +53,7 @@ export default function ZoneDetailPage({ params }: PageProps) {
       </div>
 
       <Hero
-        title={`Plâtrerie, peinture et rénovation — ${zone.name}`}
+        title={`Second œuvre — ${zone.shortName}`}
         subtitle={zone.intro}
         primaryCta={{ label: "Demander un devis", href: "/contact" }}
         secondaryCta={{
@@ -81,13 +83,17 @@ export default function ZoneDetailPage({ params }: PageProps) {
         <p className="max-w-prose font-body text-body tracking-wide text-markaj-primary/90">
           {zone.villes.join(" · ")}
         </p>
+        <p className="mt-4 max-w-prose font-body text-body-sm text-markaj-primary/80">
+          Une commune citée ici est une zone d&apos;intervention. Ce n&apos;est pas la preuve d&apos;un chantier photographié.
+        </p>
       </Section>
 
       <Section background="white">
         <AnimateIn>
           <SectionHeading
             subtitle="Chantiers"
-            title="Types de chantiers dans cette zone"
+            title="Types de projets pris en charge"
+            intro="Catégories de travaux proposés dans cette zone. Ce n'est pas une liste de chantiers réalisés."
           />
         </AnimateIn>
         <ul className="grid max-w-2xl gap-3">
@@ -98,6 +104,42 @@ export default function ZoneDetailPage({ params }: PageProps) {
             </li>
           ))}
         </ul>
+      </Section>
+
+      <Section background="surface">
+        <SectionHeading
+          subtitle="Preuves"
+          title="Chantiers publiés dans cette zone"
+          intro="Seuls les projets déjà documentés avec un lieu confirmé apparaissent ici."
+        />
+        {published.length > 0 ? (
+          <ul className="grid max-w-2xl gap-3">
+            {published.map((project) => (
+              <li key={project.id}>
+                <Link
+                  href={`/realisations#${project.id}`}
+                  className="font-body text-body text-markaj-primary underline-offset-4 hover:underline"
+                >
+                  {project.title}
+                </Link>
+                <span className="font-body text-body text-markaj-primary/80">
+                  {" "}
+                  — {project.service}
+                  {project.periode ? `, ${project.periode}` : project.year ? `, ${project.year}` : ""}
+                </span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="max-w-prose font-body text-body text-markaj-primary/90">
+            Aucun chantier publié n&apos;est localisé dans cette zone. Markaj intervient dans toute la Suisse romande.
+            Les preuves disponibles sont sur la page{" "}
+            <Link href="/realisations" className="underline-offset-4 hover:underline">
+              Réalisations
+            </Link>
+            .
+          </p>
+        )}
       </Section>
 
       <Section background="crepi" texture="crepi">

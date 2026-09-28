@@ -12,9 +12,9 @@ import { siteConfig } from "@/lib/seo/site-config";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata = createPageMetadata({
-  title: "Plâtrerie, peinture et rénovation Fribourg, Lausanne, Genève",
+  title: "Second œuvre en Suisse romande",
   description:
-    "Entreprise familiale à Fribourg. Plâtrerie, peinture, isolation et rénovation à Fribourg, Lausanne, Genève et en Suisse romande. Devis gratuit sous 5 jours.",
+    "Markaj Renting SA, créée en 2018 à Fribourg, compte 20 collaborateurs. Plâtrerie, peinture, faux-plafonds, isolation, rénovation et façades en Suisse romande.",
   path: "/",
 });
 
@@ -28,7 +28,7 @@ export default function HomePage() {
       <Hero
         eyebrow="Fribourg · Suisse romande"
         title="Plâtrerie, peinture et finitions de bâtiment"
-        subtitle="Entreprise familiale à Fribourg. Travaux soignés en neuf et rénovation — devis gratuit sous 5 jours."
+        subtitle="Entreprise de second œuvre créée en 2018 à Fribourg, 20 collaborateurs. Interventions en Suisse romande — devis gratuit sous 5 jours."
         primaryCta={{ label: "Demander un devis", href: "/contact" }}
         secondaryCta={{
           label: `Appeler ${siteConfig.contact.phoneDisplay}`,

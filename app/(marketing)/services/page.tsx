@@ -12,7 +12,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 import Link from "next/link";
 
 export const metadata = createPageMetadata({
-  title: "Nos services de plâtrerie, peinture et rénovation",
+  title: "Services de finition et rénovation",
   description:
     "Six expertises en finition de bâtiment : plâtrerie, peinture, faux-plafonds, isolation, rénovation et façades. Un seul interlocuteur en Suisse romande.",
   path: "/services",

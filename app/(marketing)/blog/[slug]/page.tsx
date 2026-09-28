@@ -5,7 +5,27 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { getBlogPostBySlug, blogSlugs, type BlogBlock } from "@/lib/content/blog";
 import { buildArticleSchema, buildBreadcrumbSchema } from "@/lib/seo/json-ld";
 import { createPageMetadata } from "@/lib/seo/metadata";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+
+const relatedService: Record<string, { href: string; label: string }> = {
+  "isolation-thermique-vs-phonique": {
+    href: "/services/isolation",
+    label: "page Isolation",
+  },
+  "choisir-isolant-selon-paroi": {
+    href: "/services/isolation",
+    label: "page Isolation",
+  },
+  "isolation-peripherique-avantages": {
+    href: "/services/isolation",
+    label: "page Isolation",
+  },
+  "choisir-finition-platrerie-q3-q4": {
+    href: "/services/platrerie",
+    label: "page Plâtrerie",
+  },
+};
 
 interface PageProps {
   params: { slug: string };
@@ -67,6 +87,7 @@ function BlogContent({ blocks }: { blocks: BlogBlock[] }) {
 export default function BlogPostPage({ params }: PageProps) {
   const post = getBlogPostBySlug(params.slug);
   if (!post) notFound();
+  const related = relatedService[post.slug];
 
   return (
     <>
@@ -104,6 +125,15 @@ export default function BlogPostPage({ params }: PageProps) {
 
       <Section background="white">
         <BlogContent blocks={post.content} />
+        {related && (
+          <p className="mx-auto mt-10 max-w-prose font-body text-body text-markaj-mineral-dark">
+            Ce texte reste informatif. Le devis et le chantier passent par la{" "}
+            <Link href={related.href} className="text-markaj-primary underline-offset-4 hover:underline">
+              {related.label}
+            </Link>
+            .
+          </p>
+        )}
       </Section>
 
       <CtaBanner />

@@ -11,11 +11,11 @@ const reasons = [
     description: "Travaux exécutés selon les normes SIA et les exigences des cahiers des charges.",
   },
   {
-    title: "20 ans d'expérience",
+    title: "Créée en 2018",
     description: "Entreprise familiale basée à Fribourg, active dans toute la Suisse romande.",
   },
   {
-    title: "20 collaborateurs qualifiés",
+    title: "20 collaborateurs",
     description: "Une équipe stable formée aux techniques actuelles de plâtrerie, peinture et isolation.",
   },
   {
@@ -28,7 +28,7 @@ const reasons = [
   },
   {
     title: "Un seul interlocuteur",
-    description: "Plâtrerie, peinture, isolation et faux-plafonds coordonnés par la même entreprise.",
+    description: "Plâtrerie, peinture, isolation, faux-plafonds et façades coordonnés par la même entreprise.",
   },
 ];
 

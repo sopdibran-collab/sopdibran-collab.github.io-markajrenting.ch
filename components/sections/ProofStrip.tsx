@@ -1,7 +1,7 @@
 import { Section } from "@/components/ui/Section";
 
 const defaultProofs = [
-  { value: "+20 ans", label: "d'expérience" },
+  { value: "2018", label: "création de l'entreprise" },
   { value: "20", label: "collaborateurs" },
   { value: "Neuf & rénovation", label: "tous types de chantiers" },
   { value: "Normes SIA", label: "qualité contrôlée" },

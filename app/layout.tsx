@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | Markaj Renting SA",
   },
   description:
-    "Plâtrerie, peinture, faux-plafonds, isolation et rénovation à Fribourg, Lausanne, Genève et en Suisse romande. Entreprise familiale à Fribourg.",
+    "Markaj Renting SA, créée en 2018 à Fribourg. Plâtrerie, peinture, faux-plafonds, isolation, rénovation et façades en Suisse romande. 20 collaborateurs.",
   icons: {
     icon: [
       { url: "/brand/markaj-favicon.svg", type: "image/svg+xml" },

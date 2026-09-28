@@ -5,12 +5,7 @@ import type { Zone } from "@/lib/content/zones";
 import { getGlossaryForService } from "@/lib/seo/glossary";
 import { siteConfig } from "@/lib/seo/site-config";
 
-const { url, name, legalName, description, address, contact } = siteConfig;
-
-export const GEO_COORDINATES = {
-  latitude: 46.8065,
-  longitude: 7.162,
-};
+const { url, name, legalName, description, address, contact, founded, employees } = siteConfig;
 
 export const AREA_SERVED = [
   "Canton de Fribourg",
@@ -29,28 +24,6 @@ function absoluteUrl(path: string): string {
   return `${url}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
-/** areaServed enrichi : cantons + villes avec URL vers pages zone. */
-export function buildAreaServedSchema(zoneList: Zone[]): JsonLdObject[] {
-  const cantons = AREA_SERVED.map((place) => ({
-    "@type": "AdministrativeArea",
-    name: place,
-  }));
-
-  const cities = zoneList.flatMap((zone) =>
-    zone.villes.map((city) => ({
-      "@type": "City",
-      name: city,
-      url: absoluteUrl(`/zones/${zone.slug}`),
-      containedInPlace: {
-        "@type": "AdministrativeArea",
-        name: zone.name,
-      },
-    }))
-  );
-
-  return [...cantons, ...cities];
-}
-
 export function buildOrganizationSchema(): JsonLdObject {
   return {
     "@context": "https://schema.org",
@@ -61,6 +34,11 @@ export function buildOrganizationSchema(): JsonLdObject {
     description,
     email: contact.email,
     telephone: contact.phone,
+    foundingDate: String(founded),
+    numberOfEmployees: {
+      "@type": "QuantitativeValue",
+      value: employees,
+    },
     address: {
       "@type": "PostalAddress",
       streetAddress: address.street,
@@ -78,6 +56,7 @@ export function buildOrganizationSchema(): JsonLdObject {
       "Peinture",
       "Faux-plafonds",
       "Isolation thermique",
+      "Isolation phonique",
       "Rénovation intérieure",
       "Façades",
     ],
@@ -95,7 +74,11 @@ export function buildLocalBusinessSchema(): JsonLdObject {
     image: `${url}/og-default.jpg`,
     telephone: contact.phone,
     email: contact.email,
-    priceRange: "$$",
+    foundingDate: String(founded),
+    numberOfEmployees: {
+      "@type": "QuantitativeValue",
+      value: employees,
+    },
     address: {
       "@type": "PostalAddress",
       streetAddress: address.street,
@@ -103,11 +86,6 @@ export function buildLocalBusinessSchema(): JsonLdObject {
       postalCode: address.postalCode,
       addressRegion: address.region,
       addressCountry: address.country,
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: GEO_COORDINATES.latitude,
-      longitude: GEO_COORDINATES.longitude,
     },
     openingHoursSpecification: [
       {
@@ -230,7 +208,7 @@ export function buildDefinedTermSetSchema(
   };
 }
 
-export function buildServiceSchema(service: Service, zoneList: Zone[] = []): JsonLdObject {
+export function buildServiceSchema(service: Service): JsonLdObject {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -238,13 +216,10 @@ export function buildServiceSchema(service: Service, zoneList: Zone[] = []): Jso
     description: service.definition,
     url: absoluteUrl(`/services/${service.slug}`),
     provider: { "@id": `${url}/#localbusiness` },
-    areaServed:
-      zoneList.length > 0
-        ? buildAreaServedSchema(zoneList)
-        : AREA_SERVED.map((place) => ({
-            "@type": "AdministrativeArea",
-            name: place,
-          })),
+    areaServed: AREA_SERVED.map((place) => ({
+      "@type": "AdministrativeArea",
+      name: place,
+    })),
     serviceType: service.title,
   };
 }
@@ -300,7 +275,7 @@ export function buildZonePageSchemas(zone: Zone): JsonLdObject[] {
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      name: `Plâtrerie, peinture et rénovation — ${zone.name}`,
+      name: `Second œuvre — ${zone.shortName}`,
       description: zone.metaDescription,
       url: absoluteUrl(`/zones/${zone.slug}`),
       provider: { "@id": `${url}/#localbusiness` },
@@ -327,10 +302,7 @@ export function buildZonePageSchemas(zone: Zone): JsonLdObject[] {
   ];
 }
 
-export function buildServicePageSchemas(
-  service: Service,
-  zoneList: Zone[] = []
-): JsonLdObject[] {
+export function buildServicePageSchemas(service: Service): JsonLdObject[] {
   const glossary = getGlossaryForService(service.slug);
 
   return [
@@ -338,10 +310,10 @@ export function buildServicePageSchemas(
       { label: "Services", href: "/services" },
       { label: service.title },
     ]),
-    buildServiceSchema(service, zoneList),
+    buildServiceSchema(service),
     buildFaqPageSchema(service.faq),
     buildHowToSchema(
-      `Processus de chantier ${service.title.toLowerCase()} — Markaj Renting SA`,
+      `Déroulement d'un chantier — ${service.title}`,
       service.intro,
       service.process.map((s) => ({ title: s.title, description: s.description }))
     ),

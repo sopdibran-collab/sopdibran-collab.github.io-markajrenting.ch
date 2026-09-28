@@ -62,6 +62,17 @@ export default function PolitiqueConfidentialitePage() {
           </p>
 
           <h2 className="mt-10 font-heading text-heading-3 text-markaj-primary">
+            Protection du formulaire
+          </h2>
+          <p className="mt-3 font-body text-body text-markaj-mineral-dark">
+            Pour limiter les envois automatisés, le formulaire de contact utilise un contrôle
+            technique fourni par Cloudflare (Turnstile). Cette vérification peut traiter
+            l&apos;adresse IP et des caractéristiques du navigateur, uniquement pour distinguer
+            une personne d&apos;un robot. Ces informations ne sont pas utilisées à des fins
+            publicitaires et ne sont pas vendues.
+          </p>
+
+          <h2 className="mt-10 font-heading text-heading-3 text-markaj-primary">
             Cookies
           </h2>
           <p className="mt-3 font-body text-body text-markaj-mineral-dark">

@@ -1,6 +1,11 @@
 "use server";
 
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { checkFormToken } from "@/lib/contact/form-token";
+import { HONEYPOT_FIELDS } from "@/lib/contact/honeypot";
+import { assessContactSpam } from "@/lib/contact/spam-filter";
+import { verifyTurnstileToken } from "@/lib/contact/turnstile";
 import { siteConfig } from "@/lib/seo/site-config";
 
 export type ContactFormState = {
@@ -25,12 +30,27 @@ function getField(formData: FormData, name: string): string {
   return typeof value === "string" ? value.trim() : "";
 }
 
+function reachUs(): string {
+  return `Appelez-nous au ${siteConfig.contact.phoneDisplay} ou écrivez à ${siteConfig.contact.email}.`;
+}
+
+function readClientIp(): string | undefined {
+  const headerStore = headers();
+  const forwarded = headerStore.get("x-forwarded-for");
+  return headerStore.get("cf-connecting-ip") ?? forwarded?.split(",")[0]?.trim() ?? undefined;
+}
+
 export async function submitContactRequest(
   _prevState: ContactFormState,
   formData: FormData
 ): Promise<ContactFormState> {
-  // Honeypot : champ invisible pour les humains, rempli par les bots.
-  if (getField(formData, "entreprise_web")) {
+  if (
+    HONEYPOT_FIELDS.some((field) => {
+      const value = formData.get(field.name);
+      return typeof value === "string" && value.length > 0;
+    })
+  ) {
+    console.warn("[contact] leurre déclenché");
     redirect("/merci");
   }
 
@@ -62,6 +82,48 @@ export async function submitContactRequest(
     return {
       status: "error",
       message: "Merci d'accepter le traitement de vos données pour que nous puissions vous répondre.",
+    };
+  }
+
+  const tokenStatus = checkFormToken(getField(formData, "form_token"));
+  if (tokenStatus === "too-fast") {
+    return {
+      status: "error",
+      message: "Merci de relire votre message, puis de le renvoyer.",
+    };
+  }
+  if (tokenStatus !== "ok") {
+    return {
+      status: "error",
+      message: "Ce formulaire a expiré. Rechargez la page, puis renvoyez votre demande.",
+    };
+  }
+
+  const spam = assessContactSpam({ prenom, nom, societe, email, message });
+  if (spam.blocked) {
+    console.warn("[contact] message refusé", spam.reason, spam.detail);
+    return {
+      status: "error",
+      message: `Ce message ne peut pas être transmis par le formulaire. ${reachUs()}`,
+    };
+  }
+
+  const turnstile = await verifyTurnstileToken(
+    getField(formData, "cf-turnstile-response"),
+    readClientIp()
+  );
+  if (turnstile === "skip") {
+    console.error("[contact] Turnstile absent en production — leurre et filtre seulement");
+  } else if (turnstile === "misconfigured") {
+    console.error("[contact] Turnstile mal configuré");
+    return {
+      status: "error",
+      message: `L'envoi en ligne est momentanément indisponible. ${reachUs()}`,
+    };
+  } else if (turnstile !== "ok") {
+    return {
+      status: "error",
+      message: `La vérification de sécurité a échoué. Rechargez la page et réessayez, ou appelez-nous au ${siteConfig.contact.phoneDisplay}.`,
     };
   }
 

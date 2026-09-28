@@ -2,11 +2,41 @@
 
 import { submitContactRequest, type ContactFormState } from "@/app/(marketing)/contact/actions";
 import { Button } from "@/components/ui/Button";
+import { HONEYPOT_FIELDS } from "@/lib/contact/honeypot";
+import { resolveTurnstileSiteKey } from "@/lib/contact/turnstile-public";
 import { services } from "@/lib/content/services";
+import { siteConfig } from "@/lib/seo/site-config";
 import Link from "next/link";
+import Script from "next/script";
+import { useEffect, useRef, useState } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 
 const initialState: ContactFormState = { status: "idle" };
+const siteKey = resolveTurnstileSiteKey();
+
+type TurnstileRenderOptions = {
+  sitekey: string;
+  execution?: "render" | "execute";
+  appearance?: "always" | "execute" | "interaction-only";
+  theme?: "light" | "dark" | "auto";
+  language?: string;
+  action?: string;
+  callback?: (token: string) => void;
+  "error-callback"?: () => void;
+  "expired-callback"?: () => void;
+};
+
+type TurnstileApi = {
+  render: (container: HTMLElement, options: TurnstileRenderOptions) => string;
+  reset: (widgetId: string) => void;
+  remove: (widgetId: string) => void;
+};
+
+declare global {
+  interface Window {
+    turnstile?: TurnstileApi;
+  }
+}
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -20,10 +50,76 @@ function SubmitButton() {
 
 interface ContactFormProps {
   defaultService?: string;
+  formToken: string;
 }
 
-export function ContactForm({ defaultService = "" }: ContactFormProps) {
+export function ContactForm({ defaultService = "", formToken }: ContactFormProps) {
   const [state, formAction] = useFormState(submitContactRequest, initialState);
+  const [securityError, setSecurityError] = useState("");
+  const widgetRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!siteKey) return;
+    const container = widgetRef.current;
+    if (!container) return;
+
+    let widgetId: string | null = null;
+    let stopped = false;
+
+    const renderWidget = () => {
+      if (stopped || widgetId || !window.turnstile) return false;
+      widgetId = window.turnstile.render(container, {
+        sitekey: siteKey,
+        appearance: "interaction-only",
+        theme: "light",
+        language: "fr",
+        action: "contact",
+        "error-callback": () => {
+          setSecurityError(
+            `La vérification de sécurité n'a pas abouti. Rechargez la page ou appelez-nous au ${siteConfig.contact.phoneDisplay}.`
+          );
+        },
+        "expired-callback": () => {
+          if (widgetId && window.turnstile) window.turnstile.reset(widgetId);
+        },
+      });
+      return true;
+    };
+
+    if (renderWidget()) {
+      return () => {
+        stopped = true;
+        if (widgetId && window.turnstile) window.turnstile.remove(widgetId);
+      };
+    }
+
+    const timer = window.setInterval(() => {
+      if (renderWidget()) window.clearInterval(timer);
+    }, 200);
+    const giveUp = window.setTimeout(() => window.clearInterval(timer), 10_000);
+
+    return () => {
+      stopped = true;
+      window.clearInterval(timer);
+      window.clearTimeout(giveUp);
+      if (widgetId && window.turnstile) window.turnstile.remove(widgetId);
+    };
+  }, []);
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    if (!siteKey) return;
+
+    const token = new FormData(event.currentTarget).get("cf-turnstile-response");
+    if (typeof token === "string" && token.length > 0) {
+      setSecurityError("");
+      return;
+    }
+
+    event.preventDefault();
+    setSecurityError(
+      `La vérification de sécurité n'a pas abouti. Rechargez la page ou appelez-nous au ${siteConfig.contact.phoneDisplay}.`
+    );
+  }
 
   if (state.status === "success") {
     return (
@@ -43,17 +139,40 @@ export function ContactForm({ defaultService = "" }: ContactFormProps) {
     );
   }
 
+  const errorMessage = securityError || (state.status === "error" ? state.message : "");
+
   return (
-    <form className="space-y-5" action={formAction} noValidate={false}>
+    <form className="relative space-y-5" action={formAction} onSubmit={handleSubmit}>
+      {siteKey ? (
+        <Script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+          strategy="afterInteractive"
+        />
+      ) : null}
+
       <p className="font-body text-body-sm text-markaj-mineral">
         Devis gratuit · Sans engagement · Réponse sous 5 jours ouvrés
       </p>
 
-      {/* Honeypot anti-spam : caché aux humains, rempli par les bots */}
-      <div className="hidden" aria-hidden="true">
-        <label htmlFor="entreprise_web">Ne pas remplir ce champ</label>
-        <input type="text" id="entreprise_web" name="entreprise_web" tabIndex={-1} autoComplete="off" />
+      <div className="mk-hp" aria-hidden="true">
+        {HONEYPOT_FIELDS.map((field) => (
+          <p key={field.name}>
+            <label htmlFor={field.name}>{field.label}</label>
+            <input
+              type="text"
+              id={field.name}
+              name={field.name}
+              tabIndex={-1}
+              autoComplete="off"
+              defaultValue=""
+              data-1p-ignore="true"
+              data-lpignore="true"
+            />
+          </p>
+        ))}
       </div>
+
+      <input type="hidden" name="form_token" value={formToken} />
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
@@ -134,7 +253,7 @@ export function ContactForm({ defaultService = "" }: ContactFormProps) {
             name="commune"
             autoComplete="address-level2"
             className="form-input"
-            placeholder="Fribourg, Lausanne, Genève…"
+            placeholder="Votre commune"
           />
         </div>
       </div>
@@ -174,11 +293,13 @@ export function ContactForm({ defaultService = "" }: ContactFormProps) {
         </label>
       </div>
 
-      {state.status === "error" && (
+      <div ref={widgetRef} />
+
+      {errorMessage ? (
         <p role="alert" className="border border-red-200 bg-red-50 p-4 font-body text-body-sm text-red-800">
-          {state.message}
+          {errorMessage}
         </p>
-      )}
+      ) : null}
 
       <SubmitButton />
     </form>

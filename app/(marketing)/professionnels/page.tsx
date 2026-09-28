@@ -20,7 +20,7 @@ const audiences = [
   {
     title: "Promoteurs et investisseurs",
     description:
-      "Un interlocuteur unique pour les lots plâtrerie, peinture, isolation et faux-plafonds. Devis par postes, respect des délais de programme et finitions homogènes sur l’ensemble du bâtiment.",
+      "Un interlocuteur unique pour les lots de second œuvre : plâtrerie, peinture, faux-plafonds, isolation, rénovation et façades. Devis par postes, respect des délais de programme et finitions homogènes sur l’ensemble du bâtiment.",
   },
   {
     title: "Architectes",
@@ -42,7 +42,7 @@ const audiences = [
 const capabilities = [
   {
     title: "Capacité d’équipe",
-    text: "Environ 20 collaborateurs qualifiés basés à Fribourg, intervention en Suisse romande.",
+    text: "20 collaborateurs basés à Fribourg. Entreprise créée en 2018, interventions en Suisse romande.",
   },
   {
     title: "Lots couverts",
@@ -75,7 +75,7 @@ export default function ProfessionnelsPage() {
 
       <Hero
         title="Partenaire de finition pour vos projets en Suisse romande"
-        subtitle="Markaj Renting SA travaille avec promoteurs, investisseurs, architectes et directions de travaux : lots plâtrerie–peinture–isolation, planning tenu et conformité au cahier des charges."
+        subtitle="Markaj Renting SA, créée en 2018, compte 20 collaborateurs. Nous travaillons avec promoteurs, investisseurs, architectes et directions de travaux : lots de second œuvre, planning tenu et conformité au cahier des charges."
       />
 
       <Section background="white">
