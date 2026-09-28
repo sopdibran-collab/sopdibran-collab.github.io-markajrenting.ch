@@ -1,7 +1,7 @@
 import { ServicePageContent } from "@/components/sections/ServicePageContent";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getServiceBySlug, serviceSlugs } from "@/lib/content/services";
-import { SERVICE_TITLE_LOCATION, zones } from "@/lib/content/zones";
+import { SERVICE_TITLE_LOCATION } from "@/lib/content/zones";
 import { buildServicePageSchemas } from "@/lib/seo/json-ld";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { notFound } from "next/navigation";
@@ -29,7 +29,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
   if (!service) notFound();
   return (
     <>
-      <JsonLd data={buildServicePageSchemas(service, zones)} />
+      <JsonLd data={buildServicePageSchemas(service)} />
       <ServicePageContent service={service} />
     </>
   );

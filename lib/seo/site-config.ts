@@ -2,7 +2,9 @@ export const siteConfig = {
   name: "Markaj Renting SA",
   legalName: "Markaj Renting SA",
   description:
-    "Entreprise familiale de plâtrerie, peinture, faux-plafonds, isolation et rénovation en Suisse romande. 20 ans d'expérience, 20 collaborateurs.",
+    "Markaj Renting SA, créée en 2018 à Fribourg, compte 20 collaborateurs. Plâtrerie, peinture, faux-plafonds, isolation, rénovation et façades en Suisse romande.",
+  founded: 2018,
+  employees: 20,
   url: "https://markajrenting.ch",
   locale: "fr_CH",
   address: {

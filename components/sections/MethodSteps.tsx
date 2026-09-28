@@ -16,7 +16,7 @@ const steps = [
   {
     title: "Exécution",
     description:
-      "Planning convenu, équipe dédiée, coordination des lots plâtrerie, peinture, isolation et faux-plafonds.",
+      "Planning convenu, équipe dédiée, coordination des lots de second œuvre concernés par le chantier.",
   },
   {
     title: "Réception",

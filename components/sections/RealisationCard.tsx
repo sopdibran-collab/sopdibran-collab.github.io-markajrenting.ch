@@ -26,7 +26,10 @@ export function RealisationCard({ project, index = 0, featured = false }: Realis
 
   return (
     <AnimateIn delay={index * 80} className={cn(featured && "md:col-span-2")}>
-      <article className="group h-full min-w-0 overflow-hidden border border-markaj-primary/15 bg-markaj-white transition-all duration-200 ease-out hover:-translate-x-0.5 hover:-translate-y-0.5 hover:border-markaj-primary/40 hover:shadow-card-hover">
+      <article
+        id={project.id}
+        className="group h-full min-w-0 overflow-hidden border border-markaj-primary/15 bg-markaj-white transition-all duration-200 ease-out hover:-translate-x-0.5 hover:-translate-y-0.5 hover:border-markaj-primary/40 hover:shadow-card-hover"
+      >
         <div
           className={cn(
             "grid min-w-0",

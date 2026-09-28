@@ -4,9 +4,9 @@ import { cn } from "@/lib/utils";
 
 const proofs = [
   {
-    title: "20 ans d'expérience",
-    detail: "et d'engagements",
-    icon: "years" as const,
+    title: "Créée en 2018",
+    detail: "20 collaborateurs",
+    icon: "founded" as const,
   },
   {
     title: "Normes SIA",
@@ -38,17 +38,11 @@ export function ProofStrip() {
             <span
               className={cn(
                 "flex h-9 w-9 shrink-0 items-center justify-center border border-markaj-white/35",
-                item.icon === "years" && "font-heading text-[0.65rem] font-semibold leading-tight tracking-wide"
+                item.icon === "founded" && "font-heading text-[0.65rem] font-semibold leading-tight tracking-wide"
               )}
               aria-hidden
             >
-              {item.icon === "years" && (
-                <span className="text-center">
-                  20
-                  <br />
-                  ANS
-                </span>
-              )}
+              {item.icon === "founded" && <span>2018</span>}
               {item.icon === "shield" && <ShieldCheck className="h-4 w-4" strokeWidth={1.75} />}
               {item.icon === "pin" && <MapPin className="h-4 w-4" strokeWidth={1.75} />}
             </span>

@@ -10,7 +10,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 const reasons = [
   {
     title: "Entreprise suisse locale, responsable et à taille humaine",
-    description: "Basés à Fribourg, actifs en Suisse romande — un interlocuteur unique du devis à la réception.",
+    description: "Créée en 2018 à Fribourg, active en Suisse romande — un interlocuteur unique du devis à la réception.",
   },
   {
     title: "Équipes qualifiées, soucieuses du détail et de la qualité",

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { blogSlugs } from "@/lib/content/blog";
+import { blogPosts } from "@/lib/content/blog";
 import { serviceSlugs } from "@/lib/content/services";
 import { zoneSlugs } from "@/lib/content/zones";
 import { siteConfig } from "@/lib/seo/site-config";
@@ -29,11 +29,8 @@ const staticRoutes: RouteEntry[] = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
-
   const routes: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
     url: `${baseUrl}${route.path}`,
-    lastModified: now,
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));
@@ -41,7 +38,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   serviceSlugs.forEach((slug) => {
     routes.push({
       url: `${baseUrl}/services/${slug}`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.85,
     });
@@ -50,16 +46,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   zoneSlugs.forEach((slug) => {
     routes.push({
       url: `${baseUrl}/zones/${slug}`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
     });
   });
 
-  blogSlugs.forEach((slug) => {
+  blogPosts.forEach((post) => {
     routes.push({
-      url: `${baseUrl}/blog/${slug}`,
-      lastModified: now,
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.date),
       changeFrequency: "monthly",
       priority: 0.7,
     });

@@ -12,14 +12,14 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata = createPageMetadata({
   title: "À propos de Markaj Renting SA",
   description:
-    "Markaj Renting SA : entreprise familiale à Fribourg, 20 ans d'expérience, 20 collaborateurs. Plâtrerie, peinture et rénovation en Suisse romande.",
+    "Markaj Renting SA, créée en 2018 à Fribourg, compte 20 collaborateurs. Plâtrerie, peinture, faux-plafonds, isolation, rénovation et façades en Suisse romande.",
   path: "/a-propos",
 });
 
 const timeline = [
-  { year: "Fondation", text: "Création de l'entreprise familiale à Fribourg, spécialisée en plâtrerie et peinture." },
+  { year: "2018", text: "Création de l'entreprise familiale à Fribourg, spécialisée en plâtrerie et peinture." },
   { year: "Croissance", text: "Développement des effectifs et élargissement des services : isolation, faux-plafonds, rénovation." },
-  { year: "Aujourd'hui", text: "20 collaborateurs qualifiés, une expertise reconnue en Suisse romande et des centaines de chantiers réalisés." },
+  { year: "Aujourd'hui", text: "20 collaborateurs, basés à Fribourg. Plâtrerie, peinture, faux-plafonds, isolation, rénovation et façades, en Suisse romande." },
 ];
 
 const values = [
@@ -39,7 +39,7 @@ export default function AboutPage() {
 
       <Hero
         title="Une entreprise familiale au service de la belle ouvrage"
-        subtitle="Markaj Renting SA, c'est plus de 20 ans d'expérience en plâtrerie, peinture et rénovation, portés par une équipe de 20 collaborateurs passionnés par leur métier."
+        subtitle="Markaj Renting SA, créée en 2018 à Fribourg, compte 20 collaborateurs. Plâtrerie, peinture, faux-plafonds, isolation, rénovation et façades en Suisse romande."
       />
 
       <Section background="white">
@@ -50,7 +50,7 @@ export default function AboutPage() {
           <p className="mt-4 font-body text-body-lg text-markaj-mineral-dark">
             Markaj Renting SA est une entreprise familiale basée à Fribourg, spécialisée dans les
             travaux de plâtrerie, peinture, faux-plafonds, isolation, rénovation intérieure et façades.
-            Depuis plus de 20 ans, nous accompagnons particuliers, régies immobilières, architectes
+            Depuis 2018, nous accompagnons particuliers, régies immobilières, architectes
             et entreprises en Suisse romande.
           </p>
           <p className="mt-4 font-body text-body-lg text-markaj-mineral-dark">
@@ -62,7 +62,7 @@ export default function AboutPage() {
       </Section>
 
       <Section background="crepi" texture="crepi">
-        <SectionHeading subtitle="Histoire" title="Plus de 20 ans d'expérience" />
+        <SectionHeading subtitle="Histoire" title="Créée en 2018" />
         <div className="space-y-8">
           {timeline.map((item) => (
             <div key={item.year} className="flex gap-6 border-l-2 border-markaj-primary/30 pl-8">

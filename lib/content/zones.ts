@@ -30,9 +30,9 @@ export const zones: Zone[] = [
       "Siège de Markaj Renting SA. Nous réalisons des chantiers de plâtrerie, peinture et rénovation dans tout le canton, de la ville de Fribourg à la Gruyère en passant par la Glâne et la Broye, pour particuliers, régies et entreprises.",
     villes: ["Fribourg", "Romont", "Bulle", "Estavayer-le-Lac", "Châtel-St-Denis", "Morat"],
     chantiers: ["Rénovation d'appartements", "Bureaux et commerces", "Copropriétés", "Bâtiments publics"],
-    metaTitle: "Plâtrerie et peinture Fribourg | Rénovation | Markaj Renting SA",
+    metaTitle: "Second œuvre à Fribourg | Markaj Renting SA",
     metaDescription:
-      "Plâtrier et peintre à Fribourg, Bulle, Romont et dans tout le canton. Isolation, façades, faux-plafonds. Devis gratuit — 079 430 18 13.",
+      "Siège de Markaj Renting SA à Fribourg. Second œuvre dans le canton : plâtrerie, peinture, isolation, façades. Devis — 079 430 18 13.",
     intro:
       "Vous cherchez un plâtrier ou un peintre à Fribourg ? Markaj Renting SA est basée Route de Schiffenen et intervient dans tout le canton pour la plâtrerie, la peinture, l'isolation et la rénovation.",
     contexteLocal: [
@@ -66,9 +66,9 @@ export const zones: Zone[] = [
       "De Lausanne à la Riviera, nous accompagnons des projets de rénovation, d'isolation et de finition intérieure pour le secteur privé et professionnel, en milieu urbain comme en périphérie.",
     villes: ["Lausanne", "Vevey", "Montreux", "Morges", "Yverdon-les-Bains", "Nyon"],
     chantiers: ["Rénovation de bureaux", "Isolation périphérique", "Faux-plafonds acoustiques", "Rénovation haut de gamme"],
-    metaTitle: "Plâtrerie et peinture Lausanne, Vaud | Markaj Renting SA",
+    metaTitle: "Second œuvre dans le canton de Vaud | Markaj Renting SA",
     metaDescription:
-      "Plâtrerie, peinture et rénovation à Lausanne, Morges, Vevey, Nyon et Yverdon. Isolation et faux-plafonds. Devis gratuit — 079 430 18 13.",
+      "Interventions de second œuvre dans le canton de Vaud. Siège à Fribourg, couverture de toute la Suisse romande. Devis — 079 430 18 13.",
     intro:
       "Vous cherchez un peintre ou un plâtrier à Lausanne et dans le canton de Vaud ? Markaj Renting SA réalise plâtrerie, peinture, isolation et faux-plafonds sur la Riviera, à Morges, Nyon et Yverdon-les-Bains.",
     contexteLocal: [
@@ -102,9 +102,9 @@ export const zones: Zone[] = [
       "À Genève et dans les communes du canton, nos équipes interviennent sur des chantiers de finition exigeants : appartements, bureaux, commerces et immeubles de rendement.",
     villes: ["Genève", "Carouge", "Lancy", "Vernier", "Meyrin"],
     chantiers: ["Peinture intérieure", "Plâtrerie technique", "Aménagement de bureaux", "Rénovation d'immeubles"],
-    metaTitle: "Plâtrerie et peinture Genève | Rénovation | Markaj Renting SA",
+    metaTitle: "Second œuvre à Genève | Markaj Renting SA",
     metaDescription:
-      "Plâtrier et peintre à Genève, Carouge, Lancy, Vernier et Meyrin. Rénovation, isolation, faux-plafonds. Devis gratuit — 079 430 18 13.",
+      "Interventions de second œuvre à Genève. Chantiers publiés : OMS, Credit Suisse, Rue de Lausanne 119. Devis — 079 430 18 13.",
     intro:
       "Vous cherchez un plâtrier ou un peintre à Genève ? Markaj Renting SA intervient dans le canton pour la plâtrerie technique, la peinture intérieure, l'aménagement de bureaux et la rénovation d'immeubles.",
     contexteLocal: [
@@ -138,9 +138,9 @@ export const zones: Zone[] = [
       "Du Littoral aux Montagnes neuchâteloises, nous prenons en charge des travaux de plâtrerie, peinture et isolation adaptés au bâti ancien comme aux constructions récentes.",
     villes: ["Neuchâtel", "La Chaux-de-Fonds", "Le Locle", "Val-de-Ruz"],
     chantiers: ["Rénovation intérieure", "Isolation de combles", "Peinture et plâtrerie", "Façades"],
-    metaTitle: "Plâtrerie et peinture Neuchâtel | Markaj Renting SA",
+    metaTitle: "Second œuvre à Neuchâtel | Markaj Renting SA",
     metaDescription:
-      "Plâtrerie, peinture et isolation à Neuchâtel, La Chaux-de-Fonds et Le Locle. Façades et rénovation. Devis gratuit — 079 430 18 13.",
+      "Interventions de second œuvre dans le canton de Neuchâtel. Siège à Fribourg. Devis — 079 430 18 13.",
     intro:
       "Vous cherchez un plâtrier ou un peintre à Neuchâtel ? Markaj Renting SA intervient sur le Littoral et dans les Montagnes (La Chaux-de-Fonds, Le Locle) pour plâtrerie, peinture, isolation et façades.",
     contexteLocal: [
@@ -174,9 +174,9 @@ export const zones: Zone[] = [
       "Dans le Valais romand, nous intervenons en plaine comme en station : résidences principales et secondaires, hôtellerie et locaux commerciaux.",
     villes: ["Sion", "Sierre", "Martigny", "Monthey", "Verbier", "Crans-Montana"],
     chantiers: ["Rénovation de chalets et appartements", "Crépi et façades", "Peinture décorative", "Faux-plafonds"],
-    metaTitle: "Plâtrerie et peinture Valais, Sion | Markaj Renting SA",
+    metaTitle: "Second œuvre en Valais | Markaj Renting SA",
     metaDescription:
-      "Plâtrerie, peinture et façades à Sion, Martigny, Monthey, Sierre et en station. Rénovation chalets. Devis gratuit — 079 430 18 13.",
+      "Interventions de second œuvre en Valais. Siège à Fribourg, couverture de toute la Suisse romande. Devis — 079 430 18 13.",
     intro:
       "Vous cherchez un peintre ou un plâtrier en Valais ? Markaj Renting SA intervient à Sion, Martigny, Monthey, Sierre et en station (Verbier, Crans-Montana) pour plâtrerie, peinture, crépi et rénovation.",
     contexteLocal: [
@@ -210,9 +210,9 @@ export const zones: Zone[] = [
       "De Delémont à Porrentruy et aux Franches-Montagnes, nous réalisons des travaux de second œuvre pour particuliers, entreprises et collectivités.",
     villes: ["Delémont", "Porrentruy", "Saignelégier"],
     chantiers: ["Rénovation intérieure", "Plâtrerie", "Peinture", "Isolation"],
-    metaTitle: "Plâtrerie et peinture Jura, Delémont | Markaj Renting SA",
+    metaTitle: "Second œuvre dans le Jura | Markaj Renting SA",
     metaDescription:
-      "Plâtrerie, peinture et isolation à Delémont, Porrentruy et Franches-Montagnes. Rénovation intérieure. Devis gratuit — 079 430 18 13.",
+      "Interventions de second œuvre dans le canton du Jura. Siège à Fribourg. Devis — 079 430 18 13.",
     intro:
       "Vous cherchez un plâtrier ou un peintre dans le Jura ? Markaj Renting SA intervient à Delémont, Porrentruy et Saignelégier pour plâtrerie, peinture, isolation et rénovation intérieure.",
     contexteLocal: [
@@ -246,9 +246,9 @@ export const zones: Zone[] = [
       "Nous couvrons la partie francophone du canton de Berne : Bienne et le Jura bernois, pour des chantiers résidentiels, tertiaires et industriels.",
     villes: ["Bienne", "Moutier", "Saint-Imier", "La Neuveville"],
     chantiers: ["Rénovation d'appartements", "Faux-plafonds commerciaux", "Peinture intérieure", "Doublages isolants"],
-    metaTitle: "Plâtrerie et peinture Bienne, Jura bernois | Markaj Renting SA",
+    metaTitle: "Second œuvre dans le Jura bernois | Markaj Renting SA",
     metaDescription:
-      "Plâtrerie, peinture et rénovation à Bienne, Moutier, Saint-Imier et La Neuveville. Isolation et faux-plafonds. Devis — 079 430 18 13.",
+      "Interventions de second œuvre dans la partie francophone du canton de Berne. Siège à Fribourg. Devis — 079 430 18 13.",
     intro:
       "Vous cherchez un peintre ou un plâtrier à Bienne et dans le Jura bernois ? Markaj Renting SA intervient à Bienne, Moutier, Saint-Imier et La Neuveville pour plâtrerie, peinture, isolation et faux-plafonds.",
     contexteLocal: [

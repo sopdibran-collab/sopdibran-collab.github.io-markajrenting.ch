@@ -132,9 +132,12 @@ def main() -> None:
 
     img = build_background()
     draw = ImageDraw.Draw(img)
-    sans_sub = load_font(SANS_CANDIDATES, 30)
     sans_small = load_font(SANS_CANDIDATES, 24)
     margin = 90
+    services_line = "Plâtrerie · Peinture · Faux-plafonds · Isolation · Rénovation · Façades"
+    sans_sub = load_font(SANS_CANDIDATES, 30)
+    while sans_sub.getlength(services_line) > WIDTH - margin * 2 and sans_sub.size > 18:
+        sans_sub = load_font(SANS_CANDIDATES, sans_sub.size - 1)
 
     with tempfile.TemporaryDirectory() as tmp_dir:
         tmp = Path(tmp_dir)
@@ -161,13 +164,13 @@ def main() -> None:
     tagline_y = rule_y + 22
     draw.text(
         (margin, tagline_y),
-        "Plâtrerie · Peinture · Faux-plafonds · Isolation · Rénovation",
+        services_line,
         font=sans_sub,
         fill=MINERAL_LIGHT,
     )
     draw.text(
         (margin, tagline_y + 48),
-        "Entreprise familiale à Fribourg — 20 ans d'expérience",
+        "Créée en 2018 à Fribourg — 20 collaborateurs",
         font=sans_small,
         fill=CREPI,
     )
