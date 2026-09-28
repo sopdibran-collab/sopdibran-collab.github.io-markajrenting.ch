@@ -7,17 +7,19 @@ interface FaqSectionProps {
   title?: string;
   intro?: string;
   items: FaqItem[];
-  background?: "white" | "surface" | "crepi" | "primary";
+  background?: "white" | "surface" | "crepi" | "sand" | "primary";
+  className?: string;
 }
 
 export function FaqSection({
   title = "Questions fréquentes",
   intro,
   items,
-  background = "surface",
+  background = "sand",
+  className,
 }: FaqSectionProps) {
   return (
-    <Section background={background}>
+    <Section background={background} className={className}>
       <SectionHeading subtitle="FAQ" title={title} intro={intro} />
       <div className="max-w-3xl">
         <Accordion items={items} />

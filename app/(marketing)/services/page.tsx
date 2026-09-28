@@ -33,8 +33,9 @@ export default function ServicesPage() {
         secondaryCta={{ label: "Voir nos réalisations", href: "/realisations" }}
       />
 
-      <Section background="white" className="py-10 sm:py-12 md:py-14">
-        <div className="max-w-prose">
+      {/* Hub zebra: hero white → expertises sand → CTA navy (no white/surface stack). */}
+      <Section background="sand">
+        <div className="mb-10 max-w-prose">
           <p className="font-body text-body-lg text-markaj-mineral-dark">
             De la pose de cloisons BA13 à la rénovation complète d&apos;un bâtiment, nous accompagnons
             particuliers, régies, architectes et entreprises en Suisse romande. Chaque prestation est
@@ -42,9 +43,6 @@ export default function ServicesPage() {
             des délais convenus.
           </p>
         </div>
-      </Section>
-
-      <Section background="surface" texture="paint">
         <SectionHeading
           subtitle="Expertises"
           title="Six domaines d'intervention"

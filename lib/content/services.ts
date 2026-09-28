@@ -3,10 +3,21 @@ export interface FaqItem {
   answer: string;
 }
 
+/** Sous-prestation alignée Google Business Profile, imbriquée sous la page parent. */
+export interface ServiceOffering {
+  title: string;
+  description: string;
+  /** Lien optionnel vers une page sœur (ex. rénovation, façades). */
+  href?: string;
+  linkLabel?: string;
+}
+
 export interface Service {
   slug: string;
   title: string;
   shortTitle: string;
+  /** Article défini pour l'accord grammatical (la / l' / les). */
+  definiteArticle: "la" | "l'" | "les";
   metaDescription: string;
   intro: string;
   /** Bénéfice client en une phrase */
@@ -15,15 +26,9 @@ export interface Service {
   audience: string[];
   /** Types de projets / usages */
   projectTypes: string[];
-  /** Title document, sans le suffixe de marque */
-  seoTitle: string;
-  /** H1 de la page service */
-  headline: string;
-  /** Titre de la définition, accordé */
-  definitionTitle: string;
   definition: string;
-  /** Précisions visibles, limitées aux faits déjà décrits pour ce métier */
-  clarifications?: { title: string; paragraphs: string[] }[];
+  /** Prestations GBP imbriquées sous la page parent (pas d'URL séparée). */
+  offerings: ServiceOffering[];
   process: { step: string; title: string; description: string }[];
   materials: string[];
   faq: FaqItem[];
@@ -34,18 +39,38 @@ export const services: Service[] = [
     slug: "platrerie",
     title: "Plâtrerie",
     shortTitle: "Plâtrerie",
+    definiteArticle: "la",
     metaDescription:
-      "Cloisons, doublages et finitions Q3/Q4 en Suisse romande. Entreprise basée à Fribourg. Devis gratuit — 079 430 18 13.",
+      "Plâtrerie à Fribourg et en Suisse romande. Cloisons BA13, doublages, finitions Q3/Q4. Devis gratuit — 079 430 18 13.",
     intro:
-      "Markaj Renting SA réalise cloisons, doublages, habillages et finitions Q3/Q4 en Suisse romande, en neuf comme en rénovation. L'entreprise est basée à Fribourg.",
+      "Basés à Fribourg, nous réalisons vos travaux de plâtrerie en Suisse romande : cloisons, doublages, habillages et finitions conformes aux normes suisses.",
     benefit: "Surfaces planes, joints soignés et finitions Q3/Q4 prêtes à peindre.",
     audience: ["Particuliers", "Architectes", "Entreprises", "Régies"],
     projectTypes: ["Neuf", "Rénovation", "Cloisons & doublages"],
-    seoTitle: "Plâtrerie en Suisse romande",
-    headline: "Plâtrerie en Suisse romande",
-    definitionTitle: "Qu'est-ce que la plâtrerie ?",
     definition:
       "La plâtrerie regroupe l'ensemble des travaux de pose de plaques de plâtre (BA13), de montage de cloisons, de doublages muraux et de préparation des supports avant peinture. C'est la base d'une finition intérieure de qualité.",
+    offerings: [
+      {
+        title: "Cloisons en plaques de plâtre",
+        description:
+          "Cloisons BA13 sur ossature métallique ou bois : pose, joints, surfaces prêtes à peindre. Neuf et rénovation, pour particuliers, architectes et entreprises.",
+      },
+      {
+        title: "Joints et finitions Q3 / Q4",
+        description:
+          "Joints et finitions plâtrerie Q3 (standard) ou Q4 (haut de gamme), conformes aux usages suisses. Surfaces planes, prêtes à peindre ou à laquer.",
+      },
+      {
+        title: "Doublages",
+        description:
+          "Doublages muraux en plaques de plâtre, avec ou sans isolant. Habillages et caissons pour une finition nette avant peinture.",
+      },
+      {
+        title: "Reprises de plâtre",
+        description:
+          "Reprises et restauration de plâtre en rénovation : fissures, dégâts, raccordements soignés avant peinture. Idéal appartements, immeubles et locaux.",
+      },
+    ],
     process: [
       { step: "01", title: "Visite et prise de mesures", description: "Analyse du chantier, relevé précis et définition du cahier des charges avec le client ou l'architecte." },
       { step: "02", title: "Préparation des supports", description: "Protection des zones adjacentes, vérification de l'hygrométrie et préparation des ossatures métalliques ou bois." },
@@ -69,18 +94,45 @@ export const services: Service[] = [
     slug: "peinture",
     title: "Peinture",
     shortTitle: "Peinture",
+    definiteArticle: "la",
     metaDescription:
-      "Travaux de peinture en Suisse romande : murs, plafonds et boiseries. Siège à Fribourg. Devis gratuit — 079 430 18 13.",
+      "Peinture intérieure et extérieure à Fribourg et en Suisse romande. Finitions durables. Devis gratuit — 079 430 18 13.",
     intro:
-      "Markaj Renting SA réalise les travaux de peinture en Suisse romande : préparation des supports, produits adaptés et finition durable. L'entreprise est basée à Fribourg. Un ravalement ou un crépi se traite comme un projet de façade.",
+      "Basés à Fribourg, nous assurons la peinture intérieure et extérieure en Suisse romande : préparation des supports, produits adaptés et finition durable.",
     benefit: "Finitions durables, supports correctement préparés, rendu uniforme.",
-    audience: ["Particuliers", "Régies", "Entreprises"],
+    audience: ["Particuliers", "Régies", "Architectes", "Entreprises"],
     projectTypes: ["Intérieur", "Extérieur", "Neuf & rénovation"],
-    seoTitle: "Peinture en Suisse romande",
-    headline: "Peinture en Suisse romande",
-    definitionTitle: "Qu'est-ce que la peinture ?",
     definition:
       "Les travaux de peinture comprennent la préparation des surfaces (ponçage, rebouchage, primaire), l'application de peintures murales, plafonds, boiseries et métaux, en intérieur comme en extérieur.",
+    offerings: [
+      {
+        title: "Peinture de surfaces intérieures",
+        description:
+          "Peinture intérieure pour murs et plafonds : préparation soignée, finitions mates ou satinées, chantiers neuf et rénovation. Entreprise familiale à Fribourg, pour particuliers, régies et architectes.",
+      },
+      {
+        title: "Peinture de surfaces extérieures",
+        description:
+          "Peinture extérieure adaptée au climat suisse : façades protégées, supports préparés, rendu durable.",
+      },
+      {
+        title: "Finitions murs et plafonds",
+        description:
+          "Finitions soignées murs et plafonds, prêtes à peindre ou peintes selon le cahier des charges. Finitions Q3/Q4 en plâtrerie, rendu uniforme en peinture. Devis sous 5 jours.",
+      },
+      {
+        title: "Préparation des supports",
+        description:
+          "Lessivage, ponçage, rebouchage et primaire avant peinture. Supports correctement préparés pour une finition durable, en intérieur comme en extérieur.",
+      },
+      {
+        title: "Rénovation intérieure",
+        description:
+          "Rénovation intérieure second œuvre : plâtrerie, peinture, isolation et faux-plafonds avec un seul interlocuteur. Appartements, bureaux et commerces — neuf partiel ou reprise. Devis après visite.",
+        href: "/services/renovation",
+        linkLabel: "Voir la rénovation intérieure",
+      },
+    ],
     process: [
       { step: "01", title: "Diagnostic des supports", description: "Évaluation de l'état des murs, plafonds et boiseries. Identification des traitements nécessaires." },
       { step: "02", title: "Préparation", description: "Protection des sols et mobilier, rebouchage, ponçage, application de primaires d'accrochage." },
@@ -96,7 +148,7 @@ export const services: Service[] = [
     ],
     faq: [
       { question: "Quelle peinture choisir pour une salle de bains ?", answer: "Nous recommandons des peintures acryliques spéciales pièces humides, résistantes à la condensation et aux projections d'eau, appliquées sur un support correctement préparé." },
-      { question: "Peignez-vous les façades ?", answer: "La peinture de façade (support minéral, crépi ou bois) fait partie d'un ravalement. Ces projets sont décrits sur la page Façades. Cette page concerne les travaux de peinture : murs, plafonds et boiseries, en neuf comme en rénovation." },
+      { question: "Peignez-vous les façades ?", answer: "Oui, nous réalisons la peinture de façades avec des produits adaptés au support (minéral, crépi, bois) et aux conditions climatiques suisses." },
       { question: "Combien de couches sont nécessaires ?", answer: "En règle générale, deux couches de finition après primaire suffisent. Les supports foncés ou très absorbants peuvent nécessiter une couche supplémentaire." },
     ],
   },
@@ -104,18 +156,33 @@ export const services: Service[] = [
     slug: "faux-plafonds",
     title: "Faux-plafonds",
     shortTitle: "Faux-plafonds",
+    definiteArticle: "les",
     metaDescription:
-      "Faux-plafonds acoustiques et techniques en Suisse romande : bureaux, commerces et logements. Siège à Fribourg. Devis — 079 430 18 13.",
+      "Faux-plafonds à Fribourg et en Suisse romande. Acoustique, éclairage, ventilation. Devis gratuit — 079 430 18 13.",
     intro:
-      "Markaj Renting SA pose des faux-plafonds en Suisse romande : acoustique, esthétique et intégration des réseaux, pour le tertiaire, les commerces et les logements. L'entreprise est basée à Fribourg.",
+      "Basés à Fribourg, nous concevons et posons des faux-plafonds en Suisse romande : acoustique, esthétique et intégration des réseaux.",
     benefit: "Plafonds techniques et esthétiques, acoustique et réseaux intégrés.",
     audience: ["Architectes", "Entreprises", "Bureaux"],
     projectTypes: ["Tertiaire", "Commerces", "Logements"],
-    seoTitle: "Faux-plafonds en Suisse romande",
-    headline: "Faux-plafonds en Suisse romande",
-    definitionTitle: "Qu'est-ce qu'un faux-plafond ?",
     definition:
       "Un faux-plafond est une structure suspendue sous le plafond porteur, permettant de dissimuler les réseaux techniques, d'améliorer l'acoustique et de créer des ambiances lumineuses architecturales.",
+    offerings: [
+      {
+        title: "Pose de faux-plafonds",
+        description:
+          "Faux-plafonds techniques et esthétiques : plaques, dalles démontables, intégration réseaux. Tertiaire, commerces et logements.",
+      },
+      {
+        title: "Plafonds acoustiques",
+        description:
+          "Plafonds acoustiques (fibre de bois, absorbants) pour bureaux, circulations et locaux exigeants. Confort sonore + finition soignée.",
+      },
+      {
+        title: "Intégration éclairage / réseaux",
+        description:
+          "Faux-plafonds avec intégration éclairage, CVC et réseaux : accès technique, planning tenu, finition propre. Pour architectes et entreprises en Suisse romande.",
+      },
+    ],
     process: [
       { step: "01", title: "Étude technique", description: "Analyse des contraintes (hauteur sous plafond, réseaux, normes incendie) et choix du système adapté." },
       { step: "02", title: "Ossature", description: "Pose des suspentes, profilés périphériques et structure porteuse selon le plan d'exécution." },
@@ -139,32 +206,38 @@ export const services: Service[] = [
     slug: "isolation",
     title: "Isolation",
     shortTitle: "Isolation",
+    definiteArticle: "l'",
     metaDescription:
-      "Isolation thermique et phonique en Suisse romande : doublages et isolation périphérique. Siège à Fribourg. Devis — 079 430 18 13.",
+      "Isolation thermique et phonique à Fribourg et en Suisse romande. Doublages, Minergie. Devis gratuit — 079 430 18 13.",
     intro:
-      "Markaj Renting SA réalise l'isolation thermique et phonique en Suisse romande : doublages, isolation périphérique et traitement des ponts thermiques, en rénovation comme en construction. L'entreprise est basée à Fribourg.",
+      "Basés à Fribourg, nous réalisons l'isolation thermique et acoustique en Suisse romande : doublages, isolation périphérique et traitement des ponts thermiques.",
     benefit: "Confort thermique et acoustique, conformité aux exigences suisses.",
     audience: ["Particuliers", "Promoteurs", "Architectes"],
     projectTypes: ["Doublages", "Périphérique", "Minergie"],
-    seoTitle: "Isolation thermique et phonique",
-    headline: "Isolation thermique et phonique en Suisse romande",
-    definitionTitle: "Qu'est-ce que l'isolation ?",
     definition:
       "L'isolation consiste à limiter les déperditions de chaleur et les nuisances sonores par la pose de matériaux isolants (laine minérale, mousse, fibres) dans les murs, plafonds et combles.",
-    clarifications: [
+    offerings: [
       {
         title: "Isolation thermique",
-        paragraphs: [
-          "Elle limite les déperditions de chaleur par les murs, plafonds et combles. Selon la paroi, le chantier utilise de la laine minérale, des panneaux rigides ou, lorsque le dossier le prévoit, une mousse.",
-          "Le travail porte aussi sur les ponts thermiques, le pare-vapeur lorsqu'il est requis, et l'isolation périphérique : la face intérieure des murs extérieurs. Sur les projets qui l'exigent, la mise en œuvre suit le cahier des charges, y compris un référentiel de type Minergie imposé par le bureau d'études.",
-        ],
+        description:
+          "Isolation thermique (doublages, périphérique, ponts thermiques) selon exigences suisses et projets Minergie. Confort et économies d'énergie.",
       },
       {
         title: "Isolation phonique",
-        paragraphs: [
-          "Elle vise les nuisances sonores. Ce n'est pas le même objectif que l'isolation thermique. Un doublage avec laine minérale réduit les bruits aériens entre pièces et depuis l'extérieur.",
-          "Le choix de l'isolant dépend de la paroi, de l'humidité et de la place disponible. Les guides ci-dessous précisent ces différences ; la demande de devis se fait sur cette page.",
-        ],
+        description:
+          "Isolation phonique pour cloisons, doublages et plafonds : moins de bruit entre pièces ou voisins. Solutions adaptées logements, bureaux et commerces.",
+      },
+      {
+        title: "Isolation périphérique / façade",
+        description:
+          "Isolation périphérique de façade : enveloppe, confort thermique, coordination crépi et peinture. Un seul interlocuteur second œuvre.",
+        href: "/services/facades",
+        linkLabel: "Voir les travaux de façades",
+      },
+      {
+        title: "Doublages isolants",
+        description:
+          "Doublages isolants intérieurs : plaque + isolant pour murs froids ou bruyants. Finition prête à peindre, normes suisses.",
       },
     ],
     process: [
@@ -190,18 +263,46 @@ export const services: Service[] = [
     slug: "renovation",
     title: "Rénovation",
     shortTitle: "Rénovation",
+    definiteArticle: "la",
     metaDescription:
-      "Rénovation de second œuvre en Suisse romande : plusieurs lots, un interlocuteur. Siège à Fribourg. Devis — 079 430 18 13.",
+      "Rénovation intérieure à Fribourg et en Suisse romande. Plâtrerie, peinture, isolation. Devis gratuit — 079 430 18 13.",
     intro:
-      "Markaj Renting SA prend en charge les rénovations qui combinent plusieurs lots de second œuvre en Suisse romande. L'entreprise est basée à Fribourg. Chaque métier reste décrit sur sa propre page.",
-    benefit: "Un interlocuteur pour un projet qui combine plusieurs lots de second œuvre.",
-    audience: ["Particuliers", "Régies", "Entreprises"],
+      "Rénovation intérieure second œuvre : plâtrerie, peinture, isolation et faux-plafonds avec un seul interlocuteur. Appartements, bureaux et commerces — neuf partiel ou reprise. Devis après visite.",
+    benefit: "Un seul interlocuteur pour plâtrerie, peinture, isolation et plafonds.",
+    audience: ["Particuliers", "Régies", "Architectes", "Entreprises"],
     projectTypes: ["Appartements", "Bureaux", "Commerces"],
-    seoTitle: "Rénovation de second œuvre",
-    headline: "Rénovation de second œuvre en Suisse romande",
-    definitionTitle: "Qu'est-ce qu'une rénovation de second œuvre ?",
     definition:
-      "La rénovation intérieure regroupe l'ensemble des travaux de transformation d'espaces existants : démolition sélective, reprise des supports, redistribution des volumes et finitions complètes.",
+      "La rénovation intérieure regroupe l'ensemble des travaux de transformation d'espaces existants : démolition sélective, reprise des supports, redistribution des volumes et finitions complètes. Entreprise familiale basée à Fribourg, pour particuliers et architectes en Suisse romande.",
+    offerings: [
+      {
+        title: "Plâtrerie",
+        description:
+          "Cloisons, doublages, joints Q3/Q4 et reprises de plâtre — surfaces prêtes à peindre.",
+        href: "/services/platrerie",
+        linkLabel: "Voir la plâtrerie",
+      },
+      {
+        title: "Peinture",
+        description:
+          "Peinture intérieure et extérieure, préparation des supports et finitions durables.",
+        href: "/services/peinture",
+        linkLabel: "Voir la peinture",
+      },
+      {
+        title: "Isolation",
+        description:
+          "Isolation thermique et phonique, doublages isolants et ponts thermiques.",
+        href: "/services/isolation",
+        linkLabel: "Voir l'isolation",
+      },
+      {
+        title: "Faux-plafonds",
+        description:
+          "Faux-plafonds techniques et acoustiques, intégration éclairage et réseaux.",
+        href: "/services/faux-plafonds",
+        linkLabel: "Voir les faux-plafonds",
+      },
+    ],
     process: [
       { step: "01", title: "Diagnostic et devis", description: "Visite du site, compréhension de vos besoins, établissement d'un devis détaillé par postes de travaux." },
       { step: "02", title: "Planification", description: "Établissement du planning, coordination avec les autres corps de métier (électricien, chauffagiste, sanitaire)." },
@@ -225,42 +326,31 @@ export const services: Service[] = [
     slug: "facades",
     title: "Façades",
     shortTitle: "Façades",
+    definiteArticle: "les",
     metaDescription:
-      "Rénovation de façade, crépi et ravalement en Suisse romande. Siège à Fribourg. Devis gratuit — 079 430 18 13.",
+      "Rénovation de façade et crépi à Fribourg et en Suisse romande. Enduits, peinture extérieure. Devis gratuit — 079 430 18 13.",
     intro:
-      "Markaj Renting SA réalise le ravalement, le crépi et la peinture de façade en Suisse romande : enduits, réparations et finitions protectrices. L'entreprise est basée à Fribourg.",
+      "Basés à Fribourg, nous réalisons ravalement, crépi et peinture de façades en Suisse romande : enduits, réparations et finitions protectrices.",
     benefit: "Façades protégées, crépis et peintures adaptés au climat suisse.",
-    audience: ["Particuliers", "Régies", "Copropriétés"],
+    audience: ["Particuliers", "Régies", "Copropriétés", "Architectes"],
     projectTypes: ["Ravalement", "Crépi", "Peinture extérieure"],
-    seoTitle: "Rénovation de façades et crépi",
-    headline: "Rénovation de façades et crépi en Suisse romande",
-    definitionTitle: "Qu'est-ce qu'une rénovation de façade ?",
     definition:
       "Les travaux de façade englobent le ravalement, la réparation de crépis et d'enduits, le traitement des fissures, l'application de peintures de protection et l'amélioration de l'esthétique extérieure du bâtiment.",
-    clarifications: [
+    offerings: [
       {
-        title: "Rénovation de façade et ravalement",
-        paragraphs: [
-          "Le ravalement reprend l'enduit, les fissures et la finition protectrice. L'inspection distingue les zones décollées et les traces d'humidité avant toute reprise.",
-        ],
+        title: "Ravalement de façade",
+        description:
+          "Ravalement de façade : diagnostic, réparation, enduits et finition protectrice. Un interlocuteur pour peintre, crépi et isolation périphérique. Devis gratuit.",
       },
       {
-        title: "Crépi",
-        paragraphs: [
-          "Crépis monocouche ou bicouche, enduits minéraux, selon l'état du support et l'exposition. La peinture intérieure n'est pas traitée ici.",
-        ],
+        title: "Crépi / enduit",
+        description:
+          "Crépi et enduits de façade adaptés au climat suisse : minéral ou organique selon le support. Pose et reprises soignées, en neuf comme en rénovation.",
       },
       {
-        title: "Peinture extérieure",
-        paragraphs: [
-          "Peintures siloxane ou silicate sur support minéral, crépi ou bois, dans le cadre du ravalement. Les travaux de peinture des pièces se décrivent sur la page Peinture.",
-        ],
-      },
-      {
-        title: "Préparation du support",
-        paragraphs: [
-          "Le nettoyage haute pression, un sablage léger ou un traitement anti-mousse prépare l'enduit avant réparation. Ce n'est pas une prestation de nettoyage de façade proposée seule.",
-        ],
+        title: "Peinture de façade",
+        description:
+          "Peinture de façade pour protéger et valoriser le bâtiment. Préparation du support, choix du système selon l'exposition.",
       },
     ],
     process: [

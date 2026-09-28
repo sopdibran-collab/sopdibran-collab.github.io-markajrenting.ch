@@ -5,9 +5,8 @@ import { Hero } from "@/components/sections/Hero";
 import { AnimateIn } from "@/components/ui/AnimateIn";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { realisations } from "@/lib/content/realisations";
-import { services, type Service } from "@/lib/content/services";
-import { zones } from "@/lib/content/zones";
+import type { Service } from "@/lib/content/services";
+import { SERVICE_TITLE_LOCATION, zones } from "@/lib/content/zones";
 import { getGlossaryForService } from "@/lib/seo/glossary";
 import { siteConfig } from "@/lib/seo/site-config";
 import Link from "next/link";
@@ -16,65 +15,34 @@ interface ServicePageContentProps {
   service: Service;
 }
 
-const guidesByService: Record<string, { href: string; label: string }[]> = {
-  isolation: [
-    { href: "/blog/isolation-thermique-vs-phonique", label: "Isolation thermique ou phonique" },
-    { href: "/blog/choisir-isolant-selon-paroi", label: "Choisir un isolant selon la paroi" },
-    { href: "/blog/isolation-peripherique-avantages", label: "Isolation périphérique" },
-  ],
-  platrerie: [
-    { href: "/blog/choisir-finition-platrerie-q3-q4", label: "Finition Q3 ou Q4" },
-  ],
-};
-
-function faqTitle(service: Service): string {
-  switch (service.slug) {
-    case "faux-plafonds":
-      return "Questions fréquentes sur les faux-plafonds";
-    case "isolation":
-      return "Questions fréquentes sur l'isolation";
-    case "facades":
-      return "Questions fréquentes sur les façades";
-    case "renovation":
-      return "Questions fréquentes sur la rénovation";
-    default:
-      return `Questions fréquentes sur la ${service.title.toLowerCase()}`;
-  }
+/** Accord article défini + nom de service (la / l' / les). */
+function withDefiniteArticle(article: Service["definiteArticle"], noun: string) {
+  return article.endsWith("'") ? `${article}${noun}` : `${article} ${noun}`;
 }
 
-function projectCta(service: Service): string {
-  switch (service.slug) {
-    case "isolation":
-      return "Un projet d'isolation ?";
-    case "facades":
-      return "Un projet de façade ?";
-    case "faux-plafonds":
-      return "Un projet de faux-plafond ?";
-    default:
-      return `Un projet de ${service.shortTitle.toLowerCase()} ?`;
-  }
+/** « à la / à l' / aux » + nom. */
+function withAPlusArticle(article: Service["definiteArticle"], noun: string) {
+  if (article === "les") return `aux ${noun}`;
+  if (article === "l'") return `à l'${noun}`;
+  return `à la ${noun}`;
 }
 
-function relatedServices(slug: string): { href: string; label: string }[] {
-  if (slug === "renovation") {
-    return services
-      .filter((item) => item.slug !== "renovation")
-      .map((item) => ({ href: `/services/${item.slug}`, label: item.title }));
-  }
-  if (slug === "peinture") {
-    return [{ href: "/services/facades", label: "Rénovation de façades et crépi" }];
-  }
-  if (slug === "facades") {
-    return [{ href: "/services/peinture", label: "Travaux de peinture" }];
-  }
-  return [];
-}
-
+/**
+ * Section rhythm (blanc ↔ sable) before navy CTA:
+ * hero white → meta sand → definition white → prestations sand →
+ * process white → matériaux sand → zones white →
+ * glossaire sand (si présent) → FAQ opposite → liens opposite → CTA navy.
+ */
 export function ServicePageContent({ service }: ServicePageContentProps) {
   const glossary = getGlossaryForService(service.slug);
-  const guides = guidesByService[service.slug] ?? [];
-  const linkedServices = relatedServices(service.slug);
-  const published = realisations.filter((project) => project.serviceSlug === service.slug);
+  const hasGlossary = glossary.length > 0;
+  const label = service.title.toLowerCase();
+  const labelled = withDefiniteArticle(service.definiteArticle, label);
+  const aLabelled = withAPlusArticle(service.definiteArticle, label);
+
+  /* After zones (white): glossaire sand → FAQ white → liens sand; else FAQ sand → liens white. */
+  const faqBackground = hasGlossary ? "white" : "sand";
+  const linksBackground = hasGlossary ? "sand" : "white";
 
   return (
     <>
@@ -88,7 +56,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
       </div>
 
       <Hero
-        title={service.headline}
+        title={`${service.title} à ${SERVICE_TITLE_LOCATION}`}
         subtitle={service.intro}
         primaryCta={{
           label: `Devis ${service.shortTitle.toLowerCase()}`,
@@ -100,7 +68,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
         }}
       />
 
-      <Section background="crepi" texture="crepi" className="py-8 sm:py-10 md:py-12">
+      <Section background="sand" className="py-8 sm:py-10 md:py-12">
         <AnimateIn>
           <div className="grid gap-6 sm:grid-cols-3">
             <div>
@@ -121,44 +89,78 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
 
       <Section background="white">
         <AnimateIn className="max-w-prose">
-          <h2 className="font-heading text-heading-3 text-markaj-primary">{service.definitionTitle}</h2>
-          <p className="mt-4 font-body text-body-lg text-markaj-primary/90">{service.definition}</p>
+          <h2 className="font-heading text-heading-3 text-markaj-primary">
+            Qu&apos;est-ce que {labelled} ?
+          </h2>
+          <p className="mt-4 font-body text-body-lg text-markaj-primary/90">
+            {service.definition}
+          </p>
         </AnimateIn>
-        {service.clarifications && service.clarifications.length > 0 && (
-          <div className="mt-10 grid gap-8 md:grid-cols-2">
-            {service.clarifications.map((item) => (
-              <div key={item.title}>
-                <h3 className="font-heading text-heading-4 text-markaj-primary">{item.title}</h3>
-                {item.paragraphs.map((paragraph) => (
-                  <p key={paragraph.slice(0, 48)} className="mt-3 font-body text-body text-markaj-primary/90">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            ))}
-          </div>
-        )}
       </Section>
 
-      <Section background="surface" texture="paint">
+      {service.offerings.length > 0 && (
+        <Section background="sand">
+          <AnimateIn className="mb-10 max-w-prose">
+            <p className="marque-cote mb-3">Prestations</p>
+            <p className="font-body text-body-lg text-markaj-mineral-dark">
+              {service.slug === "renovation"
+                ? "Un interlocuteur pour tout le second œuvre — chaque métier détaillé sur sa page dédiée."
+                : `Détail de nos prestations ${aLabelled}, pour particuliers, régies et architectes.`}
+            </p>
+          </AnimateIn>
+          <div className="grid gap-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12">
+            {service.offerings.map((offering, index) => (
+              <AnimateIn key={offering.title} delay={index * 50}>
+                <article>
+                  <h2 className="font-heading text-heading-3 text-markaj-primary">
+                    {offering.title}
+                  </h2>
+                  <p className="mt-3 font-body text-body text-markaj-primary/90">
+                    {offering.description}
+                  </p>
+                  {offering.href && (
+                    <Link
+                      href={offering.href}
+                      className="btn-niveau mt-4 inline-flex"
+                    >
+                      {offering.linkLabel ?? "En savoir plus"}
+                    </Link>
+                  )}
+                </article>
+              </AnimateIn>
+            ))}
+          </div>
+        </Section>
+      )}
+
+      <Section background="white">
         <AnimateIn>
-          <SectionHeading subtitle="Processus" title="Comment se déroule un chantier ?" />
+          <SectionHeading
+            subtitle="Processus"
+            title="Comment se déroule un chantier ?"
+          />
         </AnimateIn>
         <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
           {service.process.map((step, index) => (
-            <AnimateIn key={step.title} delay={index * 60}>
-              <div className="border-t-2 border-markaj-primary/15 pt-4">
-                <h3 className="font-heading text-heading-4 text-markaj-primary">{step.title}</h3>
-                <p className="mt-2 font-body text-body-sm text-markaj-primary/90">{step.description}</p>
+            <AnimateIn key={step.step} delay={index * 60}>
+              <div className="flex gap-4 sm:gap-5">
+                <span className="font-heading text-heading-2 text-markaj-crepi-dark">{step.step}</span>
+                <div>
+                  <h3 className="font-heading text-heading-4 text-markaj-primary">{step.title}</h3>
+                  <p className="mt-2 font-body text-body-sm text-markaj-primary/90">{step.description}</p>
+                </div>
               </div>
             </AnimateIn>
           ))}
         </div>
       </Section>
 
-      <Section background="white">
+      <Section background="sand">
         <AnimateIn>
-          <SectionHeading subtitle="Matériaux & normes" title="Quels matériaux et normes appliquons-nous ?" />
+          <SectionHeading
+            subtitle="Matériaux & normes"
+            title="Quels matériaux et normes appliquons-nous ?"
+          />
         </AnimateIn>
         <ul className="grid max-w-2xl gap-3">
           {service.materials.map((material, index) => (
@@ -172,79 +174,12 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
         </ul>
       </Section>
 
-      {published.length > 0 && (
-        <Section background="surface">
-          <SectionHeading
-            subtitle="Chantiers publiés"
-            title="Réalisations liées à ce métier"
-            intro="Uniquement les projets déjà documentés. Une ville citée ailleurs n'est pas une réalisation."
-          />
-          <ul className="grid max-w-2xl gap-3">
-            {published.map((project) => (
-              <li key={project.id}>
-                <Link
-                  href={`/realisations#${project.id}`}
-                  className="font-body text-body text-markaj-primary underline-offset-4 hover:underline"
-                >
-                  {project.title}
-                </Link>
-                <span className="font-body text-body text-markaj-primary/80"> — {project.location}</span>
-              </li>
-            ))}
-          </ul>
-        </Section>
-      )}
-
-      {guides.length > 0 && (
-        <Section background="white">
-          <SectionHeading
-            subtitle="Guides"
-            title="Pour préciser le choix"
-            intro="Ces articles restent informatifs. Le devis et le chantier passent par cette page."
-          />
-          <ul className="grid max-w-2xl gap-3">
-            {guides.map((guide) => (
-              <li key={guide.href}>
-                <Link href={guide.href} className="font-body text-body text-markaj-primary underline-offset-4 hover:underline">
-                  {guide.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </Section>
-      )}
-
-      {linkedServices.length > 0 && (
-        <Section background="crepi" texture="crepi">
-          <SectionHeading
-            subtitle="Métiers liés"
-            title={service.slug === "renovation" ? "Les lots du projet" : "Page à distinguer"}
-            intro={
-              service.slug === "renovation"
-                ? "La rénovation coordonne plusieurs interventions. Chaque métier a sa page."
-                : "La peinture des pièces et la rénovation de façade ne décrivent pas le même chantier."
-            }
-          />
-          <div className="flex flex-wrap gap-3">
-            {linkedServices.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="border border-markaj-primary/20 bg-markaj-white px-4 py-2 font-body text-body-sm font-medium text-markaj-primary transition-colors hover:border-markaj-primary/50"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        </Section>
-      )}
-
-      <Section background="surface">
+      <Section background="white">
         <AnimateIn>
           <SectionHeading
             subtitle="Zones desservies"
-            title="Interventions en Suisse romande"
-            intro="Le siège est à Fribourg. Choisissez un canton pour les communes desservies. Une commune n'est pas un chantier photographié."
+            title={`${service.title} près de chez vous`}
+            intro="Siège à Fribourg, interventions dans toute la Suisse romande. Choisissez votre canton pour le détail des communes."
           />
         </AnimateIn>
         <div className="flex flex-wrap gap-3">
@@ -252,18 +187,30 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
             <Link
               key={zone.slug}
               href={`/zones/${zone.slug}`}
-              className="border border-markaj-primary/20 bg-markaj-white px-4 py-2 font-body text-body-sm font-medium text-markaj-primary transition-colors hover:border-markaj-primary/50"
+              className="border border-markaj-primary/20 bg-markaj-crepi-light px-4 py-2 font-body text-body-sm font-medium text-markaj-primary transition-colors hover:border-markaj-primary/50"
             >
-              Nos interventions — {zone.shortName}
+              {label} {zone.shortName}
             </Link>
           ))}
         </div>
+        <p className="mt-6 max-w-prose font-body text-body-sm text-markaj-primary/80">
+          Couverture :{" "}
+          {zones.map((z) => z.villes[0]).join(", ")}
+          {" — "}
+          <Link href="/zones" className="underline-offset-4 hover:underline">
+            toutes les zones d&apos;intervention
+          </Link>
+          .
+        </p>
       </Section>
 
-      {glossary.length > 0 && (
-        <Section background="surface" texture="paint">
+      {hasGlossary && (
+        <Section background="sand">
           <AnimateIn>
-            <SectionHeading subtitle="Glossaire" title="Termes utilisés sur nos chantiers" />
+            <SectionHeading
+              subtitle="Glossaire"
+              title={`Quels termes techniques liés ${aLabelled} ?`}
+            />
           </AnimateIn>
           <dl className="grid max-w-2xl gap-6">
             {glossary.map((term, index) => (
@@ -278,35 +225,34 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
         </Section>
       )}
 
-      <FaqSection title={faqTitle(service)} items={service.faq} />
+      <FaqSection
+        title={`Questions fréquentes sur ${labelled}`}
+        items={service.faq}
+        background={faqBackground}
+      />
 
-      <Section background="white">
-        <SectionHeading subtitle="Liens utiles" title="Découvrir aussi" />
+      <Section background={linksBackground}>
+        <SectionHeading
+          subtitle="Liens utiles"
+          title="Découvrir aussi"
+        />
         <div className="flex flex-wrap gap-4 font-body text-body">
-          <Link href="/services" className="text-markaj-primary underline-offset-4 hover:underline">
-            Tous les services
-          </Link>
-          <Link href="/realisations" className="text-markaj-primary underline-offset-4 hover:underline">
-            Réalisations
-          </Link>
-          <Link href="/zones" className="text-markaj-primary underline-offset-4 hover:underline">
-            Zones d&apos;intervention
-          </Link>
-          <Link href="/faq" className="text-markaj-primary underline-offset-4 hover:underline">
-            FAQ générale
-          </Link>
+          <Link href="/" className="text-markaj-primary underline-offset-4 hover:underline">Accueil</Link>
+          <Link href="/services" className="text-markaj-primary underline-offset-4 hover:underline">Tous les services</Link>
+          <Link href="/zones" className="text-markaj-primary underline-offset-4 hover:underline">Zones d&apos;intervention</Link>
+          <Link href="/faq" className="text-markaj-primary underline-offset-4 hover:underline">FAQ générale</Link>
           <Link
             href={`/contact?service=${service.slug}`}
             className="text-markaj-primary underline-offset-4 hover:underline"
           >
-            Contact et devis
+            Contact & devis
           </Link>
         </div>
       </Section>
 
       <CtaBanner
-        title={projectCta(service)}
-        description="Décrivez votre chantier : devis gratuit, réponse sous 5 jours ouvrés. Interventions en Suisse romande, depuis Fribourg."
+        title={`Un projet de ${label} ?`}
+        description="Décrivez votre chantier : devis gratuit, réponse sous 5 jours ouvrés. Siège à Fribourg, interventions en Suisse romande."
       />
     </>
   );

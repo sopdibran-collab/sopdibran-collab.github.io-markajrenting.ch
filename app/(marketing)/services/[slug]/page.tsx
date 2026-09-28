@@ -1,6 +1,7 @@
 import { ServicePageContent } from "@/components/sections/ServicePageContent";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getServiceBySlug, serviceSlugs } from "@/lib/content/services";
+import { SERVICE_TITLE_LOCATION } from "@/lib/content/zones";
 import { buildServicePageSchemas } from "@/lib/seo/json-ld";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { notFound } from "next/navigation";
@@ -17,7 +18,7 @@ export function generateMetadata({ params }: PageProps) {
   const service = getServiceBySlug(params.slug);
   if (!service) return {};
   return createPageMetadata({
-    title: service.seoTitle,
+    title: `${service.title} à ${SERVICE_TITLE_LOCATION}`,
     description: service.metaDescription,
     path: `/services/${service.slug}`,
   });

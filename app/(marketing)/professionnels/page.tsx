@@ -54,7 +54,7 @@ const capabilities = [
   },
   {
     title: "Références",
-    text: "Chantiers tertiaires et résidentiels en romandie (plateaux de bureaux, rénovations, surélévations). Dossier photos sur demande — sans avis clients inventés.",
+    text: "Chantiers tertiaires et résidentiels en romandie (plateaux de bureaux, rénovations, surélévations). Dossier photos sur demande.",
   },
 ];
 
@@ -81,9 +81,8 @@ export default function ProfessionnelsPage() {
       <Section background="white">
         <div className="max-w-prose">
           <p className="font-body text-body-lg text-markaj-mineral-dark">
-            Les décisions d’achat en construction impliquent plusieurs acteurs. Nous nous adressons
-            à vous avec un langage de projet : délais, lots, normes, capacité et preuves chantier —
-            pas un discours grand public.
+            Les décisions d’achat en construction impliquent plusieurs acteurs. Nous travaillons
+            avec vous sur le langage du projet : délais, lots, normes, capacité et preuves chantier.
           </p>
         </div>
       </Section>

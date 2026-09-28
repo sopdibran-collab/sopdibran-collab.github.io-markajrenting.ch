@@ -41,7 +41,7 @@ export default function RealisationsPage() {
           <SectionHeading
             subtitle="Portfolio"
             title="Des chantiers concrets, des résultats visibles"
-            intro="Photos prises sur nos chantiers. Chaque fiche précise le crédit lorsque l'image provient d'une source externe."
+            intro="Photos de nos chantiers en Suisse romande."
           />
         </AnimateIn>
         <div className="grid gap-8 md:grid-cols-2 md:gap-10">
@@ -55,9 +55,8 @@ export default function RealisationsPage() {
           ))}
         </div>
         <p className="mt-10 max-w-prose font-body text-caption text-markaj-mineral">
-          Les photos de chantier sont prises par nos équipes. Certaines images de projets livrés
-          proviennent de sources externes ; le crédit est précisé sur chaque fiche. D&apos;autres
-          chantiers Fribourg / Suisse romande seront ajoutés au fur et à mesure des shootings.
+          Les photos de chantier sont prises par nos équipes. Lorsqu&apos;une image de projet livré
+          provient d&apos;une source externe, le crédit figure sur la fiche.
         </p>
       </Section>
 

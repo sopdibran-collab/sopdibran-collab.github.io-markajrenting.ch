@@ -2,7 +2,7 @@ import Link from "next/link";
 
 /**
  * Premier focus clavier : saute le chrome sticky pour atteindre le contenu.
- * Visible uniquement au focus (accessibilité QC Obsidian).
+ * Visible uniquement au focus.
  */
 export function SkipLink() {
   return (

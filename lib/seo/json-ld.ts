@@ -63,6 +63,10 @@ export function buildOrganizationSchema(): JsonLdObject {
   };
 }
 
+/**
+ * LocalBusiness NAP only — no AggregateRating / Review.
+ * Google Maps / GBP avis stay in HTML UI (AvisGoogle); mirroring them in JSON-LD fails Vault Schema living checks.
+ */
 export function buildLocalBusinessSchema(): JsonLdObject {
   return {
     "@context": "https://schema.org",

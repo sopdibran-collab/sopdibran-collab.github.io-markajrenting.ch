@@ -1,11 +1,13 @@
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { CtaBanner } from "@/components/sections/CtaBanner";
+import { Hero } from "@/components/sections/Hero";
 import { Section } from "@/components/ui/Section";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getBlogPostBySlug, blogSlugs, type BlogBlock } from "@/lib/content/blog";
 import { buildArticleSchema, buildBreadcrumbSchema } from "@/lib/seo/json-ld";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import Link from "next/link";
+import { siteConfig } from "@/lib/seo/site-config";
 import { notFound } from "next/navigation";
 
 const relatedService: Record<string, { href: string; label: string }> = {
@@ -89,6 +91,12 @@ export default function BlogPostPage({ params }: PageProps) {
   if (!post) notFound();
   const related = relatedService[post.slug];
 
+  const dateLabel = new Date(post.date).toLocaleDateString("fr-CH", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
   return (
     <>
       <JsonLd
@@ -104,24 +112,16 @@ export default function BlogPostPage({ params }: PageProps) {
         <Breadcrumbs items={[{ label: "Blog", href: "/blog" }, { label: post.title }]} />
       </div>
 
-      <Section background="white" texture="paint" className="py-16">
-        <article className="mx-auto max-w-prose">
-          <p className="font-mono text-caption font-semibold uppercase tracking-[0.12em] text-markaj-mineral-dark">
-            {new Date(post.date).toLocaleDateString("fr-CH", {
-              day: "numeric",
-              month: "long",
-              year: "numeric",
-            })}{" "}
-            · {post.readTime} · {post.category}
-          </p>
-          <h1 className="mt-4 font-heading text-heading-1 text-markaj-primary md:text-display">
-            {post.title}
-          </h1>
-          <p className="mt-6 font-body text-body-lg text-markaj-mineral-dark">
-            {post.excerpt}
-          </p>
-        </article>
-      </Section>
+      <Hero
+        eyebrow={`${dateLabel} · ${post.readTime} · ${post.category}`}
+        title={post.title}
+        subtitle={post.excerpt}
+        primaryCta={{ label: "Demander un devis", href: "/contact" }}
+        secondaryCta={{
+          label: `Appeler ${siteConfig.contact.phoneDisplay}`,
+          href: `tel:${siteConfig.contact.phone.replace(/\s/g, "")}`,
+        }}
+      />
 
       <Section background="white">
         <BlogContent blocks={post.content} />

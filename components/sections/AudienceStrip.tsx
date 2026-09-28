@@ -23,12 +23,13 @@ const audiences = [
 
 export function AudienceStrip() {
   return (
-    <Section background="white">
+    <Section background="white" className="!py-8 sm:!py-10 md:!py-12">
       <AnimateIn>
         <SectionHeading
           subtitle="Pour qui"
           title="Un interlocuteur pour chaque type de projet"
           intro="Nous adaptons notre organisation aux exigences des particuliers, des professionnels de l'immobilier et des maîtres d'œuvre."
+          className="mb-6 sm:mb-8"
         />
       </AnimateIn>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
