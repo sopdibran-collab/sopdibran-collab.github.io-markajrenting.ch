@@ -37,17 +37,17 @@ IndexNow accélère la prise en compte des URLs par Bing et moteurs compatibles.
 
 ### Quand / comment soumettre
 
-Après un deploy important (nouveaux contenus services / zone siège), soumettre au minimum : homepage, `/services/*`, `/zones/fribourg`.
+Chaque push sur `main` lance [`.github/workflows/indexnow.yml`](.github/workflows/indexnow.yml). Le job attend que le déploiement Vercel **Production** de ce commit soit en succès, vérifie le fichier clé (dans le repo et en HTTPS), puis envoie **toutes** les URL de `https://markajrenting.ch/sitemap.xml` à IndexNow. Aucun secret GitHub n’est requis : la clé est publique.
+
+Lancement manuel, quand la production est déjà en ligne : GitHub → Actions → **IndexNow** → **Run workflow**. Ce déclencheur (`workflow_dispatch`) n’attend pas un nouveau déploiement.
 
 ```bash
-# Depuis la machine ou CI (après que le site soit live)
-npm run indexnow
-
-# Dry-run (affiche le payload JSON sans appeler l’API)
+# Dry-run : vérifie la clé et affiche les URL, sans appeler l’API
+npm run indexnow -- --dry-run
 INDEXNOW_DRY_RUN=1 npm run indexnow
 ```
 
-Ou via l’API sécurisée (secret serveur uniquement — jamais dans le bundle client) :
+Soumission ciblée via l’API sécurisée (secret serveur uniquement — jamais dans le bundle client). Le workflow ne passe pas par cette route :
 
 1. Dans Vercel → Project → Settings → Environment Variables, ajouter `INDEXNOW_SUBMIT_SECRET` (ex. `openssl rand -hex 24`). Voir `.env.example`.
 2. Après deploy :
@@ -58,7 +58,7 @@ curl -X POST "https://markajrenting.ch/api/indexnow" \
   -H "Content-Type: application/json"
 ```
 
-Optionnel : Deploy Hook / cron Vercel qui appelle `GET /api/indexnow?secret=…` après promotion production.
+L’endpoint accepte aussi un corps `{ "urls": ["https://markajrenting.ch/..."] }` pour limiter la liste. Sans corps, il envoie le jeu local historique (accueil, services, zone Fribourg), pas le sitemap entier.
 
 ### Bing Webmaster (manuel — Dibran)
 
@@ -75,7 +75,8 @@ IndexNow ne remplace pas la vérification de propriété Bing. Si ce n’est pas
 - `components/` — UI, sections, layouts, SEO
 - `lib/content/` — contenus (services, zones, FAQ, blog)
 - `lib/seo/` — metadata, JSON-LD, IndexNow
-- `scripts/submit-indexnow.mjs` — ping CLI post-deploy
+- `scripts/ping-indexnow.mjs` — ping CLI du sitemap complet (workflow + `npm run indexnow`)
+- `.github/workflows/indexnow.yml` — déclenchement après le déploiement Production
 
 ## Contact entreprise
 
