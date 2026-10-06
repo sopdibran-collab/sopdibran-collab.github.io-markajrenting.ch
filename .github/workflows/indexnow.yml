@@ -1,0 +1,66 @@
+# Après chaque push sur main : attend le déploiement Vercel Production de ce
+# commit, puis envoie le sitemap complet à IndexNow.
+# Aucun secret : la clé est publique dans public/<key>.txt.
+# Lancement manuel (production déjà en ligne) : Actions → IndexNow → Run workflow.
+# workflow_dispatch n’attend pas un nouveau déploiement.
+
+name: IndexNow
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  deployments: read
+
+concurrency:
+  group: indexnow-production
+  cancel-in-progress: true
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Test sitemap URL filtering
+        run: node --test scripts/ping-indexnow.test.mjs
+
+      - name: Wait for Vercel production
+        if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          sha="${{ github.sha }}"
+          for attempt in $(seq 1 40); do
+            id=$(gh api "repos/${{ github.repository }}/deployments?environment=Production&sha=${sha}&per_page=5" --jq '.[0].id // empty')
+            if [ -z "$id" ]; then
+              echo "Attempt ${attempt}/40 — no Production deployment yet for ${sha}"
+              sleep 15
+              continue
+            fi
+            status=$(gh api "repos/${{ github.repository }}/deployments/${id}/statuses" --jq '.[0].state // empty')
+            echo "Attempt ${attempt}/40 — deployment ${id} status: ${status:-pending}"
+            if [ "$status" = "success" ]; then
+              exit 0
+            fi
+            if [ "$status" = "failure" ] || [ "$status" = "error" ]; then
+              echo "Production deployment failed"
+              exit 1
+            fi
+            sleep 15
+          done
+          echo "Timed out waiting for the Production deployment of ${sha}"
+          exit 1
+
+      - name: Publish sitemap URLs to IndexNow
+        run: node scripts/ping-indexnow.mjs

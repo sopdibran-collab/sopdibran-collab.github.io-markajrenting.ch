@@ -1,75 +1,27 @@
 #!/usr/bin/env node
 /**
- * Submit priority URLs to IndexNow (Bing / Yandex / compatible engines).
+ * Compatibilité : `npm run indexnow` et `node scripts/submit-indexnow.mjs`.
+ * La soumission post-déploiement envoie le sitemap complet.
+ * Voir scripts/ping-indexnow.mjs.
  *
- * Usage:
  *   node scripts/submit-indexnow.mjs
- *   npm run indexnow
- *
- * Optional:
- *   INDEXNOW_BASE_URL=https://markajrenting.ch  (default)
- *   INDEXNOW_DRY_RUN=1                           (print payload only)
- *
- * Key file must be live at: https://markajrenting.ch/{key}.txt
- * @see https://www.indexnow.org/documentation
+ *   node scripts/submit-indexnow.mjs --dry-run
+ *   INDEXNOW_DRY_RUN=1 node scripts/submit-indexnow.mjs
  */
 
-const INDEXNOW_KEY = "a9fd595d-cd70-4d5d-ae86-48aaeeac42e9";
-const ENDPOINT = "https://api.indexnow.org/indexnow";
-const BASE = (process.env.INDEXNOW_BASE_URL || "https://markajrenting.ch").replace(
-  /\/$/,
-  ""
-);
+import { spawnSync } from "node:child_process";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const SERVICE_SLUGS = [
-  "platrerie",
-  "peinture",
-  "faux-plafonds",
-  "isolation",
-  "renovation",
-  "facades",
-];
-
-const urls = [
-  `${BASE}/`,
-  `${BASE}/services`,
-  ...SERVICE_SLUGS.map((slug) => `${BASE}/services/${slug}`),
-  `${BASE}/zones/fribourg`,
-];
-
-const payload = {
-  host: new URL(BASE).host,
-  key: INDEXNOW_KEY,
-  keyLocation: `${BASE}/${INDEXNOW_KEY}.txt`,
-  urlList: urls,
-};
-
-if (process.env.INDEXNOW_DRY_RUN === "1") {
-  console.log(JSON.stringify(payload, null, 2));
-  process.exit(0);
-}
-
-const res = await fetch(ENDPOINT, {
-  method: "POST",
-  headers: { "Content-Type": "application/json; charset=utf-8" },
-  body: JSON.stringify(payload),
+const script = join(dirname(fileURLToPath(import.meta.url)), "ping-indexnow.mjs");
+const result = spawnSync(process.execPath, [script, ...process.argv.slice(2)], {
+  stdio: "inherit",
+  env: process.env,
 });
 
-const text = await res.text().catch(() => "");
-const ok = res.status === 200 || res.status === 202 || res.status === 204;
+if (result.error) {
+  console.error(result.error.message);
+  process.exit(1);
+}
 
-console.log(
-  JSON.stringify(
-    {
-      ok,
-      httpStatus: res.status,
-      submitted: urls.length,
-      keyLocation: payload.keyLocation,
-      body: text || null,
-    },
-    null,
-    2
-  )
-);
-
-if (!ok) process.exit(1);
+process.exit(result.status ?? 1);
