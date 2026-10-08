@@ -80,7 +80,7 @@ export default function ProfessionnelsPage() {
 
       <Section background="white">
         <div className="max-w-prose">
-          <p className="font-body text-body-lg text-markaj-mineral-dark">
+          <p className="font-body text-body-lg text-markaj-primary">
             Les décisions d’achat en construction impliquent plusieurs acteurs. Nous travaillons
             avec vous sur le langage du projet : délais, lots, normes, capacité et preuves chantier.
           </p>
@@ -96,7 +96,7 @@ export default function ProfessionnelsPage() {
           {audiences.map((item) => (
             <div key={item.title} className="border-l-2 border-markaj-primary/20 pl-6">
               <h2 className="font-heading text-heading-4 text-markaj-primary">{item.title}</h2>
-              <p className="mt-2 font-body text-body text-markaj-mineral-dark">
+              <p className="mt-2 font-body text-body text-markaj-primary">
                 {item.description}
               </p>
             </div>
@@ -113,11 +113,11 @@ export default function ProfessionnelsPage() {
           {capabilities.map((item) => (
             <div key={item.title}>
               <h3 className="font-heading text-heading-4 text-markaj-primary">{item.title}</h3>
-              <p className="mt-2 font-body text-body text-markaj-mineral-dark">{item.text}</p>
+              <p className="mt-2 font-body text-body text-markaj-primary">{item.text}</p>
             </div>
           ))}
         </div>
-        <p className="mt-10 max-w-prose font-body text-body text-markaj-mineral-dark">
+        <p className="mt-10 max-w-prose font-body text-body text-markaj-primary">
           Voir aussi nos{" "}
           <Link href="/realisations" className="text-markaj-primary underline-offset-4 hover:underline">
             réalisations
@@ -142,15 +142,13 @@ export default function ProfessionnelsPage() {
 
       <Section background="crepi" texture="crepi">
         <SectionHeading subtitle="Processus" title="Déroulement type" />
-        <ol className="max-w-prose space-y-4">
-          {process.map((step, index) => (
-            <li
-              key={step}
-              className="flex items-start gap-4 font-body text-body text-markaj-mineral-dark"
-            >
-              <span className="font-mono text-caption font-semibold text-markaj-primary">
-                {String(index + 1).padStart(2, "0")}
-              </span>
+        <ol className="max-w-prose list-none space-y-5">
+          {process.map((step) => (
+            <li key={step} className="flex items-start gap-4 font-body text-body text-markaj-primary">
+              <span
+                className="mt-2 h-2 w-2 shrink-0 border border-markaj-primary bg-markaj-crepi"
+                aria-hidden="true"
+              />
               <span>{step}</span>
             </li>
           ))}

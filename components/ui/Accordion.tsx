@@ -28,7 +28,7 @@ export function Accordion({ items, className }: AccordionProps) {
             <button
               type="button"
               id={triggerId}
-              className="flex w-full items-center justify-between gap-4 py-5 text-left font-body text-body font-medium text-markaj-primary transition-colors hover:text-markaj-primary-light"
+              className="flex min-h-11 w-full items-center justify-between gap-4 py-5 text-left font-body text-body font-medium text-markaj-primary transition-colors hover:text-markaj-primary-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-markaj-primary focus-visible:ring-offset-2"
               onClick={() => setOpenIndex(isOpen ? null : index)}
               aria-expanded={isOpen}
               aria-controls={panelId}
@@ -36,7 +36,7 @@ export function Accordion({ items, className }: AccordionProps) {
               <span>{item.question}</span>
               <span
                 className={cn(
-                  "shrink-0 text-markaj-mineral transition-transform duration-200",
+                  "shrink-0 text-markaj-primary",
                   isOpen && "rotate-45"
                 )}
                 aria-hidden="true"
@@ -46,7 +46,7 @@ export function Accordion({ items, className }: AccordionProps) {
             </button>
             {/* Answers stay in the DOM so the visible content matches the FAQPage JSON-LD */}
             <div id={panelId} role="region" aria-labelledby={triggerId} hidden={!isOpen}>
-              <div className="pb-5 font-body text-body text-markaj-mineral-dark motion-safe:animate-fade-in-up">
+              <div className="pb-5 font-body text-body text-markaj-primary">
                 {item.answer}
               </div>
             </div>

@@ -47,7 +47,7 @@ export function MethodSteps() {
                 <h3 className="font-heading text-heading-4 text-markaj-primary">
                   {item.title}
                 </h3>
-                <p className="mt-2 font-body text-body-sm text-markaj-mineral-dark">
+                <p className="mt-2 font-body text-body-sm text-markaj-primary">
                   {item.description}
                 </p>
               </div>

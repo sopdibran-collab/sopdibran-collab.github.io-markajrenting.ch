@@ -14,7 +14,7 @@ export function RealisationsTeaser({ limit = 4 }: RealisationsTeaserProps) {
   const projects = realisations.slice(0, limit);
 
   return (
-    <Section background="surface" texture="paint">
+    <Section background="sand" className="!py-8 sm:!py-12 md:!py-16">
       <AnimateIn>
         <SectionHeading
           subtitle="Réalisations"
@@ -28,7 +28,7 @@ export function RealisationsTeaser({ limit = 4 }: RealisationsTeaserProps) {
             key={project.id}
             project={project}
             index={index}
-            featured={index === 0}
+            featured={false}
           />
         ))}
       </div>

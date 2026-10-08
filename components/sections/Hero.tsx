@@ -53,10 +53,17 @@ export function Hero({
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-markaj-primary/80" aria-hidden="true" />
+        {/*
+          Voile directionnel : navy ≥ 88 % derrière le texte (crépi AA sur photo claire),
+          photo lisible en haut sur mobile et à droite sur desktop.
+        */}
+        <div
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgb(10_43_94/0.94)_0%,rgb(10_43_94/0.9)_46%,rgb(10_43_94/0.32)_74%,rgb(10_43_94/0.08)_100%)] lg:bg-[linear-gradient(90deg,rgb(10_43_94/0.92)_0%,rgb(10_43_94/0.88)_40rem,rgb(10_43_94/0.36)_60rem,rgb(10_43_94/0.08)_100%)]"
+          aria-hidden="true"
+        />
         <div className="relative z-10 mx-auto flex min-h-[min(88vh,44rem)] max-w-content flex-col justify-end px-4 pb-14 pt-24 sm:px-6 sm:pb-16 sm:pt-28 lg:px-8 lg:pb-20">
-          <div className="max-w-2xl animate-hero-in">
-            <p className="font-heading text-base leading-snug text-markaj-white/80 sm:text-lg md:text-xl">
+          <div className="max-w-2xl">
+            <p className="font-heading text-base leading-snug text-markaj-white sm:text-lg md:text-xl">
               {brand}
             </p>
             {(eyebrow || addressLine) && (
@@ -65,7 +72,7 @@ export function Hero({
                   <p className="marque-cote marque-cote--light">{eyebrow}</p>
                 )}
                 {addressLine && (
-                  <p className="font-body text-caption leading-relaxed text-markaj-white/75 sm:text-body-sm">
+                  <p className="font-body text-caption leading-relaxed text-markaj-white sm:text-body-sm">
                     {addressLine}
                   </p>
                 )}
@@ -74,7 +81,7 @@ export function Hero({
             <h1 className="mt-4 font-heading text-[1.75rem] leading-tight text-balance text-markaj-crepi sm:mt-5 sm:text-heading-1 md:text-display">
               {title}
             </h1>
-            <p className="mt-4 max-w-xl font-body text-body text-markaj-white/85 sm:text-body-lg">
+            <p className="mt-4 max-w-xl font-body text-body text-markaj-white sm:text-body-lg">
               {subtitle}
             </p>
             {(primaryCta || secondaryCta) && (
@@ -124,14 +131,14 @@ export function Hero({
         <div className={cn("min-w-0", !image && "max-w-3xl")}>
           {eyebrow && <p className="marque-cote mb-4">{eyebrow}</p>}
           {addressLine && (
-            <p className="mb-4 font-body text-caption text-markaj-mineral-dark sm:text-body-sm">
+            <p className="mb-4 font-body text-caption text-markaj-primary sm:text-body-sm">
               {addressLine}
             </p>
           )}
           <h1 className="font-heading text-[1.75rem] leading-tight text-balance text-markaj-primary sm:text-heading-1 md:text-display">
             {title}
           </h1>
-          <p className="mt-5 font-body text-body text-markaj-mineral-dark sm:text-body-lg">
+          <p className="mt-5 font-body text-body text-markaj-primary sm:text-body-lg">
             {subtitle}
           </p>
           {(primaryCta || secondaryCta) && (
@@ -162,7 +169,7 @@ export function Hero({
         </div>
 
         {image && (
-          <div className="relative aspect-[4/3] w-full min-w-0 overflow-hidden border border-markaj-primary/15 lg:aspect-[5/4]">
+          <div className="relative order-first aspect-[4/3] w-full min-w-0 overflow-hidden border border-markaj-primary/15 lg:order-none lg:aspect-[5/4]">
             <Image
               src={image.src}
               alt={image.alt}

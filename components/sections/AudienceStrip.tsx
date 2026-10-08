@@ -1,4 +1,3 @@
-import { AnimateIn } from "@/components/ui/AnimateIn";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
@@ -23,25 +22,21 @@ const audiences = [
 
 export function AudienceStrip() {
   return (
-    <Section background="white" className="!py-8 sm:!py-10 md:!py-12">
-      <AnimateIn>
-        <SectionHeading
-          subtitle="Pour qui"
-          title="Un interlocuteur pour chaque type de projet"
-          intro="Nous adaptons notre organisation aux exigences des particuliers, des professionnels de l'immobilier et des maîtres d'œuvre."
-          className="mb-6 sm:mb-8"
-        />
-      </AnimateIn>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {audiences.map((item, index) => (
-          <AnimateIn key={item.title} delay={index * 50}>
-            <div className="h-full border border-markaj-primary/15 bg-markaj-surface p-5 sm:p-6">
-              <h3 className="font-heading text-heading-4 text-markaj-primary">{item.title}</h3>
-              <p className="mt-2 font-body text-body-sm text-markaj-mineral-dark">{item.description}</p>
-            </div>
-          </AnimateIn>
+    <Section background="sand">
+      <SectionHeading
+        subtitle="Pour qui"
+        title="Un interlocuteur pour chaque type de projet"
+        intro="Nous adaptons notre organisation aux exigences des particuliers, des professionnels de l'immobilier et des maîtres d'œuvre."
+        className="mb-6 sm:mb-8"
+      />
+      <ul className="divide-y divide-markaj-primary/15 border-y border-markaj-primary/15">
+        {audiences.map((item) => (
+          <li key={item.title} className="py-4 sm:py-5">
+            <h3 className="font-heading text-heading-4 text-markaj-primary">{item.title}</h3>
+            <p className="mt-1.5 max-w-prose font-body text-body-sm text-markaj-primary">{item.description}</p>
+          </li>
         ))}
-      </div>
+      </ul>
     </Section>
   );
 }

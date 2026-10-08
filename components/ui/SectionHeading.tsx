@@ -42,7 +42,7 @@ export function SectionHeading({
         <p
           className={cn(
             "mt-4 text-body-lg",
-            light ? "text-markaj-white/85" : "text-markaj-mineral-dark"
+            light ? "text-markaj-white/85" : "text-markaj-primary"
           )}
         >
           {intro}

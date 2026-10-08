@@ -1,8 +1,10 @@
 import Image from "next/image";
 
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { AudienceStrip } from "@/components/sections/AudienceStrip";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { Hero } from "@/components/sections/Hero";
+import { MethodSteps } from "@/components/sections/MethodSteps";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -38,7 +40,7 @@ export default function AboutPage() {
       </div>
 
       <Hero
-        title="Une entreprise familiale au service de la belle ouvrage"
+        title="Une entreprise familiale au service du bel ouvrage"
         subtitle="Markaj Renting SA, créée en 2018 à Fribourg, compte 20 collaborateurs. Plâtrerie, peinture, faux-plafonds, isolation, rénovation et façades en Suisse romande."
       />
 
@@ -47,13 +49,13 @@ export default function AboutPage() {
           <h2 className="font-heading text-heading-3 text-markaj-primary">
             Qui est Markaj Renting SA ?
           </h2>
-          <p className="mt-4 font-body text-body-lg text-markaj-mineral-dark">
+          <p className="mt-4 font-body text-body-lg text-markaj-primary">
             Markaj Renting SA est une entreprise familiale basée à Fribourg, spécialisée dans les
             travaux de plâtrerie, peinture, faux-plafonds, isolation, rénovation intérieure et façades.
             Depuis 2018, nous accompagnons particuliers, régies immobilières, architectes
             et entreprises en Suisse romande.
           </p>
-          <p className="mt-4 font-body text-body-lg text-markaj-mineral-dark">
+          <p className="mt-4 font-body text-body-lg text-markaj-primary">
             Notre force : un savoir-faire artisanal transmis au sein de la famille, une équipe stable
             de professionnels qualifiés et un engagement constant envers la qualité des finitions et
             le respect des normes suisses.
@@ -67,7 +69,7 @@ export default function AboutPage() {
           {timeline.map((item) => (
             <div key={item.year} className="flex gap-6 border-l-2 border-markaj-primary/30 pl-8">
               <span className="shrink-0 font-heading text-heading-4 text-markaj-primary">{item.year}</span>
-              <p className="font-body text-body text-markaj-mineral-dark">{item.text}</p>
+              <p className="font-body text-body text-markaj-primary">{item.text}</p>
             </div>
           ))}
         </div>
@@ -79,7 +81,7 @@ export default function AboutPage() {
           title="20 collaborateurs qualifiés"
           intro="Plâtriers, peintres, chefs d'équipe et apprentis : une équipe complète pour mener vos chantiers de A à Z."
         />
-        <p className="max-w-prose font-body text-body-lg text-markaj-mineral-dark">
+        <p className="max-w-prose font-body text-body-lg text-markaj-primary">
           Nos collaborateurs maîtrisent les techniques actuelles de plâtrerie (BA13, finitions Q3/Q4),
           de peinture (intérieure et extérieure), d&apos;isolation thermique et acoustique, ainsi que
           la pose de faux-plafonds. La formation continue et le respect des normes SIA sont au cœur
@@ -96,7 +98,7 @@ export default function AboutPage() {
               className="h-auto w-full"
             />
           </div>
-          <figcaption className="mt-3 font-mono text-caption uppercase tracking-[0.14em] text-markaj-mineral">
+          <figcaption className="mt-3 font-body text-caption uppercase tracking-[0.14em] text-markaj-primary">
             Arbis Mueller, responsable commercial, avec nos collaborateurs — préparation de chantier
           </figcaption>
         </figure>
@@ -108,12 +110,14 @@ export default function AboutPage() {
           {values.map((value) => (
             <div key={value.title}>
               <h3 className="font-heading text-heading-4 text-markaj-primary">{value.title}</h3>
-              <p className="mt-2 font-body text-body text-markaj-mineral-dark">{value.description}</p>
+              <p className="mt-2 font-body text-body text-markaj-primary">{value.description}</p>
             </div>
           ))}
         </div>
       </Section>
 
+      <AudienceStrip />
+      <MethodSteps />
       <CtaBanner />
     </>
   );

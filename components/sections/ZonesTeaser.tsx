@@ -21,13 +21,13 @@ export function ZonesTeaser() {
           <AnimateIn key={zone.slug} delay={index * 50}>
             <Link
               href={`/zones/${zone.slug}`}
-              className="group flex h-full min-h-24 flex-col justify-center border border-markaj-primary/15 bg-markaj-white p-5 transition-all duration-200 ease-out hover:-translate-x-0.5 hover:-translate-y-0.5 hover:border-markaj-primary/40 hover:shadow-card-hover"
+              className="group flex h-full min-h-11 flex-col justify-center border border-markaj-primary/15 bg-markaj-white p-5"
             >
               <p className="marque-cote">{zone.canton}</p>
               <h3 className="mt-1 font-heading text-heading-4 text-markaj-primary transition-colors group-hover:text-markaj-primary-light">
                 {zone.name}
               </h3>
-              <p className="mt-2 font-body text-caption text-markaj-mineral">
+              <p className="mt-2 font-body text-caption text-markaj-primary">
                 {zone.villes.slice(0, 3).join(", ")}
                 {zone.villes.length > 3 ? "…" : ""}
               </p>

@@ -192,7 +192,7 @@ export default function ZoneDetailPage({ params }: PageProps) {
                   Peinture à Fribourg
                 </Link>
               </h3>
-              <p className="mt-2 font-body text-body-sm text-markaj-mineral-dark">
+              <p className="mt-2 font-body text-body-sm text-markaj-primary">
                 Intérieur et extérieur, préparation des supports, finitions durables.
               </p>
               <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
@@ -201,7 +201,7 @@ export default function ZoneDetailPage({ params }: PageProps) {
                 </Link>
                 <Link
                   href="/contact?service=peinture"
-                  className="font-mono text-caption font-semibold uppercase tracking-[0.12em] text-markaj-mineral-dark underline underline-offset-4 hover:text-markaj-primary"
+                  className="inline-flex min-h-11 items-center font-body text-caption font-semibold uppercase tracking-[0.12em] text-markaj-primary underline underline-offset-4 hover:text-markaj-primary"
                 >
                   Devis peinture
                 </Link>
@@ -216,7 +216,7 @@ export default function ZoneDetailPage({ params }: PageProps) {
                   Faux-plafonds à Fribourg
                 </Link>
               </h3>
-              <p className="mt-2 font-body text-body-sm text-markaj-mineral-dark">
+              <p className="mt-2 font-body text-body-sm text-markaj-primary">
                 Acoustique, éclairage intégré et réseaux pour tertiaire et logements.
               </p>
               <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
@@ -225,7 +225,7 @@ export default function ZoneDetailPage({ params }: PageProps) {
                 </Link>
                 <Link
                   href="/contact?service=faux-plafonds"
-                  className="font-mono text-caption font-semibold uppercase tracking-[0.12em] text-markaj-mineral-dark underline underline-offset-4 hover:text-markaj-primary"
+                  className="inline-flex min-h-11 items-center font-body text-caption font-semibold uppercase tracking-[0.12em] text-markaj-primary underline underline-offset-4 hover:text-markaj-primary"
                 >
                   Devis plafonds
                 </Link>
@@ -238,7 +238,7 @@ export default function ZoneDetailPage({ params }: PageProps) {
             <Link
               key={service.slug}
               href={`/services/${service.slug}`}
-              className="border border-markaj-primary/20 bg-markaj-white px-4 py-2 font-body text-body-sm font-medium text-markaj-primary transition-colors hover:border-markaj-primary/50"
+              className="inline-flex min-h-11 items-center border border-markaj-primary/20 bg-markaj-white px-4 font-body text-body-sm font-medium text-markaj-primary transition-colors hover:border-markaj-primary/50"
             >
               {service.title}
             </Link>

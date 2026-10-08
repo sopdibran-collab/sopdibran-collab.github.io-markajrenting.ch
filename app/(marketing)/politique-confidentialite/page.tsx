@@ -26,7 +26,7 @@ export default function PolitiqueConfidentialitePage() {
             Politique de confidentialité
           </h1>
 
-          <p className="mt-6 font-body text-body text-markaj-mineral-dark">
+          <p className="mt-6 font-body text-body text-markaj-primary">
             {siteConfig.legalName} accorde une grande importance à la protection de vos données
             personnelles. La présente politique décrit comment nous collectons, utilisons et protégeons
             vos informations conformément à la loi fédérale suisse sur la protection des données (LPD).
@@ -35,7 +35,7 @@ export default function PolitiqueConfidentialitePage() {
           <h2 className="mt-10 font-heading text-heading-3 text-markaj-primary">
             Données collectées
           </h2>
-          <p className="mt-3 font-body text-body text-markaj-mineral-dark">
+          <p className="mt-3 font-body text-body text-markaj-primary">
             Via le formulaire de contact, nous collectons les données que vous nous communiquez
             volontairement : nom, prénom, adresse e-mail, numéro de téléphone et description de votre
             projet. Des données de navigation anonymisées peuvent être collectées à des fins statistiques.
@@ -44,7 +44,7 @@ export default function PolitiqueConfidentialitePage() {
           <h2 className="mt-10 font-heading text-heading-3 text-markaj-primary">
             Utilisation des données
           </h2>
-          <p className="mt-3 font-body text-body text-markaj-mineral-dark">
+          <p className="mt-3 font-body text-body text-markaj-primary">
             Vos données sont utilisées exclusivement pour répondre à vos demandes de devis, vous
             recontacter dans le cadre de votre projet et assurer le suivi commercial. Elles ne sont
             ni vendues ni transmises à des tiers à des fins marketing.
@@ -53,7 +53,7 @@ export default function PolitiqueConfidentialitePage() {
           <h2 className="mt-10 font-heading text-heading-3 text-markaj-primary">
             Vos droits
           </h2>
-          <p className="mt-3 font-body text-body text-markaj-mineral-dark">
+          <p className="mt-3 font-body text-body text-markaj-primary">
             Conformément à la LPD, vous disposez d&apos;un droit d&apos;accès, de rectification et de
             suppression de vos données personnelles. Pour exercer ces droits, contactez-nous à{" "}
             <a href={`mailto:${siteConfig.contact.email}`} className="text-markaj-primary hover:underline">
@@ -64,7 +64,7 @@ export default function PolitiqueConfidentialitePage() {
           <h2 className="mt-10 font-heading text-heading-3 text-markaj-primary">
             Protection du formulaire
           </h2>
-          <p className="mt-3 font-body text-body text-markaj-mineral-dark">
+          <p className="mt-3 font-body text-body text-markaj-primary">
             Pour limiter les envois automatisés, le formulaire de contact utilise un contrôle
             technique fourni par Cloudflare (Turnstile). Cette vérification peut traiter
             l&apos;adresse IP et des caractéristiques du navigateur, uniquement pour distinguer
@@ -75,7 +75,7 @@ export default function PolitiqueConfidentialitePage() {
           <h2 className="mt-10 font-heading text-heading-3 text-markaj-primary">
             Cookies
           </h2>
-          <p className="mt-3 font-body text-body text-markaj-mineral-dark">
+          <p className="mt-3 font-body text-body text-markaj-primary">
             Ce site peut utiliser des cookies techniques nécessaires à son fonctionnement. Aucun cookie
             publicitaire n&apos;est déposé sans votre consentement préalable.
           </p>

@@ -13,7 +13,7 @@ interface BreadcrumbsProps {
 
 export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
   return (
-    <nav aria-label="Fil d'Ariane" className={cn("font-body text-body-sm text-markaj-mineral", className)}>
+    <nav aria-label="Fil d'Ariane" className={cn("font-body text-body-sm text-markaj-primary", className)}>
       <ol className="flex flex-wrap items-center gap-2">
         <li>
           <Link href="/" className="hover:text-markaj-primary">

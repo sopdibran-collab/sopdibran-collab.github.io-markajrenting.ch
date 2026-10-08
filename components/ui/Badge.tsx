@@ -8,7 +8,7 @@ interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
 const variantStyles = {
   default: "border-markaj-primary/30 bg-markaj-primary/5 text-markaj-primary",
   crepi: "border-markaj-crepi-dark/50 bg-markaj-crepi text-markaj-primary",
-  outline: "border-markaj-mineral/40 text-markaj-mineral-dark",
+  outline: "border-markaj-mineral/40 text-markaj-primary",
 };
 
 export function Badge({
@@ -20,7 +20,7 @@ export function Badge({
   return (
     <span
       className={cn(
-        "inline-flex max-w-full items-center border px-2.5 py-1 font-mono text-caption font-semibold uppercase tracking-[0.12em] break-words",
+        "inline-flex max-w-full items-center border px-2.5 py-1 font-body text-caption font-semibold uppercase tracking-[0.12em] break-words",
         variantStyles[variant],
         className
       )}

@@ -16,16 +16,16 @@ export function TrustPanel() {
       <div className="border border-markaj-primary/15 bg-markaj-surface p-6 sm:p-8">
         <p className="marque-cote mb-3">Engagement</p>
         <ul className="space-y-3">
-          <li className="font-body text-body-sm text-markaj-mineral-dark">
+          <li className="font-body text-body-sm text-markaj-primary">
             Devis gratuit et sans engagement
           </li>
-          <li className="font-body text-body-sm text-markaj-mineral-dark">
+          <li className="font-body text-body-sm text-markaj-primary">
             Réponse sous 5 jours ouvrés
           </li>
-          <li className="font-body text-body-sm text-markaj-mineral-dark">
+          <li className="font-body text-body-sm text-markaj-primary">
             Intervention en Suisse romande depuis Fribourg
           </li>
-          <li className="font-body text-body-sm text-markaj-mineral-dark">
+          <li className="font-body text-body-sm text-markaj-primary">
             Travaux conformes aux normes SIA
           </li>
         </ul>
@@ -33,12 +33,13 @@ export function TrustPanel() {
 
       <div>
         <p className="marque-cote mb-3">Après l&apos;envoi</p>
-        <ol className="space-y-3">
-          {nextSteps.map((step, index) => (
-            <li key={step} className="flex gap-3 font-body text-body-sm text-markaj-mineral-dark">
-              <span className="font-mono text-caption font-semibold text-markaj-crepi-dark">
-                0{index + 1}
-              </span>
+        <ol className="list-none space-y-3">
+          {nextSteps.map((step) => (
+            <li key={step} className="flex gap-3 font-body text-body-sm text-markaj-primary">
+              <span
+                className="mt-2 h-2 w-2 shrink-0 border border-markaj-primary bg-markaj-crepi"
+                aria-hidden="true"
+              />
               {step}
             </li>
           ))}
@@ -47,24 +48,24 @@ export function TrustPanel() {
 
       <address className="not-italic">
         <p className="font-heading text-heading-4 text-markaj-primary">{siteConfig.legalName}</p>
-        <p className="mt-3 font-body text-body text-markaj-mineral-dark">
+        <p className="mt-3 font-body text-body text-markaj-primary">
           {address.street}<br />
           {address.postalCode} {address.city}<br />
           Suisse
         </p>
         <p className="mt-6 font-body text-body">
           <span className="font-medium text-markaj-primary">Téléphone :</span>{" "}
-          <a href={phoneHref} className="text-markaj-mineral-dark hover:text-markaj-primary">
+          <a href={phoneHref} className="text-markaj-primary hover:text-markaj-primary">
             {contact.phoneDisplay}
           </a>
         </p>
         <p className="mt-2 font-body text-body">
           <span className="font-medium text-markaj-primary">E-mail :</span>{" "}
-          <a href={`mailto:${contact.email}`} className="text-markaj-mineral-dark hover:text-markaj-primary">
+          <a href={`mailto:${contact.email}`} className="text-markaj-primary hover:text-markaj-primary">
             {contact.email}
           </a>
         </p>
-        <p className="mt-4 font-body text-body-sm text-markaj-mineral">
+        <p className="mt-4 font-body text-body-sm text-markaj-primary">
           Lun. – Ven. : 07h00 – 17h00
         </p>
         <div className="mt-6">

@@ -2,12 +2,10 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { Hero } from "@/components/sections/Hero";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { Badge } from "@/components/ui/Badge";
-import { Card } from "@/components/ui/Card";
-import { Section } from "@/components/ui/Section";
 import { blogPosts } from "@/lib/content/blog";
 import { buildBreadcrumbSchema } from "@/lib/seo/json-ld";
 import { createPageMetadata } from "@/lib/seo/metadata";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 export const metadata = createPageMetadata({
@@ -30,27 +28,44 @@ export default function BlogPage() {
         subtitle="Articles pratiques sur la plâtrerie, la peinture, l'isolation et la rénovation, rédigés par les experts de Markaj Renting SA."
       />
 
-      <Section background="white">
-        <div className="grid gap-8 md:grid-cols-2">
-          {blogPosts.map((post) => (
-            <Link key={post.slug} href={`/blog/${post.slug}`} className="group">
-              <Card hover className="h-full">
-                <div className="flex items-center gap-3">
-                  <Badge variant="outline">{post.category}</Badge>
-                  <span className="font-body text-caption text-markaj-mineral">
-                    {new Date(post.date).toLocaleDateString("fr-CH", { day: "numeric", month: "long", year: "numeric" })} · {post.readTime}
-                  </span>
-                </div>
-                <h2 className="mt-4 font-heading text-heading-3 text-markaj-primary group-hover:text-markaj-primary-light">
+      <div>
+        {blogPosts.map((post, index) => (
+          <article
+            key={post.slug}
+            className={cn(index % 2 === 0 ? "bg-markaj-crepi-light" : "bg-markaj-white")}
+          >
+            <div className="mx-auto max-w-content px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+              <p className="marque-cote">
+                {post.category}
+                <span className="font-normal normal-case tracking-normal">
+                  {" · "}
+                  <time dateTime={post.date}>
+                    {new Date(post.date).toLocaleDateString("fr-CH", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    })}
+                  </time>
+                  {" · "}
+                  {post.readTime}
+                </span>
+              </p>
+              <h2 className="mt-3 max-w-prose font-heading text-heading-3 text-markaj-primary">
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="transition-colors hover:text-markaj-primary-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-markaj-primary"
+                >
                   {post.title}
-                </h2>
-                <p className="mt-3 font-body text-body text-markaj-mineral-dark">{post.excerpt}</p>
-                <span className="btn-niveau mt-4">Lire l&apos;article</span>
-              </Card>
-            </Link>
-          ))}
-        </div>
-      </Section>
+                </Link>
+              </h2>
+              <p className="mt-3 max-w-prose font-body text-body text-markaj-primary">{post.excerpt}</p>
+              <Link href={`/blog/${post.slug}`} className="btn-niveau mt-4">
+                Lire l&apos;article
+              </Link>
+            </div>
+          </article>
+        ))}
+      </div>
 
       <CtaBanner />
     </>
