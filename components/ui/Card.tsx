@@ -23,8 +23,7 @@ export function Card({
     <div
       className={cn(
         "min-w-0 border border-markaj-primary/15 bg-markaj-white",
-        hover &&
-          "transition-all duration-200 ease-out hover:-translate-x-0.5 hover:-translate-y-0.5 hover:border-markaj-primary/40 hover:shadow-card-hover",
+        hover && "hover:border-markaj-primary/40",
         paddingStyles[padding],
         className
       )}

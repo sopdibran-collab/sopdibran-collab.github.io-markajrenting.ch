@@ -130,7 +130,7 @@ export function ContactForm({ defaultService = "", formToken }: ContactFormProps
         <p className="font-heading text-heading-4 text-markaj-primary">
           Merci, votre demande a bien été envoyée.
         </p>
-        <p className="mt-3 font-body text-body text-markaj-mineral-dark">
+        <p className="mt-3 font-body text-body text-markaj-primary">
           <Link href="/merci" className="font-medium text-markaj-primary underline underline-offset-4">
             Continuer
           </Link>
@@ -150,7 +150,7 @@ export function ContactForm({ defaultService = "", formToken }: ContactFormProps
         />
       ) : null}
 
-      <p className="font-body text-body-sm text-markaj-mineral">
+      <p className="font-body text-body-sm text-markaj-primary">
         Devis gratuit · Sans engagement · Réponse sous 5 jours ouvrés
       </p>
 
@@ -191,7 +191,7 @@ export function ContactForm({ defaultService = "", formToken }: ContactFormProps
 
       <div>
         <label htmlFor="societe" className="mb-1.5 block font-body text-body-sm font-medium text-markaj-primary">
-          Société <span className="font-normal text-markaj-mineral">(optionnel)</span>
+          Société <span className="font-normal text-markaj-primary">(optionnel)</span>
         </label>
         <input
           type="text"
@@ -222,7 +222,7 @@ export function ContactForm({ defaultService = "", formToken }: ContactFormProps
             className="form-input"
             placeholder="079 000 00 00"
           />
-          <p className="mt-1.5 font-body text-caption text-markaj-mineral">
+          <p className="mt-1.5 font-body text-caption text-markaj-primary">
             Recommandé pour un rappel plus rapide
           </p>
         </div>
@@ -245,7 +245,7 @@ export function ContactForm({ defaultService = "", formToken }: ContactFormProps
         </div>
         <div>
           <label htmlFor="commune" className="mb-1.5 block font-body text-body-sm font-medium text-markaj-primary">
-            Commune / chantier <span className="font-normal text-markaj-mineral">(optionnel)</span>
+            Commune / chantier <span className="font-normal text-markaj-primary">(optionnel)</span>
           </label>
           <input
             type="text"
@@ -270,20 +270,26 @@ export function ContactForm({ defaultService = "", formToken }: ContactFormProps
           className="form-input"
           placeholder="Surface approximative, type de local, délais souhaités, contraintes particulières…"
         />
-        <p className="mt-1.5 font-body text-caption text-markaj-mineral">
+        <p className="mt-1.5 font-body text-caption text-markaj-primary">
           Plus votre description est précise, plus notre devis sera pertinent.
         </p>
       </div>
 
       <div className="flex items-start gap-3">
-        <input
-          type="checkbox"
-          id="consentement"
-          name="consentement"
-          required
-          className="mt-1 h-4 w-4 shrink-0 accent-markaj-primary"
-        />
-        <label htmlFor="consentement" className="font-body text-body-sm text-markaj-mineral-dark">
+        <span className="relative inline-flex h-11 w-11 shrink-0 items-center justify-center">
+          <input
+            type="checkbox"
+            id="consentement"
+            name="consentement"
+            required
+            className="peer absolute inset-0 z-10 h-full w-full cursor-pointer opacity-0"
+          />
+          <span
+            aria-hidden="true"
+            className="mk-check pointer-events-none h-6 w-6 border-2 border-markaj-primary bg-markaj-white"
+          />
+        </span>
+        <label htmlFor="consentement" className="font-body text-body-sm text-markaj-primary">
           J&apos;accepte que mes données soient utilisées pour traiter ma demande de
           devis, conformément à la{" "}
           <Link href="/politique-confidentialite" className="text-markaj-primary underline underline-offset-4">

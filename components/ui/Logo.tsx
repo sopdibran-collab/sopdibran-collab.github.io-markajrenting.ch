@@ -70,7 +70,12 @@ export function Logo({ variant = "full", className, href = "/" }: LogoProps) {
   return (
     <Link
       href={href}
-      className="inline-flex min-w-0 max-w-[min(100%,11rem)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-markaj-primary focus-visible:ring-offset-2 sm:max-w-[13rem]"
+      className={cn(
+        "inline-flex min-h-11 min-w-0 max-w-[min(100%,11rem)] items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 sm:max-w-[13rem]",
+        variant === "white"
+          ? "focus-visible:ring-markaj-crepi focus-visible:ring-offset-markaj-primary"
+          : "focus-visible:ring-markaj-primary"
+      )}
     >
       <span className="sr-only">Markaj Renting SA — Accueil</span>
       {image}

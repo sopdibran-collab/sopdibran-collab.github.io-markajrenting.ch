@@ -59,7 +59,7 @@ export default function QualiteNormesPage() {
 
       <Section background="white">
         <div className="max-w-prose">
-          <p className="font-body text-body-lg text-markaj-mineral-dark">
+          <p className="font-body text-body-lg text-markaj-primary">
             En Suisse, la qualité des travaux de construction est encadrée par des normes strictes.
             Chez Markaj Renting SA, la conformité n&apos;est pas une option : c&apos;est une exigence
             intégrée à chaque étape de nos chantiers, de la préparation des supports à la réception
@@ -74,7 +74,7 @@ export default function QualiteNormesPage() {
           {normes.map((norme) => (
             <div key={norme.title} className="border-l-2 border-markaj-primary/20 pl-6">
               <h2 className="font-heading text-heading-4 text-markaj-primary">{norme.title}</h2>
-              <p className="mt-2 font-body text-body text-markaj-mineral-dark">{norme.description}</p>
+              <p className="mt-2 font-body text-body text-markaj-primary">{norme.description}</p>
             </div>
           ))}
         </div>
@@ -86,19 +86,19 @@ export default function QualiteNormesPage() {
           title="Comment assurons-nous la conformité ?"
         />
         <ul className="max-w-prose space-y-4">
-          <li className="flex items-start gap-3 font-body text-body text-markaj-mineral-dark">
+          <li className="flex items-start gap-3 font-body text-body text-markaj-primary">
             <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-markaj-primary" />
             Devis détaillé par postes de travaux, aligné sur le cahier des charges
           </li>
-          <li className="flex items-start gap-3 font-body text-body text-markaj-mineral-dark">
+          <li className="flex items-start gap-3 font-body text-body text-markaj-primary">
             <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-markaj-primary" />
             Matériaux certifiés et conformes aux fiches techniques fabricant
           </li>
-          <li className="flex items-start gap-3 font-body text-body text-markaj-mineral-dark">
+          <li className="flex items-start gap-3 font-body text-body text-markaj-primary">
             <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-markaj-primary" />
             Suivi de chantier par un chef d&apos;équipe expérimenté
           </li>
-          <li className="flex items-start gap-3 font-body text-body text-markaj-mineral-dark">
+          <li className="flex items-start gap-3 font-body text-body text-markaj-primary">
             <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-markaj-primary" />
             Visite de réception avec le client et traitement des réserves
           </li>
@@ -111,7 +111,7 @@ export default function QualiteNormesPage() {
           title="Pour aller plus loin"
           intro="Articles techniques pour clarifier les choix de matériaux et d’acoustique avec vos maîtres d’ouvrage."
         />
-        <ul className="max-w-prose space-y-3 font-body text-body text-markaj-mineral-dark">
+        <ul className="max-w-prose space-y-3 font-body text-body text-markaj-primary">
           <li>
             <Link
               href="/blog/isolation-thermique-vs-phonique"

@@ -36,7 +36,7 @@ export default function ServicesPage() {
       {/* Hub zebra: hero white → expertises sand → CTA navy (no white/surface stack). */}
       <Section background="sand">
         <div className="mb-10 max-w-prose">
-          <p className="font-body text-body-lg text-markaj-mineral-dark">
+          <p className="font-body text-body-lg text-markaj-primary">
             De la pose de cloisons BA13 à la rénovation complète d&apos;un bâtiment, nous accompagnons
             particuliers, régies, architectes et entreprises en Suisse romande. Chaque prestation est
             réalisée avec des matériaux professionnels, un contrôle qualité rigoureux et le respect
@@ -63,10 +63,10 @@ export default function ServicesPage() {
               <p className="mt-3 font-body text-body font-medium text-markaj-primary/85">
                 {service.benefit}
               </p>
-              <p className="mt-2 font-body text-body-sm text-markaj-mineral-dark">
+              <p className="mt-2 font-body text-body-sm text-markaj-primary">
                 {service.intro}
               </p>
-              <p className="mt-3 font-body text-caption text-markaj-mineral">
+              <p className="mt-3 font-body text-caption text-markaj-primary">
                 {service.projectTypes.join(" · ")} — {service.audience.slice(0, 3).join(", ")}
               </p>
               <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-2 pt-5">
@@ -75,7 +75,7 @@ export default function ServicesPage() {
                 </Link>
                 <Link
                   href={`/contact?service=${service.slug}`}
-                  className="font-mono text-caption font-semibold uppercase tracking-[0.12em] text-markaj-mineral-dark underline underline-offset-4 transition-colors hover:text-markaj-primary"
+                  className="inline-flex min-h-11 items-center font-body text-caption font-semibold uppercase tracking-[0.12em] text-markaj-primary underline underline-offset-4 transition-colors hover:text-markaj-primary"
                 >
                   Devis pour ce service
                 </Link>

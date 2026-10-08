@@ -21,13 +21,13 @@ export default function NotFound() {
     <MarketingLayout>
       <Section background="white" texture="paint" className="py-24 md:py-32">
         <div className="max-w-2xl">
-          <p className="font-body text-body-sm font-semibold uppercase tracking-wider text-markaj-mineral">
+          <p className="font-body text-body-sm font-semibold uppercase tracking-wider text-markaj-primary">
             Erreur 404
           </p>
           <h1 className="mt-3 font-heading text-heading-1 text-markaj-primary">
             Cette page est introuvable
           </h1>
-          <p className="mt-5 font-body text-body-lg text-markaj-mineral-dark">
+          <p className="mt-5 font-body text-body-lg text-markaj-primary">
             La page que vous cherchez n&apos;existe pas ou a été déplacée. Vous
             pouvez revenir à l&apos;accueil ou consulter l&apos;une des pages
             ci-dessous.

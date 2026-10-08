@@ -54,7 +54,7 @@ export default function RealisationsPage() {
             />
           ))}
         </div>
-        <p className="mt-10 max-w-prose font-body text-caption text-markaj-mineral">
+        <p className="mt-10 max-w-prose font-body text-caption text-markaj-primary">
           Les photos de chantier sont prises par nos équipes. Lorsqu&apos;une image de projet livré
           provient d&apos;une source externe, le crédit figure sur la fiche.
         </p>

@@ -68,7 +68,7 @@ function BlogContent({ blocks }: { blocks: BlogBlock[] }) {
               {block.items.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-3 font-body text-body text-markaj-mineral-dark"
+                  className="flex items-start gap-3 font-body text-body text-markaj-primary"
                 >
                   <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-markaj-primary" />
                   <span>{item}</span>
@@ -78,7 +78,7 @@ function BlogContent({ blocks }: { blocks: BlogBlock[] }) {
           );
         }
         return (
-          <p key={i} className="font-body text-body text-markaj-mineral-dark">
+          <p key={i} className="font-body text-body text-markaj-primary">
             {block.text}
           </p>
         );
@@ -127,7 +127,7 @@ export default function BlogPostPage({ params }: PageProps) {
       <Section background="white">
         <BlogContent blocks={post.content} />
         {related && (
-          <p className="mx-auto mt-10 max-w-prose font-body text-body text-markaj-mineral-dark">
+          <p className="mx-auto mt-10 max-w-prose font-body text-body text-markaj-primary">
             Ce texte reste informatif. Le devis et le chantier passent par la{" "}
             <Link href={related.href} className="text-markaj-primary underline-offset-4 hover:underline">
               {related.label}

@@ -88,13 +88,13 @@ export default function ZonesPage() {
           title="Quels services sont disponibles dans votre zone ?"
           intro="Quelle que soit votre localisation dans notre périmètre, l'ensemble de nos expertises est disponible."
         />
-        <div className="flex flex-wrap gap-4 font-body text-body">
-          <Link href="/services/platrerie" className="text-markaj-primary hover:underline">Plâtrerie</Link>
-          <Link href="/services/peinture" className="text-markaj-primary hover:underline">Peinture</Link>
-          <Link href="/services/faux-plafonds" className="text-markaj-primary hover:underline">Faux-plafonds</Link>
-          <Link href="/services/isolation" className="text-markaj-primary hover:underline">Isolation</Link>
-          <Link href="/services/renovation" className="text-markaj-primary hover:underline">Rénovation</Link>
-          <Link href="/services/facades" className="text-markaj-primary hover:underline">Façades</Link>
+        <div className="flex flex-wrap gap-x-4 gap-y-1 font-body text-body">
+          <Link href="/services/platrerie" className="inline-flex min-h-11 items-center text-markaj-primary hover:underline">Plâtrerie</Link>
+          <Link href="/services/peinture" className="inline-flex min-h-11 items-center text-markaj-primary hover:underline">Peinture</Link>
+          <Link href="/services/faux-plafonds" className="inline-flex min-h-11 items-center text-markaj-primary hover:underline">Faux-plafonds</Link>
+          <Link href="/services/isolation" className="inline-flex min-h-11 items-center text-markaj-primary hover:underline">Isolation</Link>
+          <Link href="/services/renovation" className="inline-flex min-h-11 items-center text-markaj-primary hover:underline">Rénovation</Link>
+          <Link href="/services/facades" className="inline-flex min-h-11 items-center text-markaj-primary hover:underline">Façades</Link>
         </div>
       </Section>
 

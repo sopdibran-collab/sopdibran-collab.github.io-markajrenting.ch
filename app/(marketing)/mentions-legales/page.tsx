@@ -27,7 +27,7 @@ export default function MentionsLegalesPage() {
           <h1 className="font-heading text-heading-1 text-markaj-primary">Mentions légales</h1>
 
           <h2 className="mt-10 font-heading text-heading-3 text-markaj-primary">Éditeur du site</h2>
-          <p className="mt-3 font-body text-body text-markaj-mineral-dark">
+          <p className="mt-3 font-body text-body text-markaj-primary">
             {siteConfig.legalName}<br />
             {address.street}<br />
             {address.postalCode} {address.city}, Suisse<br />
@@ -36,19 +36,19 @@ export default function MentionsLegalesPage() {
           </p>
 
           <h2 className="mt-10 font-heading text-heading-3 text-markaj-primary">Hébergement</h2>
-          <p className="mt-3 font-body text-body text-markaj-mineral-dark">
+          <p className="mt-3 font-body text-body text-markaj-primary">
             Ce site est hébergé par Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis.
           </p>
 
           <h2 className="mt-10 font-heading text-heading-3 text-markaj-primary">Propriété intellectuelle</h2>
-          <p className="mt-3 font-body text-body text-markaj-mineral-dark">
+          <p className="mt-3 font-body text-body text-markaj-primary">
             L&apos;ensemble du contenu de ce site (textes, images, graphismes, logo) est la propriété de
             Markaj Renting SA ou de ses partenaires. Toute reproduction, même partielle, est interdite
             sans autorisation préalable.
           </p>
 
           <h2 className="mt-10 font-heading text-heading-3 text-markaj-primary">Responsabilité</h2>
-          <p className="mt-3 font-body text-body text-markaj-mineral-dark">
+          <p className="mt-3 font-body text-body text-markaj-primary">
             Markaj Renting SA s&apos;efforce d&apos;assurer l&apos;exactitude des informations publiées sur ce site.
             Toutefois, elle ne saurait être tenue responsable des omissions, inexactitudes ou carences
             dans la mise à jour des informations.

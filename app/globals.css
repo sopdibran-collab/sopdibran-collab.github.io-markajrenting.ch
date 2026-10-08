@@ -140,22 +140,9 @@
   /* 1 — Bouton « Bloc » : matière posée, ombre franche décalée (pas de flou)
      Hauteur / padding gérés par size sm|md|lg sur <Button /> */
   .btn-bloc {
-    @apply relative inline-flex max-w-full shrink-0 items-center justify-center gap-2 border-2 border-markaj-primary bg-markaj-primary font-mono text-[0.8125rem] font-semibold uppercase tracking-[0.12em] text-markaj-white transition-all duration-150 ease-out;
+    @apply relative inline-flex max-w-full shrink-0 items-center justify-center gap-2 border-2 border-markaj-primary bg-markaj-primary font-body text-[0.8125rem] font-semibold uppercase tracking-[0.12em] text-markaj-white transition-all duration-150 ease-out;
     box-shadow: 5px 5px 0 0 theme("colors.markaj.crepi");
     padding-inline-end: calc(var(--btn-pad-x, 1.75rem) + 0.12em);
-  }
-
-  /* Ombre plus légère sur les CTA compacts (header) */
-  .btn-bloc.min-h-10 {
-    box-shadow: 3px 3px 0 0 theme("colors.markaj.crepi");
-  }
-
-  .btn-bloc.min-h-10:hover {
-    box-shadow: 1px 1px 0 0 theme("colors.markaj.crepi");
-  }
-
-  .btn-bloc.min-h-10:active {
-    box-shadow: 0 0 0 0 theme("colors.markaj.crepi");
   }
 
   .btn-bloc:hover {
@@ -186,9 +173,9 @@
     box-shadow: 0 0 0 0 theme("colors.markaj.primary-dark");
   }
 
-  /* 2 — Bouton « Cote » : repères de cotation qui referment le cadre au survol */
+  /* 2 — Bouton « Cote » : repères de cotation fixes (pas d'animation) */
   .btn-cote {
-    @apply relative inline-flex max-w-full shrink-0 items-center justify-center bg-markaj-crepi-light font-mono text-[0.8125rem] font-semibold uppercase tracking-[0.12em] text-markaj-primary transition-colors duration-200;
+    @apply relative inline-flex max-w-full shrink-0 items-center justify-center bg-markaj-crepi-light font-body text-[0.8125rem] font-semibold uppercase tracking-[0.12em] text-markaj-primary transition-colors duration-200;
     border: 1px solid rgb(10 43 94 / 0.55);
     padding-inline-end: calc(var(--btn-pad-x, 1.75rem) + 0.12em);
   }
@@ -196,7 +183,7 @@
   .btn-cote::before,
   .btn-cote::after {
     content: "";
-    @apply pointer-events-none absolute h-3 w-3 transition-all duration-300 ease-out;
+    @apply pointer-events-none absolute h-3 w-3;
   }
 
   .btn-cote::before {
@@ -215,12 +202,6 @@
 
   .btn-cote:hover {
     @apply bg-markaj-primary text-markaj-white;
-  }
-
-  .btn-cote:hover::before,
-  .btn-cote:hover::after {
-    height: calc(100% + 10px);
-    width: calc(100% + 10px);
   }
 
   .btn-cote:focus-visible {
@@ -247,9 +228,9 @@
     @apply bg-markaj-white text-markaj-primary;
   }
 
-  /* 3 — Bouton « Niveau » : ligne de niveau qui se remplit au survol */
+  /* 3 — Bouton « Niveau » : lien avec filet, sans animation */
   .btn-niveau {
-    @apply relative inline-flex min-h-11 items-center gap-2.5 bg-transparent px-1 pb-3 pt-2 font-mono text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-markaj-primary;
+    @apply relative inline-flex min-h-11 items-center gap-2.5 bg-transparent px-1 pb-3 pt-2 font-body text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-markaj-primary;
   }
 
   .btn-niveau::before {
@@ -260,12 +241,7 @@
 
   .btn-niveau::after {
     content: "";
-    @apply absolute bottom-0 left-0 h-0.5 w-full origin-left bg-markaj-primary transition-transform duration-300 ease-out;
-    transform: scaleX(0.32);
-  }
-
-  .btn-niveau:hover::after {
-    transform: scaleX(1);
+    @apply absolute bottom-0 left-0 h-0.5 w-full bg-markaj-primary;
   }
 
   .btn-niveau:focus-visible {
@@ -289,11 +265,6 @@
     @apply bg-markaj-crepi;
   }
 
-  /* Dans une carte-lien : la ligne de niveau se remplit au survol du groupe */
-  .group:hover .btn-niveau::after {
-    transform: scaleX(1);
-  }
-
   /* Panneau « calque technique » : trame millimétrée + croix de repérage */
   .panel-chantier {
     @apply relative bg-markaj-white p-8;
@@ -307,7 +278,7 @@
   .panel-chantier::before,
   .panel-chantier::after {
     content: "+";
-    @apply pointer-events-none absolute font-mono text-sm leading-none text-markaj-primary/50;
+    @apply pointer-events-none absolute font-body text-sm leading-none text-markaj-primary;
   }
 
   .panel-chantier::before {
@@ -322,7 +293,7 @@
 
   /* Étiquette de section — sans numérotation 01/02 (anti template IA) */
   .marque-cote {
-    @apply inline-flex max-w-full flex-wrap items-baseline gap-x-2.5 gap-y-1 font-mono text-caption font-semibold uppercase tracking-[0.18em] text-markaj-mineral-dark;
+    @apply inline-flex max-w-full flex-wrap items-baseline gap-x-2.5 gap-y-1 font-body text-caption font-semibold uppercase tracking-[0.14em] text-markaj-primary;
   }
 
   .marque-cote::before {
@@ -332,7 +303,7 @@
 
   /* Variante claire pour sections bleu nuit / hero photo */
   .marque-cote--light {
-    @apply text-markaj-white/80;
+    @apply text-markaj-white;
   }
 
   .marque-cote--light::before {
@@ -356,6 +327,18 @@
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Case à cocher : cible 44 px, dessin 24 px, coche visible à l'état coché. */
+.mk-check {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+}
+
+.peer:checked + .mk-check {
+  background-color: #0a2b5e;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='square' stroke-linejoin='miter'%3E%3Cpath d='M5 13l4 4L19 7'/%3E%3C/svg%3E");
 }
 
 /* Leurre anti-robot : dans le DOM, hors perception.

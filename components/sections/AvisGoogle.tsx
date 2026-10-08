@@ -36,19 +36,19 @@ function StarRating({ rating, label }: { rating: number; label: string }) {
 function ReviewCard({ review, index }: { review: GoogleReview; index: number }) {
   return (
     <AnimateIn delay={index * 60}>
-      <blockquote className="flex h-full flex-col border border-markaj-primary/15 bg-markaj-white p-5 sm:p-6">
+      <blockquote className="flex h-full flex-col border-l-2 border-markaj-primary pl-5">
         <StarRating
           rating={review.rating}
           label={`${review.rating} étoiles sur 5 — avis de ${review.author}`}
         />
-        <p className="mt-4 flex-1 font-body text-body text-markaj-mineral-dark">
+        <p className="mt-4 flex-1 font-body text-body text-markaj-primary">
           «&nbsp;{review.text}&nbsp;»
         </p>
         <footer className="mt-5 border-t border-markaj-primary/10 pt-4">
           <cite className="not-italic font-heading text-heading-4 text-markaj-primary">
             {review.author}
           </cite>
-          <p className="mt-1 font-body text-caption text-markaj-mineral-dark/80">
+          <p className="mt-1 font-body text-caption text-markaj-primary">
             <time dateTime={review.datePublished}>
               {formatReviewMonth(review.datePublished)}
             </time>
@@ -65,7 +65,7 @@ export function AvisGoogle() {
   const ratingLabel = `${googleRating.ratingValue.toFixed(1).replace(".", ",")} / 5`;
 
   return (
-    <Section background="crepi" className="!pt-10 sm:!pt-12 md:!pt-14">
+    <Section background="white" className="!py-8 sm:!py-12 md:!py-16">
       <AnimateIn>
         <SectionHeading
           subtitle="Ils nous font confiance"
@@ -83,7 +83,7 @@ export function AvisGoogle() {
             rating={googleRating.ratingValue}
             label={`Note Google ${ratingLabel} basée sur ${googleRating.reviewCount} avis`}
           />
-          <p className="mt-1 font-body text-body-sm text-markaj-mineral-dark">
+          <p className="mt-1 font-body text-body-sm text-markaj-primary">
             {googleRating.reviewCount} avis sur Google
           </p>
         </div>

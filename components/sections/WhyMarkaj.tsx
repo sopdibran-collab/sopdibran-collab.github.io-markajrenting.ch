@@ -54,7 +54,7 @@ export function WhyMarkaj() {
                       <h3 className="font-heading text-heading-4 text-markaj-primary">
                         {reason.title}
                       </h3>
-                      <p className="mt-1.5 font-body text-body-sm text-markaj-mineral-dark">
+                      <p className="mt-1.5 font-body text-body-sm text-markaj-primary">
                         {reason.description}
                       </p>
                     </div>
@@ -79,7 +79,7 @@ export function WhyMarkaj() {
               sizes="(min-width: 1024px) 480px, 100vw"
               className="object-cover"
             />
-            <figcaption className="absolute bottom-0 left-0 right-0 bg-markaj-primary/85 px-4 py-3 font-body text-body-sm text-markaj-white">
+            <figcaption className="absolute bottom-0 left-0 right-0 bg-markaj-primary px-4 py-3 font-body text-body-sm text-markaj-white">
               Sur chantier — ossatures, joints BA13 et peinture réseaux
             </figcaption>
           </figure>

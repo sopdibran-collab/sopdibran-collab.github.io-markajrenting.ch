@@ -1,15 +1,16 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
 import { footerNav } from "@/lib/content/navigation";
 import { siteConfig } from "@/lib/seo/site-config";
 
 const chipClass =
-  "inline-flex items-center rounded-md px-2 py-1.5 font-body text-[0.8125rem] font-medium leading-none text-markaj-white/75 transition-colors hover:bg-markaj-white/10 hover:text-markaj-white";
+  "inline-flex min-h-11 items-center px-3 font-body text-body-sm font-medium text-markaj-white transition-colors hover:bg-markaj-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-markaj-crepi focus-visible:ring-offset-2 focus-visible:ring-offset-markaj-primary";
 
 const labelClass =
-  "mb-2 font-body text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-markaj-white/55";
+  "mb-2 font-body text-caption font-semibold uppercase tracking-[0.08em] text-markaj-crepi";
 
 function LinkRow({
   label,
@@ -26,28 +27,31 @@ function LinkRow({
   );
 }
 
-/** Pied de page : lisible (typographie ≥ ~13px), logo présent sans rivaliser avec le header. */
+/** Pied de page : navy plein, mêmes boutons que le header, cibles tactiles ≥ 44 px. */
 export function Footer() {
   const { address, contact } = siteConfig;
   const phoneHref = `tel:${contact.phone.replace(/\s/g, "")}`;
 
   return (
     <footer
-      className="border-t border-markaj-white/10 bg-markaj-primary/95 text-markaj-white backdrop-blur-md"
+      className="border-t border-markaj-white/10 bg-markaj-primary text-markaj-white"
       role="contentinfo"
     >
       <div className="mx-auto max-w-content space-y-5 px-4 py-6 sm:px-6 sm:py-7 lg:px-8">
         <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
           <Logo variant="white" href="/" />
-          <p className="max-w-md font-body text-[0.875rem] leading-snug text-markaj-white/65">
+          <p className="max-w-md font-body text-body-sm leading-snug text-markaj-crepi">
             Plâtrerie · Peinture · Rénovation · Suisse romande
           </p>
-          <Link
+          <Button
             href="/contact"
-            className="ml-auto inline-flex min-h-10 items-center rounded-md border border-markaj-white/30 px-3.5 py-2 font-body text-[0.8125rem] font-medium text-markaj-white transition-colors hover:bg-markaj-white/10"
+            variant="primary"
+            tone="dark"
+            size="sm"
+            className="ml-auto w-full sm:w-auto"
           >
             Demander un devis
-          </Link>
+          </Button>
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
@@ -77,10 +81,10 @@ export function Footer() {
 
           <div className="min-w-0">
             <p className={labelClass}>Contact</p>
-            <ul className="space-y-2 font-body text-[0.875rem] text-markaj-white/75">
+            <ul className="space-y-1 font-body text-body-sm text-markaj-white">
               <li>
-                <span className="inline-flex items-start gap-2">
-                  <MapPin className="mt-0.5 size-3.5 shrink-0 stroke-[1.5]" aria-hidden />
+                <span className="inline-flex min-h-11 items-center gap-2">
+                  <MapPin className="size-4 shrink-0 stroke-[1.5]" aria-hidden />
                   <span>
                     {address.street}, {address.postalCode} {address.city}
                   </span>
@@ -89,24 +93,24 @@ export function Footer() {
               <li>
                 <a
                   href={phoneHref}
-                  className="inline-flex items-center gap-2 transition-colors hover:text-markaj-white"
+                  className="inline-flex min-h-11 items-center gap-2 transition-colors hover:text-markaj-crepi focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-markaj-crepi focus-visible:ring-offset-2 focus-visible:ring-offset-markaj-primary"
                 >
-                  <Phone className="size-3.5 stroke-[1.5]" aria-hidden />
+                  <Phone className="size-4 stroke-[1.5]" aria-hidden />
                   {contact.phoneDisplay}
                 </a>
               </li>
               <li>
                 <a
                   href={`mailto:${contact.email}`}
-                  className="inline-flex items-center gap-2 transition-colors hover:text-markaj-white"
+                  className="inline-flex min-h-11 items-center gap-2 transition-colors hover:text-markaj-crepi focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-markaj-crepi focus-visible:ring-offset-2 focus-visible:ring-offset-markaj-primary"
                 >
-                  <Mail className="size-3.5 stroke-[1.5]" aria-hidden />
+                  <Mail className="size-4 stroke-[1.5]" aria-hidden />
                   {contact.email}
                 </a>
               </li>
               <li>
-                <span className="inline-flex items-center gap-2 text-markaj-white/60">
-                  <Clock className="size-3.5 stroke-[1.5]" aria-hidden />
+                <span className="inline-flex min-h-11 items-center gap-2 text-markaj-crepi">
+                  <Clock className="size-4 stroke-[1.5]" aria-hidden />
                   Lun. – Ven. : 07h00 – 17h00
                 </span>
               </li>
@@ -116,8 +120,8 @@ export function Footer() {
       </div>
 
       <div className="border-t border-markaj-white/10">
-        <div className="mx-auto flex max-w-content flex-wrap items-center justify-between gap-x-4 gap-y-2 px-4 py-3 font-body text-[0.75rem] text-markaj-white/50 sm:px-6 lg:px-8">
-          <p>
+        <div className="mx-auto flex max-w-content flex-wrap items-center justify-between gap-x-4 gap-y-1 px-4 py-2 font-body text-caption text-markaj-white sm:px-6 lg:px-8">
+          <p className="inline-flex min-h-11 items-center">
             © {new Date().getFullYear()} {siteConfig.legalName}
           </p>
           <div className="flex flex-wrap gap-x-4">
@@ -125,7 +129,7 @@ export function Footer() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="hover:text-markaj-white"
+                className="inline-flex min-h-11 items-center hover:text-markaj-crepi focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-markaj-crepi focus-visible:ring-offset-2 focus-visible:ring-offset-markaj-primary"
               >
                 {item.label === "Politique de confidentialité"
                   ? "Confidentialité"

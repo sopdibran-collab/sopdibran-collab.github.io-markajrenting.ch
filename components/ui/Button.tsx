@@ -25,14 +25,14 @@ const darkToneStyles: Record<ButtonVariant, string> = {
 
 const sizeStyles: Record<ButtonSize, string> = {
   /* Header / chrome : compact mais lisible — pas en dessous de ~12px */
-  sm: "min-h-10 px-4 text-[0.75rem] tracking-[0.11em] [--btn-pad-x:1rem]",
+  sm: "min-h-11 px-4 text-[0.75rem] tracking-[0.11em] [--btn-pad-x:1rem]",
   md: "min-h-11 px-6 text-[0.8125rem] [--btn-pad-x:1.5rem]",
   lg: "min-h-12 px-8 text-[0.8125rem] [--btn-pad-x:2rem]",
 };
 
 /* Le bouton « niveau » est un lien souligné : pas de padding horizontal */
 const ghostSizeStyles: Record<ButtonSize, string> = {
-  sm: "min-h-10 text-[0.75rem]",
+  sm: "min-h-11 text-[0.75rem]",
   md: "min-h-11 text-[0.8125rem]",
   lg: "min-h-12 text-[0.8125rem]",
 };

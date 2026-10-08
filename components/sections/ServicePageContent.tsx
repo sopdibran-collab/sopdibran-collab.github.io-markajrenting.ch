@@ -6,6 +6,7 @@ import { AnimateIn } from "@/components/ui/AnimateIn";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import type { Service } from "@/lib/content/services";
+import { serviceVisuals } from "@/lib/content/service-visuals";
 import { SERVICE_TITLE_LOCATION, zones } from "@/lib/content/zones";
 import { getGlossaryForService } from "@/lib/seo/glossary";
 import { siteConfig } from "@/lib/seo/site-config";
@@ -66,8 +67,17 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
       </div>
 
       <Hero
+        variant="split"
         title={`${service.title} à ${SERVICE_TITLE_LOCATION}`}
         subtitle={service.intro}
+        image={
+          serviceVisuals[service.slug]
+            ? {
+                src: serviceVisuals[service.slug].src,
+                alt: serviceVisuals[service.slug].alt,
+              }
+            : undefined
+        }
         primaryCta={{
           label: `Devis ${service.shortTitle.toLowerCase()}`,
           href: `/contact?service=${service.slug}`,
@@ -112,7 +122,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
         <Section background="sand">
           <AnimateIn className="mb-10 max-w-prose">
             <p className="marque-cote mb-3">Prestations</p>
-            <p className="font-body text-body-lg text-markaj-mineral-dark">
+            <p className="font-body text-body-lg text-markaj-primary">
               {service.slug === "renovation"
                 ? "Un interlocuteur pour tout le second œuvre — chaque métier détaillé sur sa page dédiée."
                 : `Détail de nos prestations ${deLabel}, pour particuliers, régies et architectes.`}
@@ -150,19 +160,18 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
             title="Comment se déroule un chantier ?"
           />
         </AnimateIn>
-        <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
-          {service.process.map((step, index) => (
-            <AnimateIn key={step.step} delay={index * 60}>
-              <div className="flex gap-4 sm:gap-5">
-                <span className="font-heading text-heading-2 text-markaj-crepi-dark">{step.step}</span>
-                <div>
-                  <h3 className="font-heading text-heading-4 text-markaj-primary">{step.title}</h3>
-                  <p className="mt-2 font-body text-body-sm text-markaj-primary/90">{step.description}</p>
-                </div>
-              </div>
-            </AnimateIn>
+        <ol className="grid list-none gap-8 sm:grid-cols-2">
+          {service.process.map((step) => (
+            <li key={step.title} className="border-t-2 border-markaj-primary/20 pt-5">
+              <span
+                className="mb-3 block h-2 w-2 border border-markaj-primary bg-markaj-crepi"
+                aria-hidden="true"
+              />
+              <h3 className="font-heading text-heading-4 text-markaj-primary">{step.title}</h3>
+              <p className="mt-2 font-body text-body-sm text-markaj-primary">{step.description}</p>
+            </li>
           ))}
-        </div>
+        </ol>
       </Section>
 
       <Section background="sand">
@@ -197,7 +206,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
             <Link
               key={zone.slug}
               href={`/zones/${zone.slug}`}
-              className="border border-markaj-primary/20 bg-markaj-crepi-light px-4 py-2 font-body text-body-sm font-medium text-markaj-primary transition-colors hover:border-markaj-primary/50"
+              className="inline-flex min-h-11 items-center border border-markaj-primary/20 bg-markaj-crepi-light px-4 font-body text-body-sm font-medium text-markaj-primary transition-colors hover:border-markaj-primary/50"
             >
               {label} {zone.shortName}
             </Link>
@@ -246,14 +255,14 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
           subtitle="Liens utiles"
           title="Découvrir aussi"
         />
-        <div className="flex flex-wrap gap-4 font-body text-body">
-          <Link href="/" className="text-markaj-primary underline-offset-4 hover:underline">Accueil</Link>
-          <Link href="/services" className="text-markaj-primary underline-offset-4 hover:underline">Tous les services</Link>
-          <Link href="/zones" className="text-markaj-primary underline-offset-4 hover:underline">Zones d&apos;intervention</Link>
-          <Link href="/faq" className="text-markaj-primary underline-offset-4 hover:underline">FAQ générale</Link>
+        <div className="flex flex-wrap gap-x-4 gap-y-1 font-body text-body">
+          <Link href="/" className="inline-flex min-h-11 items-center text-markaj-primary underline-offset-4 hover:underline">Accueil</Link>
+          <Link href="/services" className="inline-flex min-h-11 items-center text-markaj-primary underline-offset-4 hover:underline">Tous les services</Link>
+          <Link href="/zones" className="inline-flex min-h-11 items-center text-markaj-primary underline-offset-4 hover:underline">Zones d&apos;intervention</Link>
+          <Link href="/faq" className="inline-flex min-h-11 items-center text-markaj-primary underline-offset-4 hover:underline">FAQ générale</Link>
           <Link
             href={`/contact?service=${service.slug}`}
-            className="text-markaj-primary underline-offset-4 hover:underline"
+            className="inline-flex min-h-11 items-center text-markaj-primary underline-offset-4 hover:underline"
           >
             Contact & devis
           </Link>
