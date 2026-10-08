@@ -14,9 +14,9 @@ import { siteConfig } from "@/lib/seo/site-config";
 export const dynamic = "force-dynamic";
 
 export const metadata = createPageMetadata({
-  title: "Contact et demande de devis",
+  title: "Devis gratuit plâtrerie-peinture",
   description:
-    "Devis pour la plâtrerie, la peinture, les faux-plafonds, l'isolation, la rénovation et les façades en Suisse romande. Réponse sous 5 jours ouvrés.",
+    "Demande de devis pour plâtrerie, peinture, faux-plafonds, isolation, rénovation ou façades en Suisse romande. Réponse sous 5 jours ouvrés.",
   path: "/contact",
 });
 

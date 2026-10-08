@@ -15,6 +15,8 @@ export interface ServiceOffering {
 export interface Service {
   slug: string;
   title: string;
+  /** Balise title, sans le suffixe « | Markaj Renting SA ». */
+  metaTitle: string;
   shortTitle: string;
   /** Article défini pour l'accord grammatical (la / l' / les). */
   definiteArticle: "la" | "l'" | "les";
@@ -38,10 +40,11 @@ export const services: Service[] = [
   {
     slug: "platrerie",
     title: "Plâtrerie",
+    metaTitle: "Plâtrier à Fribourg : cloisons, Q3/Q4",
     shortTitle: "Plâtrerie",
     definiteArticle: "la",
     metaDescription:
-      "Plâtrerie à Fribourg et en Suisse romande. Cloisons BA13, doublages, finitions Q3/Q4. Devis gratuit — 079 430 18 13.",
+      "Plâtrier-plaquiste à Fribourg : cloisons BA13, doublages, finitions Q3/Q4 et reprises de plâtre en rénovation. Devis gratuit — 079 430 18 13.",
     intro:
       "Basés à Fribourg, nous réalisons vos travaux de plâtrerie en Suisse romande : cloisons, doublages, habillages et finitions conformes aux normes suisses.",
     benefit: "Surfaces planes, joints soignés et finitions Q3/Q4 prêtes à peindre.",
@@ -93,10 +96,11 @@ export const services: Service[] = [
   {
     slug: "peinture",
     title: "Peinture",
+    metaTitle: "Entreprise de peinture à Fribourg",
     shortTitle: "Peinture",
     definiteArticle: "la",
     metaDescription:
-      "Peinture intérieure et extérieure à Fribourg et en Suisse romande. Finitions durables. Devis gratuit — 079 430 18 13.",
+      "Peintre en bâtiment à Fribourg : murs, plafonds, boiseries et façades, avec préparation des supports. Neuf et rénovation. Devis gratuit — 079 430 18 13.",
     intro:
       "Basés à Fribourg, nous assurons la peinture intérieure et extérieure en Suisse romande : préparation des supports, produits adaptés et finition durable.",
     benefit: "Finitions durables, supports correctement préparés, rendu uniforme.",
@@ -155,10 +159,11 @@ export const services: Service[] = [
   {
     slug: "faux-plafonds",
     title: "Faux-plafonds",
+    metaTitle: "Faux-plafonds acoustiques à Fribourg",
     shortTitle: "Faux-plafonds",
     definiteArticle: "les",
     metaDescription:
-      "Faux-plafonds à Fribourg et en Suisse romande. Acoustique, éclairage, ventilation. Devis gratuit — 079 430 18 13.",
+      "Faux-plafonds à Fribourg : plafonds acoustiques, plaques de plâtre, fibre de bois, spots et ventilation intégrés. Bureaux et logements. Devis gratuit.",
     intro:
       "Basés à Fribourg, nous concevons et posons des faux-plafonds en Suisse romande : acoustique, esthétique et intégration des réseaux.",
     benefit: "Plafonds techniques et esthétiques, acoustique et réseaux intégrés.",
@@ -205,22 +210,23 @@ export const services: Service[] = [
   {
     slug: "isolation",
     title: "Isolation",
+    metaTitle: "Isolation thermique et phonique Fribourg",
     shortTitle: "Isolation",
     definiteArticle: "l'",
     metaDescription:
-      "Isolation thermique et phonique à Fribourg et en Suisse romande. Doublages, Minergie. Devis gratuit — 079 430 18 13.",
+      "Isolation thermique et phonique à Fribourg : doublages isolants, ponts thermiques, bruits entre voisins, projets Minergie. Devis gratuit — 079 430 18 13.",
     intro:
-      "Basés à Fribourg, nous réalisons l'isolation thermique et acoustique en Suisse romande : doublages, isolation périphérique et traitement des ponts thermiques.",
+      "Basés à Fribourg, nous réalisons l'isolation thermique et acoustique en Suisse romande : doublages isolants intérieurs et traitement des ponts thermiques.",
     benefit: "Confort thermique et acoustique, conformité aux exigences suisses.",
     audience: ["Particuliers", "Promoteurs", "Architectes"],
-    projectTypes: ["Doublages", "Périphérique", "Minergie"],
+    projectTypes: ["Doublages isolants", "Ponts thermiques", "Minergie"],
     definition:
       "L'isolation consiste à limiter les déperditions de chaleur et les nuisances sonores par la pose de matériaux isolants (laine minérale, mousse, fibres) dans les murs, plafonds et combles.",
     offerings: [
       {
         title: "Isolation thermique",
         description:
-          "Isolation thermique (doublages, périphérique, ponts thermiques) selon exigences suisses et projets Minergie. Confort et économies d'énergie.",
+          "Isolation thermique par doublages isolants intérieurs et traitement des ponts thermiques, selon les exigences suisses et les projets Minergie. Confort et économies d'énergie.",
       },
       {
         title: "Isolation phonique",
@@ -228,9 +234,9 @@ export const services: Service[] = [
           "Isolation phonique pour cloisons, doublages et plafonds : moins de bruit entre pièces ou voisins. Solutions adaptées logements, bureaux et commerces.",
       },
       {
-        title: "Isolation périphérique / façade",
+        title: "Isolation périphérique (façade crépie)",
         description:
-          "Isolation périphérique de façade : enveloppe, confort thermique, coordination crépi et peinture. Un seul interlocuteur second œuvre.",
+          "En Suisse, l'isolation périphérique désigne l'isolation thermique extérieure crépie des façades (ITEC, norme SIA 243) : l'isolant est fixé sur le mur extérieur, puis recouvert d'un crépi. Elle se distingue du doublage isolant intérieur, posé du côté de la pièce.",
         href: "/services/facades",
         linkLabel: "Voir les travaux de façades",
       },
@@ -254,7 +260,7 @@ export const services: Service[] = [
       "Mousses projetées (selon chantier)",
     ],
     faq: [
-      { question: "Qu'est-ce que l'isolation périphérique ?", answer: "C'est l'isolation appliquée sur la face intérieure des murs extérieurs et des planchers, créant une enveloppe thermique continue autour du volume chauffé." },
+      { question: "Qu'est-ce que l'isolation périphérique ?", answer: "En Suisse, l'isolation périphérique désigne l'isolation thermique extérieure crépie des façades (ITEC, norme SIA 243). L'isolant est fixé sur la face extérieure du mur, puis recouvert d'un crépi. Ce n'est pas un doublage intérieur : le doublage isolant se pose du côté de la pièce." },
       { question: "L'isolation améliore-t-elle aussi l'acoustique ?", answer: "Oui. Un doublage avec laine minérale réduit significativement les bruits aériens entre pièces et depuis l'extérieur." },
       { question: "Travaillez-vous avec les normes Minergie ?", answer: "Oui. Nous respectons les exigences des normes suisses d'isolation thermique et collaborons avec les bureaux d'études pour les projets certifiés." },
     ],
@@ -262,10 +268,11 @@ export const services: Service[] = [
   {
     slug: "renovation",
     title: "Rénovation",
+    metaTitle: "Rénovation d'appartement à Fribourg",
     shortTitle: "Rénovation",
     definiteArticle: "la",
     metaDescription:
-      "Rénovation intérieure à Fribourg et en Suisse romande. Plâtrerie, peinture, isolation. Devis gratuit — 079 430 18 13.",
+      "Rénovation intérieure à Fribourg : plâtrerie, peinture, isolation et faux-plafonds, un seul interlocuteur. Appartements, bureaux, commerces. Devis gratuit.",
     intro:
       "Rénovation intérieure second œuvre : plâtrerie, peinture, isolation et faux-plafonds avec un seul interlocuteur. Appartements, bureaux et commerces — neuf partiel ou reprise. Devis après visite.",
     benefit: "Un seul interlocuteur pour plâtrerie, peinture, isolation et plafonds.",
@@ -325,10 +332,11 @@ export const services: Service[] = [
   {
     slug: "facades",
     title: "Façades",
+    metaTitle: "Rénovation de façade et crépi Fribourg",
     shortTitle: "Façades",
     definiteArticle: "les",
     metaDescription:
-      "Rénovation de façade et crépi à Fribourg et en Suisse romande. Enduits, peinture extérieure. Devis gratuit — 079 430 18 13.",
+      "Rénovation de façade à Fribourg : diagnostic des fissures, crépi, enduits, peinture siloxane ou silicate. Particuliers, régies, PPE. Devis gratuit.",
     intro:
       "Basés à Fribourg, nous réalisons ravalement, crépi et peinture de façades en Suisse romande : enduits, réparations et finitions protectrices.",
     benefit: "Façades protégées, crépis et peintures adaptés au climat suisse.",
@@ -340,7 +348,7 @@ export const services: Service[] = [
       {
         title: "Ravalement de façade",
         description:
-          "Ravalement de façade : diagnostic, réparation, enduits et finition protectrice. Un interlocuteur pour peintre, crépi et isolation périphérique. Devis gratuit.",
+          "Ravalement de façade : diagnostic, réparation, enduits et finition protectrice. Un interlocuteur pour le crépi et la peinture de façade. Devis gratuit.",
       },
       {
         title: "Crépi / enduit",

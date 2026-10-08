@@ -11,9 +11,9 @@ import { buildBreadcrumbSchema } from "@/lib/seo/json-ld";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata = createPageMetadata({
-  title: "Nos réalisations",
+  title: "Réalisations à Genève et Suisse romande",
   description:
-    "Portfolio de chantiers réalisés en Suisse romande. Plateaux de bureaux, rénovation d'immeubles, finitions haut de gamme.",
+    "Chantiers documentés : plateaux de bureaux OMS, circulations tertiaires, surélévation rue de Lausanne 119 à Genève. Photos de nos équipes.",
   path: "/realisations",
 });
 

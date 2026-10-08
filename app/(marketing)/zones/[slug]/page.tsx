@@ -27,7 +27,7 @@ export function generateMetadata({ params }: PageProps) {
   const zone = getZoneBySlug(params.slug);
   if (!zone) return {};
   return createPageMetadata({
-    title: zone.metaTitle.replace(" | Markaj Renting SA", ""),
+    title: zone.metaTitle,
     description: zone.metaDescription,
     path: `/zones/${zone.slug}`,
   });
@@ -53,7 +53,7 @@ export default function ZoneDetailPage({ params }: PageProps) {
       </div>
 
       <Hero
-        title={`Second œuvre — ${zone.shortName}`}
+        title={zone.h1}
         subtitle={zone.intro}
         primaryCta={{ label: "Demander un devis", href: "/contact" }}
         secondaryCta={{
@@ -173,7 +173,7 @@ export default function ZoneDetailPage({ params }: PageProps) {
         <AnimateIn>
           <SectionHeading
             subtitle="Services"
-            title={`Prestations disponibles à ${zone.shortName}`}
+            title={`Prestations disponibles ${zone.locative}`}
             intro={
               zone.slug === "fribourg"
                 ? "Au siège fribourgeois, peinture et faux-plafonds sont des demandes fréquentes — l’ensemble de nos expertises reste disponible."
@@ -274,7 +274,7 @@ export default function ZoneDetailPage({ params }: PageProps) {
       </Section>
 
       <CtaBanner
-        title={`Un projet à ${zone.shortName} ?`}
+        title={`Un projet ${zone.locative} ?`}
         description="Décrivez votre chantier : devis gratuit, réponse sous 5 jours ouvrés."
       />
     </>

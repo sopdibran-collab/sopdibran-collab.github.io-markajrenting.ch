@@ -1,3 +1,4 @@
+import { logoAssets } from "@/lib/brand/logo-assets";
 import type { BlogPost } from "@/lib/content/blog";
 import type { FaqItem } from "@/lib/content/services";
 import type { Service } from "@/lib/content/services";
@@ -91,6 +92,14 @@ export function buildLocalBusinessSchema(): JsonLdObject {
       addressRegion: address.region,
       addressCountry: address.country,
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: siteConfig.geo.latitude,
+      longitude: siteConfig.geo.longitude,
+    },
+    hasMap: siteConfig.googleMapsUrl,
+    sameAs: [siteConfig.googleMapsUrl],
+    logo: absoluteUrl(logoAssets.full.src),
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -279,7 +288,7 @@ export function buildZonePageSchemas(zone: Zone): JsonLdObject[] {
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      name: `Second œuvre — ${zone.shortName}`,
+      name: zone.h1,
       description: zone.metaDescription,
       url: absoluteUrl(`/zones/${zone.slug}`),
       provider: { "@id": `${url}/#localbusiness` },

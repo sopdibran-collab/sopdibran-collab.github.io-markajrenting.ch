@@ -49,7 +49,7 @@ export const serviceGlossary: Record<string, DefinedTerm[]> = {
     {
       name: "Isolation périphérique",
       description:
-        "Isolation appliquée sur la face intérieure des parois extérieures pour créer une enveloppe thermique continue.",
+        "En Suisse, isolation thermique extérieure crépie des façades (ITEC, norme SIA 243) : l'isolant est fixé sur le mur extérieur, puis recouvert d'un crépi. À distinguer du doublage isolant intérieur, posé du côté de la pièce.",
     },
     {
       name: "Pare-vapeur",

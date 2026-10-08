@@ -5,6 +5,8 @@ interface PageMetadataOptions {
   description: string;
   path?: string;
   noindex?: boolean;
+  /** Articles de blog : `title.absolute`, sans le suffixe du template. */
+  absoluteTitle?: boolean;
 }
 
 const OG_IMAGE = {
@@ -19,15 +21,16 @@ export function createPageMetadata({
   description,
   path = "",
   noindex = false,
+  absoluteTitle = false,
 }: PageMetadataOptions): Metadata {
   const pageUrl =
     path === "/" || path === ""
       ? "https://markajrenting.ch"
       : `https://markajrenting.ch${path}`;
-  const fullTitle = `${title} | Markaj Renting SA`;
+  const fullTitle = absoluteTitle ? title : `${title} | Markaj Renting SA`;
 
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
     alternates: { canonical: pageUrl },
     robots: noindex
