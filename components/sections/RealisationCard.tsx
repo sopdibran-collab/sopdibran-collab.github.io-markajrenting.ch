@@ -72,7 +72,7 @@ export function RealisationCard({ project, index = 0, featured = false }: Realis
           <div className="flex min-w-0 flex-wrap gap-2">
             <Badge variant="outline">{project.location}</Badge>
             {project.serviceSlug ? (
-              <Link href={`/services/${project.serviceSlug}`}>
+              <Link href={`/services/${project.serviceSlug}`} className="inline-flex min-h-11 items-center">
                 <Badge>{project.service}</Badge>
               </Link>
             ) : (

@@ -276,13 +276,19 @@ export function ContactForm({ defaultService = "", formToken }: ContactFormProps
       </div>
 
       <div className="flex items-start gap-3">
-        <input
-          type="checkbox"
-          id="consentement"
-          name="consentement"
-          required
-          className="mt-0.5 h-11 w-11 shrink-0 cursor-pointer accent-markaj-primary"
-        />
+        <span className="relative inline-flex h-11 w-11 shrink-0 items-center justify-center">
+          <input
+            type="checkbox"
+            id="consentement"
+            name="consentement"
+            required
+            className="peer absolute inset-0 z-10 h-full w-full cursor-pointer opacity-0"
+          />
+          <span
+            aria-hidden="true"
+            className="mk-check pointer-events-none h-6 w-6 border-2 border-markaj-primary bg-markaj-white"
+          />
+        </span>
         <label htmlFor="consentement" className="font-body text-body-sm text-markaj-primary">
           J&apos;accepte que mes données soient utilisées pour traiter ma demande de
           devis, conformément à la{" "}

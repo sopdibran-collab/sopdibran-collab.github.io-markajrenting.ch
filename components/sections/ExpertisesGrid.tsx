@@ -53,7 +53,7 @@ export function ExpertisesGrid() {
                 <h3 className="mt-3 font-heading text-heading-3 text-markaj-primary sm:text-heading-2">
                   <Link
                     href={`/services/${service.slug}`}
-                    className="transition-colors hover:text-markaj-primary-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-markaj-primary"
+                    className="inline-flex min-h-11 items-center transition-colors hover:text-markaj-primary-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-markaj-primary"
                   >
                     {service.title}
                   </Link>

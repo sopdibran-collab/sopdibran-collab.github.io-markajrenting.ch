@@ -55,13 +55,13 @@ export function TrustPanel() {
         </p>
         <p className="mt-6 font-body text-body">
           <span className="font-medium text-markaj-primary">Téléphone :</span>{" "}
-          <a href={phoneHref} className="text-markaj-primary hover:text-markaj-primary">
+          <a href={phoneHref} className="inline-flex min-h-11 items-center text-markaj-primary underline-offset-4 hover:underline">
             {contact.phoneDisplay}
           </a>
         </p>
         <p className="mt-2 font-body text-body">
           <span className="font-medium text-markaj-primary">E-mail :</span>{" "}
-          <a href={`mailto:${contact.email}`} className="text-markaj-primary hover:text-markaj-primary">
+          <a href={`mailto:${contact.email}`} className="inline-flex min-h-11 items-center text-markaj-primary underline-offset-4 hover:underline">
             {contact.email}
           </a>
         </p>

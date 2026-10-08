@@ -329,6 +329,18 @@
   }
 }
 
+/* Case à cocher : cible 44 px, dessin 24 px, coche visible à l'état coché. */
+.mk-check {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+}
+
+.peer:checked + .mk-check {
+  background-color: #0a2b5e;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='square' stroke-linejoin='miter'%3E%3Cpath d='M5 13l4 4L19 7'/%3E%3C/svg%3E");
+}
+
 /* Leurre anti-robot : dans le DOM, hors perception.
    Pas de display:none — beaucoup de robots ignorent ces champs. */
 .mk-hp {
