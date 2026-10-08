@@ -12,9 +12,9 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 import Link from "next/link";
 
 export const metadata = createPageMetadata({
-  title: "Services de finition et rénovation",
+  title: "Plâtrerie, peinture, isolation, façades",
   description:
-    "Six expertises en finition de bâtiment : plâtrerie, peinture, faux-plafonds, isolation, rénovation et façades. Un seul interlocuteur en Suisse romande.",
+    "Six métiers du second œuvre à Fribourg et en Suisse romande : plâtrerie, peinture, faux-plafonds, isolation, rénovation, façades. Un seul interlocuteur.",
   path: "/services",
 });
 

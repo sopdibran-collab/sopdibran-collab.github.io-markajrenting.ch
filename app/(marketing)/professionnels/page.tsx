@@ -10,9 +10,9 @@ import { buildBreadcrumbSchema } from "@/lib/seo/json-ld";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata = createPageMetadata({
-  title: "Professionnels — promoteurs, architectes, DT",
+  title: "Second œuvre pour régies et architectes",
   description:
-    "Markaj Renting SA accompagne promoteurs, investisseurs, architectes et directions de travaux en Suisse romande : lots finition, isolation, planning et normes SIA.",
+    "Lots plâtrerie, peinture, faux-plafonds et isolation pour promoteurs, architectes, DT et régies en Suisse romande : normes SIA, finitions Q3/Q4.",
   path: "/professionnels",
 });
 

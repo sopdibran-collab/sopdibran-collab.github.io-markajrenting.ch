@@ -44,6 +44,7 @@ export function generateMetadata({ params }: PageProps) {
     title: post.title,
     description: post.excerpt,
     path: `/blog/${post.slug}`,
+    absoluteTitle: true,
   });
 }
 

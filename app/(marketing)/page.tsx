@@ -14,9 +14,9 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 import { siteConfig } from "@/lib/seo/site-config";
 
 export const metadata = createPageMetadata({
-  title: "Plâtrerie, peinture et rénovation à Fribourg",
+  title: "Plâtrerie et peinture à Fribourg",
   description:
-    "Markaj Renting SA, créée en 2018 à Fribourg, compte 20 collaborateurs. Plâtrerie, peinture, faux-plafonds, isolation, rénovation et façades. Devis gratuit sous 5 jours.",
+    "Entreprise familiale à Fribourg depuis 2018 : plâtrerie, peinture, isolation, faux-plafonds et façades en Suisse romande. Devis gratuit après visite.",
   path: "/",
 });
 

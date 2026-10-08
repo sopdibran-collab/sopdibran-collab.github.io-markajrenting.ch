@@ -8,9 +8,9 @@ import { buildBreadcrumbSchema, buildFaqPageSchema } from "@/lib/seo/json-ld";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata = createPageMetadata({
-  title: "Questions fréquentes",
+  title: "FAQ plâtrerie, peinture, isolation",
   description:
-    "Questions fréquentes sur nos services de finition en Suisse romande. Devis, délais, zones d'intervention, matériaux et garanties.",
+    "Devis, délais, zones, assurances, garanties, normes SIA et matériaux : les réponses aux questions fréquentes sur nos travaux de second œuvre.",
   path: "/faq",
 });
 

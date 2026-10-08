@@ -10,9 +10,9 @@ import { buildBreadcrumbSchema } from "@/lib/seo/json-ld";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata = createPageMetadata({
-  title: "Qualité et normes suisses",
+  title: "Normes SIA, SIA 181 et Minergie",
   description:
-    "Normes SIA, SIA 181 acoustique, isolation Minergie et sécurité suisse. Markaj Renting SA garantit la qualité et la conformité de chaque chantier.",
+    "Comment nous appliquons les normes SIA, l'acoustique SIA 181, les exigences d'isolation et Minergie, la sécurité et le contrôle qualité sur chantier.",
   path: "/qualite-normes",
 });
 

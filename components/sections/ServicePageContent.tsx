@@ -27,6 +27,11 @@ function withAPlusArticle(article: Service["definiteArticle"], noun: string) {
   return `à la ${noun}`;
 }
 
+/** « de / d' » + nom (élision devant voyelle). */
+function withDe(noun: string) {
+  return /^[aeiouàâäéèêëîïôöùûühœ]/i.test(noun) ? `d'${noun}` : `de ${noun}`;
+}
+
 /**
  * Section rhythm (blanc ↔ sable) before navy CTA:
  * hero white → meta sand → definition white → prestations sand →
@@ -39,6 +44,11 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
   const label = service.title.toLowerCase();
   const labelled = withDefiniteArticle(service.definiteArticle, label);
   const aLabelled = withAPlusArticle(service.definiteArticle, label);
+  const deLabel = withDe(label);
+  const definitionTitle =
+    service.definiteArticle === "les"
+      ? `Que sont ${labelled} ?`
+      : `Qu'est-ce que ${labelled} ?`;
 
   /* After zones (white): glossaire sand → FAQ white → liens sand; else FAQ sand → liens white. */
   const faqBackground = hasGlossary ? "white" : "sand";
@@ -90,7 +100,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
       <Section background="white">
         <AnimateIn className="max-w-prose">
           <h2 className="font-heading text-heading-3 text-markaj-primary">
-            Qu&apos;est-ce que {labelled} ?
+            {definitionTitle}
           </h2>
           <p className="mt-4 font-body text-body-lg text-markaj-primary/90">
             {service.definition}
@@ -105,7 +115,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
             <p className="font-body text-body-lg text-markaj-mineral-dark">
               {service.slug === "renovation"
                 ? "Un interlocuteur pour tout le second œuvre — chaque métier détaillé sur sa page dédiée."
-                : `Détail de nos prestations ${aLabelled}, pour particuliers, régies et architectes.`}
+                : `Détail de nos prestations ${deLabel}, pour particuliers, régies et architectes.`}
             </p>
           </AnimateIn>
           <div className="grid gap-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12">
@@ -251,7 +261,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
       </Section>
 
       <CtaBanner
-        title={`Un projet de ${label} ?`}
+        title={`Un projet ${deLabel} ?`}
         description="Décrivez votre chantier : devis gratuit, réponse sous 5 jours ouvrés. Siège à Fribourg, interventions en Suisse romande."
       />
     </>

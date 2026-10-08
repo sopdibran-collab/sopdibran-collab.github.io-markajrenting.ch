@@ -10,9 +10,9 @@ import { buildBreadcrumbSchema } from "@/lib/seo/json-ld";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata = createPageMetadata({
-  title: "À propos de Markaj Renting SA",
+  title: "Entreprise familiale de second œuvre",
   description:
-    "Markaj Renting SA, créée en 2018 à Fribourg, compte 20 collaborateurs. Plâtrerie, peinture, faux-plafonds, isolation, rénovation et façades en Suisse romande.",
+    "Markaj Renting SA : entreprise familiale de second œuvre créée en 2018 à Fribourg, 20 collaborateurs, plâtriers, peintres et apprentis. Suisse romande.",
   path: "/a-propos",
 });
 

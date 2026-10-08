@@ -16,9 +16,9 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     slug: "isolation-thermique-vs-phonique",
-    title: "Isolation thermique ou phonique : quel isolant pour quel problème ?",
+    title: "Isolation thermique ou phonique : que choisir ?",
     excerpt:
-      "Froid, voisins bruyants, ou les deux ? En Suisse, thermique et phonique ne se traitent pas avec les mêmes critères. Guide pratique pour choisir la bonne approche.",
+      "Froid près des murs ou voisins bruyants ? Thermique et phonique ne se traitent pas pareil. Guide pratique pour choisir la bonne solution en Suisse.",
     date: "2026-08-13",
     readTime: "8 min",
     category: "Guide",
@@ -95,9 +95,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "choisir-isolant-selon-paroi",
-    title: "Choisir un isolant selon la paroi : laine minérale, fibre de bois ou XPS ?",
+    title: "Laine minérale, fibre de bois ou XPS : quel isolant ?",
     excerpt:
-      "Il n’existe pas d’isolant « meilleur » en absolu. Selon humidité, feu, confort d’été et résistance mécanique, le choix change. Comparatif orienté cas suisses.",
+      "Pas d'isolant « meilleur » en absolu : humidité, feu, confort d'été et résistance mécanique changent le choix. Comparatif pour les cas suisses.",
     date: "2026-08-13",
     readTime: "9 min",
     category: "Guide",
@@ -181,9 +181,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "choisir-finition-platrerie-q3-q4",
-    title: "Comment choisir entre une finition Q3 et Q4 en plâtrerie ?",
+    title: "Finition Q3 ou Q4 en plâtrerie : que choisir ?",
     excerpt:
-      "Q3 ou Q4 ? Comprendre la différence entre ces niveaux de finition pour faire le bon choix selon votre projet de peinture ou de décoration.",
+      "Q3 ou Q4 ? La différence entre ces niveaux de finition en plâtrerie, et lequel choisir selon la lumière, la peinture et l'usage de la pièce.",
     date: "2026-06-15",
     readTime: "5 min",
     category: "Guide",
@@ -212,32 +212,32 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "isolation-peripherique-avantages",
-    title: "Isolation périphérique : pourquoi isoler par l'intérieur ?",
+    title: "Doublage isolant intérieur : quand l'envisager ?",
     excerpt:
-      "L'isolation périphérique est une solution efficace pour améliorer le confort thermique et acoustique d'un bâtiment existant en Suisse romande.",
+      "Isoler par l'intérieur : doublage sur ossature, pare-vapeur, perte de surface, ponts thermiques, et différence avec l'isolation périphérique extérieure.",
     date: "2026-05-28",
     readTime: "6 min",
     category: "Guide",
     content: [
       {
         type: "p",
-        text: "L'isolation périphérique consiste à isoler les parois intérieures donnant sur l'extérieur (murs, plafonds bas, planchers sur vide sanitaire) pour créer une enveloppe thermique continue autour du volume chauffé.",
+        text: "Le doublage isolant intérieur consiste à isoler, du côté de la pièce, les parois qui donnent sur l'extérieur : murs, plafonds bas, planchers sur vide sanitaire. On crée ainsi une enveloppe thermique autour du volume chauffé sans modifier la façade.",
       },
       {
         type: "p",
-        text: "Cette technique est particulièrement adaptée aux bâtiments existants construits avant les normes énergétiques actuelles. Elle permet de réduire significativement les déperditions de chaleur sans modifier la façade extérieure.",
+        text: "On l'envisage surtout dans un bâtiment existant, lorsque la façade doit rester en l'état. Le confort près des murs froids s'améliore, à condition de traiter les ponts thermiques aux angles et autour des fenêtres.",
       },
       {
         type: "p",
-        text: "Les avantages sont multiples : amélioration du confort thermique, réduction des factures de chauffage, diminution des nuisances sonores extérieures et suppression des ponts thermiques aux angles des pièces.",
+        text: "En Suisse, ce doublage ne s'appelle pas isolation périphérique. L'isolation périphérique désigne l'isolation thermique extérieure crépie des façades (ITEC, norme SIA 243) : l'isolant est fixé sur la face extérieure du mur, puis recouvert d'un crépi.",
       },
       {
         type: "p",
-        text: "La mise en œuvre comprend généralement la pose d'une ossature, l'insertion de laine minérale ou de panneaux isolants, la pose d'un pare-vapeur si nécessaire et l'habillage en plaques BA13 prêtes à peindre.",
+        text: "La mise en œuvre d'un doublage comprend en général la pose d'une ossature, l'insertion de laine minérale ou de panneaux isolants, un pare-vapeur si nécessaire et l'habillage en plaques BA13 prêtes à peindre.",
       },
       {
         type: "p",
-        text: "La perte de surface habitable est limitée (environ 10 à 15 cm par mur). Markaj Renting SA réalise ce type de travaux en coordination avec la plâtrerie et la peinture pour une finition complète et soignée.",
+        text: "La perte de surface habitable est limitée (environ 10 à 15 cm par mur). Markaj Renting SA réalise ces doublages isolants intérieurs en coordination avec la plâtrerie et la peinture, pour une finition complète et soignée.",
       },
     ],
   },
