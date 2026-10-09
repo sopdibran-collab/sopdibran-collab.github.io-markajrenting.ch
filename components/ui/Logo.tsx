@@ -24,11 +24,10 @@ const variantMeta: Record<
     width: 176,
     height: 67,
   },
-  /* Footer navy : hauteur CSS inchangée ; width/height suivent le nouveau ratio */
   white: {
-    className: "h-9 w-auto max-w-[11rem] sm:h-10 sm:max-w-[13rem]",
-    width: 180,
-    height: 40,
+    className: "h-14 w-auto max-w-[16rem] sm:h-16 sm:max-w-[18rem]",
+    width: 288,
+    height: 64,
   },
   monogram: {
     className: "h-9 w-auto max-w-full sm:h-10",
@@ -72,10 +71,10 @@ export function Logo({ variant = "full", className, href = "/" }: LogoProps) {
     <Link
       href={href}
       className={cn(
-        "inline-flex min-h-11 min-w-0 max-w-[min(100%,11rem)] items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 sm:max-w-[13rem]",
+        "inline-flex min-h-11 min-w-0 items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
         variant === "white"
-          ? "focus-visible:ring-markaj-crepi focus-visible:ring-offset-markaj-primary"
-          : "focus-visible:ring-markaj-primary"
+          ? "max-w-[16rem] focus-visible:ring-markaj-crepi focus-visible:ring-offset-markaj-primary sm:max-w-[18rem]"
+          : "max-w-[min(100%,11rem)] focus-visible:ring-markaj-primary sm:max-w-[13rem]"
       )}
     >
       <span className="sr-only">Markaj Renting SA — Accueil</span>
