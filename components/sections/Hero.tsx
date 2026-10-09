@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 
+import { CtaPair } from "@/components/sections/CtaPair";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { siteConfig } from "@/lib/seo/site-config";
@@ -41,6 +42,55 @@ export function Hero({
   children,
 }: HeroProps) {
   const layout = variant ?? (image ? "bleed" : "split");
+  const onPhoto = Boolean(image && layout === "bleed");
+  const phonePair = Boolean(primaryCta && secondaryCta?.href.startsWith("tel:"));
+
+  const actions = phonePair ? (
+    <CtaPair
+      className="mt-8 sm:mt-10"
+      tone={onPhoto ? "dark" : "light"}
+      phoneLine
+      preserveMobileStack={onPhoto}
+      primary={{
+        label: primaryCta!.label,
+        href: primaryCta!.href,
+        size: "lg",
+        className: "w-full max-w-full md:w-auto",
+      }}
+      secondary={{
+        label: secondaryCta!.label,
+        href: secondaryCta!.href,
+        size: "md",
+        className: "w-full max-w-full min-h-11 md:w-auto md:min-h-12 md:px-8",
+      }}
+    />
+  ) : (
+    (primaryCta || secondaryCta) && (
+      <div className="mt-8 flex flex-col gap-3 sm:mt-10 md:flex-row md:flex-wrap md:items-center md:gap-4">
+        {primaryCta && (
+          <Button
+            href={primaryCta.href}
+            variant="primary"
+            tone={onPhoto ? "dark" : "default"}
+            size="lg"
+            className="w-full max-w-full md:w-auto"
+          >
+            {primaryCta.label}
+          </Button>
+        )}
+        {secondaryCta && (
+          <Button
+            href={secondaryCta.href}
+            variant="secondary"
+            size="md"
+            className="w-full max-w-full min-h-11 md:w-auto md:min-h-12 md:px-8"
+          >
+            {secondaryCta.label}
+          </Button>
+        )}
+      </div>
+    )
+  );
 
   if (image && layout === "bleed") {
     return (
@@ -84,31 +134,7 @@ export function Hero({
             <p className="mt-4 max-w-xl font-body text-body text-markaj-white sm:text-body-lg">
               {subtitle}
             </p>
-            {(primaryCta || secondaryCta) && (
-              <div className="mt-8 flex flex-col gap-3 sm:mt-10 md:flex-row md:flex-wrap md:items-center md:gap-4">
-                {primaryCta && (
-                  <Button
-                    href={primaryCta.href}
-                    variant="primary"
-                    tone="dark"
-                    size="lg"
-                    className="w-full max-w-full md:w-auto"
-                  >
-                    {primaryCta.label}
-                  </Button>
-                )}
-                {secondaryCta && (
-                  <Button
-                    href={secondaryCta.href}
-                    variant="secondary"
-                    size="md"
-                    className="w-full max-w-full min-h-11 md:w-auto md:min-h-12 md:px-8"
-                  >
-                    {secondaryCta.label}
-                  </Button>
-                )}
-              </div>
-            )}
+            {actions}
             {children}
           </div>
         </div>
@@ -141,30 +167,7 @@ export function Hero({
           <p className="mt-5 font-body text-body text-markaj-primary sm:text-body-lg">
             {subtitle}
           </p>
-          {(primaryCta || secondaryCta) && (
-            <div className="mt-8 flex flex-col gap-3 sm:mt-10 md:flex-row md:flex-wrap md:items-center md:gap-4">
-              {primaryCta && (
-                <Button
-                  href={primaryCta.href}
-                  variant="primary"
-                  size="lg"
-                  className="w-full max-w-full md:w-auto"
-                >
-                  {primaryCta.label}
-                </Button>
-              )}
-              {secondaryCta && (
-                <Button
-                  href={secondaryCta.href}
-                  variant="secondary"
-                  size="md"
-                  className="w-full max-w-full min-h-11 md:w-auto md:min-h-12 md:px-8"
-                >
-                  {secondaryCta.label}
-                </Button>
-              )}
-            </div>
-          )}
+          {actions}
           {children}
         </div>
 

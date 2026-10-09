@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/Button";
 import { siteConfig } from "@/lib/seo/site-config";
 
 const nextSteps = [
@@ -68,11 +67,6 @@ export function TrustPanel() {
         <p className="mt-4 font-body text-body-sm text-markaj-primary">
           Lun. – Ven. : 07h00 – 17h00
         </p>
-        <div className="mt-6">
-          <Button href={phoneHref} variant="secondary" size="sm" className="w-full sm:w-auto">
-            Appeler {contact.phoneDisplay}
-          </Button>
-        </div>
       </address>
 
       <div className="overflow-hidden border border-markaj-primary/15">

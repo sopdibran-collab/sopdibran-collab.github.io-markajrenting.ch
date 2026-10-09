@@ -48,7 +48,7 @@ export function Footer() {
             variant="primary"
             tone="dark"
             size="sm"
-            className="ml-auto w-full sm:w-auto"
+            className="ml-auto hidden w-full md:inline-flex md:w-auto"
           >
             Demander un devis
           </Button>
