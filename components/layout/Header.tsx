@@ -1,6 +1,5 @@
 "use client";
 
-import { MOBILE_DEVIS_LABEL } from "@/components/sections/CtaPair";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
 import { mainNav } from "@/lib/content/navigation";
@@ -121,13 +120,8 @@ export function Header() {
           </div>
 
           <div className="flex min-w-0 shrink-0 items-center gap-2 lg:hidden">
-            <Button
-              href="/contact"
-              variant="primary"
-              size="sm"
-              className="whitespace-nowrap px-3.5"
-            >
-              {MOBILE_DEVIS_LABEL}
+            <Button href="/contact" variant="primary" size="sm" className="px-3.5">
+              Devis
             </Button>
             <button
               ref={toggleRef}

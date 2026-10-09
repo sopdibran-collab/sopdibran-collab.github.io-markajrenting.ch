@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/Button";
 import { siteConfig } from "@/lib/seo/site-config";
 import { cn } from "@/lib/utils";
 
-/** Tient dans le header à 360 px : même libellé sur le bouton sticky et les CTA. */
-export const MOBILE_DEVIS_LABEL = "Devis gratuit";
+/** Libellé court des CTA sous md. Le header mobile reste sur « Devis ». */
+const MOBILE_DEVIS_LABEL = "Devis gratuit";
 
 const PHONE_ARIA_LABEL = "Appeler le 079 430 18 13";
 
