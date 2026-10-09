@@ -228,6 +228,44 @@
     @apply bg-markaj-white text-markaj-primary;
   }
 
+  /*
+   * Paire mobile (< md) : « Appeler » est un contour de 1,5 px.
+   * Pas de coins en équerre, pas d'ombre — l'ombre reste sur le devis seul.
+   * Le desktop conserve btn-cote.
+   */
+  @media (max-width: 767px) {
+    .btn-cote.btn-appeler {
+      border-width: 1.5px;
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    .btn-cote.btn-appeler::before,
+    .btn-cote.btn-appeler::after {
+      content: none;
+    }
+
+    .btn-cote.btn-appeler.btn-appeler--clair {
+      border-color: theme("colors.markaj.primary");
+      color: theme("colors.markaj.primary");
+    }
+
+    .btn-cote.btn-appeler.btn-appeler--clair:hover {
+      background-color: theme("colors.markaj.primary");
+      color: theme("colors.markaj.white");
+    }
+
+    .btn-cote.btn-appeler.btn-appeler--sombre {
+      border-color: theme("colors.markaj.white");
+      color: theme("colors.markaj.white");
+    }
+
+    .btn-cote.btn-appeler.btn-appeler--sombre:hover {
+      background-color: theme("colors.markaj.white");
+      color: theme("colors.markaj.primary");
+    }
+  }
+
   /* 3 — Bouton « Niveau » : lien avec filet, sans animation */
   .btn-niveau {
     @apply relative inline-flex min-h-11 items-center gap-2.5 bg-transparent px-1 pb-3 pt-2 font-body text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-markaj-primary;

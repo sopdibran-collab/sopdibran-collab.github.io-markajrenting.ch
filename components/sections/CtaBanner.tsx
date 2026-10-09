@@ -1,5 +1,5 @@
+import { CtaPair } from "@/components/sections/CtaPair";
 import { AnimateIn } from "@/components/ui/AnimateIn";
-import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { siteConfig } from "@/lib/seo/site-config";
 
@@ -29,26 +29,25 @@ export function CtaBanner({
               {description}
             </p>
           </div>
-          <div className="flex w-full min-w-0 shrink-0 flex-col gap-5 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-8">
-            <Button
-              href="/contact"
-              variant="primary"
-              tone="dark"
-              size="lg"
-              className="w-full max-w-full sm:w-auto"
-            >
-              Demander un devis
-            </Button>
-            <Button
-              href={phoneHref}
-              variant="secondary"
-              tone="dark"
-              size="lg"
-              className="w-full max-w-full sm:w-auto"
-            >
-              Appeler {siteConfig.contact.phoneDisplay}
-            </Button>
-          </div>
+          <CtaPair
+            className="w-full min-w-0 shrink-0 md:w-auto"
+            rowClassName="md:gap-8"
+            tone="dark"
+            secondaryToneDark
+            phoneLine
+            primary={{
+              label: "Demander un devis",
+              href: "/contact",
+              size: "lg",
+              className: "w-full max-w-full md:w-auto",
+            }}
+            secondary={{
+              label: `Appeler ${siteConfig.contact.phoneDisplay}`,
+              href: phoneHref,
+              size: "lg",
+              className: "w-full max-w-full md:w-auto",
+            }}
+          />
         </div>
       </AnimateIn>
     </Section>

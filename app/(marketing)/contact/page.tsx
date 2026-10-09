@@ -1,6 +1,8 @@
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { ContactForm } from "@/components/sections/ContactForm";
+import { CtaPair } from "@/components/sections/CtaPair";
 import { Hero } from "@/components/sections/Hero";
+import { Button } from "@/components/ui/Button";
 import { TrustPanel } from "@/components/sections/TrustPanel";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Section } from "@/components/ui/Section";
@@ -30,6 +32,7 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
     ? requestedService
     : "";
   const formToken = issueFormToken();
+  const phoneHref = `tel:${siteConfig.contact.phone.replace(/\s/g, "")}`;
 
   return (
     <>
@@ -42,13 +45,27 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
       <Hero
         title="Demande de devis"
         subtitle="Décrivez votre projet de second œuvre : plâtrerie, peinture, faux-plafonds, isolation, rénovation ou façades. Devis gratuit, sans engagement — réponse sous 5 jours ouvrés."
-        primaryCta={{
-          label: `Appeler ${siteConfig.contact.phoneDisplay}`,
-          href: `tel:${siteConfig.contact.phone.replace(/\s/g, "")}`,
-        }}
-      />
+      >
+        <div className="mt-8 sm:mt-10 md:hidden">
+          <CtaPair
+            tone="light"
+            phoneLine
+            primary={{ label: "Devis gratuit", href: "#demande", size: "lg" }}
+            secondary={{
+              label: `Appeler ${siteConfig.contact.phoneDisplay}`,
+              href: phoneHref,
+              size: "lg",
+            }}
+          />
+        </div>
+        <div className="mt-8 hidden sm:mt-10 md:block">
+          <Button href={phoneHref} variant="primary" size="lg" className="w-auto">
+            Appeler {siteConfig.contact.phoneDisplay}
+          </Button>
+        </div>
+      </Hero>
 
-      <Section background="white">
+      <Section id="demande" background="white">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <SectionHeading
