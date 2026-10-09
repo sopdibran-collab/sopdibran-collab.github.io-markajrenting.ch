@@ -9,9 +9,10 @@ interface LogoProps {
 }
 
 /*
- * Display sizes (not the SVG artboard 4000×…) so the intrinsic HTML
+ * Display sizes (not the SVG artboard) so the intrinsic HTML
  * width/height never blow out the layout before CSS loads (FOUC).
- * Aspect ≈ 4000/1532 ≈ 2.61 for horizontal marks.
+ * `full` stays 4000×1532 (logo couleur). `white` follows the recropped
+ * monochrome lockup, viewBox 4235.372×941.705 (ratio ≈ 4.50).
  */
 const variantMeta: Record<
   LogoVariant,
@@ -23,11 +24,11 @@ const variantMeta: Record<
     width: 176,
     height: 67,
   },
-  /* Footer : validé — ne pas réduire */
+  /* Footer navy : hauteur CSS inchangée ; width/height suivent le nouveau ratio */
   white: {
     className: "h-9 w-auto max-w-[11rem] sm:h-10 sm:max-w-[13rem]",
-    width: 176,
-    height: 67,
+    width: 180,
+    height: 40,
   },
   monogram: {
     className: "h-9 w-auto max-w-full sm:h-10",

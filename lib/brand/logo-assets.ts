@@ -16,8 +16,8 @@ export const logoAssets = {
   },
   white: {
     src: "/brand/markaj-horizontal-white.svg",
-    width: 4000,
-    height: 1532,
+    width: 4235.372,
+    height: 941.705,
     alt: "Markaj Renting SA",
   },
   monogram: {
