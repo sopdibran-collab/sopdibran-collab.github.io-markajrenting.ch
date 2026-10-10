@@ -8,8 +8,10 @@ const DENIED = {
 } as const;
 
 let scriptRequested = false;
+let scriptReady = false;
 let grantedInQueue = false;
 let lastPagePath = "";
+const pendingEvents: Array<{ name: string; params: Record<string, string> }> = [];
 
 declare global {
   interface Window {
@@ -66,6 +68,11 @@ export function enableGa(): boolean {
     script.async = true;
     script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`;
     script.dataset.markajGa = "1";
+    script.addEventListener("load", () => {
+      scriptReady = true;
+      const queued = pendingEvents.splice(0);
+      for (const event of queued) window.gtag?.("event", event.name, event.params);
+    });
     document.head.appendChild(script);
     scriptRequested = true;
   }
@@ -103,6 +110,7 @@ export function deleteGaCookies(): void {
 export function disableGa(): void {
   lastPagePath = "";
   grantedInQueue = false;
+  pendingEvents.length = 0;
   if (typeof window === "undefined") return;
 
   ensureGtagStub();
@@ -113,20 +121,29 @@ export function disableGa(): void {
 
 export function trackEvent(name: string, params: Record<string, string> = {}): void {
   if (!enableGa()) return;
+  if (!scriptReady) {
+    pendingEvents.push({ name, params });
+    return;
+  }
   window.gtag?.("event", name, params);
 }
+
+/** Jeton d'un envoi réussi : il ne doit pas compter comme une page distincte. */
+const EPHEMERAL_SEARCH_PARAMS = ["envoi"];
 
 export function trackPageView(): void {
   if (typeof window === "undefined") return;
   if (!enableGa()) return;
 
-  const path = `${window.location.pathname}${window.location.search}`;
+  const url = new URL(window.location.href);
+  for (const key of EPHEMERAL_SEARCH_PARAMS) url.searchParams.delete(key);
+  const path = `${url.pathname}${url.search}`;
   if (lastPagePath === path) return;
   lastPagePath = path;
 
-  window.gtag?.("event", "page_view", {
+  trackEvent("page_view", {
     page_path: path,
-    page_location: window.location.href,
+    page_location: `${url.origin}${path}${url.hash}`,
     page_title: document.title,
   });
 }
