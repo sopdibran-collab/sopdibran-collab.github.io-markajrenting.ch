@@ -38,16 +38,17 @@ export default function PolitiqueConfidentialitePage() {
           <p className="mt-3 font-body text-body text-markaj-primary">
             Via le formulaire de contact, nous collectons les données que vous nous communiquez
             volontairement : nom, prénom, adresse e-mail, numéro de téléphone et description de votre
-            projet. Des données de navigation anonymisées peuvent être collectées à des fins statistiques.
+            projet. Des statistiques de visite ne sont collectées que si vous acceptez Google
+            Analytics, comme décrit ci-dessous.
           </p>
 
           <h2 className="mt-10 font-heading text-heading-3 text-markaj-primary">
             Utilisation des données
           </h2>
           <p className="mt-3 font-body text-body text-markaj-primary">
-            Vos données sont utilisées exclusivement pour répondre à vos demandes de devis, vous
-            recontacter dans le cadre de votre projet et assurer le suivi commercial. Elles ne sont
-            ni vendues ni transmises à des tiers à des fins marketing.
+            Les données du formulaire sont utilisées exclusivement pour répondre à vos demandes de
+            devis, vous recontacter dans le cadre de votre projet et assurer le suivi commercial.
+            Elles ne sont ni vendues ni transmises à des tiers à des fins marketing.
           </p>
 
           <h2 className="mt-10 font-heading text-heading-3 text-markaj-primary">
@@ -73,11 +74,51 @@ export default function PolitiqueConfidentialitePage() {
           </p>
 
           <h2 className="mt-10 font-heading text-heading-3 text-markaj-primary">
+            Mesure d&apos;audience (Google Analytics 4)
+          </h2>
+          <p className="mt-3 font-body text-body text-markaj-primary">
+            Si vous l&apos;acceptez, {siteConfig.legalName} mesure la fréquentation de ce site avec
+            Google Analytics 4.
+          </p>
+          <p className="mt-3 font-body text-body text-markaj-primary">
+            <span className="font-semibold">Finalité.</span> Produire des statistiques de visite :
+            pages consultées, parcours approximatif sur le site, type d&apos;appareil. Cette mesure
+            ne sert pas à afficher de la publicité personnalisée.
+          </p>
+          <p className="mt-3 font-body text-body text-markaj-primary">
+            <span className="font-semibold">Destinataire.</span> Google (Google LLC et Google Ireland
+            Limited).
+          </p>
+          <p className="mt-3 font-body text-body text-markaj-primary">
+            <span className="font-semibold">Transfert vers les États-Unis.</span> Les données traitées
+            par Google Analytics peuvent être transférées et traitées aux États-Unis.
+          </p>
+          <p className="mt-3 font-body text-body text-markaj-primary">
+            <span className="font-semibold">Consentement.</span> Le bandeau en bas de page demande
+            votre accord avant le chargement du script Google et avant le dépôt des cookies de mesure.
+            « Refuser » et « Accepter » ont le même effet, en un clic. Sans choix, ou après un refus,
+            Google Analytics reste bloqué.
+          </p>
+          <p className="mt-3 font-body text-body text-markaj-primary">
+            Votre choix est enregistré dans la mémoire locale de ce navigateur pendant 12 mois, ou
+            jusqu&apos;à un changement de version du bandeau. Le lien « Gérer les cookies », dans le
+            pied de page, rouvre le bandeau. Si vous refusez après avoir accepté, les cookies dont le
+            nom commence par « _ga » sont supprimés.
+          </p>
+          <p className="mt-3 font-body text-body text-markaj-primary">
+            <span className="font-semibold">Durée de conservation des données chez Google.</span>{" "}
+            [À COMPLÉTER — durée de conservation configurée dans Google Analytics 4. Elle n&apos;est
+            pas connue au moment de la rédaction et ne doit pas être inventée.]
+          </p>
+
+          <h2 className="mt-10 font-heading text-heading-3 text-markaj-primary">
             Cookies
           </h2>
           <p className="mt-3 font-body text-body text-markaj-primary">
-            Ce site peut utiliser des cookies techniques nécessaires à son fonctionnement. Aucun cookie
-            publicitaire n&apos;est déposé sans votre consentement préalable.
+            Ce site peut déposer des cookies techniques nécessaires à son fonctionnement, par exemple
+            pour la protection du formulaire de contact. Les cookies de mesure Google Analytics
+            (_ga, _ga_…) ne sont déposés qu&apos;après votre accord. Aucun cookie publicitaire
+            n&apos;est déposé.
           </p>
         </div>
       </Section>

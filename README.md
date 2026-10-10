@@ -68,6 +68,19 @@ IndexNow ne remplace pas la vérification de propriété Bing. Si ce n’est pas
 2. Vérifier la propriété (DNS / meta / fichier)
 3. Soumettre le sitemap : `https://markajrenting.ch/sitemap.xml`
 
+## Mesure d'audience (GA4)
+
+Le bandeau cookies est un opt-in. Sans `NEXT_PUBLIC_GA_MEASUREMENT_ID`, rien n'appelle Google. Avec un identifiant, le fichier `gtag.js` n'est inséré qu'après « Accepter ». Le refus est le défaut (Consent Mode v2 : stockage publicitaire et analytics refusés). Le choix est gardé 12 mois dans `localStorage` (`markaj-consent`). « Gérer les cookies », dans le pied de page, rouvre le bandeau. Un refus après un accord supprime les cookies `_ga*`.
+
+Next.js fige les variables `NEXT_PUBLIC_` au moment du build. Après l'ajout dans Vercel (Settings → Environment Variables), il faut redéployer.
+
+```bash
+# .env.local
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXX
+```
+
+Événements envoyés seulement avec accord et identifiant : `tel_click` et `devis_click` (paramètre `location`), `form_submit` une fois sur `/merci` après un envoi réussi, et les pages vues.
+
 ## Structure
 
 - `app/(marketing)/` — pages publiques

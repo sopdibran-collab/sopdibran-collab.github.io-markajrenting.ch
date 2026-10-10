@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { ManageCookiesButton } from "@/components/consent/ManageCookiesButton";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
 import { footerNav } from "@/lib/content/navigation";
@@ -36,6 +37,7 @@ export function Footer() {
     <footer
       className="border-t border-markaj-white/10 bg-markaj-primary text-markaj-white"
       role="contentinfo"
+      data-analytics-location="footer"
     >
       <div className="mx-auto max-w-content space-y-5 px-4 py-6 sm:px-6 sm:py-7 lg:px-8">
         <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
@@ -49,6 +51,7 @@ export function Footer() {
             tone="dark"
             size="sm"
             className="ml-auto hidden w-full md:inline-flex md:w-auto"
+            data-analytics-event="devis"
           >
             Demander un devis
           </Button>
@@ -136,6 +139,7 @@ export function Footer() {
                   : item.label}
               </Link>
             ))}
+            <ManageCookiesButton />
           </div>
         </div>
       </div>

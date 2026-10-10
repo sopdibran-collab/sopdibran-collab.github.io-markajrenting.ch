@@ -89,6 +89,8 @@ export default function ZoneDetailPage({ params }: PageProps) {
               l&apos;agglomération fribourgeoise.{" "}
               <Link
                 href="/contact"
+                data-analytics-location="zone"
+                data-analytics-event="devis"
                 className="font-medium text-markaj-primary underline underline-offset-4 hover:text-markaj-primary-light"
               >
                 Demander un devis
@@ -201,6 +203,8 @@ export default function ZoneDetailPage({ params }: PageProps) {
                 </Link>
                 <Link
                   href="/contact?service=peinture"
+                  data-analytics-location="zone"
+                  data-analytics-event="devis"
                   className="inline-flex min-h-11 items-center font-body text-caption font-semibold uppercase tracking-[0.12em] text-markaj-primary underline underline-offset-4 hover:text-markaj-primary"
                 >
                   Devis peinture
@@ -225,6 +229,8 @@ export default function ZoneDetailPage({ params }: PageProps) {
                 </Link>
                 <Link
                   href="/contact?service=faux-plafonds"
+                  data-analytics-location="zone"
+                  data-analytics-event="devis"
                   className="inline-flex min-h-11 items-center font-body text-caption font-semibold uppercase tracking-[0.12em] text-markaj-primary underline underline-offset-4 hover:text-markaj-primary"
                 >
                   Devis plafonds
