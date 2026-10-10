@@ -20,6 +20,11 @@ export const serviceGlossary: Record<string, DefinedTerm[]> = {
       description:
         "Niveau de finition plâtrerie haut de gamme, surface parfaitement lisse, idéale pour peintures satinées et laquées.",
     },
+    {
+      name: "Finition Q2",
+      description:
+        "Joints remplis et arasés. Ce niveau suffit sous un revêtement à relief. Pour une peinture mate ou satinée, on demande plutôt une finition Q3 ou Q4.",
+    },
   ],
   peinture: [
     {
@@ -31,6 +36,11 @@ export const serviceGlossary: Record<string, DefinedTerm[]> = {
       name: "Peinture siloxane",
       description:
         "Peinture de façade hydrophobe à base de siloxane, résistante aux intempéries et adaptée aux supports minéraux.",
+    },
+    {
+      name: "Peinture silicate",
+      description:
+        "Peinture minérale qui se lie à un support minéral. Elle laisse passer la vapeur d'eau. Le choix dépend de l'enduit déjà en place.",
     },
   ],
   "faux-plafonds": [
@@ -61,6 +71,11 @@ export const serviceGlossary: Record<string, DefinedTerm[]> = {
       description:
         "Zone de la paroi où la chaleur s'échappe plus facilement, souvent aux angles et autour des ouvertures.",
     },
+    {
+      name: "Doublage isolant intérieur",
+      description:
+        "Isolation posée du côté de la pièce : ossature, isolant, pare-vapeur si le système le prévoit, puis plaque de plâtre. À distinguer de l'isolation périphérique, posée à l'extérieur.",
+    },
   ],
   renovation: [
     {
@@ -79,6 +94,11 @@ export const serviceGlossary: Record<string, DefinedTerm[]> = {
       name: "Ravalement",
       description:
         "Travaux de rénovation de façade comprenant réparation, enduit et peinture pour remettre en état l'enveloppe extérieure.",
+    },
+    {
+      name: "Enduit",
+      description:
+        "Couche de mortier appliquée sur un mur, en une ou plusieurs passes. Le crépi est l'enduit de finition, celui qui donne le grain visible.",
     },
   ],
 };
