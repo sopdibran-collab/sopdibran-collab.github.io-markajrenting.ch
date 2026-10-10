@@ -53,7 +53,7 @@ export function Footer() {
             className="ml-auto hidden w-full md:inline-flex md:w-auto"
             data-analytics-event="devis"
           >
-            Demander un devis
+            Devis gratuit
           </Button>
         </div>
 
