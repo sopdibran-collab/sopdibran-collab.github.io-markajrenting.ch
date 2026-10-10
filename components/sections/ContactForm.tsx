@@ -48,7 +48,7 @@ function SubmitButton() {
 
   return (
     <Button type="submit" variant="primary" size="lg" disabled={pending} className="w-full">
-      {pending ? "Envoi en cours…" : "Recevoir mon devis gratuit"}
+      {pending ? "Envoi en cours…" : "Demander mon devis gratuit"}
     </Button>
   );
 }
@@ -266,7 +266,7 @@ export function ContactForm({ defaultService = "", formToken }: ContactFormProps
 
       <fieldset className="min-w-0 border-0 p-0">
         <legend className="mb-1.5 font-body text-body-sm text-markaj-primary">
-          <span className="font-medium">Comment vous joindre ?</span> Téléphone ou e-mail, au moins un
+          <span className="font-medium">Comment vous joindre ?</span> Indiquez au moins un téléphone ou un e-mail.
         </legend>
         <div className="grid gap-5 sm:grid-cols-2">
           <div>
@@ -336,7 +336,7 @@ export function ContactForm({ defaultService = "", formToken }: ContactFormProps
             aria-invalid={serviceError ? true : undefined}
             aria-describedby={serviceError ? "service-erreur" : undefined}
           >
-            <option value="">Sélectionnez un service</option>
+            <option value="">Choisissez un type de travaux</option>
             {services.map((service) => (
               <option key={service.slug} value={service.slug}>
                 {service.title}
@@ -363,7 +363,7 @@ export function ContactForm({ defaultService = "", formToken }: ContactFormProps
             aria-invalid={communeError ? true : undefined}
             aria-describedby={communeError ? "commune-erreur" : undefined}
             className="form-input"
-            placeholder="ex. Fribourg, Bulle"
+            placeholder="Par ex. Fribourg, Bulle"
           />
           {communeError ? (
             <p id="commune-erreur" role="alert" className="mt-1.5 font-body text-body-sm text-red-800">
@@ -403,7 +403,7 @@ export function ContactForm({ defaultService = "", formToken }: ContactFormProps
         </p>
         <SubmitButton />
         <p className="mt-3 font-body text-sm text-markaj-primary">
-          Gratuit · sans engagement · réponse sous 5 jours ouvrés
+          Sans engagement · réponse sous 5 jours ouvrés
         </p>
       </div>
     </form>

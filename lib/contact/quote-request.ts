@@ -1,7 +1,7 @@
 export const CONTACT_GROUP_MESSAGE =
   "Indiquez un téléphone ou un e-mail pour que nous puissions vous répondre.";
 
-export const EMAIL_FORMAT_MESSAGE = "L'adresse e-mail saisie ne semble pas valide.";
+export const EMAIL_FORMAT_MESSAGE = "Cette adresse e-mail ne semble pas valide.";
 
 export const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
