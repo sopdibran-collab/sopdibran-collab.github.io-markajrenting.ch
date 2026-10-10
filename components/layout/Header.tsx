@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/Button";
-import { Logo } from "@/components/ui/Logo";
 import { mainNav } from "@/lib/content/navigation";
 import { siteConfig } from "@/lib/seo/site-config";
 import { Menu, X } from "lucide-react";
@@ -10,6 +9,35 @@ import { useEffect, useRef, useState } from "react";
 
 const FOCUSABLE =
   'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+function HeaderLogo() {
+  return (
+    <Link
+      href="/"
+      className="inline-flex min-h-11 min-w-0 shrink-0 items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-markaj-primary focus-visible:ring-offset-2"
+    >
+      <span className="sr-only">Markaj Renting SA — Accueil</span>
+      <img
+        src="/brand/markaj-horizontal-navy.svg"
+        alt="Markaj Renting SA"
+        width={288}
+        height={64}
+        className="block h-14 w-auto xl:h-16 hidden sm:block"
+        decoding="async"
+        fetchPriority="high"
+      />
+      <img
+        src="/brand/markaj-favicon.svg"
+        alt="Markaj Renting SA"
+        width={43}
+        height={44}
+        className="h-11 w-auto sm:hidden"
+        decoding="async"
+        fetchPriority="high"
+      />
+    </Link>
+  );
+}
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -89,8 +117,8 @@ export function Header() {
         ref={barRef}
         className="sticky top-0 z-50 border-b border-markaj-primary/10 bg-markaj-white"
       >
-        <div className="mx-auto flex max-w-content min-w-0 items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-6 lg:px-8">
-          <Logo />
+        <div className="mx-auto flex max-w-content min-w-0 items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-6 lg:px-8 xl:py-2">
+          <HeaderLogo />
 
           <nav
             className="hidden items-center gap-5 lg:flex xl:gap-7"
@@ -110,7 +138,7 @@ export function Header() {
           <div className="hidden shrink-0 items-center gap-3 lg:flex xl:gap-4">
             <a
               href={phoneHref}
-              className="inline-flex min-h-11 items-center font-body text-body-sm font-medium text-markaj-primary transition-colors hover:text-markaj-primary-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-markaj-primary focus-visible:ring-offset-2"
+              className="hidden min-h-11 items-center font-body text-body-sm font-medium text-markaj-primary transition-colors hover:text-markaj-primary-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-markaj-primary focus-visible:ring-offset-2 xl:inline-flex"
             >
               {siteConfig.contact.phoneDisplay}
             </a>
@@ -148,7 +176,7 @@ export function Header() {
           className="fixed inset-0 z-[60] flex flex-col bg-markaj-white lg:hidden"
         >
           <div className="flex items-center justify-between gap-3 border-b border-markaj-primary/10 px-4 py-3">
-            <Logo />
+            <HeaderLogo />
             <button
               ref={closeRef}
               type="button"
