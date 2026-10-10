@@ -6,6 +6,8 @@ import { siteConfig } from "@/lib/seo/site-config";
 interface CtaBannerProps {
   title?: string;
   description?: string;
+  /** Lien du bouton principal. Sinon, /contact. */
+  primaryHref?: string;
 }
 
 /**
@@ -14,6 +16,7 @@ interface CtaBannerProps {
 export function CtaBanner({
   title = "Parlons de votre chantier",
   description = "Nous vous accompagnons de l'idée à la réalisation. Décrivez votre projet : devis gratuit sous 5 jours ouvrés.",
+  primaryHref = "/contact",
 }: CtaBannerProps) {
   const phoneHref = `tel:${siteConfig.contact.phone.replace(/\s/g, "")}`;
 
