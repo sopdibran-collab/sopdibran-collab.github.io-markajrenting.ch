@@ -21,7 +21,7 @@
     scroll-behavior: smooth;
     /*
       Le dégagement du header sticky est porté par #formulaire
-      (69 px, 81 px dès sm). Un scroll-padding ici s'y ajouterait.
+      (85 px, 97 px dès sm). Un scroll-padding ici s'y ajouterait.
     */
     scroll-padding-top: 0;
     /* clip (not hidden) keeps position:sticky working while blocking page-level x-scroll */

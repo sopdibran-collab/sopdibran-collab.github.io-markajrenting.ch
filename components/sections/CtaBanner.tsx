@@ -40,8 +40,8 @@ export function CtaBanner({
             phoneLine
             location="bandeau"
             primary={{
-              label: "Demander un devis",
-              href: "/contact#formulaire",
+              label: "Devis gratuit",
+              href: primaryHref.includes("#") ? primaryHref : `${primaryHref}#formulaire`,
               size: "lg",
               className: "w-full max-w-full md:w-auto",
             }}

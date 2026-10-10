@@ -5,8 +5,8 @@ import { isDevisHref } from "@/lib/analytics/consent";
 import { siteConfig } from "@/lib/seo/site-config";
 import { cn } from "@/lib/utils";
 
-/** Libellé court des CTA sous md. Le header mobile reste sur « Devis ». */
-const MOBILE_DEVIS_LABEL = "Devis gratuit";
+/** Libellé des CTA devis hors header. Le header mobile reste sur « Devis ». */
+const DEVIS_LABEL = "Devis gratuit";
 
 const PHONE_ARIA_LABEL = "Appeler le 079 430 18 13";
 
@@ -41,8 +41,8 @@ const mobileButtonClass =
   "max-md:h-full max-md:min-h-12 max-md:w-full max-md:whitespace-nowrap max-md:px-3";
 
 /**
- * Sous md : deux colonnes égales, écart 8 px. À partir de md : libellés et
- * boutons d'origine, côte à côte.
+ * Sous md : deux colonnes égales, écart 8 px. À partir de md : les boutons
+ * restent côte à côte. Le devis dit « Devis gratuit » à toutes les largeurs.
  */
 export function CtaPair({
   primary,
@@ -81,8 +81,7 @@ export function CtaPair({
           className={cn(mobileButtonClass, "md:w-auto", primary.className)}
           data-analytics-event={isDevisHref(primary.href) ? "devis" : undefined}
         >
-          <span className="md:hidden">{MOBILE_DEVIS_LABEL}</span>
-          <span className="hidden md:inline">{primary.label}</span>
+          {isDevisHref(primary.href) ? DEVIS_LABEL : primary.label}
         </Button>
         <Button
           href={secondary.href}

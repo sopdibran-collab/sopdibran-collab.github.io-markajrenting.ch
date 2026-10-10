@@ -117,7 +117,7 @@ export default function BlogPostPage({ params }: PageProps) {
         eyebrow={`${dateLabel} · ${post.readTime} · ${post.category}`}
         title={post.title}
         subtitle={post.excerpt}
-        primaryCta={{ label: "Demander un devis", href: "/contact#formulaire" }}
+        primaryCta={{ label: "Devis gratuit", href: "/contact#formulaire" }}
         secondaryCta={{
           label: `Appeler ${siteConfig.contact.phoneDisplay}`,
           href: `tel:${siteConfig.contact.phone.replace(/\s/g, "")}`,
