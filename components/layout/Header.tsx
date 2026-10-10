@@ -116,6 +116,7 @@ export function Header() {
       <header
         ref={barRef}
         className="sticky top-0 z-50 border-b border-markaj-primary/10 bg-markaj-white"
+        data-analytics-location="header"
       >
         <div className="mx-auto flex max-w-content min-w-0 items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-6 lg:px-8 xl:py-2">
           <HeaderLogo />
@@ -174,6 +175,7 @@ export function Header() {
           aria-modal="true"
           aria-label="Menu"
           className="fixed inset-0 z-[60] flex flex-col bg-markaj-white lg:hidden"
+          data-analytics-location="menu"
         >
           <div className="flex items-center justify-between gap-3 border-b border-markaj-primary/10 px-4 py-3">
             <HeaderLogo />
@@ -215,6 +217,7 @@ export function Header() {
                   variant="primary"
                   size="md"
                   className="w-full max-w-full"
+                  data-analytics-event="devis"
                   onClick={() => closeMenu(false)}
                 >
                   Demander un devis

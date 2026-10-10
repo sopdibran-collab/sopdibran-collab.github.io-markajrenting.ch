@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Source_Sans_3 } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -45,7 +46,30 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr-CH" className={`${playfair.variable} ${sourceSans.variable}`}>
-      <body className="min-h-screen font-body antialiased">{children}</body>
+      <body className="min-h-screen font-body antialiased">
+        {/*
+          Consent Mode v2, tout refusé. Aucune requête Google :
+          le fichier gtag.js n'est inséré qu'après « Accepter ».
+        */}
+        <Script id="markaj-ga-consent" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            window.gtag = gtag;
+            gtag('consent', 'default', {
+              ad_storage: 'denied',
+              ad_user_data: 'denied',
+              ad_personalization: 'denied',
+              analytics_storage: 'denied',
+              functionality_storage: 'denied',
+              personalization_storage: 'denied',
+              security_storage: 'granted',
+              wait_for_update: 500
+            });
+          `}
+        </Script>
+        {children}
+      </body>
     </html>
   );
 }

@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { CtaPair } from "@/components/sections/CtaPair";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
+import { isDevisHref } from "@/lib/analytics/consent";
 import { siteConfig } from "@/lib/seo/site-config";
 import { cn } from "@/lib/utils";
 
@@ -23,6 +24,8 @@ interface HeroProps {
   };
   /** `bleed` = photo edge-to-edge (défaut si image). `split` = legacy inset. */
   variant?: "bleed" | "split";
+  /** Emplacement des événements `tel_click` et `devis_click`. */
+  analyticsLocation?: string;
   children?: ReactNode;
 }
 
@@ -39,6 +42,7 @@ export function Hero({
   secondaryCta,
   image,
   variant,
+  analyticsLocation = "hero",
   children,
 }: HeroProps) {
   const layout = variant ?? (image ? "bleed" : "split");
@@ -51,6 +55,7 @@ export function Hero({
       tone={onPhoto ? "dark" : "light"}
       phoneLine
       preserveMobileStack={onPhoto}
+      location={analyticsLocation}
       primary={{
         label: primaryCta!.label,
         href: primaryCta!.href,
@@ -66,7 +71,10 @@ export function Hero({
     />
   ) : (
     (primaryCta || secondaryCta) && (
-      <div className="mt-8 flex flex-col gap-3 sm:mt-10 md:flex-row md:flex-wrap md:items-center md:gap-4">
+      <div
+        className="mt-8 flex flex-col gap-3 sm:mt-10 md:flex-row md:flex-wrap md:items-center md:gap-4"
+        data-analytics-location={analyticsLocation}
+      >
         {primaryCta && (
           <Button
             href={primaryCta.href}
@@ -74,6 +82,7 @@ export function Hero({
             tone={onPhoto ? "dark" : "default"}
             size="lg"
             className="w-full max-w-full md:w-auto"
+            data-analytics-event={isDevisHref(primaryCta.href) ? "devis" : undefined}
           >
             {primaryCta.label}
           </Button>
@@ -94,7 +103,10 @@ export function Hero({
 
   if (image && layout === "bleed") {
     return (
-      <section className="relative isolate min-h-[min(88vh,44rem)] overflow-hidden bg-markaj-primary">
+      <section
+        className="relative isolate min-h-[min(88vh,44rem)] overflow-hidden bg-markaj-primary"
+        data-analytics-location={analyticsLocation}
+      >
         <Image
           src={image.src}
           alt={image.alt}
@@ -147,6 +159,7 @@ export function Hero({
       background="white"
       texture="paint"
       className="bg-grid-chantier py-14 sm:py-20 md:py-24"
+      data-analytics-location={analyticsLocation}
     >
       <div
         className={cn(

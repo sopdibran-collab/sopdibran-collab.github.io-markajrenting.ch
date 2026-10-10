@@ -54,7 +54,11 @@ export function TrustPanel() {
         </p>
         <p className="mt-6 font-body text-body">
           <span className="font-medium text-markaj-primary">Téléphone :</span>{" "}
-          <a href={phoneHref} className="inline-flex min-h-11 items-center text-markaj-primary underline-offset-4 hover:underline">
+          <a
+            href={phoneHref}
+            data-analytics-location="contact"
+            className="inline-flex min-h-11 items-center text-markaj-primary underline-offset-4 hover:underline"
+          >
             {contact.phoneDisplay}
           </a>
         </p>

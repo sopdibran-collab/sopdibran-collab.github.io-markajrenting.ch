@@ -124,5 +124,5 @@ export async function submitContactRequest(
     };
   }
 
-  redirect("/merci");
+  redirect("/merci?envoi=1");
 }
