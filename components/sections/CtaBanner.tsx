@@ -37,7 +37,7 @@ export function CtaBanner({
             phoneLine
             primary={{
               label: "Demander un devis",
-              href: "/contact",
+              href: "/contact#formulaire",
               size: "lg",
               className: "w-full max-w-full md:w-auto",
             }}

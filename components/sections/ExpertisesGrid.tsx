@@ -73,7 +73,7 @@ export function ExpertisesGrid() {
 
       <Section background="sand" className="!py-8 sm:!py-10">
         <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-          <Button href="/contact" variant="primary" className="w-full sm:w-auto">
+          <Button href="/contact#formulaire" variant="primary" className="w-full sm:w-auto">
             Demander un devis
           </Button>
           <Button href="/services" variant="secondary" className="w-full sm:w-auto">

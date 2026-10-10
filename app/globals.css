@@ -19,7 +19,11 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
+    /*
+      Le dégagement du header sticky est porté par #formulaire
+      (69 px, 81 px dès sm). Un scroll-padding ici s'y ajouterait.
+    */
+    scroll-padding-top: 0;
     /* clip (not hidden) keeps position:sticky working while blocking page-level x-scroll */
     overflow-x: clip;
   }
@@ -62,6 +66,10 @@
   .form-input {
     @apply w-full min-h-11 rounded-markaj border bg-markaj-white px-4 py-3 font-body text-base text-markaj-primary focus:border-markaj-primary focus:outline-none focus:ring-1 focus:ring-markaj-primary;
     border-color: rgb(10 43 94 / 0.25);
+  }
+
+  .form-input[aria-invalid="true"] {
+    border-color: rgb(153 27 27);
   }
 
   /*

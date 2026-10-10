@@ -55,7 +55,7 @@ export default function ZoneDetailPage({ params }: PageProps) {
       <Hero
         title={zone.h1}
         subtitle={zone.intro}
-        primaryCta={{ label: "Demander un devis", href: "/contact" }}
+        primaryCta={{ label: "Demander un devis", href: "/contact#formulaire" }}
         secondaryCta={{
           label: `Appeler ${siteConfig.contact.phoneDisplay}`,
           href: `tel:${siteConfig.contact.phone.replace(/\s/g, "")}`,
@@ -88,7 +88,7 @@ export default function ZoneDetailPage({ params }: PageProps) {
               (acoustique, éclairage, réseaux) pour logements, bureaux et commerces de
               l&apos;agglomération fribourgeoise.{" "}
               <Link
-                href="/contact"
+                href="/contact#formulaire"
                 className="font-medium text-markaj-primary underline underline-offset-4 hover:text-markaj-primary-light"
               >
                 Demander un devis
@@ -200,7 +200,7 @@ export default function ZoneDetailPage({ params }: PageProps) {
                   Voir la peinture
                 </Link>
                 <Link
-                  href="/contact?service=peinture"
+                  href="/contact?service=peinture#formulaire"
                   className="inline-flex min-h-11 items-center font-body text-caption font-semibold uppercase tracking-[0.12em] text-markaj-primary underline underline-offset-4 hover:text-markaj-primary"
                 >
                   Devis peinture
@@ -224,7 +224,7 @@ export default function ZoneDetailPage({ params }: PageProps) {
                   Voir les faux-plafonds
                 </Link>
                 <Link
-                  href="/contact?service=faux-plafonds"
+                  href="/contact?service=faux-plafonds#formulaire"
                   className="inline-flex min-h-11 items-center font-body text-caption font-semibold uppercase tracking-[0.12em] text-markaj-primary underline underline-offset-4 hover:text-markaj-primary"
                 >
                   Devis plafonds

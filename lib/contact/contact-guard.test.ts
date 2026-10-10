@@ -13,10 +13,9 @@ const SPAM_MAILS = [
 
 function lead(message: string, extra: Partial<ContactSpamInput> = {}): ContactSpamInput {
   return {
-    prenom: "Anne",
-    nom: "Favre",
-    societe: "",
+    nom: "Anne Favre",
     email: "anne@example.ch",
+    telephone: "079 000 00 00",
     message,
     ...extra,
   };
@@ -50,7 +49,7 @@ test("bloque le charabia et les domaines de démarchage", () => {
   assert.equal(assessContactSpam(lead("asdfgh jklqwerty zxcvbnm poiuytre")).blocked, true);
   assert.equal(assessContactSpam(lead("xkqzwplmnb vcxzqwrty plkjhsdfg")).blocked, true);
   assert.equal(
-    assessContactSpam(lead("Bonjour", { societe: "qwertyasdf zxcvbnml" })).blocked,
+    assessContactSpam(lead("Bonjour", { nom: "qwertyasdf zxcvbnml" })).blocked,
     true
   );
   assert.equal(assessContactSpam(lead("Voir https://indexhelp.pro/go")).blocked, true);

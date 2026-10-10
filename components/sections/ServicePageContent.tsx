@@ -80,7 +80,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
         }
         primaryCta={{
           label: `Devis ${service.shortTitle.toLowerCase()}`,
-          href: `/contact?service=${service.slug}`,
+          href: `/contact?service=${service.slug}#formulaire`,
         }}
         secondaryCta={{
           label: `Appeler ${siteConfig.contact.phoneDisplay}`,
@@ -261,7 +261,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
           <Link href="/zones" className="inline-flex min-h-11 items-center text-markaj-primary underline-offset-4 hover:underline">Zones d&apos;intervention</Link>
           <Link href="/faq" className="inline-flex min-h-11 items-center text-markaj-primary underline-offset-4 hover:underline">FAQ générale</Link>
           <Link
-            href={`/contact?service=${service.slug}`}
+            href={`/contact?service=${service.slug}#formulaire`}
             className="inline-flex min-h-11 items-center text-markaj-primary underline-offset-4 hover:underline"
           >
             Contact & devis

@@ -4,6 +4,13 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { checkFormToken } from "@/lib/contact/form-token";
 import { HONEYPOT_FIELDS } from "@/lib/contact/honeypot";
+import {
+  deliverQuoteEmail,
+  readQuoteValues,
+  serviceLabel,
+  validateQuote,
+  type QuoteField,
+} from "@/lib/contact/quote-request";
 import { assessContactSpam } from "@/lib/contact/spam-filter";
 import { verifyTurnstileToken } from "@/lib/contact/turnstile";
 import { siteConfig } from "@/lib/seo/site-config";
@@ -11,18 +18,7 @@ import { siteConfig } from "@/lib/seo/site-config";
 export type ContactFormState = {
   status: "idle" | "success" | "error";
   message?: string;
-};
-
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-const SERVICE_LABELS: Record<string, string> = {
-  platrerie: "Plâtrerie",
-  peinture: "Peinture",
-  "faux-plafonds": "Faux-plafonds",
-  isolation: "Isolation",
-  renovation: "Rénovation",
-  facades: "Façades",
-  autre: "Autre",
+  field?: QuoteField;
 };
 
 function getField(formData: FormData, name: string): string {
@@ -54,36 +50,9 @@ export async function submitContactRequest(
     redirect("/merci");
   }
 
-  const prenom = getField(formData, "prenom");
-  const nom = getField(formData, "nom");
-  const societe = getField(formData, "societe");
-  const email = getField(formData, "email");
-  const telephone = getField(formData, "telephone");
-  const service = getField(formData, "service");
-  const commune = getField(formData, "commune");
-  const message = getField(formData, "message");
-  const consentement = formData.get("consentement") === "on";
-
-  if (!prenom || !nom || !email || !message) {
-    return {
-      status: "error",
-      message: "Merci de remplir tous les champs obligatoires (prénom, nom, e-mail, message).",
-    };
-  }
-
-  if (!EMAIL_PATTERN.test(email)) {
-    return {
-      status: "error",
-      message: "L'adresse e-mail saisie ne semble pas valide.",
-    };
-  }
-
-  if (!consentement) {
-    return {
-      status: "error",
-      message: "Merci d'accepter le traitement de vos données pour que nous puissions vous répondre.",
-    };
-  }
+  const quote = readQuoteValues(formData);
+  const issue = validateQuote(quote);
+  if (issue) return { status: "error", field: issue.field, message: issue.message };
 
   const tokenStatus = checkFormToken(getField(formData, "form_token"));
   if (tokenStatus === "too-fast") {
@@ -99,7 +68,12 @@ export async function submitContactRequest(
     };
   }
 
-  const spam = assessContactSpam({ prenom, nom, societe, email, message });
+  const spam = assessContactSpam({
+    nom: quote.nom,
+    email: quote.email,
+    telephone: quote.telephone,
+    message: quote.message,
+  });
   if (spam.blocked) {
     console.warn("[contact] message refusé", spam.reason, spam.detail);
     return {
@@ -128,60 +102,26 @@ export async function submitContactRequest(
   }
 
   const lead = {
-    prenom,
-    nom,
-    societe: societe || "non renseignée",
-    email,
-    telephone: telephone || "non renseigné",
-    service: SERVICE_LABELS[service] ?? "Non précisé",
-    commune: commune || "non renseignée",
-    message,
-    recuLe: new Date().toISOString(),
+    ...quote,
+    serviceLabel: serviceLabel(quote.service) ?? quote.service,
   };
 
-  const emailBody = [
-    "Nouvelle demande de devis — markajrenting.ch",
-    "",
-    `Nom : ${lead.prenom} ${lead.nom}`,
-    `Société : ${lead.societe}`,
-    `E-mail : ${lead.email}`,
-    `Téléphone : ${lead.telephone}`,
-    `Type de travaux : ${lead.service}`,
-    `Commune / chantier : ${lead.commune}`,
-    "",
-    "Message :",
-    lead.message,
-  ].join("\n");
+  const delivery = await deliverQuoteEmail(lead, {
+    apiKey: process.env.RESEND_API_KEY,
+    from: process.env.CONTACT_FROM_EMAIL ?? "Markaj Renting <onboarding@resend.dev>",
+    to: process.env.CONTACT_TO_EMAIL ?? siteConfig.contact.email,
+  });
 
-  const apiKey = process.env.RESEND_API_KEY;
-
-  if (apiKey) {
-    const response = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: process.env.CONTACT_FROM_EMAIL ?? "Markaj Renting <onboarding@resend.dev>",
-        to: [process.env.CONTACT_TO_EMAIL ?? siteConfig.contact.email],
-        reply_to: lead.email,
-        subject: `Demande de devis — ${lead.prenom} ${lead.nom} (${lead.service})`,
-        text: emailBody,
-      }),
-    });
-
-    if (!response.ok) {
-      console.error("[contact] Échec d'envoi Resend :", response.status, await response.text());
-      return {
-        status: "error",
-        message:
-          "Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous appeler au 079 430 18 13.",
-      };
-    }
-  } else {
+  if (!delivery.sent && delivery.reason === "no-key") {
     // Pas de clé e-mail configurée : la demande reste visible dans les logs Vercel.
-    console.log("[contact] Nouvelle demande de devis :", JSON.stringify(lead, null, 2));
+    console.log("[contact] Nouvelle demande de devis (aucun envoi Resend) :", JSON.stringify(lead, null, 2));
+  } else if (!delivery.sent) {
+    console.error("[contact] Échec d'envoi Resend :", delivery.status, delivery.body);
+    return {
+      status: "error",
+      message:
+        "Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous appeler au 079 430 18 13.",
+    };
   }
 
   redirect("/merci");

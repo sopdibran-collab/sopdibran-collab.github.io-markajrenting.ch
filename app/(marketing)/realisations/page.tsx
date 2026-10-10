@@ -28,7 +28,7 @@ export default function RealisationsPage() {
       <Hero
         title="Nos réalisations"
         subtitle="Chantiers menés par Markaj Renting SA : plateaux de bureaux (ossatures → livraison), circulations tertiaires, surélévation d'immeuble et intérieurs bancaires."
-        primaryCta={{ label: "Demander un devis", href: "/contact" }}
+        primaryCta={{ label: "Demander un devis", href: "/contact#formulaire" }}
         secondaryCta={{ label: "Nos services", href: "/services" }}
         image={{
           src: "/equipe/preparation-chantier.webp",

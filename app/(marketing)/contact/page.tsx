@@ -50,7 +50,7 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
           <CtaPair
             tone="light"
             phoneLine
-            primary={{ label: "Devis gratuit", href: "#demande", size: "lg" }}
+            primary={{ label: "Devis gratuit", href: "#formulaire", size: "lg" }}
             secondary={{
               label: `Appeler ${siteConfig.contact.phoneDisplay}`,
               href: phoneHref,

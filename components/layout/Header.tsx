@@ -142,13 +142,13 @@ export function Header() {
             >
               {siteConfig.contact.phoneDisplay}
             </a>
-            <Button href="/contact" variant="primary" size="sm">
+            <Button href="/contact#formulaire" variant="primary" size="sm">
               Demander un devis
             </Button>
           </div>
 
           <div className="flex min-w-0 shrink-0 items-center gap-2 lg:hidden">
-            <Button href="/contact" variant="primary" size="sm" className="px-3.5">
+            <Button href="/contact#formulaire" variant="primary" size="sm" className="px-3.5">
               Devis
             </Button>
             <button
@@ -211,7 +211,7 @@ export function Header() {
               </li>
               <li className="pt-5">
                 <Button
-                  href="/contact"
+                  href="/contact#formulaire"
                   variant="primary"
                   size="md"
                   className="w-full max-w-full"
