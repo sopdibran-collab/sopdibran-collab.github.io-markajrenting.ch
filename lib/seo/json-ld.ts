@@ -315,6 +315,14 @@ export function buildZonePageSchemas(zone: Zone): JsonLdObject[] {
   ];
 }
 
+/** Pages enrichies (briefs 1 à 4) : le HowTo n'est plus publié. */
+const SERVICE_SLUGS_WITHOUT_HOWTO = new Set([
+  "isolation",
+  "facades",
+  "platrerie",
+  "peinture",
+]);
+
 export function buildServicePageSchemas(service: Service): JsonLdObject[] {
   const glossary = getGlossaryForService(service.slug);
 
@@ -325,11 +333,15 @@ export function buildServicePageSchemas(service: Service): JsonLdObject[] {
     ]),
     buildServiceSchema(service),
     buildFaqPageSchema(service.faq),
-    buildHowToSchema(
-      `Déroulement d'un chantier — ${service.title}`,
-      service.intro,
-      service.process.map((s) => ({ title: s.title, description: s.description }))
-    ),
+    ...(SERVICE_SLUGS_WITHOUT_HOWTO.has(service.slug)
+      ? []
+      : [
+          buildHowToSchema(
+            `Déroulement d'un chantier — ${service.title}`,
+            service.intro,
+            service.process.map((s) => ({ title: s.title, description: s.description }))
+          ),
+        ]),
     ...(glossary.length > 0
       ? [
           buildDefinedTermSetSchema(

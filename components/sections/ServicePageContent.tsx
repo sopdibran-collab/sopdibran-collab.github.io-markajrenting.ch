@@ -5,7 +5,7 @@ import { Hero } from "@/components/sections/Hero";
 import { AnimateIn } from "@/components/ui/AnimateIn";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import type { Service } from "@/lib/content/services";
+import type { InlinePart, Service } from "@/lib/content/services";
 import { serviceVisuals } from "@/lib/content/service-visuals";
 import { SERVICE_TITLE_LOCATION, zones } from "@/lib/content/zones";
 import { getGlossaryForService } from "@/lib/seo/glossary";
@@ -33,6 +33,28 @@ function withDe(noun: string) {
   return /^[aeiouàâäéèêëîïôöùûühœ]/i.test(noun) ? `d'${noun}` : `de ${noun}`;
 }
 
+const inlineLinkClass = "underline-offset-4 hover:underline";
+
+function RichParagraph({ parts }: { parts: InlinePart[] }) {
+  return (
+    <p className="mt-4 font-body text-body text-markaj-primary/90">
+      {parts.map((part, index) =>
+        typeof part === "string" ? (
+          <span key={index}>{part}</span>
+        ) : part.href.startsWith("http") ? (
+          <a key={index} href={part.href} className={inlineLinkClass}>
+            {part.label}
+          </a>
+        ) : (
+          <Link key={index} href={part.href} className={inlineLinkClass}>
+            {part.label}
+          </Link>
+        )
+      )}
+    </p>
+  );
+}
+
 /**
  * Section rhythm (blanc ↔ sable) before navy CTA:
  * hero white → meta sand → definition white → prestations sand →
@@ -51,9 +73,23 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
       ? `Que sont ${labelled} ?`
       : `Qu'est-ce que ${labelled} ?`;
 
-  /* After zones (white): glossaire sand → FAQ white → liens sand; else FAQ sand → liens white. */
-  const faqBackground = hasGlossary ? "white" : "sand";
-  const linksBackground = hasGlossary ? "sand" : "white";
+  /*
+   * After prestations (sand), each guide alternates white then sand.
+   * Without guides, the sequence stays: process white, matériaux sand, zones white.
+   */
+  const guideCount = service.guides?.length ?? 0;
+  const processBackground = guideCount % 2 === 0 ? "white" : "sand";
+  const materialsBackground = processBackground === "white" ? "sand" : "white";
+  const zonesBackground = materialsBackground === "white" ? "sand" : "white";
+  const glossaryBackground = zonesBackground === "white" ? "sand" : "white";
+  const faqBackground = hasGlossary
+    ? glossaryBackground === "white"
+      ? "sand"
+      : "white"
+    : zonesBackground === "white"
+      ? "sand"
+      : "white";
+  const linksBackground = faqBackground === "white" ? "sand" : "white";
 
   return (
     <>
@@ -123,9 +159,10 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
           <AnimateIn className="mb-10 max-w-prose">
             <p className="marque-cote mb-3">Prestations</p>
             <p className="font-body text-body-lg text-markaj-primary">
-              {service.slug === "renovation"
-                ? "Un interlocuteur pour tout le second œuvre — chaque métier détaillé sur sa page dédiée."
-                : `Détail de nos prestations ${deLabel}, pour particuliers, régies et architectes.`}
+              {service.offeringsIntro ??
+                (service.slug === "renovation"
+                  ? "Un interlocuteur pour tout le second œuvre — chaque métier détaillé sur sa page dédiée."
+                  : `Détail de nos prestations ${deLabel}, pour particuliers, régies et architectes.`)}
             </p>
           </AnimateIn>
           <div className="grid gap-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12">
@@ -153,7 +190,21 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
         </Section>
       )}
 
-      <Section background="white">
+      {service.guides?.map((guide, index) => (
+        <Section
+          key={guide.title}
+          background={index % 2 === 0 ? "white" : "sand"}
+        >
+          <AnimateIn className="max-w-prose">
+            <h2 className="font-heading text-heading-3 text-markaj-primary">{guide.title}</h2>
+            {guide.paragraphs.map((paragraph, paragraphIndex) => (
+              <RichParagraph key={paragraphIndex} parts={paragraph} />
+            ))}
+          </AnimateIn>
+        </Section>
+      ))}
+
+      <Section background={processBackground}>
         <AnimateIn>
           <SectionHeading
             subtitle="Processus"
@@ -174,7 +225,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
         </ol>
       </Section>
 
-      <Section background="sand">
+      <Section background={materialsBackground}>
         <AnimateIn>
           <SectionHeading
             subtitle="Matériaux & normes"
@@ -193,7 +244,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
         </ul>
       </Section>
 
-      <Section background="white">
+      <Section background={zonesBackground}>
         <AnimateIn>
           <SectionHeading
             subtitle="Zones desservies"
@@ -224,7 +275,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
       </Section>
 
       {hasGlossary && (
-        <Section background="sand">
+        <Section background={glossaryBackground}>
           <AnimateIn>
             <SectionHeading
               subtitle="Glossaire"
@@ -266,12 +317,25 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
           >
             Contact & devis
           </Link>
+          {service.relatedLinks?.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="inline-flex min-h-11 items-center text-markaj-primary underline-offset-4 hover:underline"
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
       </Section>
 
       <CtaBanner
         title={`Un projet ${deLabel} ?`}
-        description="Décrivez votre chantier : devis gratuit, réponse sous 5 jours ouvrés. Siège à Fribourg, interventions en Suisse romande."
+        description={
+          service.ctaDescription ??
+          "Décrivez votre chantier : devis gratuit, réponse sous 5 jours ouvrés. Siège à Fribourg, interventions en Suisse romande."
+        }
+        primaryHref={service.ctaHref}
       />
     </>
   );
