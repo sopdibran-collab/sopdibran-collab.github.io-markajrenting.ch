@@ -45,9 +45,19 @@ function excerpts(buf) {
   return hits;
 }
 
+function isPermanentApexRedirect(rule) {
+  if (!rule || typeof rule !== "object" || Array.isArray(rule)) return false;
+  if (typeof rule.destination !== "string" || rule.destination.includes(NEEDLE)) return false;
+  const toApex = rule.destination === APEX || rule.destination.startsWith(`${APEX}/`);
+  if (!toApex || !Array.isArray(rule.has)) return false;
+  return rule.permanent === true || rule.statusCode === 301 || rule.statusCode === 308;
+}
+
 /**
  * A permanent redirect may name the legacy host as its source.
  * The destination must stay on the apex, and no other field may.
+ * Next writes that source host into routes-manifest.json (statusCode 308)
+ * and required-server-files.json (_originalRedirects).
  */
 function withoutLegacyRedirectHost(text) {
   let data;
@@ -57,23 +67,23 @@ function withoutLegacyRedirectHost(text) {
     return null;
   }
 
-  if (!Array.isArray(data.redirects)) return text;
+  function strip(value) {
+    if (Array.isArray(value)) return value.map(strip);
+    if (!value || typeof value !== "object") return value;
 
-  for (const rule of data.redirects) {
-    if (typeof rule?.destination !== "string") continue;
-    if (rule.destination.includes(NEEDLE)) continue;
-    const toApex =
-      rule.destination === APEX || rule.destination.startsWith(`${APEX}/`);
-    if (!toApex || rule.permanent !== true || !Array.isArray(rule.has)) continue;
+    const copy = {};
+    for (const [key, child] of Object.entries(value)) copy[key] = strip(child);
+    if (!isPermanentApexRedirect(copy)) return copy;
 
-    for (const condition of rule.has) {
-      if (condition?.type === "host" && condition.value === LEGACY_HOST) {
-        condition.value = "legacy-host";
-      }
-    }
+    copy.has = copy.has.map((condition) =>
+      condition?.type === "host" && condition.value === LEGACY_HOST
+        ? { ...condition, value: "legacy-host" }
+        : condition
+    );
+    return copy;
   }
 
-  return JSON.stringify(data);
+  return JSON.stringify(strip(data));
 }
 
 test("source code does not name the legacy www host", async () => {
