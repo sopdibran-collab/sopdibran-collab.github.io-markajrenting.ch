@@ -184,5 +184,5 @@ export async function submitContactRequest(
     console.log("[contact] Nouvelle demande de devis :", JSON.stringify(lead, null, 2));
   }
 
-  redirect("/merci");
+  redirect("/merci?envoi=1");
 }

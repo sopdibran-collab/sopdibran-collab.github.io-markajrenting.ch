@@ -45,11 +45,13 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
       <Hero
         title="Demande de devis"
         subtitle="Décrivez votre projet de second œuvre : plâtrerie, peinture, faux-plafonds, isolation, rénovation ou façades. Devis gratuit, sans engagement — réponse sous 5 jours ouvrés."
+        analyticsLocation="contact"
       >
         <div className="mt-8 sm:mt-10 md:hidden">
           <CtaPair
             tone="light"
             phoneLine
+            location="contact"
             primary={{ label: "Devis gratuit", href: "#demande", size: "lg" }}
             secondary={{
               label: `Appeler ${siteConfig.contact.phoneDisplay}`,
@@ -59,7 +61,13 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
           />
         </div>
         <div className="mt-8 hidden sm:mt-10 md:block">
-          <Button href={phoneHref} variant="primary" size="lg" className="w-auto">
+          <Button
+            href={phoneHref}
+            variant="primary"
+            size="lg"
+            className="w-auto"
+            data-analytics-location="contact"
+          >
             Appeler {siteConfig.contact.phoneDisplay}
           </Button>
         </div>

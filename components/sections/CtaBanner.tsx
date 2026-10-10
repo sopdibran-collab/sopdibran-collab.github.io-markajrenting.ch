@@ -38,6 +38,7 @@ export function CtaBanner({
             tone="dark"
             secondaryToneDark
             phoneLine
+            location="bandeau"
             primary={{
               label: "Demander un devis",
               href: primaryHref,

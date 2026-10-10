@@ -1,6 +1,7 @@
 import { Phone } from "lucide-react";
 
 import { Button } from "@/components/ui/Button";
+import { isDevisHref } from "@/lib/analytics/consent";
 import { siteConfig } from "@/lib/seo/site-config";
 import { cn } from "@/lib/utils";
 
@@ -32,6 +33,8 @@ interface CtaPairProps {
   preserveMobileStack?: boolean;
   className?: string;
   rowClassName?: string;
+  /** `tel_click` / `devis_click` : hero, bandeau, contact… */
+  location?: string;
 }
 
 const mobileButtonClass =
@@ -50,6 +53,7 @@ export function CtaPair({
   preserveMobileStack = false,
   className,
   rowClassName,
+  location = "hero",
 }: CtaPairProps) {
   const onDark = tone === "dark";
   const phoneHref = `tel:${siteConfig.contact.phone.replace(/\s/g, "")}`;
@@ -67,6 +71,7 @@ export function CtaPair({
           "grid grid-cols-2 items-stretch gap-2 md:flex md:flex-row md:flex-wrap md:items-center md:gap-4",
           rowClassName
         )}
+        data-analytics-location={location}
       >
         <Button
           href={primary.href}
@@ -74,6 +79,7 @@ export function CtaPair({
           tone={onDark ? "dark" : "default"}
           size={primary.size ?? "lg"}
           className={cn(mobileButtonClass, "md:w-auto", primary.className)}
+          data-analytics-event={isDevisHref(primary.href) ? "devis" : undefined}
         >
           <span className="md:hidden">{MOBILE_DEVIS_LABEL}</span>
           <span className="hidden md:inline">{primary.label}</span>
@@ -86,7 +92,7 @@ export function CtaPair({
           aria-label={PHONE_ARIA_LABEL}
           className={cn(
             mobileButtonClass,
-            "btn-appeler",
+            "btn-appeler gap-2",
             onDark ? "btn-appeler--sombre" : "btn-appeler--clair",
             "md:w-auto",
             secondary.className
