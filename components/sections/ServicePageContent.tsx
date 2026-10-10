@@ -187,6 +187,11 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
               </AnimateIn>
             ))}
           </div>
+          {service.offeringsNote && (
+            <div className="mt-10 max-w-prose">
+              <RichParagraph parts={service.offeringsNote} />
+            </div>
+          )}
         </Section>
       )}
 

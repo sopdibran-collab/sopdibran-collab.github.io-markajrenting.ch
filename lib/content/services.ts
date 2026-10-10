@@ -47,6 +47,8 @@ export interface Service {
   offerings: ServiceOffering[];
   /** Phrase d'intro des prestations. Sinon, la phrase du gabarit. */
   offeringsIntro?: string;
+  /** Phrase sous la grille de prestations, avec lien éventuel. */
+  offeringsNote?: InlinePart[];
   /** Sections H2 ajoutées sous les prestations, même gabarit visuel. */
   guides?: GuideSection[];
   /** Liens contextuels ajoutés sous « Découvrir aussi ». */
@@ -671,14 +673,12 @@ export const services: Service[] = [
     projectTypes: ["Appartements", "Bureaux", "Commerces"],
     definition:
       "La rénovation intérieure regroupe l'ensemble des travaux de transformation d'espaces existants : démolition sélective, reprise des supports, redistribution des volumes et finitions complètes. Entreprise familiale basée à Fribourg, pour particuliers et architectes en Suisse romande.",
+    offeringsNote: [
+      "Le détail du lot plâtre est sur la page ",
+      { href: "/services/platrerie", label: "travaux de plâtrerie à Fribourg" },
+      ".",
+    ],
     offerings: [
-      {
-        title: "Plâtrerie",
-        description:
-          "Cloisons, doublages, joints Q3/Q4 et reprises de plâtre — surfaces prêtes à peindre.",
-        href: "/services/platrerie",
-        linkLabel: "Voir la plâtrerie",
-      },
       {
         title: "Peinture",
         description:
@@ -701,6 +701,19 @@ export const services: Service[] = [
         linkLabel: "Voir les faux-plafonds",
       },
     ],
+    guides: [
+      {
+        title: "Rénovation d'appartement",
+        paragraphs: [
+          [
+            "Une rénovation d'appartement porte sur les finitions d'un logement déjà construit : murs, plafonds, isolation et peinture. Elle peut concerner une seule pièce ou l'ensemble de l'appartement. Le périmètre est fixé après la visite, dans un devis par postes de travaux.",
+          ],
+          [
+            "Dans un appartement occupé, les travaux se planifient en général pièce par pièce. Les zones qui restent en usage sont protégées, et le chantier est tenu propre. Le siège est à Fribourg ; les interventions couvrent aussi le reste de la Suisse romande.",
+          ],
+        ],
+      },
+    ],
     process: [
       { step: "01", title: "Diagnostic et devis", description: "Visite du site, compréhension de vos besoins, établissement d'un devis détaillé par postes de travaux." },
       { step: "02", title: "Planification", description: "Établissement du planning, coordination avec les autres corps de métier (électricien, chauffagiste, sanitaire)." },
@@ -718,6 +731,26 @@ export const services: Service[] = [
       { question: "Pouvez-vous rénover un appartement occupé ?", answer: "Oui, en planifiant les travaux pièce par pièce pour limiter les nuisances. Nous protégeons les zones non concernées et maintenons un chantier propre." },
       { question: "Coordonnez-vous les autres artisans ?", answer: "Nous travaillons régulièrement en coordination avec électriciens, plombiers et chauffagistes. Nous pouvons intégrer leur planning au nôtre." },
       { question: "Quel budget pour une rénovation complète ?", answer: "Le coût dépend de la surface, de l'état initial et du niveau de finition. Nous établissons un devis détaillé après visite, sans engagement." },
+      {
+        question: "Que comprend une rénovation d'appartement ?",
+        answer:
+          "Les finitions de second œuvre d'un logement existant : préparation des supports, isolation, faux-plafonds et peinture, selon les pièces et l'état constaté à la visite. Le devis liste les postes retenus. L'électricité, le sanitaire et le chauffage restent des lots distincts.",
+      },
+      {
+        question: "Combien de temps dure une rénovation d'appartement ?",
+        answer:
+          "Aucun délai type n'est publié. La durée dépend de la surface, du nombre de pièces, de l'état des supports et des postes retenus. Elle figure dans le planning, après la visite et l'acceptation du devis.",
+      },
+      {
+        question: "Faut-il une autorisation pour rénover l'intérieur d'un appartement ?",
+        answer:
+          "Cela dépend des travaux et de la commune. Repeindre, reprendre des supports ou poser un faux-plafond à l'intérieur n'exige en général pas d'autorisation. Modifier la distribution des pièces, créer une ouverture ou toucher à la façade peut en demander une. En PPE, la régie indique aussi les travaux qui concernent les parties communes. Cette réponse est générale.",
+      },
+      {
+        question: "Le devis de rénovation est-il gratuit ?",
+        answer:
+          "Oui. Le devis est gratuit et sans engagement. Il est établi après une visite du logement, détaillé par postes de travaux.",
+      },
     ],
   },
   {
