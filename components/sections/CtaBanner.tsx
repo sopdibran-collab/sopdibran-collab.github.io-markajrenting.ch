@@ -41,7 +41,7 @@ export function CtaBanner({
             location="bandeau"
             primary={{
               label: "Demander un devis",
-              href: "/contact#formulaire",
+              href: primaryHref.includes("#") ? primaryHref : `${primaryHref}#formulaire`,
               size: "lg",
               className: "w-full max-w-full md:w-auto",
             }}
