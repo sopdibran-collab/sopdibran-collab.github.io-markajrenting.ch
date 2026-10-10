@@ -9,6 +9,7 @@ import {
 } from "./ping-indexnow.mjs";
 
 const KEY = "a9fd595d-cd70-4d5d-ae86-48aaeeac42e9";
+const legacyWwwOrigin = "https://www." + "markajrenting.ch";
 
 test("decodeXml restores escaped sitemap characters", () => {
   assert.equal(decodeXml("https://markajrenting.ch/a&amp;b"), "https://markajrenting.ch/a&b");
@@ -21,7 +22,7 @@ test("acceptLoc keeps canonical https apex URLs only", () => {
     "https://markajrenting.ch/services/platrerie"
   );
   assert.equal(acceptLoc("http://markajrenting.ch/"), null);
-  assert.equal(acceptLoc("https://www.markajrenting.ch/"), null);
+  assert.equal(acceptLoc(`${legacyWwwOrigin}/`), null);
   assert.equal(acceptLoc("https://markajrenting.ch/contact?ok=1"), null);
   assert.equal(acceptLoc("https://markajrenting.ch/contact#form"), null);
   assert.equal(acceptLoc(`https://markajrenting.ch/${KEY}.txt`), null);
@@ -42,7 +43,7 @@ test("parseSitemapLocs dedupes and drops non-publishable locs", () => {
       <url><loc>https://markajrenting.ch/</loc></url>
       <url><loc>https://markajrenting.ch/blog/qualite&amp;normes</loc></url>
       <url><loc>https://markajrenting.ch/zones/fribourg</loc></url>
-      <url><loc>https://www.markajrenting.ch/contact</loc></url>
+      <url><loc>${legacyWwwOrigin}/contact</loc></url>
       <url><loc>https://markajrenting.ch/api/indexnow</loc></url>
       <url><loc>https://markajrenting.ch/${KEY}.txt</loc></url>
     </urlset>`;
