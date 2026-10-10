@@ -46,7 +46,7 @@ export function Footer() {
             Plâtrerie · Peinture · Rénovation · Suisse romande
           </p>
           <Button
-            href="/contact"
+            href="/contact#formulaire"
             variant="primary"
             tone="dark"
             size="sm"

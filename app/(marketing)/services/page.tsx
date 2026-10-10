@@ -29,7 +29,7 @@ export default function ServicesPage() {
       <Hero
         title="Nos services de finition et rénovation de bâtiment"
         subtitle="Plâtrerie, peinture, faux-plafonds, isolation, rénovation et façades — un interlocuteur unique pour des finitions conformes aux normes suisses, en neuf comme en rénovation."
-        primaryCta={{ label: "Demander un devis", href: "/contact" }}
+        primaryCta={{ label: "Demander un devis", href: "/contact#formulaire" }}
         secondaryCta={{ label: "Voir nos réalisations", href: "/realisations" }}
       />
 
@@ -74,7 +74,7 @@ export default function ServicesPage() {
                   Voir le détail
                 </Link>
                 <Link
-                  href={`/contact?service=${service.slug}`}
+                  href={`/contact?service=${service.slug}#formulaire`}
                   className="inline-flex min-h-11 items-center font-body text-caption font-semibold uppercase tracking-[0.12em] text-markaj-primary underline underline-offset-4 transition-colors hover:text-markaj-primary"
                 >
                   Devis pour ce service

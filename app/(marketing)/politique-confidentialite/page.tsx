@@ -36,10 +36,10 @@ export default function PolitiqueConfidentialitePage() {
             Données collectées
           </h2>
           <p className="mt-3 font-body text-body text-markaj-primary">
-            Via le formulaire de contact, nous collectons les données que vous nous communiquez
-            volontairement : nom, prénom, adresse e-mail, numéro de téléphone et description de votre
-            projet. Des statistiques de visite ne sont collectées que si vous acceptez Google
-            Analytics, comme décrit ci-dessous.
+            Via le formulaire de devis, nous collectons les données que vous nous communiquez
+            volontairement : nom et prénom, un numéro de téléphone et/ou une adresse e-mail, le type
+            de travaux, la commune du chantier et, si vous la rédigez, la description de votre projet.
+            Des données de navigation anonymisées peuvent être collectées à des fins statistiques.
           </p>
 
           <h2 className="mt-10 font-heading text-heading-3 text-markaj-primary">

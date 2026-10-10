@@ -1,8 +1,7 @@
 export type ContactSpamInput = {
-  prenom: string;
   nom: string;
-  societe: string;
   email: string;
+  telephone: string;
   message: string;
 };
 
@@ -122,7 +121,7 @@ function findBlockedLink(value: string): string | null {
 
 export function assessContactSpam(input: ContactSpamInput): SpamVerdict {
   const corpus = normalize(
-    [input.prenom, input.nom, input.societe, input.email, input.message].filter(Boolean).join("\n")
+    [input.nom, input.email, input.telephone, input.message].filter(Boolean).join("\n")
   );
 
   for (const rule of SPAM_PATTERNS) {
@@ -134,7 +133,7 @@ export function assessContactSpam(input: ContactSpamInput): SpamVerdict {
   const link = findBlockedLink(corpus);
   if (link) return { blocked: true, reason: "link", detail: link };
 
-  if (textIsGibberish(input.message) || textIsGibberish(input.societe)) {
+  if (textIsGibberish(input.message) || textIsGibberish(input.nom)) {
     return { blocked: true, reason: "gibberish", detail: "charabia" };
   }
 

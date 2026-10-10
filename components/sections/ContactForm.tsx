@@ -3,6 +3,11 @@
 import { submitContactRequest, type ContactFormState } from "@/app/(marketing)/contact/actions";
 import { Button } from "@/components/ui/Button";
 import { HONEYPOT_FIELDS } from "@/lib/contact/honeypot";
+import {
+  CONTACT_GROUP_MESSAGE,
+  EMAIL_FORMAT_MESSAGE,
+  EMAIL_PATTERN,
+} from "@/lib/contact/quote-request";
 import { resolveTurnstileSiteKey } from "@/lib/contact/turnstile-public";
 import { services } from "@/lib/content/services";
 import { siteConfig } from "@/lib/seo/site-config";
@@ -42,8 +47,8 @@ function SubmitButton() {
   const { pending } = useFormStatus();
 
   return (
-    <Button type="submit" variant="primary" size="lg" disabled={pending} className="w-full sm:w-auto">
-      {pending ? "Envoi en cours…" : "Envoyer la demande"}
+    <Button type="submit" variant="primary" size="lg" disabled={pending} className="w-full">
+      {pending ? "Envoi en cours…" : "Demander mon devis gratuit"}
     </Button>
   );
 }
@@ -56,7 +61,11 @@ interface ContactFormProps {
 export function ContactForm({ defaultService = "", formToken }: ContactFormProps) {
   const [state, formAction] = useFormState(submitContactRequest, initialState);
   const [securityError, setSecurityError] = useState("");
+  const [contactError, setContactError] = useState("");
+  const [emailError, setEmailError] = useState("");
   const widgetRef = useRef<HTMLDivElement>(null);
+  const phoneRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (!siteKey) return;
@@ -106,7 +115,48 @@ export function ContactForm({ defaultService = "", formToken }: ContactFormProps
     };
   }, []);
 
+  useEffect(() => {
+    if (state.status !== "error" || !state.message) return;
+    if (state.field === "contact") {
+      setContactError(state.message);
+      setEmailError("");
+      phoneRef.current?.focus();
+      return;
+    }
+    if (state.field === "email") {
+      setEmailError(state.message);
+      setContactError("");
+      emailRef.current?.focus();
+    }
+  }, [state]);
+
+  function clearGroupIfReachable(telephone: string, email: string) {
+    if (telephone.trim() || email.trim()) setContactError("");
+  }
+
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    const telephone = phoneRef.current?.value.trim() ?? "";
+    const email = emailRef.current?.value.trim() ?? "";
+
+    if (!telephone && !email) {
+      event.preventDefault();
+      setEmailError("");
+      setContactError(CONTACT_GROUP_MESSAGE);
+      phoneRef.current?.focus();
+      return;
+    }
+
+    if (email && !EMAIL_PATTERN.test(email)) {
+      event.preventDefault();
+      setContactError("");
+      setEmailError(EMAIL_FORMAT_MESSAGE);
+      emailRef.current?.focus();
+      return;
+    }
+
+    setContactError("");
+    setEmailError("");
+
     if (!siteKey) return;
 
     const token = new FormData(event.currentTarget).get("cf-turnstile-response");
@@ -119,6 +169,13 @@ export function ContactForm({ defaultService = "", formToken }: ContactFormProps
     setSecurityError(
       `La vérification de sécurité n'a pas abouti. Rechargez la page ou appelez-nous au ${siteConfig.contact.phoneDisplay}.`
     );
+  }
+
+  function handleEmailInvalid(event: React.FormEvent<HTMLInputElement>) {
+    event.preventDefault();
+    setContactError("");
+    setEmailError(EMAIL_FORMAT_MESSAGE);
+    event.currentTarget.focus();
   }
 
   if (state.status === "success") {
@@ -139,20 +196,32 @@ export function ContactForm({ defaultService = "", formToken }: ContactFormProps
     );
   }
 
-  const errorMessage = securityError || (state.status === "error" ? state.message : "");
+  const formError =
+    securityError ||
+    (state.status === "error" && state.field !== "contact" && state.field !== "email"
+      ? state.message
+      : "");
+  const nomError = state.status === "error" && state.field === "nom" ? state.message : "";
+  const serviceError = state.status === "error" && state.field === "service" ? state.message : "";
+  const communeError = state.status === "error" && state.field === "commune" ? state.message : "";
+  const phoneDescribedBy = contactError ? "contact-joignable" : undefined;
+  const emailDescribedBy = [contactError ? "contact-joignable" : null, emailError ? "email-erreur" : null]
+    .filter(Boolean)
+    .join(" ") || undefined;
 
   return (
-    <form className="relative space-y-5" action={formAction} onSubmit={handleSubmit}>
+    <form
+      id="formulaire"
+      className="relative scroll-mt-[69px] space-y-5 sm:scroll-mt-[81px]"
+      action={formAction}
+      onSubmit={handleSubmit}
+    >
       {siteKey ? (
         <Script
           src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
           strategy="afterInteractive"
         />
       ) : null}
-
-      <p className="font-body text-body-sm text-markaj-primary">
-        Devis gratuit · Sans engagement · Réponse sous 5 jours ouvrés
-      </p>
 
       <div className="mk-hp" aria-hidden="true">
         {HONEYPOT_FIELDS.map((field) => (
@@ -174,67 +243,100 @@ export function ContactForm({ defaultService = "", formToken }: ContactFormProps
 
       <input type="hidden" name="form_token" value={formToken} />
 
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div>
-          <label htmlFor="prenom" className="mb-1.5 block font-body text-body-sm font-medium text-markaj-primary">
-            Prénom *
-          </label>
-          <input type="text" id="prenom" name="prenom" required autoComplete="given-name" className="form-input" />
-        </div>
-        <div>
-          <label htmlFor="nom" className="mb-1.5 block font-body text-body-sm font-medium text-markaj-primary">
-            Nom *
-          </label>
-          <input type="text" id="nom" name="nom" required autoComplete="family-name" className="form-input" />
-        </div>
-      </div>
-
       <div>
-        <label htmlFor="societe" className="mb-1.5 block font-body text-body-sm font-medium text-markaj-primary">
-          Société <span className="font-normal text-markaj-primary">(optionnel)</span>
+        <label htmlFor="nom" className="mb-1.5 block font-body text-body-sm font-medium text-markaj-primary">
+          Nom et prénom
         </label>
         <input
           type="text"
-          id="societe"
-          name="societe"
-          autoComplete="organization"
+          id="nom"
+          name="nom"
+          required
+          autoComplete="name"
+          aria-invalid={nomError ? true : undefined}
+          aria-describedby={nomError ? "nom-erreur" : undefined}
           className="form-input"
-          placeholder="Régie, entreprise, bureau d'architectes…"
         />
+        {nomError ? (
+          <p id="nom-erreur" role="alert" className="mt-1.5 font-body text-body-sm text-red-800">
+            {nomError}
+          </p>
+        ) : null}
       </div>
 
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div>
-          <label htmlFor="email" className="mb-1.5 block font-body text-body-sm font-medium text-markaj-primary">
-            E-mail *
-          </label>
-          <input type="email" id="email" name="email" required autoComplete="email" className="form-input" />
+      <fieldset className="min-w-0 border-0 p-0">
+        <legend className="mb-1.5 font-body text-body-sm text-markaj-primary">
+          <span className="font-medium">Comment vous joindre ?</span> Indiquez au moins un téléphone ou un e-mail.
+        </legend>
+        <div className="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label htmlFor="telephone" className="mb-1.5 block font-body text-body-sm font-medium text-markaj-primary">
+              Téléphone
+            </label>
+            <input
+              ref={phoneRef}
+              type="tel"
+              id="telephone"
+              name="telephone"
+              inputMode="tel"
+              autoComplete="tel"
+              aria-invalid={contactError ? true : undefined}
+              aria-describedby={phoneDescribedBy}
+              className="form-input"
+              placeholder="079 000 00 00"
+              onChange={(event) => clearGroupIfReachable(event.target.value, emailRef.current?.value ?? "")}
+            />
+          </div>
+          <div>
+            <label htmlFor="email" className="mb-1.5 block font-body text-body-sm font-medium text-markaj-primary">
+              E-mail
+            </label>
+            <input
+              ref={emailRef}
+              type="email"
+              id="email"
+              name="email"
+              inputMode="email"
+              autoComplete="email"
+              aria-invalid={contactError || emailError ? true : undefined}
+              aria-describedby={emailDescribedBy}
+              className="form-input"
+              onInvalid={handleEmailInvalid}
+              onChange={(event) => {
+                clearGroupIfReachable(phoneRef.current?.value ?? "", event.target.value);
+                const email = event.target.value.trim();
+                if (!email || EMAIL_PATTERN.test(email)) setEmailError("");
+              }}
+            />
+            {emailError ? (
+              <p id="email-erreur" role="alert" className="mt-1.5 font-body text-body-sm text-red-800">
+                {emailError}
+              </p>
+            ) : null}
+          </div>
         </div>
-        <div>
-          <label htmlFor="telephone" className="mb-1.5 block font-body text-body-sm font-medium text-markaj-primary">
-            Téléphone
-          </label>
-          <input
-            type="tel"
-            id="telephone"
-            name="telephone"
-            autoComplete="tel"
-            className="form-input"
-            placeholder="079 000 00 00"
-          />
-          <p className="mt-1.5 font-body text-caption text-markaj-primary">
-            Recommandé pour un rappel plus rapide
+        {contactError ? (
+          <p id="contact-joignable" role="alert" className="mt-2 font-body text-body-sm text-red-800">
+            {contactError}
           </p>
-        </div>
-      </div>
+        ) : null}
+      </fieldset>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="service" className="mb-1.5 block font-body text-body-sm font-medium text-markaj-primary">
             Type de travaux
           </label>
-          <select id="service" name="service" className="form-input" defaultValue={defaultService}>
-            <option value="">Sélectionnez un service</option>
+          <select
+            id="service"
+            name="service"
+            required
+            className="form-input"
+            defaultValue={defaultService}
+            aria-invalid={serviceError ? true : undefined}
+            aria-describedby={serviceError ? "service-erreur" : undefined}
+          >
+            <option value="">Choisissez un type de travaux</option>
             {services.map((service) => (
               <option key={service.slug} value={service.slug}>
                 {service.title}
@@ -242,72 +344,68 @@ export function ContactForm({ defaultService = "", formToken }: ContactFormProps
             ))}
             <option value="autre">Autre</option>
           </select>
+          {serviceError ? (
+            <p id="service-erreur" role="alert" className="mt-1.5 font-body text-body-sm text-red-800">
+              {serviceError}
+            </p>
+          ) : null}
         </div>
         <div>
           <label htmlFor="commune" className="mb-1.5 block font-body text-body-sm font-medium text-markaj-primary">
-            Commune / chantier <span className="font-normal text-markaj-primary">(optionnel)</span>
+            Commune du chantier
           </label>
           <input
             type="text"
             id="commune"
             name="commune"
+            required
             autoComplete="address-level2"
+            aria-invalid={communeError ? true : undefined}
+            aria-describedby={communeError ? "commune-erreur" : undefined}
             className="form-input"
-            placeholder="Votre commune"
+            placeholder="Par ex. Fribourg, Bulle"
           />
+          {communeError ? (
+            <p id="commune-erreur" role="alert" className="mt-1.5 font-body text-body-sm text-red-800">
+              {communeError}
+            </p>
+          ) : null}
         </div>
       </div>
 
       <div>
         <label htmlFor="message" className="mb-1.5 block font-body text-body-sm font-medium text-markaj-primary">
-          Décrivez votre projet *
+          Votre projet <span className="font-normal">(facultatif)</span>
         </label>
         <textarea
           id="message"
           name="message"
-          rows={5}
-          required
-          className="form-input"
-          placeholder="Surface approximative, type de local, délais souhaités, contraintes particulières…"
+          rows={3}
+          className="form-input !h-24 !min-h-24 resize-y"
+          placeholder="Surface, délais, contraintes…"
         />
-        <p className="mt-1.5 font-body text-caption text-markaj-primary">
-          Plus votre description est précise, plus notre devis sera pertinent.
-        </p>
-      </div>
-
-      <div className="flex items-start gap-3">
-        <span className="relative inline-flex h-11 w-11 shrink-0 items-center justify-center">
-          <input
-            type="checkbox"
-            id="consentement"
-            name="consentement"
-            required
-            className="peer absolute inset-0 z-10 h-full w-full cursor-pointer opacity-0"
-          />
-          <span
-            aria-hidden="true"
-            className="mk-check pointer-events-none h-6 w-6 border-2 border-markaj-primary bg-markaj-white"
-          />
-        </span>
-        <label htmlFor="consentement" className="font-body text-body-sm text-markaj-primary">
-          J&apos;accepte que mes données soient utilisées pour traiter ma demande de
-          devis, conformément à la{" "}
-          <Link href="/politique-confidentialite" className="text-markaj-primary underline underline-offset-4">
-            politique de confidentialité
-          </Link>
-          . *
-        </label>
       </div>
 
       <div ref={widgetRef} />
 
-      {errorMessage ? (
+      {formError ? (
         <p role="alert" className="border border-red-200 bg-red-50 p-4 font-body text-body-sm text-red-800">
-          {errorMessage}
+          {formError}
         </p>
       ) : null}
 
-      <SubmitButton />
+      <div>
+        <p className="mb-3 font-body text-sm text-markaj-primary">
+          Vos données servent uniquement à traiter votre demande.{" "}
+          <Link href="/politique-confidentialite" className="text-markaj-primary underline underline-offset-4">
+            Politique de confidentialité
+          </Link>
+        </p>
+        <SubmitButton />
+        <p className="mt-3 font-body text-sm text-markaj-primary">
+          Sans engagement · réponse sous 5 jours ouvrés
+        </p>
+      </div>
     </form>
   );
 }
