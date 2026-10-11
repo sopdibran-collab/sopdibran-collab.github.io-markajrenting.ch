@@ -254,11 +254,12 @@
   }
 
   /*
-   * Paire mobile (< md) : « Appeler » est un contour de 1,5 px.
+   * Sous 640 px : « Appeler » est un contour de 1,5 px.
    * Pas de coins en équerre, pas d'ombre — l'ombre reste sur le devis seul.
-   * Le desktop conserve btn-cote.
+   * À partir de 640 px, le bouton reprend btn-cote et le numéro.
+   * /contact (btn-appeler--until-md) garde ce contour jusqu'à 768 px.
    */
-  @media (max-width: 767px) {
+  @media (max-width: 639px) {
     .btn-cote.btn-appeler {
       border-width: 1.5px;
       background-color: transparent;
@@ -286,6 +287,39 @@
     }
 
     .btn-cote.btn-appeler.btn-appeler--sombre:hover {
+      background-color: theme("colors.markaj.white");
+      color: theme("colors.markaj.primary");
+    }
+  }
+
+  @media (min-width: 640px) and (max-width: 767px) {
+    .btn-cote.btn-appeler.btn-appeler--until-md {
+      border-width: 1.5px;
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    .btn-cote.btn-appeler.btn-appeler--until-md::before,
+    .btn-cote.btn-appeler.btn-appeler--until-md::after {
+      content: none;
+    }
+
+    .btn-cote.btn-appeler.btn-appeler--until-md.btn-appeler--clair {
+      border-color: theme("colors.markaj.primary");
+      color: theme("colors.markaj.primary");
+    }
+
+    .btn-cote.btn-appeler.btn-appeler--until-md.btn-appeler--clair:hover {
+      background-color: theme("colors.markaj.primary");
+      color: theme("colors.markaj.white");
+    }
+
+    .btn-cote.btn-appeler.btn-appeler--until-md.btn-appeler--sombre {
+      border-color: theme("colors.markaj.white");
+      color: theme("colors.markaj.white");
+    }
+
+    .btn-cote.btn-appeler.btn-appeler--until-md.btn-appeler--sombre:hover {
       background-color: theme("colors.markaj.white");
       color: theme("colors.markaj.primary");
     }
