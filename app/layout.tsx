@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Source_Sans_3 } from "next/font/google";
 import Script from "next/script";
+import { siteConfig } from "@/lib/seo/site-config";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -16,7 +17,7 @@ const sourceSans = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://markajrenting.ch"),
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: "Markaj Renting SA",
     template: "%s | Markaj Renting SA",

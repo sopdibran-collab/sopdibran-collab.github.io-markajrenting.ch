@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteConfig } from "@/lib/seo/site-config";
 
 interface PageMetadataOptions {
   title: string;
@@ -10,7 +11,7 @@ interface PageMetadataOptions {
 }
 
 const OG_IMAGE = {
-  url: "/og-default.jpg",
+  url: `${siteConfig.url}/og-default.jpg`,
   width: 1200,
   height: 630,
   alt: "Markaj Renting SA — second œuvre en Suisse romande",
@@ -24,9 +25,7 @@ export function createPageMetadata({
   absoluteTitle = false,
 }: PageMetadataOptions): Metadata {
   const pageUrl =
-    path === "/" || path === ""
-      ? "https://markajrenting.ch"
-      : `https://markajrenting.ch${path}`;
+    path === "/" || path === "" ? siteConfig.url : `${siteConfig.url}${path}`;
   const fullTitle = absoluteTitle ? title : `${title} | Markaj Renting SA`;
 
   return {
