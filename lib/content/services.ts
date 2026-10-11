@@ -42,6 +42,8 @@ export interface Service {
   audience: string[];
   /** Types de projets / usages */
   projectTypes: string[];
+  /** Texte du lien de la bande d'accueil. Sinon, « En savoir plus ». */
+  homeLinkLabel?: string;
   definition: string;
   /** Prestations GBP imbriquées sous la page parent (pas d'URL séparée). */
   offerings: ServiceOffering[];
@@ -76,6 +78,7 @@ export const services: Service[] = [
     benefit: "Surfaces planes, joints soignés et finitions Q3/Q4 prêtes à peindre.",
     audience: ["Particuliers", "Architectes", "Entreprises", "Régies"],
     projectTypes: ["Neuf", "Rénovation", "Cloisons & doublages"],
+    homeLinkLabel: "Plâtrier à Fribourg",
     definition:
       "La plâtrerie regroupe l'ensemble des travaux de pose de plaques de plâtre (BA13), de montage de cloisons, de doublages muraux et de préparation des supports avant peinture. C'est la base d'une finition intérieure de qualité.",
     offerings: [

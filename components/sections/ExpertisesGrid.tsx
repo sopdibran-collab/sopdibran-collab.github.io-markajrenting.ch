@@ -55,7 +55,7 @@ export function ExpertisesGrid() {
                     href={`/services/${service.slug}`}
                     className="inline-flex min-h-11 items-center transition-colors hover:text-markaj-primary-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-markaj-primary"
                   >
-                    {service.slug === "platrerie" ? "Plâtrier à Fribourg" : service.title}
+                    {service.title}
                   </Link>
                 </h3>
                 <p className="mt-3 font-body text-body text-markaj-primary">{service.benefit}</p>
@@ -63,7 +63,7 @@ export function ExpertisesGrid() {
                   {service.projectTypes.join(" · ")}
                 </p>
                 <Link href={`/services/${service.slug}`} className="btn-niveau mt-4">
-                  En savoir plus
+                  {service.homeLinkLabel ?? "En savoir plus"}
                 </Link>
               </div>
             </div>
