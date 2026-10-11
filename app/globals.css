@@ -46,6 +46,23 @@
     @apply overflow-x-clip bg-markaj-white font-body text-body text-markaj-primary antialiased;
   }
 
+  /*
+   * Liens dans les paragraphes : le soulignement est toujours visible.
+   * Le filet reste discret, puis prend la couleur de marque au survol.
+   * Boutons, navigation, header et footer ne sont pas des liens de paragraphe.
+   */
+  main p a:not(.btn-bloc):not(.btn-cote):not(.btn-niveau) {
+    @apply underline underline-offset-4 decoration-markaj-primary/40;
+  }
+
+  main p a:not(.btn-bloc):not(.btn-cote):not(.btn-niveau):hover {
+    @apply decoration-markaj-primary;
+  }
+
+  main p a:not(.btn-bloc):not(.btn-cote):not(.btn-niveau):focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-markaj-primary;
+  }
+
   /* Intrinsic media must not widen the page (SVG artboards, large photos) */
   img,
   svg,
