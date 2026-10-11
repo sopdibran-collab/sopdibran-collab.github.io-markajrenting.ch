@@ -42,11 +42,15 @@ export interface Service {
   audience: string[];
   /** Types de projets / usages */
   projectTypes: string[];
+  /** Texte du lien de la bande d'accueil. Sinon, « En savoir plus ». */
+  homeLinkLabel?: string;
   definition: string;
   /** Prestations GBP imbriquées sous la page parent (pas d'URL séparée). */
   offerings: ServiceOffering[];
   /** Phrase d'intro des prestations. Sinon, la phrase du gabarit. */
   offeringsIntro?: string;
+  /** Phrase sous la grille de prestations, avec lien éventuel. */
+  offeringsNote?: InlinePart[];
   /** Sections H2 ajoutées sous les prestations, même gabarit visuel. */
   guides?: GuideSection[];
   /** Liens contextuels ajoutés sous « Découvrir aussi ». */
@@ -74,6 +78,7 @@ export const services: Service[] = [
     benefit: "Surfaces planes, joints soignés et finitions Q3/Q4 prêtes à peindre.",
     audience: ["Particuliers", "Architectes", "Entreprises", "Régies"],
     projectTypes: ["Neuf", "Rénovation", "Cloisons & doublages"],
+    homeLinkLabel: "Plâtrier à Fribourg",
     definition:
       "La plâtrerie regroupe l'ensemble des travaux de pose de plaques de plâtre (BA13), de montage de cloisons, de doublages muraux et de préparation des supports avant peinture. C'est la base d'une finition intérieure de qualité.",
     offerings: [
@@ -671,14 +676,12 @@ export const services: Service[] = [
     projectTypes: ["Appartements", "Bureaux", "Commerces"],
     definition:
       "La rénovation intérieure regroupe l'ensemble des travaux de transformation d'espaces existants : démolition sélective, reprise des supports, redistribution des volumes et finitions complètes. Entreprise familiale basée à Fribourg, pour particuliers et architectes en Suisse romande.",
+    offeringsNote: [
+      "Pour la plâtrerie, tout est détaillé sur la page ",
+      { href: "/services/platrerie", label: "travaux de plâtrerie à Fribourg" },
+      ".",
+    ],
     offerings: [
-      {
-        title: "Plâtrerie",
-        description:
-          "Cloisons, doublages, joints Q3/Q4 et reprises de plâtre — surfaces prêtes à peindre.",
-        href: "/services/platrerie",
-        linkLabel: "Voir la plâtrerie",
-      },
       {
         title: "Peinture",
         description:
@@ -701,6 +704,19 @@ export const services: Service[] = [
         linkLabel: "Voir les faux-plafonds",
       },
     ],
+    guides: [
+      {
+        title: "Rénovation d'appartement",
+        paragraphs: [
+          [
+            "Une rénovation d'appartement porte sur les finitions d'un logement déjà construit : murs, plafonds, isolation et peinture. Elle peut concerner une seule pièce ou tout l'appartement. Nous fixons le périmètre après la visite, dans un devis détaillé par postes de travaux.",
+          ],
+          [
+            "Dans un appartement occupé, nous travaillons en général pièce par pièce. Les zones que vous continuez d'utiliser sont protégées, et le chantier reste propre. Notre siège est à Fribourg et nous intervenons aussi dans le reste de la Suisse romande.",
+          ],
+        ],
+      },
+    ],
     process: [
       { step: "01", title: "Diagnostic et devis", description: "Visite du site, compréhension de vos besoins, établissement d'un devis détaillé par postes de travaux." },
       { step: "02", title: "Planification", description: "Établissement du planning, coordination avec les autres corps de métier (électricien, chauffagiste, sanitaire)." },
@@ -718,6 +734,26 @@ export const services: Service[] = [
       { question: "Pouvez-vous rénover un appartement occupé ?", answer: "Oui, en planifiant les travaux pièce par pièce pour limiter les nuisances. Nous protégeons les zones non concernées et maintenons un chantier propre." },
       { question: "Coordonnez-vous les autres artisans ?", answer: "Nous travaillons régulièrement en coordination avec électriciens, plombiers et chauffagistes. Nous pouvons intégrer leur planning au nôtre." },
       { question: "Quel budget pour une rénovation complète ?", answer: "Le coût dépend de la surface, de l'état initial et du niveau de finition. Nous établissons un devis détaillé après visite, sans engagement." },
+      {
+        question: "Que comprend une rénovation d'appartement ?",
+        answer:
+          "Les finitions de second œuvre d'un logement existant : préparation des supports, isolation, faux-plafonds et peinture, selon les pièces et l'état constaté à la visite. Le devis liste les postes retenus. L'électricité, le sanitaire et le chauffage sont traités à part.",
+      },
+      {
+        question: "Combien de temps dure une rénovation d'appartement ?",
+        answer:
+          "Cela dépend de la surface, du nombre de pièces, de l'état des supports et des postes retenus. Nous vous donnons la durée dans le planning, après la visite et l'acceptation du devis.",
+      },
+      {
+        question: "Faut-il une autorisation pour rénover l'intérieur d'un appartement ?",
+        answer:
+          "Cela dépend des travaux et de la commune. Repeindre, reprendre des supports ou poser un faux-plafond à l'intérieur ne demande en général pas d'autorisation. Modifier la distribution des pièces, créer une ouverture ou toucher à la façade peut en demander une. En PPE, la régie indique aussi quels travaux touchent les parties communes. Il s'agit d'une indication générale.",
+      },
+      {
+        question: "Le devis de rénovation est-il gratuit ?",
+        answer:
+          "Oui, gratuit et sans engagement. Nous l'établissons après une visite du logement, détaillé par postes de travaux.",
+      },
     ],
   },
   {

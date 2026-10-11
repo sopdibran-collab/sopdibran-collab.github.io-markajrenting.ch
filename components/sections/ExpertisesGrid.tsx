@@ -63,7 +63,7 @@ export function ExpertisesGrid() {
                   {service.projectTypes.join(" · ")}
                 </p>
                 <Link href={`/services/${service.slug}`} className="btn-niveau mt-4">
-                  En savoir plus
+                  {service.homeLinkLabel ?? "En savoir plus"}
                 </Link>
               </div>
             </div>

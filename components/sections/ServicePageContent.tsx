@@ -165,7 +165,13 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
                   : `Détail de nos prestations ${deLabel}, pour particuliers, régies et architectes.`)}
             </p>
           </AnimateIn>
-          <div className="grid gap-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12">
+          <div
+            className={
+              service.offerings.length === 3
+                ? "grid gap-10 lg:grid-cols-3 sm:gap-x-8 sm:gap-y-12"
+                : "grid gap-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12"
+            }
+          >
             {service.offerings.map((offering, index) => (
               <AnimateIn key={offering.title} delay={index * 50}>
                 <article>
@@ -187,6 +193,11 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
               </AnimateIn>
             ))}
           </div>
+          {service.offeringsNote && (
+            <div className="mt-10 max-w-prose">
+              <RichParagraph parts={service.offeringsNote} />
+            </div>
+          )}
         </Section>
       )}
 
