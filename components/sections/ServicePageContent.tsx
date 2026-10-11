@@ -33,7 +33,8 @@ function withDe(noun: string) {
   return /^[aeiouàâäéèêëîïôöùûühœ]/i.test(noun) ? `d'${noun}` : `de ${noun}`;
 }
 
-const inlineLinkClass = "underline-offset-4 hover:underline";
+const inlineLinkClass =
+  "underline underline-offset-4 decoration-markaj-primary/40 hover:decoration-markaj-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-markaj-primary";
 
 function RichParagraph({ parts }: { parts: InlinePart[] }) {
   return (
@@ -278,7 +279,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
           Couverture :{" "}
           {zones.map((z) => z.villes[0]).join(", ")}
           {" — "}
-          <Link href="/zones" className="underline-offset-4 hover:underline">
+          <Link href="/zones" className={inlineLinkClass}>
             toutes les zones d&apos;intervention
           </Link>
           .
