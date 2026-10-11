@@ -674,7 +674,7 @@ export const services: Service[] = [
     definition:
       "La rénovation intérieure regroupe l'ensemble des travaux de transformation d'espaces existants : démolition sélective, reprise des supports, redistribution des volumes et finitions complètes. Entreprise familiale basée à Fribourg, pour particuliers et architectes en Suisse romande.",
     offeringsNote: [
-      "Le détail du lot plâtre est sur la page ",
+      "Pour la plâtrerie, tout est détaillé sur la page ",
       { href: "/services/platrerie", label: "travaux de plâtrerie à Fribourg" },
       ".",
     ],
@@ -706,10 +706,10 @@ export const services: Service[] = [
         title: "Rénovation d'appartement",
         paragraphs: [
           [
-            "Une rénovation d'appartement porte sur les finitions d'un logement déjà construit : murs, plafonds, isolation et peinture. Elle peut concerner une seule pièce ou l'ensemble de l'appartement. Le périmètre est fixé après la visite, dans un devis par postes de travaux.",
+            "Une rénovation d'appartement porte sur les finitions d'un logement déjà construit : murs, plafonds, isolation et peinture. Elle peut concerner une seule pièce ou tout l'appartement. Nous fixons le périmètre après la visite, dans un devis détaillé par postes de travaux.",
           ],
           [
-            "Dans un appartement occupé, les travaux se planifient en général pièce par pièce. Les zones qui restent en usage sont protégées, et le chantier est tenu propre. Le siège est à Fribourg ; les interventions couvrent aussi le reste de la Suisse romande.",
+            "Dans un appartement occupé, nous travaillons en général pièce par pièce. Les zones que vous continuez d'utiliser sont protégées, et le chantier reste propre. Notre siège est à Fribourg et nous intervenons aussi dans le reste de la Suisse romande.",
           ],
         ],
       },
@@ -734,22 +734,22 @@ export const services: Service[] = [
       {
         question: "Que comprend une rénovation d'appartement ?",
         answer:
-          "Les finitions de second œuvre d'un logement existant : préparation des supports, isolation, faux-plafonds et peinture, selon les pièces et l'état constaté à la visite. Le devis liste les postes retenus. L'électricité, le sanitaire et le chauffage restent des lots distincts.",
+          "Les finitions de second œuvre d'un logement existant : préparation des supports, isolation, faux-plafonds et peinture, selon les pièces et l'état constaté à la visite. Le devis liste les postes retenus. L'électricité, le sanitaire et le chauffage sont traités à part.",
       },
       {
         question: "Combien de temps dure une rénovation d'appartement ?",
         answer:
-          "Aucun délai type n'est publié. La durée dépend de la surface, du nombre de pièces, de l'état des supports et des postes retenus. Elle figure dans le planning, après la visite et l'acceptation du devis.",
+          "Cela dépend de la surface, du nombre de pièces, de l'état des supports et des postes retenus. Nous vous donnons la durée dans le planning, après la visite et l'acceptation du devis.",
       },
       {
         question: "Faut-il une autorisation pour rénover l'intérieur d'un appartement ?",
         answer:
-          "Cela dépend des travaux et de la commune. Repeindre, reprendre des supports ou poser un faux-plafond à l'intérieur n'exige en général pas d'autorisation. Modifier la distribution des pièces, créer une ouverture ou toucher à la façade peut en demander une. En PPE, la régie indique aussi les travaux qui concernent les parties communes. Cette réponse est générale.",
+          "Cela dépend des travaux et de la commune. Repeindre, reprendre des supports ou poser un faux-plafond à l'intérieur ne demande en général pas d'autorisation. Modifier la distribution des pièces, créer une ouverture ou toucher à la façade peut en demander une. En PPE, la régie indique aussi quels travaux touchent les parties communes. Il s'agit d'une indication générale.",
       },
       {
         question: "Le devis de rénovation est-il gratuit ?",
         answer:
-          "Oui. Le devis est gratuit et sans engagement. Il est établi après une visite du logement, détaillé par postes de travaux.",
+          "Oui, gratuit et sans engagement. Nous l'établissons après une visite du logement, détaillé par postes de travaux.",
       },
     ],
   },
