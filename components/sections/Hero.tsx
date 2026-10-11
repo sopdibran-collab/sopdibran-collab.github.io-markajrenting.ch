@@ -53,20 +53,18 @@ export function Hero({
     <CtaPair
       className="mt-8 sm:mt-10"
       tone={onPhoto ? "dark" : "light"}
-      phoneLine
-      preserveMobileStack={onPhoto}
       location={analyticsLocation}
       primary={{
         label: primaryCta!.label,
         href: primaryCta!.href,
         size: "lg",
-        className: "w-full max-w-full md:w-auto",
+        className: "w-full max-w-full sm:w-auto",
       }}
       secondary={{
         label: secondaryCta!.label,
         href: secondaryCta!.href,
         size: "md",
-        className: "w-full max-w-full min-h-11 md:w-auto md:min-h-12 md:px-8",
+        className: "w-full max-w-full min-h-11 sm:w-auto sm:min-h-12 sm:px-8",
       }}
     />
   ) : (

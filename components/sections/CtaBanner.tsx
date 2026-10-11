@@ -34,22 +34,21 @@ export function CtaBanner({
           </div>
           <CtaPair
             className="w-full min-w-0 shrink-0 md:w-auto"
-            rowClassName="md:gap-8"
+            rowClassName="sm:gap-8"
             tone="dark"
             secondaryToneDark
-            phoneLine
             location="bandeau"
             primary={{
               label: "Devis gratuit",
               href: primaryHref.includes("#") ? primaryHref : `${primaryHref}#formulaire`,
               size: "lg",
-              className: "w-full max-w-full md:w-auto",
+              className: "w-full max-w-full sm:w-auto",
             }}
             secondary={{
               label: `Appeler ${siteConfig.contact.phoneDisplay}`,
               href: phoneHref,
               size: "lg",
-              className: "w-full max-w-full md:w-auto",
+              className: "w-full max-w-full sm:w-auto",
             }}
           />
         </div>
