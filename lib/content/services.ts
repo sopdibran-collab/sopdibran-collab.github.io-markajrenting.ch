@@ -204,7 +204,7 @@ export const services: Service[] = [
     process: [
       { step: "01", title: "Visite et prise de mesures", description: "Analyse du chantier, relevé précis et définition du cahier des charges avec le client ou l'architecte." },
       { step: "02", title: "Préparation des supports", description: "Protection des zones adjacentes, vérification de l'hygrométrie et préparation des ossatures métalliques ou bois." },
-      { step: "03", title: "Pose et montage", description: "Installation des rails, montants, plaques BA13 et traitement des joints selon les normes SIA." },
+      { step: "03", title: "Pose et montage", description: "Installation des rails, montants, plaques BA13 et traitement des joints." },
       { step: "04", title: "Finitions", description: "Ponçage, ragréage et finition Q3 ou Q4 selon le projet — surfaces prêtes à recevoir peinture ou papier peint." },
     ],
     materials: [
@@ -426,7 +426,7 @@ export const services: Service[] = [
     audience: ["Architectes", "Entreprises", "Bureaux"],
     projectTypes: ["Tertiaire", "Commerces", "Logements"],
     definition:
-      "Un faux-plafond est une structure suspendue sous le plafond porteur, permettant de dissimuler les réseaux techniques, d'améliorer l'acoustique et de créer des ambiances lumineuses architecturales.",
+      "Un faux-plafond, ou plafond suspendu, est une structure fixée sous le plafond porteur. Il cache les réseaux techniques, peut améliorer l'acoustique de la pièce et permet d'intégrer l'éclairage.",
     offerings: [
       {
         title: "Pose de faux-plafonds",
@@ -436,7 +436,7 @@ export const services: Service[] = [
       {
         title: "Plafonds acoustiques",
         description:
-          "Plafonds acoustiques (fibre de bois, absorbants) pour bureaux, circulations et locaux exigeants. Confort sonore + finition soignée.",
+          "Nous posons des faux plafonds acoustiques en plaques perforées ou en dalles absorbantes, avec de la laine minérale au-dessus si le projet le prévoit. Ils réduisent l'écho dans les bureaux, les salles de réunion et les couloirs.",
       },
       {
         title: "Intégration éclairage / réseaux",
@@ -444,23 +444,43 @@ export const services: Service[] = [
           "Faux-plafonds avec intégration éclairage, CVC et réseaux : accès technique, planning tenu, finition propre. Pour architectes et entreprises en Suisse romande.",
       },
     ],
+    guides: [
+      {
+        title: "Faux plafond acoustique : écho ou bruit des voisins ?",
+        paragraphs: [
+          [
+            "Un faux plafond acoustique agit d'abord sur l'écho dans la pièce : les voix résonnent moins dans un bureau ou une salle de réunion. À lui seul, il ne traite pas le bruit qui vient d'un autre logement.",
+          ],
+          [
+            "Contre les bruits aériens et les bruits d'impact venus de l'étage du dessus, un plafond suspendu désolidarisé de la dalle, avec de la laine minérale dans le vide, peut atténuer le bruit. Le résultat reste en général moins bon qu'un traitement du sol, là où le bruit est produit. La norme SIA 181 fixe les exigences de protection contre le bruit dans les bâtiments. Plus de détails sur la page ",
+            { href: "/services/isolation", label: "isolation phonique" },
+            ".",
+          ],
+        ],
+      },
+    ],
     process: [
       { step: "01", title: "Étude technique", description: "Analyse des contraintes (hauteur sous plafond, réseaux, normes incendie) et choix du système adapté." },
       { step: "02", title: "Ossature", description: "Pose des suspentes, profilés périphériques et structure porteuse selon le plan d'exécution." },
       { step: "03", title: "Pose des éléments", description: "Installation des plaques, dalles ou membranes. Découpes pour luminaires et bouches de ventilation." },
-      { step: "04", title: "Finitions et réception", description: "Traitement des joints, peinture si nécessaire, contrôle acoustique et remise du dossier de chantier." },
+      { step: "04", title: "Finitions et réception", description: "Traitement des joints, peinture si nécessaire, contrôle de la pose et remise du dossier de chantier." },
     ],
     materials: [
       "Plaques de plâtre perforées (acoustique)",
       "Dalles minérales et métalliques",
-      "Profilés et suspentes certifiés",
+      "Profilés et suspentes",
       "Bandes et enduits de finition",
       "Systèmes coupe-feu selon exigences",
     ],
     faq: [
       { question: "Quel faux-plafond pour une bonne acoustique ?", answer: "Les plaques perforées avec matelas acoustique ou les dalles minérales à haute absorption sont recommandées pour les bureaux, salles de réunion et espaces publics." },
       { question: "Peut-on intégrer des spots LED ?", answer: "Oui. Nous prévoyons les découpes et renforts nécessaires lors de la conception, en coordination avec l'électricien." },
-      { question: "Quelle hauteur minimale sous plafond ?", answer: "Comptez en général 10 à 15 cm de perte de hauteur selon le système choisi et l'épaisseur des isolants acoustiques." },
+      { question: "Quelle hauteur minimale sous plafond ?", answer: "La perte de hauteur dépend du système et de l'épaisseur de l'isolant. Nous l'indiquons dans le devis, après la visite." },
+      {
+        question: "Un faux-plafond isole-t-il du bruit du voisin du dessus ?",
+        answer:
+          "En partie. Un plafond suspendu désolidarisé, avec de la laine minérale, atténue les bruits aériens et une partie des bruits d'impact. Pour les bruits de pas, le plus efficace reste de traiter le sol du logement d'où vient le bruit.",
+      },
     ],
   },
   {
@@ -536,7 +556,9 @@ export const services: Service[] = [
             "La norme SIA 181 distingue les bruits aériens (voix, télévision, musique) et les bruits d'impact (pas, chutes d'objets). Un isolant qui garde la chaleur n'arrête pas le bruit pour autant.",
           ],
           [
-            "Contre les voix, la piste habituelle est un doublage désolidarisé du mur : ossature indépendante, isolant souple, joints soignés. Une plaque collée directement sur le mur change peu la situation. Les pas venus de l'étage du dessus se traitent d'abord au sol, dans le logement d'où vient le bruit. Un plafond suspendu peut atténuer, avec une perte de hauteur, mais le gain est souvent plus faible.",
+            "Contre les voix, la piste habituelle est un doublage désolidarisé du mur : ossature indépendante, isolant souple, joints soignés. Une plaque collée directement sur le mur change peu la situation. Les pas venus de l'étage du dessus se traitent d'abord au sol, dans le logement d'où vient le bruit. Un ",
+            { href: "/services/faux-plafonds", label: "plafond suspendu" },
+            " peut atténuer, avec une perte de hauteur, mais le gain est souvent plus faible.",
           ],
           [
             "Le guide ",
@@ -544,7 +566,7 @@ export const services: Service[] = [
               href: "/blog/isolation-thermique-vs-phonique",
               label: "isolation thermique ou phonique",
             },
-            " sépare les deux problèmes. Quand le dossier le prévoit, la mise en œuvre des cloisons et doublages suit la SIA 181, comme indiqué sur la page ",
+            " sépare les deux problèmes. La norme SIA 181 fixe les exigences de protection contre le bruit. Nous les résumons sur la page ",
             {
               href: "/qualite-normes",
               label: "normes SIA, SIA 181 et Minergie",
