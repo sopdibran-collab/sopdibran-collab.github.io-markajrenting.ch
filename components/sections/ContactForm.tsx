@@ -212,7 +212,7 @@ export function ContactForm({ defaultService = "", formToken }: ContactFormProps
   return (
     <form
       id="formulaire"
-      className="relative scroll-mt-[69px] space-y-5 sm:scroll-mt-[81px]"
+      className="relative scroll-mt-[85px] space-y-5 sm:scroll-mt-[97px]"
       action={formAction}
       onSubmit={handleSubmit}
     >

@@ -28,7 +28,7 @@ export default function HomePage() {
         addressLine={`${siteConfig.address.street}, ${siteConfig.address.postalCode} ${siteConfig.address.city}`}
         title="Plâtrerie, peinture et rénovation à Fribourg"
         subtitle="Créée en 2018 à Fribourg, 20 collaborateurs. Travaux soignés en neuf et rénovation en Suisse romande — devis gratuit sous 5 jours."
-        primaryCta={{ label: "Demander un devis", href: "/contact#formulaire" }}
+        primaryCta={{ label: "Devis gratuit", href: "/contact#formulaire" }}
         secondaryCta={{
           label: `Appeler ${siteConfig.contact.phoneDisplay}`,
           href: phoneHref,
