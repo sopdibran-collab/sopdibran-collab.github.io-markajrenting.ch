@@ -115,7 +115,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
             : undefined
         }
         primaryCta={{
-          label: `Devis ${service.shortTitle.toLowerCase()}`,
+          label: "Devis gratuit",
           href: `/contact?service=${service.slug}#formulaire`,
         }}
         secondaryCta={{

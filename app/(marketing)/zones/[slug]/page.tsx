@@ -55,7 +55,7 @@ export default function ZoneDetailPage({ params }: PageProps) {
       <Hero
         title={zone.h1}
         subtitle={zone.intro}
-        primaryCta={{ label: "Demander un devis", href: "/contact#formulaire" }}
+        primaryCta={{ label: "Devis gratuit", href: "/contact#formulaire" }}
         secondaryCta={{
           label: `Appeler ${siteConfig.contact.phoneDisplay}`,
           href: `tel:${siteConfig.contact.phone.replace(/\s/g, "")}`,
@@ -91,9 +91,9 @@ export default function ZoneDetailPage({ params }: PageProps) {
                 href="/contact#formulaire"
                 className="font-medium text-markaj-primary underline underline-offset-4 hover:text-markaj-primary-light"
               >
-                Demander un devis
+                Devis gratuit
               </Link>{" "}
-              gratuit après visite.
+              après visite.
             </p>
           )}
         </AnimateIn>
@@ -203,7 +203,7 @@ export default function ZoneDetailPage({ params }: PageProps) {
                   href="/contact?service=peinture#formulaire"
                   className="inline-flex min-h-11 items-center font-body text-caption font-semibold uppercase tracking-[0.12em] text-markaj-primary underline underline-offset-4 hover:text-markaj-primary"
                 >
-                  Devis peinture
+                  Devis gratuit
                 </Link>
               </div>
             </div>
@@ -227,7 +227,7 @@ export default function ZoneDetailPage({ params }: PageProps) {
                   href="/contact?service=faux-plafonds#formulaire"
                   className="inline-flex min-h-11 items-center font-body text-caption font-semibold uppercase tracking-[0.12em] text-markaj-primary underline underline-offset-4 hover:text-markaj-primary"
                 >
-                  Devis plafonds
+                  Devis gratuit
                 </Link>
               </div>
             </div>
