@@ -85,10 +85,9 @@ export default function FribourgZonePage() {
             serviceType: [
               "Plâtrerie",
               "Peinture",
-              "Isolation",
               "Faux-plafonds",
+              "Isolation",
               "Rénovation",
-              "Façades",
             ],
           },
         ]}
@@ -126,7 +125,7 @@ export default function FribourgZonePage() {
       <Section background="sand">
         <SectionHeading
           subtitle="Rayon"
-          title="Sept districts desservis depuis le siège"
+          title="Les sept districts que nous desservons"
         />
         <div className="max-w-prose space-y-4">
           {fribourgDistrictsIntro.map((paragraph) => (
@@ -151,7 +150,7 @@ export default function FribourgZonePage() {
       </Section>
 
       <Section background="white">
-        <SectionHeading subtitle="FAQ" title="Questions fréquentes — Fribourg" />
+        <SectionHeading subtitle="FAQ" title="Questions fréquentes à Fribourg" />
         <div className="max-w-3xl divide-y divide-markaj-mineral/15 border-y border-markaj-mineral/15">
           {fribourgFaq.map((item, index) => (
             <details key={item.question} open={index === 0} className="group">
@@ -171,7 +170,7 @@ export default function FribourgZonePage() {
 
       <CtaBanner
         title={`Un projet ${zone.locative} ?`}
-        description="Décrivez votre chantier : devis gratuit, réponse sous 5 jours ouvrés."
+        description="Décrivez-nous votre projet, nous établissons un devis gratuit."
       />
     </>
   );
