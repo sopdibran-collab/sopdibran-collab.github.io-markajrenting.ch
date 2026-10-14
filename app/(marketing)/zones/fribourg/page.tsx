@@ -1,5 +1,7 @@
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { CtaBanner } from "@/components/sections/CtaBanner";
+import { CtaPair } from "@/components/sections/CtaPair";
+import { FribourgDistrictList } from "@/components/sections/FribourgDistrictList";
 import { Hero } from "@/components/sections/Hero";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Section } from "@/components/ui/Section";
@@ -8,10 +10,14 @@ import {
   fribourgAreaServed,
   fribourgDistricts,
   fribourgDistrictsIntro,
+  fribourgDistrictSources,
   fribourgFaq,
+  fribourgFaqSources,
   fribourgHeroSubtitle,
   fribourgSections,
+  fribourgToc,
   textOf,
+  type SourceLink,
   type TextPart,
 } from "@/lib/content/fribourg-zone";
 import { getZoneBySlug } from "@/lib/content/zones";
@@ -22,6 +28,16 @@ import { notFound } from "next/navigation";
 import { Fragment } from "react";
 
 const zone = getZoneBySlug("fribourg");
+
+/** Même dégagement que #formulaire : le header sticky ne couvre pas l'ancre. */
+const ANCHOR = "scroll-mt-[85px] sm:scroll-mt-[97px]";
+
+/**
+ * Même filet que les liens de paragraphe (PR #42) : souligné, pas en gras.
+ * Le sélecteur global ne couvre que `p a` ; les listes et le sommaire le reprennent ici.
+ */
+const LINK =
+  "text-markaj-primary underline underline-offset-4 decoration-markaj-primary/40 hover:decoration-markaj-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-markaj-primary";
 
 export function generateMetadata() {
   if (!zone) return {};
@@ -44,7 +60,7 @@ function Rich({ parts, className }: { parts: TextPart[]; className?: string }) {
             href={part.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium text-markaj-primary underline underline-offset-4 hover:text-markaj-primary-light"
+            className={LINK}
           >
             {part.label}
           </a>
@@ -54,8 +70,26 @@ function Rich({ parts, className }: { parts: TextPart[]; className?: string }) {
   );
 }
 
+function Sources({ links }: { links: SourceLink[] }) {
+  return (
+    <p className="mt-8 font-body text-caption text-markaj-primary">
+      Sources :{" "}
+      {links.map((link, index) => (
+        <Fragment key={link.href}>
+          {index > 0 ? " · " : null}
+          <a href={link.href} target="_blank" rel="noopener noreferrer" className={LINK}>
+            {link.label}
+          </a>
+        </Fragment>
+      ))}
+    </p>
+  );
+}
+
 export default function FribourgZonePage() {
   if (!zone) notFound();
+
+  const phoneHref = `tel:${siteConfig.contact.phone.replace(/\s/g, "")}`;
 
   return (
     <>
@@ -107,49 +141,132 @@ export default function FribourgZonePage() {
         primaryCta={{ label: "Devis gratuit", href: "/contact#formulaire" }}
         secondaryCta={{
           label: `Appeler ${siteConfig.contact.phoneDisplay}`,
-          href: `tel:${siteConfig.contact.phone.replace(/\s/g, "")}`,
+          href: phoneHref,
         }}
       />
 
+      <nav
+        aria-label="Sur cette page"
+        className="mx-auto max-w-content px-4 pb-2 pt-8 sm:px-6 lg:px-8"
+      >
+        <ul className="flex flex-wrap gap-x-6 gap-y-1">
+          {fribourgToc.map((item) => (
+            <li key={item.href}>
+              <a href={item.href} className={`inline-flex min-h-11 items-center font-body text-body ${LINK}`}>
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
       {fribourgSections.map((section) => (
-        <Section key={section.id} background={section.background}>
-          <SectionHeading subtitle={section.subtitle} title={section.title} />
-          <div className="max-w-prose space-y-4">
-            {section.paragraphs.map((paragraph) => (
-              <Rich key={textOf(paragraph).slice(0, 48)} parts={paragraph} />
-            ))}
-          </div>
-        </Section>
+        <Fragment key={section.id}>
+          <Section id={section.id} background={section.background} className={ANCHOR}>
+            <SectionHeading subtitle={section.subtitle} title={section.title} />
+            <div className="max-w-prose">
+              <Rich parts={section.lead} />
+              <ul className="mt-6 list-disc space-y-3 pl-5 font-body text-body text-markaj-primary/90 marker:text-markaj-primary">
+                {section.bullets.map((bullet) => (
+                  <li key={textOf(bullet).slice(0, 48)}>
+                    {bullet.map((part, index) =>
+                      typeof part === "string" ? (
+                        <Fragment key={index}>{part}</Fragment>
+                      ) : (
+                        <a
+                          key={index}
+                          href={part.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={LINK}
+                        >
+                          {part.label}
+                        </a>
+                      ),
+                    )}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-6 space-y-4">
+                {(section.figure ? section.details.slice(0, -1) : section.details).map((paragraph) => (
+                  <Rich key={textOf(paragraph).slice(0, 48)} parts={paragraph} />
+                ))}
+              </div>
+              {section.figure && (
+                <figure className="mt-8">
+                  <p className="font-heading text-display text-markaj-primary">{section.figure.value}</p>
+                  <figcaption className="mt-3">
+                    <p className="font-body text-caption text-markaj-primary">{section.figure.caption}</p>
+                    <p className="mt-1 font-body text-caption text-markaj-primary">
+                      Source :{" "}
+                      <a
+                        href={section.figure.source.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={LINK}
+                      >
+                        {section.figure.source.label}
+                      </a>{" "}
+                      {section.figure.sourceNote}
+                    </p>
+                  </figcaption>
+                </figure>
+              )}
+              {section.figure && (
+                <div className="mt-6 space-y-4">
+                  {section.details.slice(-1).map((paragraph) => (
+                    <Rich key={textOf(paragraph).slice(0, 48)} parts={paragraph} />
+                  ))}
+                </div>
+              )}
+              <Sources links={section.sources} />
+            </div>
+          </Section>
+
+          {section.id === "amiante" && (
+            <Section background="primary" className="py-8 sm:py-10 md:py-12">
+              <div className="flex min-w-0 flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
+                <p className="max-w-xl font-body text-body text-markaj-white">
+                  Un doute sur l&apos;amiante ou le permis ? Parlons-en avant votre devis.
+                </p>
+                <CtaPair
+                  className="w-full min-w-0 shrink-0 sm:w-auto"
+                  tone="dark"
+                  secondaryToneDark
+                  location="milieu"
+                  primary={{
+                    label: "Devis gratuit",
+                    href: "/contact#formulaire",
+                    size: "md",
+                    className: "w-full max-w-full sm:w-auto",
+                  }}
+                  secondary={{
+                    label: `Appeler ${siteConfig.contact.phoneDisplay}`,
+                    href: phoneHref,
+                    size: "md",
+                    className: "w-full max-w-full sm:w-auto",
+                  }}
+                />
+              </div>
+            </Section>
+          )}
+        </Fragment>
       ))}
 
-      <Section background="sand">
-        <SectionHeading
-          subtitle="Rayon"
-          title="Les sept districts que nous desservons"
-        />
+      <Section id="districts" background="sand" className={ANCHOR}>
+        <SectionHeading subtitle="Rayon" title="Les sept districts que nous desservons" />
         <div className="max-w-prose space-y-4">
           {fribourgDistrictsIntro.map((paragraph) => (
             <Rich key={textOf(paragraph).slice(0, 48)} parts={paragraph} />
           ))}
         </div>
-        <ul className="mt-8 grid max-w-3xl gap-4 sm:grid-cols-2">
-          {fribourgDistricts.map((entry) => (
-            <li key={entry.district} className="border border-markaj-primary/15 bg-markaj-white p-5">
-              <h3 className="font-heading text-heading-4 text-markaj-primary">
-                {entry.district}
-              </h3>
-              <p className="mt-2 font-body text-body-sm text-markaj-primary/80">
-                Chef-lieu : {entry.chefLieu}
-              </p>
-              <p className="mt-2 font-body text-body text-markaj-primary/90">
-                {entry.communes.join(", ")}
-              </p>
-            </li>
-          ))}
-        </ul>
+        <FribourgDistrictList districts={fribourgDistricts} />
+        <div className="max-w-prose">
+          <Sources links={fribourgDistrictSources} />
+        </div>
       </Section>
 
-      <Section background="white">
+      <Section id="faq" background="white" className={ANCHOR}>
         <SectionHeading subtitle="FAQ" title="Questions fréquentes à Fribourg" />
         <div className="max-w-3xl divide-y divide-markaj-mineral/15 border-y border-markaj-mineral/15">
           {fribourgFaq.map((item, index) => (
@@ -165,6 +282,9 @@ export default function FribourgZonePage() {
               </div>
             </details>
           ))}
+        </div>
+        <div className="max-w-3xl">
+          <Sources links={fribourgFaqSources} />
         </div>
       </Section>
 
