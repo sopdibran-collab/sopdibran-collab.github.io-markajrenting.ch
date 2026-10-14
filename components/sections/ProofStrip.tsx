@@ -14,7 +14,7 @@ const proofs = [
     icon: "shield" as const,
   },
   {
-    title: "Fribourg siège",
+    title: "Basés à Fribourg",
     detail: "Ancrés en Suisse romande",
     icon: "pin" as const,
   },
