@@ -227,7 +227,7 @@ export default function FribourgZonePage() {
             <Section background="primary" className="py-8 sm:py-10 md:py-12">
               <div className="flex min-w-0 flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
                 <p className="max-w-xl font-body text-body text-markaj-white">
-                  Un doute sur l&apos;amiante ou le permis ? Parlons-en avant votre devis.
+                  Une question sur l&apos;amiante ou le permis avant vos travaux ? Parlons-en au moment du devis.
                 </p>
                 <CtaPair
                   className="w-full min-w-0 shrink-0 sm:w-auto"
