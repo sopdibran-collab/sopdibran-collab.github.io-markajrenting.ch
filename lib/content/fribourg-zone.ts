@@ -258,7 +258,7 @@ export const fribourgFaq: FribourgFaq[] = [
   {
     question: "Une annonce à la commune suffit-elle pour transformer un logement ?",
     answer: [
-      "Non. L'annonce du ReLATeC concerne notamment les installations solaires dispensées de permis, déposée auprès de la commune trente jours avant les travaux (",
+      "Non. L'annonce du ReLATeC concerne notamment les installations solaires dispensées de permis. Elle se fait auprès de la commune trente jours avant les travaux (",
       { href: relat87, label: "art. 87 al. 3 ReLATeC" },
       "). Une transformation intérieure suit la dispense, la procédure simplifiée ou la procédure ordinaire, selon les articles ci-dessus. Les demandes de permis et les demandes préalables se déposent dans ",
       { href: permis, label: "FRIAC" },
