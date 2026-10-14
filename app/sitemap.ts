@@ -46,6 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   zoneSlugs.forEach((slug) => {
     routes.push({
       url: `${baseUrl}/zones/${slug}`,
+      ...(slug === "fribourg" ? { lastModified: "2026-10-14" } : {}),
       changeFrequency: "monthly",
       priority: 0.8,
     });
