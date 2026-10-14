@@ -2,6 +2,8 @@ import type { FaqItem } from "@/lib/content/services";
 
 export interface Zone {
   slug: string;
+  /** Dernière modification du contenu (YYYY-MM-DD). Repli du lastmod. */
+  updated: string;
   name: string;
   /** Nom court pour titres (ex. « Fribourg ») */
   shortName: string;
@@ -27,6 +29,7 @@ export interface Zone {
 export const zones: Zone[] = [
   {
     slug: "fribourg",
+    updated: "2026-10-08",
     name: "Canton de Fribourg",
     shortName: "Fribourg",
     h1: "Plâtrerie et peinture à Fribourg",
@@ -65,6 +68,7 @@ export const zones: Zone[] = [
   },
   {
     slug: "vaud",
+    updated: "2026-10-08",
     name: "Canton de Vaud",
     shortName: "Vaud",
     h1: "Plâtrerie et peinture à Lausanne et dans le canton de Vaud",
@@ -103,6 +107,7 @@ export const zones: Zone[] = [
   },
   {
     slug: "geneve",
+    updated: "2026-10-08",
     name: "Canton de Genève",
     shortName: "Genève",
     h1: "Plâtrerie (gypserie) et peinture à Genève",
@@ -141,6 +146,7 @@ export const zones: Zone[] = [
   },
   {
     slug: "neuchatel",
+    updated: "2026-10-08",
     name: "Canton de Neuchâtel",
     shortName: "Neuchâtel",
     h1: "Plâtrerie et peinture à Neuchâtel",
@@ -179,6 +185,7 @@ export const zones: Zone[] = [
   },
   {
     slug: "valais",
+    updated: "2026-10-08",
     name: "Canton du Valais",
     shortName: "Valais",
     h1: "Plâtrerie (gypserie) et peinture en Valais",
@@ -217,6 +224,7 @@ export const zones: Zone[] = [
   },
   {
     slug: "jura",
+    updated: "2026-10-08",
     name: "Canton du Jura",
     shortName: "Jura",
     h1: "Plâtrerie et peinture dans le Jura",
@@ -255,6 +263,7 @@ export const zones: Zone[] = [
   },
   {
     slug: "berne",
+    updated: "2026-10-08",
     name: "Canton de Berne (partie francophone)",
     shortName: "Jura bernois",
     h1: "Plâtrerie et peinture dans le Jura bernois",

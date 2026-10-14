@@ -1,5 +1,8 @@
 import type { FaqItem } from "./services";
 
+/** Dernière modification de la FAQ générale (YYYY-MM-DD). Repli du lastmod. */
+export const faqUpdated = "2026-08-11";
+
 export const generalFaq: FaqItem[] = [
   {
     question: "Comment obtenir un devis ?",
