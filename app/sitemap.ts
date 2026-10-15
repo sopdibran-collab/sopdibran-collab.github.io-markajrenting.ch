@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { blogPosts } from "@/lib/content/blog";
 import { faqUpdated } from "@/lib/content/faq";
+import { fribourgUpdated } from "@/lib/content/fribourg-zone";
 import { pageFileUpdated, type PageSourceFile } from "@/lib/content/pages";
 import { realisations } from "@/lib/content/realisations";
 import { services } from "@/lib/content/services";
@@ -48,6 +49,17 @@ function serviceVisual(slug: string): LastmodSource {
     entry: { kind: "key", name: slug },
     fallback: visual.updated,
   };
+}
+
+function zoneSources(slug: string): LastmodSource[] {
+  if (slug === "fribourg") {
+    return [
+      page("app/(marketing)/zones/fribourg/page.tsx"),
+      zoneEntry(slug),
+      { file: "lib/content/fribourg-zone.ts", fallback: fribourgUpdated },
+    ];
+  }
+  return [page("app/(marketing)/zones/[slug]/page.tsx"), zoneEntry(slug)];
 }
 
 function zoneEntry(slug: string): LastmodSource {
@@ -204,7 +216,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         path: `/zones/${zone.slug}`,
         changeFrequency: "monthly",
         priority: 0.8,
-        sources: [page("app/(marketing)/zones/[slug]/page.tsx"), zoneEntry(zone.slug)],
+        sources: zoneSources(zone.slug),
       }),
     ),
     ...blogPosts.map((post) =>

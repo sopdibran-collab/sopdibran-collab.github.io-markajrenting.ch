@@ -12,7 +12,7 @@ export function ZonesTeaser() {
         <SectionHeading
           subtitle="Zones d'intervention"
           title="Actifs dans toute la Suisse romande"
-          intro="Basés à Fribourg, nous intervenons dans les sept cantons francophones — pour les particuliers comme pour les professionnels."
+          intro="Nous intervenons dans les sept cantons francophones — pour les particuliers comme pour les professionnels."
           className="mb-6 sm:mb-8"
         />
       </AnimateIn>

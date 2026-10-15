@@ -31,7 +31,7 @@ export default function ZonesPage() {
 
       <Hero
         title="Zones d'intervention en Suisse romande"
-        subtitle="Basés à Fribourg, nous intervenons dans tous les cantons francophones de Suisse : Fribourg, Vaud, Genève, Neuchâtel, Valais, Jura et la partie francophone du canton de Berne."
+        subtitle="Nous intervenons dans tous les cantons francophones de Suisse : Fribourg, Vaud, Genève, Neuchâtel, Valais, Jura et la partie francophone du canton de Berne."
       />
 
       <Section background="white">

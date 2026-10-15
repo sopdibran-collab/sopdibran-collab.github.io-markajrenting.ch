@@ -6,6 +6,7 @@ import {
   committerCalendarDate,
   findEntryRange,
   lastmodFor,
+  isMaintainedDateLine,
   latestTrustedDate,
   parseBlame,
   preferGitDate,
@@ -75,6 +76,12 @@ test("le blame ignore le bord du clone, le non-commité et la ligne updated", ()
   assert.equal(latestTrustedDate(lines, 1, 2), null);
   assert.equal(latestTrustedDate(lines, 1, 4), lines.get(3)?.date);
   assert.match(lines.get(3)?.date ?? "", /^\d{4}-\d{2}-\d{2}$/);
+});
+
+test("une constante de repli n'est pas une modification de contenu", () => {
+  assert.equal(isMaintainedDateLine('    updated: "2026-10-14",'), true);
+  assert.equal(isMaintainedDateLine('export const fribourgUpdated = "2026-10-14";'), true);
+  assert.equal(isMaintainedDateLine("Siège de Markaj Renting SA."), false);
 });
 
 test("la date git ne remplace le repli que si elle est plus récente", () => {

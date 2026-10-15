@@ -148,11 +148,17 @@ export function latestTrustedDate(
   for (let number = start; number <= end; number += 1) {
     const line = lines.get(number);
     if (!line || line.boundary || line.uncommitted) continue;
-    if (line.text.trim().startsWith("updated:")) continue;
+    if (isMaintainedDateLine(line.text)) continue;
     if (!ISO_DATE.test(line.date)) continue;
     if (!best || line.date > best) best = line.date;
   }
   return best;
+}
+
+/** Ligne de date maintenue : l'ajouter ne doit pas décaler le lastmod. */
+export function isMaintainedDateLine(text: string): boolean {
+  const trimmed = text.trim();
+  return trimmed.startsWith("updated:") || /Updated\s*=\s*"\d{4}-\d{2}-\d{2}"/.test(trimmed);
 }
 
 export function preferGitDate(gitDate: string | null, fallback: string): string {
