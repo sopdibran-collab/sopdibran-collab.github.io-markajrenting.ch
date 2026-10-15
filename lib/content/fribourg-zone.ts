@@ -96,13 +96,17 @@ export const fribourgSections: FribourgSection[] = [
       "Construire, reconstruire, transformer, rénover ou démolir : ces travaux demandent une autorisation. Pour une transformation intérieure, une simple annonce ne remplace pas le permis.",
     ],
     bullets: [
-      ["Hors structure porteuse, la procédure est simplifiée."],
-      ["Le préfet délivre le permis : structure ou élément digne de protection."],
+      ["Si les travaux ne touchent pas la structure porteuse, la procédure est simplifiée."],
       [
-        "Entretien, réparations ou rénovation de façade et de toiture : pas de permis sans changement sensible d'aspect.",
+        "Si les travaux peuvent toucher la structure porteuse ou un élément digne de protection, le préfet délivre le permis.",
       ],
-      ["Solaire dispensé de permis : annonce à la commune trente jours avant."],
-      ["Demande préalable facultative, sauf si le règlement communal l'impose."],
+      [
+        "Entretien, réparations, rénovation de façade ou de toiture : pas de permis si l'aspect ne change pas sensiblement.",
+      ],
+      [
+        "Une installation solaire dispensée de permis s'annonce à la commune trente jours avant les travaux.",
+      ],
+      ["La demande préalable est facultative, sauf si le règlement communal l'impose."],
     ],
     details: [
       [
@@ -133,10 +137,12 @@ export const fribourgSections: FribourgSection[] = [
     bullets: [
       ["S'il a été construit à partir de 1993, ce diagnostic n'est pas nécessaire."],
       [
-        "Il est réalisé par un diagnostiqueur spécialisé, inscrit sur la liste du FACH.",
+        "Il est réalisé par un diagnostiqueur inscrit sur la liste du FACH.",
       ],
       ["Si de l'amiante est découvert en cours de travaux, le chantier s'arrête."],
-      ["Beaucoup de fibres : désamiantage réservé aux entreprises reconnues par la Suva."],
+      [
+        "Les travaux qui libèrent beaucoup de fibres sont réservés aux entreprises de désamiantage reconnues par la Suva.",
+      ],
     ],
     details: [],
     sources: [
@@ -161,10 +167,10 @@ export const fribourgSections: FribourgSection[] = [
         "Le cœur médiéval longe la Sarine et les falaises de molasse, avec ses ponts.",
       ],
       [
-        "Le Schönberg et Beaumont, moins le Jura : lotissements ouverts, souvent hauts.",
+        "Le Schönberg, Beaumont et, dans une moindre mesure, le Jura sont des lotissements ouverts, souvent hauts.",
       ],
       [
-        "La plupart datent de 1960 à 1975, certains pieds d'immeubles de 1960 à 1980.",
+        "La plupart de leurs ensembles datent de 1960 à 1975, et certains pieds d'immeubles de 1960 à 1980.",
       ],
     ],
     details: [],
@@ -194,7 +200,7 @@ export const fribourgDistrictsIntro: TextPart[][] = [
     "Le canton compte sept districts. Chacun a une préfecture, compétente pour les permis de construire de la procédure ordinaire.",
   ],
   [
-    "Nous intervenons au chef-lieu de chaque district et, près du siège, en Sarine et en Singine, pas sur tout le district. Charmey et Jaun (Bellegarde), plus loin en Gruyère, n'y figurent pas. Une commune citée est desservie, pas une référence de chantier.",
+    "Nous intervenons au chef-lieu de chaque district et dans plusieurs communes de la Sarine et de la Singine, sans couvrir des districts entiers. Charmey et Jaun (Bellegarde), plus loin en Gruyère, n'y figurent pas. Une commune citée est desservie, pas une référence de chantier.",
   ],
 ];
 
@@ -260,7 +266,7 @@ export const fribourgFaq: FribourgFaq[] = [
   {
     question: "Faut-il un permis pour des travaux intérieurs à Fribourg ?",
     answer: [
-      "Cela dépend des travaux. Pas de permis pour l'entretien, les réparations ou la rénovation de façade et de toiture, si l'aspect ne change pas sensiblement. Le conseil communal décide la procédure simplifiée si la structure porteuse n'est pas touchée. Le préfet délivre le permis si elle peut toucher la structure ou un élément digne de protection.",
+      "Si la structure porteuse n'est pas touchée, c'est la procédure simplifiée, et le conseil communal décide. Si les travaux peuvent toucher la structure ou un élément digne de protection, le préfet délivre le permis.",
     ],
   },
   {
