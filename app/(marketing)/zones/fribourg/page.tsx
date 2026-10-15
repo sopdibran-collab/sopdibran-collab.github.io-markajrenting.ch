@@ -70,6 +70,17 @@ function Rich({ parts, className }: { parts: TextPart[]; className?: string }) {
   );
 }
 
+function Paragraphs({ paragraphs }: { paragraphs: TextPart[][] }) {
+  if (paragraphs.length === 0) return null;
+  return (
+    <div className="mt-6 space-y-4">
+      {paragraphs.map((paragraph) => (
+        <Rich key={textOf(paragraph).slice(0, 48)} parts={paragraph} />
+      ))}
+    </div>
+  );
+}
+
 function Sources({ links }: { links: SourceLink[] }) {
   return (
     <p className="mt-8 font-body text-caption text-markaj-primary">
@@ -187,11 +198,9 @@ export default function FribourgZonePage() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-6 space-y-4">
-                {(section.figure ? section.details.slice(0, -1) : section.details).map((paragraph) => (
-                  <Rich key={textOf(paragraph).slice(0, 48)} parts={paragraph} />
-                ))}
-              </div>
+              <Paragraphs
+                paragraphs={section.figure ? section.details.slice(0, -1) : section.details}
+              />
               {section.figure && (
                 <figure className="mt-8">
                   <p className="font-heading text-display text-markaj-primary">{section.figure.value}</p>
@@ -213,11 +222,7 @@ export default function FribourgZonePage() {
                 </figure>
               )}
               {section.figure && (
-                <div className="mt-6 space-y-4">
-                  {section.details.slice(-1).map((paragraph) => (
-                    <Rich key={textOf(paragraph).slice(0, 48)} parts={paragraph} />
-                  ))}
-                </div>
+                <Paragraphs paragraphs={section.details.slice(-1)} />
               )}
               <Sources links={section.sources} />
             </div>
