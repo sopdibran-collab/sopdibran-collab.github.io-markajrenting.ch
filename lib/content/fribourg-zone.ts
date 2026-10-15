@@ -1,12 +1,12 @@
 /**
  * Contenu public de /zones/fribourg uniquement.
- * Les phrases sont celles déjà relues : la page les réordonne, elle n'ajoute aucun fait.
- * Les références d'articles restent dans le texte, sans lien. Les liens de source
- * sont regroupés en bas de section.
+ * Les phrases sont celles déjà relues : la page les raccourcit, elle n'ajoute aucun fait.
+ * Les références d'articles ne figurent pas dans le corps : elles sont regroupées
+ * dans la ligne Sources de chaque section.
  */
 
 /** Dernière modification du contenu Fribourg (YYYY-MM-DD). Repli du lastmod. */
-export const fribourgUpdated = "2026-10-14";
+export const fribourgUpdated = "2026-10-15";
 
 export type TextPart = string | { href: string; label: string };
 
@@ -93,40 +93,26 @@ export const fribourgSections: FribourgSection[] = [
     subtitle: "Procédure",
     title: "Permis, dispense et annonce pour des travaux intérieurs",
     lead: [
-      "Construire, reconstruire, transformer, rénover ou démolir : ces travaux demandent une autorisation (art. 135 LATeC). Pour une transformation intérieure, une simple annonce ne remplace pas le permis.",
+      "Construire, reconstruire, transformer, rénover ou démolir : ces travaux demandent une autorisation. Pour une transformation intérieure, une simple annonce ne remplace pas le permis.",
     ],
     bullets: [
+      ["Si les travaux ne touchent pas la structure porteuse, la procédure est simplifiée."],
       [
-        "Une transformation intérieure qui ne touche pas à la stabilité de la structure porteuse suit la procédure simplifiée (art. 85 al. 1 let. b1 ReLATeC).",
+        "Si les travaux peuvent toucher la structure porteuse ou un élément digne de protection, le préfet délivre le permis.",
       ],
       [
-        "Si elle peut toucher cette structure ou des éléments dignes de protection, la procédure est ordinaire (art. 84 al. 1 let. b ReLATeC). Le permis est alors délivré par le préfet ou la préfète du district (",
-        { href: prefectures, label: "préfectures du canton" },
-        ").",
+        "Entretien, réparations, rénovation de façade ou de toiture : pas de permis si l'aspect ne change pas sensiblement.",
       ],
       [
-        "L'entretien, les réparations et la rénovation de façades ou de toitures n'exigent pas de permis, tant qu'ils ne changent pas sensiblement l'aspect du bâtiment (art. 87 al. 1 let. a ReLATeC).",
+        "Une installation solaire dispensée de permis s'annonce à la commune trente jours avant les travaux.",
       ],
-      [
-        "L'annonce sert notamment aux installations solaires dispensées de permis : elle se fait auprès de la commune trente jours avant le début des travaux (art. 87 al. 3 ReLATeC).",
-      ],
-      [
-        "La demande préalable est facultative. Le règlement communal d'urbanisme peut toutefois l'imposer, par exemple pour un objet protégé ou dans un périmètre de protection.",
-      ],
+      ["La demande préalable est facultative, sauf si le règlement communal l'impose."],
     ],
     details: [
       [
-        "Pour la procédure ordinaire, c'est le préfet qui décide. Pour la procédure simplifiée, c'est le conseil communal (art. 139 al. 1 LATeC). Toutes les demandes, y compris les demandes préalables, se déposent dans ",
+        "Le conseil communal décide de la procédure simplifiée et, en cas de doute, demande l'avis du préfet. Toutes les demandes, y compris les demandes préalables, se déposent dans ",
         { href: permis, label: "FRIAC" },
         ".",
-      ],
-      [
-        "Si vous avez un doute sur la procédure simplifiée, le conseil communal demande l'avis du préfet (art. 85 al. 2 ReLATeC).",
-      ],
-      [
-        "En ville de Fribourg, l'",
-        { href: ville, label: "inspectorat des constructions" },
-        " propose une fiche de requête pour l'entretien des bâtiments en procédure allégée. Depuis 2018, les requérants ont l'obligation de déposer leurs dossiers de demande de permis dans FRIAC. Vérifiez d'abord si votre bien est protégé, ou s'il se trouve dans une zone ou un périmètre de protection.",
       ],
     ],
     sources: [
@@ -146,34 +132,19 @@ export const fribourgSections: FribourgSection[] = [
     subtitle: "Substances dangereuses",
     title: "Diagnostic amiante avant une rénovation",
     lead: [
-      "Votre bâtiment date d'avant 1993 ? Avant de le rénover, vous devez mandater un bureau d'ingénieur spécialisé pour un diagnostic des substances dangereuses.",
+      "L'aide cantonale demande un diagnostic pour un bâtiment d'avant 1993.",
     ],
     bullets: [
       ["S'il a été construit à partir de 1993, ce diagnostic n'est pas nécessaire."],
       [
-        "Selon l'aide cantonale, l'amiante doit être suspecté dans tout bâtiment construit avant 1993.",
+        "Il est réalisé par un diagnostiqueur inscrit sur la liste du FACH.",
       ],
+      ["Si de l'amiante est découvert en cours de travaux, le chantier s'arrête."],
       [
-        "Le droit fédéral impose aussi un diagnostic avant travaux lorsque des déchets risquent de contenir des polluants dangereux pour l'environnement ou la santé (OLED, art. 16).",
-      ],
-      [
-        "Si l'amiante est suspecté, l'employeur identifie et évalue les dangers avant de commencer (OTConst, art. 3 al. 2).",
-      ],
-      [
-        "Si de l'amiante est découvert en cours de travaux, le chantier s'arrête et le maître d'ouvrage, ou son représentant, est informé (art. 32 al. 3 OTConst).",
+        "Les travaux qui libèrent beaucoup de fibres sont réservés aux entreprises de désamiantage reconnues par la Suva.",
       ],
     ],
-    details: [
-      [
-        "C'est ce que prévoit l'aide à l'exécution du Service de l'environnement, établie avec le Service public de l'emploi et la Suva Fribourg. L'amiante, les PCB, les HAP et les métaux lourds ont été largement utilisés dès les années 1950, puis interdits au début des années 1990.",
-      ],
-      [
-        "L'expertise couvre tous les matériaux touchés par les travaux. Elle est réalisée par un diagnostiqueur inscrit sur la liste du FACH. Pour toute démolition, transformation ou rénovation, même de minime importance (enquête simplifiée), le dossier de permis contient le formulaire Environnement – Déchets. La commune, qui est l'autorité de police des constructions, vérifie qu'il y figure, avec le rapport de diagnostic s'il en faut un. L'aide cite les éléments à contrôler : flocages, calorifugeages, faux-plafonds, fibrociment, revêtements de sols ou de parois, colles de carrelage et crépis.",
-      ],
-      [
-        "Sur le chantier, la protection des travailleurs relève de la Suva et du Service public de l'emploi. Les travaux qui libèrent beaucoup de fibres sont réservés aux entreprises de désamiantage reconnues par la Suva (art. 82 OTConst). La Suva retient l'année 1990, date de l'interdiction de commercialiser l'amiante : les bâtiments plus anciens peuvent en contenir. Le canton, lui, retient 1993.",
-      ],
-    ],
+    details: [],
     sources: [
       { href: diagnostic, label: "aide à l'exécution du Service de l'environnement" },
       { href: oled, label: "OLED, art. 16" },
@@ -189,30 +160,20 @@ export const fribourgSections: FribourgSection[] = [
     subtitle: "Parc bâti",
     title: "Vieille ville en molasse et ensembles de 1960 à 1980",
     lead: [
-      "À Fribourg, les sculpteurs taillaient la molasse, une pierre locale assez tendre, selon le Musée d'art et d'histoire de Fribourg. La tour Rouge, construite vers 1387, est en molasse de type « pierra rossa » (pierre rousse), d'après le circuit du Service des biens culturels.",
+      "À Fribourg, les sculpteurs taillaient la molasse, une pierre locale assez tendre, selon le Musée d'art et d'histoire de Fribourg. La tour Rouge, construite vers 1387, est en molasse de type « pierra rossa » (pierre rousse).",
     ],
     bullets: [
       [
-        "La halle de l'Hôtel cantonal, achevée dans les années 1510, repose sur des piliers en molasse.",
-      ],
-      [
-        "Le cœur médiéval s'étend au bord de la Sarine et au flanc des falaises de molasse, avec ses ponts et sa vieille ville.",
+        "Le cœur médiéval longe la Sarine et les falaises de molasse, avec ses ponts.",
       ],
       [
         "Le Schönberg, Beaumont et, dans une moindre mesure, le Jura sont des lotissements ouverts, souvent hauts.",
       ],
       [
-        "La plupart de leurs ensembles ont été construits entre 1960 et 1975, et certains pieds d'immeubles datent des années 1960 à 1980 (rapport explicatif de la révision du plan d'aménagement local, art. 47 OAT, page de titre datée d'avril 2023).",
+        "La plupart de leurs ensembles datent de 1960 à 1975, et certains pieds d'immeubles de 1960 à 1980.",
       ],
     ],
-    details: [
-      [
-        "Entre 1950 et 2000, la ville s'est étendue au Schönberg, à Beaumont, au Jura et dans le secteur Beauregard-Vignettaz, avec de grands lotissements, des immeubles de grande hauteur et, au centre, des bâtiments administratifs (Service des biens culturels). Le centre historique ne représente plus qu'une petite partie du territoire bâti.",
-      ],
-      [
-        "En 2025, le canton compte 75’906 bâtiments à usage d'habitation, dont 45’395 maisons individuelles (59,8 %). Ces chiffres valent pour l'ensemble du canton, pas pour un immeuble précis.",
-      ],
-    ],
+    details: [],
     figure: {
       value: "29,8 %",
       caption:
@@ -236,12 +197,10 @@ export const fribourgSections: FribourgSection[] = [
 
 export const fribourgDistrictsIntro: TextPart[][] = [
   [
-    "Le canton compte sept districts : la Broye, la Glâne, la Gruyère, le Lac, la Sarine, la Singine et la Veveyse (État de Fribourg). Chacun a une préfecture, compétente pour les permis de construire de la procédure ordinaire (",
-    { href: prefectures, label: "préfectures" },
-    ").",
+    "Le canton compte sept districts. Chacun a une préfecture, compétente pour les permis de construire de la procédure ordinaire.",
   ],
   [
-    "Nous intervenons dans le chef-lieu de chaque district, ainsi que dans plusieurs communes de la Sarine et de la Singine proches de notre siège. La liste ne couvre pas des districts entiers : Charmey et Jaun (Bellegarde), plus loin en Gruyère, n'y figurent pas. Une commune citée ici est une commune que nous desservons, pas une référence de chantier.",
+    "Nous intervenons au chef-lieu de chaque district et dans plusieurs communes de la Sarine et de la Singine, sans couvrir des districts entiers. Charmey et Jaun (Bellegarde), plus loin en Gruyère, n'y figurent pas. Une commune citée est desservie, pas une référence de chantier.",
   ],
 ];
 
@@ -307,13 +266,13 @@ export const fribourgFaq: FribourgFaq[] = [
   {
     question: "Faut-il un permis pour des travaux intérieurs à Fribourg ?",
     answer: [
-      "Cela dépend des travaux. L'entretien, les réparations et la rénovation de façade ou de toiture n'en demandent pas, s'ils ne changent pas sensiblement l'aspect du bâtiment (art. 87 al. 1 let. a ReLATeC). Une transformation intérieure qui ne touche pas à la structure porteuse suit la procédure simplifiée, et c'est le conseil communal qui décide (art. 85 al. 1 let. b1 ReLATeC et art. 139 al. 1 LATeC). Si elle peut toucher cette structure ou des éléments dignes de protection, la procédure est ordinaire et le permis relève du préfet (art. 84 al. 1 let. b ReLATeC). En cas de doute, le conseil communal demande l'avis du préfet (art. 85 al. 2 ReLATeC).",
+      "Si la structure porteuse n'est pas touchée, c'est la procédure simplifiée, et le conseil communal décide. Si les travaux peuvent toucher la structure ou un élément digne de protection, le préfet délivre le permis.",
     ],
   },
   {
     question: "Une annonce à la commune suffit-elle pour transformer un logement ?",
     answer: [
-      "Non. L'annonce sert notamment aux installations solaires dispensées de permis, trente jours avant les travaux (art. 87 al. 3 ReLATeC). Pour transformer un logement, c'est la dispense, la procédure simplifiée ou la procédure ordinaire qui s'applique, comme expliqué ci-dessus. Les demandes de permis et les demandes préalables se déposent dans ",
+      "Non. L'annonce sert notamment aux installations solaires dispensées de permis, trente jours avant les travaux. Pour transformer un logement, c'est la dispense, la procédure simplifiée ou la procédure ordinaire qui s'applique, comme expliqué ci-dessus. Les demandes de permis et les demandes préalables se déposent dans ",
       { href: permis, label: "FRIAC" },
       ". En ville de Fribourg, depuis 2018, les requérants ont l'obligation de déposer leurs dossiers de demande de permis dans FRIAC, selon l'inspectorat des constructions.",
     ],
@@ -321,7 +280,7 @@ export const fribourgFaq: FribourgFaq[] = [
   {
     question: "Quand faut-il un diagnostic amiante avant de rénover ?",
     answer: [
-      "Si votre bâtiment date d'avant 1993, vous mandatez un bureau spécialisé pour le diagnostic. À partir de 1993, l'aide cantonale le considère comme non nécessaire. Le droit fédéral l'impose aussi avant travaux lorsque des déchets risquent de contenir des polluants dangereux (art. 16 OLED). Le formulaire Environnement – Déchets accompagne toute démolition, transformation ou rénovation, même en enquête simplifiée. Si l'amiante est suspecté, l'employeur identifie les dangers avant les travaux (art. 3 al. 2 OTConst). La Suva retient les bâtiments d'avant 1990 (page Suva), le canton ceux d'avant 1993.",
+      "Si votre bâtiment date d'avant 1993, vous mandatez un bureau spécialisé pour le diagnostic. À partir de 1993, l'aide cantonale le considère comme non nécessaire. Le droit fédéral l'impose aussi avant travaux lorsque des déchets risquent de contenir des polluants dangereux. Le formulaire Environnement – Déchets accompagne toute démolition, transformation ou rénovation, même en enquête simplifiée. Si l'amiante est suspecté, l'employeur identifie les dangers avant les travaux.",
     ],
   },
   {
@@ -341,7 +300,7 @@ export const fribourgFaq: FribourgFaq[] = [
   {
     question: "Un immeuble de la vieille ville suit-il la même démarche qu'un logement des années 1960 ?",
     answer: [
-      "Pour l'amiante, oui : les deux sont en général antérieurs à 1993, et l'aide cantonale demande alors un diagnostic avant une démolition, une transformation ou une rénovation. Les ensembles du Schönberg, de Beaumont et du Jura datent pour la plupart de 1960 à 1975 (rapport du plan d'aménagement local). En vieille ville, s'ajoute la question de la protection : on y trouve des constructions en molasse recensées par le canton, comme la tour Rouge et l'Hôtel cantonal, et la ",
+      "Pour l'amiante, oui : les deux sont en général antérieurs à 1993, et l'aide cantonale demande alors un diagnostic avant une démolition, une transformation ou une rénovation. Les ensembles du Schönberg, de Beaumont et du Jura datent pour la plupart de 1960 à 1975. En vieille ville, s'ajoute la question de la protection : on y trouve des constructions en molasse recensées par le canton, comme la tour Rouge et l'Hôtel cantonal, et la ",
       { href: ville, label: "Ville" },
       " demande de vérifier le degré de protection avant les travaux.",
     ],

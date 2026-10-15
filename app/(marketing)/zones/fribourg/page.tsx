@@ -70,6 +70,17 @@ function Rich({ parts, className }: { parts: TextPart[]; className?: string }) {
   );
 }
 
+function Paragraphs({ paragraphs }: { paragraphs: TextPart[][] }) {
+  if (paragraphs.length === 0) return null;
+  return (
+    <div className="mt-6 space-y-4">
+      {paragraphs.map((paragraph) => (
+        <Rich key={textOf(paragraph).slice(0, 48)} parts={paragraph} />
+      ))}
+    </div>
+  );
+}
+
 function Sources({ links }: { links: SourceLink[] }) {
   return (
     <p className="mt-8 font-body text-caption text-markaj-primary">
@@ -187,11 +198,9 @@ export default function FribourgZonePage() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-6 space-y-4">
-                {(section.figure ? section.details.slice(0, -1) : section.details).map((paragraph) => (
-                  <Rich key={textOf(paragraph).slice(0, 48)} parts={paragraph} />
-                ))}
-              </div>
+              <Paragraphs
+                paragraphs={section.figure ? section.details.slice(0, -1) : section.details}
+              />
               {section.figure && (
                 <figure className="mt-8">
                   <p className="font-heading text-display text-markaj-primary">{section.figure.value}</p>
@@ -213,11 +222,7 @@ export default function FribourgZonePage() {
                 </figure>
               )}
               {section.figure && (
-                <div className="mt-6 space-y-4">
-                  {section.details.slice(-1).map((paragraph) => (
-                    <Rich key={textOf(paragraph).slice(0, 48)} parts={paragraph} />
-                  ))}
-                </div>
+                <Paragraphs paragraphs={section.details.slice(-1)} />
               )}
               <Sources links={section.sources} />
             </div>
@@ -227,7 +232,7 @@ export default function FribourgZonePage() {
             <Section background="primary" className="py-8 sm:py-10 md:py-12">
               <div className="flex min-w-0 flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
                 <p className="max-w-xl font-body text-body text-markaj-white">
-                  Une question sur l&apos;amiante ou le permis avant vos travaux ? Parlons-en au moment du devis.
+                  Une question sur l&apos;amiante ou le permis avant vos travaux ? Appelez-nous ou demandez votre devis.
                 </p>
                 <CtaPair
                   className="w-full min-w-0 shrink-0 sm:w-auto"
