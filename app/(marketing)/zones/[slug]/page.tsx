@@ -20,7 +20,7 @@ interface PageProps {
 }
 
 export function generateStaticParams() {
-  return zoneSlugs.map((slug) => ({ slug }));
+  return zoneSlugs.filter((slug) => slug !== "fribourg").map((slug) => ({ slug }));
 }
 
 export function generateMetadata({ params }: PageProps) {
@@ -69,33 +69,6 @@ export default function ZoneDetailPage({ params }: PageProps) {
               {paragraph}
             </p>
           ))}
-          {zone.slug === "fribourg" && (
-            <p className="font-body text-body-lg text-markaj-primary/90">
-              Depuis le siège Route de Schiffenen, nos équipes interviennent souvent en{" "}
-              <Link
-                href="/services/peinture"
-                className="font-medium text-markaj-primary underline underline-offset-4 hover:text-markaj-primary-light"
-              >
-                peinture intérieure et extérieure
-              </Link>{" "}
-              et en pose de{" "}
-              <Link
-                href="/services/faux-plafonds"
-                className="font-medium text-markaj-primary underline underline-offset-4 hover:text-markaj-primary-light"
-              >
-                faux-plafonds
-              </Link>{" "}
-              (acoustique, éclairage, réseaux) pour logements, bureaux et commerces de
-              l&apos;agglomération fribourgeoise.{" "}
-              <Link
-                href="/contact#formulaire"
-                className="font-medium text-markaj-primary underline underline-offset-4 hover:text-markaj-primary-light"
-              >
-                Devis gratuit
-              </Link>{" "}
-              après visite.
-            </p>
-          )}
         </AnimateIn>
       </Section>
 
@@ -174,65 +147,9 @@ export default function ZoneDetailPage({ params }: PageProps) {
           <SectionHeading
             subtitle="Services"
             title={`Prestations disponibles ${zone.locative}`}
-            intro={
-              zone.slug === "fribourg"
-                ? "Au siège fribourgeois, peinture et faux-plafonds sont des demandes fréquentes — l’ensemble de nos expertises reste disponible."
-                : "L'ensemble de nos expertises est disponible dans cette zone."
-            }
+            intro="L'ensemble de nos expertises est disponible dans cette zone."
           />
         </AnimateIn>
-        {zone.slug === "fribourg" && (
-          <div className="mb-6 grid max-w-3xl gap-4 sm:grid-cols-2">
-            <div className="border border-markaj-primary/15 bg-markaj-white p-5">
-              <h3 className="font-heading text-heading-4 text-markaj-primary">
-                <Link
-                  href="/services/peinture"
-                  className="transition-colors hover:text-markaj-primary-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-markaj-primary"
-                >
-                  Peinture à Fribourg
-                </Link>
-              </h3>
-              <p className="mt-2 font-body text-body-sm text-markaj-primary">
-                Intérieur et extérieur, préparation des supports, finitions durables.
-              </p>
-              <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
-                <Link href="/services/peinture" className="btn-niveau">
-                  Voir la peinture
-                </Link>
-                <Link
-                  href="/contact?service=peinture#formulaire"
-                  className="inline-flex min-h-11 items-center font-body text-caption font-semibold uppercase tracking-[0.12em] text-markaj-primary underline underline-offset-4 hover:text-markaj-primary"
-                >
-                  Devis gratuit
-                </Link>
-              </div>
-            </div>
-            <div className="border border-markaj-primary/15 bg-markaj-white p-5">
-              <h3 className="font-heading text-heading-4 text-markaj-primary">
-                <Link
-                  href="/services/faux-plafonds"
-                  className="transition-colors hover:text-markaj-primary-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-markaj-primary"
-                >
-                  Faux-plafonds à Fribourg
-                </Link>
-              </h3>
-              <p className="mt-2 font-body text-body-sm text-markaj-primary">
-                Acoustique, éclairage intégré et réseaux pour tertiaire et logements.
-              </p>
-              <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
-                <Link href="/services/faux-plafonds" className="btn-niveau">
-                  Voir les faux-plafonds
-                </Link>
-                <Link
-                  href="/contact?service=faux-plafonds#formulaire"
-                  className="inline-flex min-h-11 items-center font-body text-caption font-semibold uppercase tracking-[0.12em] text-markaj-primary underline underline-offset-4 hover:text-markaj-primary"
-                >
-                  Devis gratuit
-                </Link>
-              </div>
-            </div>
-          </div>
-        )}
         <div className="flex flex-wrap gap-3">
           {services.map((service) => (
             <Link
