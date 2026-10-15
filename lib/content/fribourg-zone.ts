@@ -5,6 +5,9 @@
  * sont regroupés en bas de section.
  */
 
+/** Dernière modification du contenu Fribourg (YYYY-MM-DD). Repli du lastmod. */
+export const fribourgUpdated = "2026-10-14";
+
 export type TextPart = string | { href: string; label: string };
 
 export interface SourceLink {

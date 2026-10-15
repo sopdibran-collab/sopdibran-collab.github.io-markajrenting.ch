@@ -28,6 +28,8 @@ export interface RelatedLink {
 
 export interface Service {
   slug: string;
+  /** Dernière modification du contenu (YYYY-MM-DD). Repli du lastmod. */
+  updated: string;
   title: string;
   /** Balise title, sans le suffixe « | Markaj Renting SA ». */
   metaTitle: string;
@@ -67,6 +69,7 @@ export interface Service {
 export const services: Service[] = [
   {
     slug: "platrerie",
+    updated: "2026-10-11",
     title: "Plâtrerie",
     metaTitle: "Plâtrier à Fribourg : cloisons, Q3/Q4",
     shortTitle: "Plâtrerie",
@@ -249,6 +252,7 @@ export const services: Service[] = [
   },
   {
     slug: "peinture",
+    updated: "2026-10-10",
     title: "Peinture",
     metaTitle: "Entreprise de peinture à Fribourg",
     shortTitle: "Peinture",
@@ -414,6 +418,7 @@ export const services: Service[] = [
   },
   {
     slug: "faux-plafonds",
+    updated: "2026-10-11",
     title: "Faux-plafonds",
     metaTitle: "Faux-plafonds acoustiques à Fribourg",
     shortTitle: "Faux-plafonds",
@@ -485,6 +490,7 @@ export const services: Service[] = [
   },
   {
     slug: "isolation",
+    updated: "2026-10-11",
     title: "Isolation",
     metaTitle: "Isolation thermique et phonique Fribourg",
     shortTitle: "Isolation",
@@ -685,6 +691,7 @@ export const services: Service[] = [
   },
   {
     slug: "renovation",
+    updated: "2026-10-11",
     title: "Rénovation",
     metaTitle: "Rénovation d'appartement à Fribourg",
     shortTitle: "Rénovation",
@@ -780,6 +787,7 @@ export const services: Service[] = [
   },
   {
     slug: "facades",
+    updated: "2026-10-10",
     title: "Façades",
     metaTitle: "Rénovation de façade et crépi Fribourg",
     shortTitle: "Façades",

@@ -8,6 +8,8 @@ export interface BlogPost {
   title: string;
   excerpt: string;
   date: string;
+  /** Dernière modification du contenu (YYYY-MM-DD). Repli du lastmod. */
+  updated: string;
   readTime: string;
   category: string;
   content: BlogBlock[];
@@ -16,6 +18,7 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     slug: "isolation-thermique-vs-phonique",
+    updated: "2026-10-08",
     title: "Isolation thermique ou phonique : que choisir ?",
     excerpt:
       "Froid près des murs ou voisins bruyants ? Thermique et phonique ne se traitent pas pareil. Guide pratique pour choisir la bonne solution en Suisse.",
@@ -95,6 +98,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "choisir-isolant-selon-paroi",
+    updated: "2026-10-08",
     title: "Laine minérale, fibre de bois ou XPS : quel isolant ?",
     excerpt:
       "Pas d'isolant « meilleur » en absolu : humidité, feu, confort d'été et résistance mécanique changent le choix. Comparatif pour les cas suisses.",
@@ -181,6 +185,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "choisir-finition-platrerie-q3-q4",
+    updated: "2026-10-08",
     title: "Finition Q3 ou Q4 en plâtrerie : que choisir ?",
     excerpt:
       "Q3 ou Q4 ? La différence entre ces niveaux de finition en plâtrerie, et lequel choisir selon la lumière, la peinture et l'usage de la pièce.",
@@ -212,6 +217,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "isolation-peripherique-avantages",
+    updated: "2026-10-08",
     title: "Doublage isolant intérieur : quand l'envisager ?",
     excerpt:
       "Isoler par l'intérieur : doublage sur ossature, pare-vapeur, perte de surface, ponts thermiques, et différence avec l'isolation périphérique extérieure.",

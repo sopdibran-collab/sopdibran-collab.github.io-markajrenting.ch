@@ -9,6 +9,8 @@ export type RealisationStatus = "livre" | "en-cours";
 
 export interface Realisation {
   id: string;
+  /** Dernière modification du contenu (YYYY-MM-DD). Repli du lastmod. */
+  updated: string;
   title: string;
   location: string;
   periode?: string;
@@ -29,6 +31,7 @@ export interface Realisation {
 export const realisations: Realisation[] = [
   {
     id: "plateaux-de-bureaux",
+    updated: "2026-08-11",
     title: "Rénovation de plateaux de bureaux — OMS",
     location: "Genève",
     year: 2024,
@@ -61,6 +64,7 @@ export const realisations: Realisation[] = [
   },
   {
     id: "circulations-tertiaires",
+    updated: "2026-07-23",
     title: "Finitions de circulations tertiaires",
     location: "Suisse romande",
     year: 2024,
@@ -82,6 +86,7 @@ export const realisations: Realisation[] = [
   },
   {
     id: "rue-de-lausanne-119",
+    updated: "2026-07-23",
     title: "Surélévation et rénovation d'immeuble — Rue de Lausanne 119",
     location: "Genève",
     periode: "2022 – 2023",
@@ -103,6 +108,7 @@ export const realisations: Realisation[] = [
   },
   {
     id: "credit-suisse-rue-du-rhone",
+    updated: "2026-07-23",
     title: "Credit Suisse — Rue du Rhône",
     location: "Genève",
     periode: "2016 – 2017",
