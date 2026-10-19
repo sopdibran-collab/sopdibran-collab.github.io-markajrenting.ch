@@ -258,7 +258,7 @@ export const zones: Zone[] = [
       "Plâtrerie, peinture, isolation et façades à Delémont, Porrentruy et aux Franches-Montagnes. Entreprise basée à Fribourg. Devis gratuit après visite.",
     intro: "Vous cherchez un plâtrier ou un peintre dans le Jura ? Nous intervenons à Delémont, Porrentruy, Saignelégier et Moutier, ainsi que dans le Jura bernois à Saint-Imier, Tramelan et La Neuveville, pour la plâtrerie, la peinture, l'isolation intérieure et la rénovation.",
     contexteLocal: [
-      "Depuis le 1er janvier 2026, Moutier fait partie du canton du Jura. Pour des travaux à Moutier, ce sont désormais les règles et les services jurassiens qui s'appliquent. Saint-Imier, Tramelan et La Neuveville restent soumis aux règles bernoises.",
+      "Moutier fait partie du canton du Jura depuis le 1er janvier 2026 ; Saint-Imier, Tramelan et La Neuveville restent soumis aux règles bernoises.",
       "Partout en Suisse, le droit fédéral (OTConst) impose de vérifier la présence d'amiante avant les travaux. Dans le canton du Jura, un rapport de diagnostic des polluants (amiante, PCB, peintures au plomb) accompagne la demande de permis pour transformer ou déconstruire un bâtiment d'avant 1990. Dans le Jura bernois, la notice cantonale bernoise fixe les cas concernés. Nous intégrons ce diagnostic au planning dès votre demande de devis.",
       "Aux Franches-Montagnes et sur les hauteurs du Jura bernois, l'hiver est long : nous choisissons les doublages isolants et les finitions en fonction de l'exposition et du chauffage des locaux."
     ],
