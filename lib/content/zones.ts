@@ -29,6 +29,8 @@ export interface Zone {
   contexteLocal: string[];
   /** Règles cantonales sourcées (contenu local, pas de gabarit). */
   reglesLocales?: RegleLocale[];
+  /** Titre de la section règles si le texte par défaut ne suffit pas (ex. Jura + Jura bernois). */
+  reglesTitre?: string;
   faqLocal: FaqItem[];
 }
 
@@ -95,19 +97,19 @@ export const zones: Zone[] = [
       "Montreux",
       "Yverdon-les-Bains"
     ],
-    chantiers: ["Rénovation de bureaux", "Doublages isolants", "Faux-plafonds acoustiques", "Rénovation haut de gamme"],
+    chantiers: ["Rénovation de bureaux", "Doublages isolants", "Faux-plafonds acoustiques", "Rénovation complète"],
     metaTitle: "Plâtrerie-peinture Lausanne et Vaud",
     metaDescription:
       "Plâtrerie, peinture, isolation et faux-plafonds à Lausanne, Morges, Nyon, Vevey, Montreux et Yverdon. Entreprise basée à Fribourg. Devis gratuit.",
-    intro: "Vous cherchez un plâtrier ou un peintre à Lausanne ou ailleurs dans le canton de Vaud ? Nous intervenons à Lausanne, Morges, Nyon, Vevey, Montreux et Yverdon-les-Bains pour la plâtrerie, la peinture, l'isolation intérieure et les faux-plafonds.",
+    intro: "Un appartement à rafraîchir à Lausanne, des bureaux à réaménager à Morges ou à Nyon ? Nous intervenons à Lausanne, Morges, Nyon, Vevey, Montreux et Yverdon-les-Bains pour la plâtrerie, la peinture, l'isolation intérieure et les faux-plafonds.",
     contexteLocal: [
-      "Dans le canton de Vaud, une grande partie des logements et des bureaux date d'avant 1991. Avant de poncer, percer ou démolir une cloison dans ces bâtiments, le canton demande un diagnostic amiante. Nous en tenons compte dès le premier échange, pour que le planning du chantier ne bloque pas plus tard.",
+      "Dans un bâtiment construit avant 1991, le droit fédéral (OTConst) exige un diagnostic amiante avant de poncer, percer ou démolir une cloison. Si les travaux demandent un permis, le canton de Vaud exige en plus que ce diagnostic soit joint à la demande. Nous l'intégrons au planning dès votre demande de devis, pour éviter un arrêt de chantier.",
       "Pour un appartement loué ou des bureaux occupés, nous organisons les travaux pièce par pièce, avec protection des sols et des parties communes, en lien avec la régie, l'architecte ou le propriétaire."
     ],
     reglesLocales: [
       {
         "titre": "Diagnostic amiante avant travaux (bâtiments d'avant 1991)",
-        "texte": "Pour des travaux soumis à permis de construire sur un bâtiment antérieur à 1991, un diagnostic amiante avant travaux doit être joint à la demande de permis (art. 103a LATC). Même sans permis, un diagnostic est requis avant toute intervention sur ces bâtiments (art. 3 OTConst).",
+        "texte": "Pour des travaux soumis à permis de construire sur un bâtiment antérieur à 1991, un diagnostic amiante avant travaux doit être joint à la demande de permis (art. 103a LATC). Même sans permis, le droit fédéral exige ce diagnostic avant toute intervention sur ces bâtiments (art. 3 OTConst).",
         "sourceLabel": "État de Vaud – Amiante : diagnostic et assainissement",
         "sourceUrl": "https://www.vd.ch/territoire-et-construction/amiante-1/diagnostic-et-assainissement"
       },
@@ -125,11 +127,11 @@ export const zones: Zone[] = [
       },
       {
         "question": "Mon immeuble vaudois date d'avant 1991 : faut-il un diagnostic amiante avant de repeindre ou de refaire une cloison ?",
-        "answer": "Dès que les travaux touchent les matériaux (ponçage, perçage, démolition), le canton demande un diagnostic amiante avant travaux pour les bâtiments antérieurs à 1991. Pour une simple peinture sans ponçage, posez-nous la question : nous vérifions avec vous ce qui s'applique à votre chantier."
+        "answer": "Oui, dès que les travaux touchent les matériaux : ponçage, perçage ou démolition. Pour une peinture sans ponçage, décrivez-nous les travaux et nous regardons ensemble ce qui s'applique."
       },
       {
         "question": "Couvrez-vous Nyon, Morges et la Riviera ?",
-        "answer": "Oui. Nous intervenons à Nyon, Morges, Vevey, Montreux et Yverdon-les-Bains pour la plâtrerie, la peinture, l'isolation intérieure et les faux-plafonds."
+        "answer": "Oui. Nous intervenons à Nyon, Morges, Vevey, Montreux et Yverdon-les-Bains, pour les mêmes travaux qu'à Lausanne."
       }
     ],
   },
