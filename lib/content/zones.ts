@@ -133,7 +133,7 @@ export const zones: Zone[] = [
       "Plâtrerie (gypserie), peinture et faux-plafonds à Genève. Chantiers publiés : plateaux de bureaux OMS, immeuble rue de Lausanne 119. Devis gratuit.",
     intro: "Des bureaux à réaménager ou un appartement à repeindre à Genève ? Nous intervenons à Genève, Carouge, Lancy, Vernier et Meyrin pour la gypserie, la peinture intérieure, les faux-plafonds et l'aménagement de bureaux.",
     contexteLocal: [
-      "Dans tout bâtiment construit avant 1991, le droit fédéral (OTConst) exige un diagnostic amiante avant les travaux. À Genève, si le chantier est soumis à autorisation, ce diagnostic doit être fait avant le dépôt de la requête, et le formulaire G01 l'accompagne. Nous en tenons compte dans le planning.",
+      "Le droit fédéral (OTConst) impose de vérifier la présence d'amiante avant les travaux. À Genève, tout bâtiment construit avant 1991 doit faire l'objet d'un diagnostic par un bureau spécialisé et, si le chantier est soumis à autorisation, avant le dépôt de la requête, accompagné du formulaire G01. Nous en tenons compte dans le planning.",
       "En appartement PPE, en bureaux au centre-ville ou en zone aéroportuaire, nous organisons les travaux en site occupé, avec protection des parties communes et coordination avec la régie, l'architecte ou l'entreprise générale."
     ],
     reglesLocales: [
@@ -157,7 +157,7 @@ export const zones: Zone[] = [
       },
       {
         "question": "Faut-il un diagnostic amiante avant de refaire des faux-plafonds dans des bureaux genevois ?",
-        "answer": "Si le bâtiment date d'avant 1991, oui : le droit fédéral (OTConst) exige un diagnostic amiante avant les travaux. Si vous avez déjà un diagnostic, transmettez-le-nous avec votre demande."
+        "answer": "Si le bâtiment date d'avant 1991, oui : à Genève, la directive SABRA demande un diagnostic amiante avant les travaux. Si vous avez déjà un diagnostic, transmettez-le-nous avec votre demande."
       },
       {
         "question": "Proposez-vous la gypserie pour l'aménagement de bureaux à Genève ?",
