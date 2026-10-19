@@ -1,5 +1,13 @@
 import type { FaqItem } from "@/lib/content/services";
 
+/** Règle cantonale citée sur une page zone, avec sa source officielle. */
+export interface RegleLocale {
+  titre: string;
+  texte: string;
+  sourceLabel: string;
+  sourceUrl: string;
+}
+
 export interface Zone {
   slug: string;
   /** Dernière modification du contenu (YYYY-MM-DD). Repli du lastmod. */
@@ -19,6 +27,8 @@ export interface Zone {
   metaDescription: string;
   intro: string;
   contexteLocal: string[];
+  /** Règles cantonales sourcées (contenu local, pas de gabarit). */
+  reglesLocales?: RegleLocale[];
   faqLocal: FaqItem[];
 }
 
@@ -68,41 +78,59 @@ export const zones: Zone[] = [
   },
   {
     slug: "vaud",
-    updated: "2026-10-08",
+    updated: "2026-10-19",
     name: "Canton de Vaud",
     shortName: "Vaud",
     h1: "Plâtrerie et peinture à Lausanne et dans le canton de Vaud",
     locative: "dans le canton de Vaud",
     canton: "VD",
-    description:
-      "De Lausanne à la Riviera, nous accompagnons des projets de rénovation, d'isolation et de finition intérieure pour le secteur privé et professionnel, en milieu urbain comme en périphérie.",
-    villes: ["Lausanne", "Vevey", "Montreux", "Morges", "Yverdon-les-Bains", "Nyon"],
+    description: "Nous intervenons à Lausanne, dans l'Ouest lausannois, sur La Côte, dans le Lavaux, sur la Riviera et dans le Nord vaudois pour la plâtrerie, la peinture, l'isolation intérieure et les faux-plafonds.",
+    villes: [
+      "Lausanne",
+      "Renens",
+      "Pully",
+      "Morges",
+      "Nyon",
+      "Vevey",
+      "Montreux",
+      "Yverdon-les-Bains"
+    ],
     chantiers: ["Rénovation de bureaux", "Doublages isolants", "Faux-plafonds acoustiques", "Rénovation haut de gamme"],
     metaTitle: "Plâtrerie-peinture Lausanne et Vaud",
     metaDescription:
       "Plâtrerie, peinture, isolation et faux-plafonds à Lausanne, Morges, Nyon, Vevey, Montreux et Yverdon. Entreprise basée à Fribourg. Devis gratuit.",
-    intro:
-      "Vous cherchez un peintre ou un plâtrier à Lausanne et dans le canton de Vaud ? Markaj Renting SA réalise plâtrerie, peinture, isolation et faux-plafonds sur la Riviera, à Morges, Nyon et Yverdon-les-Bains.",
+    intro: "Vous cherchez un plâtrier ou un peintre à Lausanne ou ailleurs dans le canton de Vaud ? Nous intervenons à Lausanne, Morges, Nyon, Vevey, Montreux et Yverdon-les-Bains pour la plâtrerie, la peinture, l'isolation intérieure et les faux-plafonds.",
     contexteLocal: [
-      "À Lausanne et dans l'Ouest lausannois (Renens, Prilly, Pully), les chantiers typiques vont de la rénovation d'appartements locatifs aux aménagements de bureaux avec faux-plafonds acoustiques. Nous adaptons finitions et planning aux contraintes d'immeubles occupés.",
-      "Sur la Riviera (Vevey, Montreux) et dans le nord vaudois (Yverdon), nous traitons aussi les doublages isolants intérieurs et la peinture intérieure pour résidences et commerces, en coordination avec architectes et régies.",
+      "Dans le canton de Vaud, une grande partie des logements et des bureaux date d'avant 1991. Avant de poncer, percer ou démolir une cloison dans ces bâtiments, le canton demande un diagnostic amiante. Nous en tenons compte dès le premier échange, pour que le planning du chantier ne bloque pas plus tard.",
+      "Pour un appartement loué ou des bureaux occupés, nous organisons les travaux pièce par pièce, avec protection des sols et des parties communes, en lien avec la régie, l'architecte ou le propriétaire."
+    ],
+    reglesLocales: [
+      {
+        "titre": "Diagnostic amiante avant travaux (bâtiments d'avant 1991)",
+        "texte": "Pour des travaux soumis à permis de construire sur un bâtiment antérieur à 1991, un diagnostic amiante avant travaux doit être joint à la demande de permis (art. 103a LATC). Même sans permis, un diagnostic est requis avant toute intervention sur ces bâtiments (art. 3 OTConst).",
+        "sourceLabel": "État de Vaud – Amiante : diagnostic et assainissement",
+        "sourceUrl": "https://www.vd.ch/territoire-et-construction/amiante-1/diagnostic-et-assainissement"
+      },
+      {
+        "titre": "Un diagnostiqueur reconnu FACH",
+        "texte": "Le diagnostic est réalisé par une diagnostiqueuse ou un diagnostiqueur reconnu par le Forum Amiante Suisse (FACH). Le rapport est déposé sur la plateforme cantonale GDA lors de la demande de permis.",
+        "sourceLabel": "État de Vaud – Questionnaire général (QG), question B18",
+        "sourceUrl": "https://www.vd.ch/territoire-et-construction/permis-de-construire/faq/questionnaire-general-qg"
+      }
     ],
     faqLocal: [
       {
-        question: "Faites-vous de la plâtrerie et peinture à Lausanne ?",
-        answer:
-          "Oui. Nous intervenons à Lausanne et environs pour cloisons, finitions Q3/Q4, peinture intérieure et rénovation complète. Devis après visite sur site.",
+        "question": "Intervenez-vous pour de la plâtrerie et de la peinture à Lausanne ?",
+        "answer": "Oui. Nous intervenons à Lausanne et dans l'Ouest lausannois (Renens, Prilly, Pully) pour les cloisons, les finitions Q3/Q4, la peinture intérieure et la rénovation."
       },
       {
-        question: "Couvrez-vous Nyon, Morges et la Riviera ?",
-        answer:
-          "Oui. Nos équipes se déplacent à Nyon, Morges, Vevey, Montreux et Yverdon-les-Bains pour l'ensemble de nos prestations second œuvre.",
+        "question": "Mon immeuble vaudois date d'avant 1991 : faut-il un diagnostic amiante avant de repeindre ou de refaire une cloison ?",
+        "answer": "Dès que les travaux touchent les matériaux (ponçage, perçage, démolition), le canton demande un diagnostic amiante avant travaux pour les bâtiments antérieurs à 1991. Pour une simple peinture sans ponçage, posez-nous la question : nous vérifions avec vous ce qui s'applique à votre chantier."
       },
       {
-        question: "Comment obtenir un devis rénovation dans le canton de Vaud ?",
-        answer:
-          "Contactez-nous par téléphone ou formulaire : nous planifions une visite, évaluons le chantier et vous remettons un devis détaillé sous 5 jours ouvrés.",
-      },
+        "question": "Couvrez-vous Nyon, Morges et la Riviera ?",
+        "answer": "Oui. Nous intervenons à Nyon, Morges, Vevey, Montreux et Yverdon-les-Bains pour la plâtrerie, la peinture, l'isolation intérieure et les faux-plafonds."
+      }
     ],
   },
   {
