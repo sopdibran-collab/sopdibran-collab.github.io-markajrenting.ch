@@ -12,7 +12,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const choiceButtonClass =
-  "inline-flex min-h-11 w-full items-center justify-center rounded-none bg-markaj-primary px-3 font-body text-[13px] font-bold uppercase tracking-[0.08em] text-white shadow-none hover:bg-markaj-primary-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-markaj-crepi focus-visible:ring-offset-2";
+  "inline-flex h-11 min-h-11 w-full items-center justify-center rounded-none bg-markaj-primary px-3 font-body text-[13px] font-bold uppercase tracking-[0.08em] text-white shadow-none hover:bg-markaj-primary-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-markaj-crepi focus-visible:ring-offset-2";
 
 function rememberDismiss(): void {
   try {
@@ -39,6 +39,7 @@ export function CookieBanner() {
   const generation = useRef(0);
   const [present, setPresent] = useState(false);
   const [open, setOpen] = useState(false);
+  const firstButtonRef = useRef<HTMLButtonElement>(null);
 
   const hide = useCallback(() => {
     const ticket = generation.current + 1;
@@ -87,7 +88,11 @@ export function CookieBanner() {
   useEffect(() => {
     const node = bannerRef.current;
     if (!node) return;
-    if (open) node.removeAttribute("inert");
+    if (open) {
+      node.removeAttribute("inert");
+      /* Focus sur le premier bouton à l'ouverture, sans faire défiler la page. */
+      firstButtonRef.current?.focus({ preventScroll: true });
+    }
     else node.setAttribute("inert", "");
   }, [open, present]);
 
@@ -123,12 +128,12 @@ export function CookieBanner() {
       role="region"
       aria-label="Préférences cookies"
       className={cn(
-        "fixed inset-x-0 bottom-0 z-40 border-t-[3px] border-markaj-crepi bg-white shadow-[0_-4px_16px_rgba(10,43,94,.25)] motion-safe:transition-opacity motion-safe:duration-150 md:inset-x-auto md:bottom-6 md:left-6 md:w-[25rem] md:border md:border-t md:border-markaj-primary/15 md:shadow-[6px_6px_0_#DBCFB0]",
+        "fixed inset-x-0 bottom-0 z-40 max-h-[100px] border-t border-[#DBCFB0] bg-white max-md:pb-[env(safe-area-inset-bottom)] motion-safe:transition-opacity motion-safe:duration-150 md:inset-x-auto md:bottom-6 md:max-h-none md:left-6 md:w-[25rem] md:border md:border-t md:border-markaj-primary/15 md:shadow-[6px_6px_0_#DBCFB0]",
         open ? "opacity-100" : "pointer-events-none opacity-0"
       )}
     >
-      <div className="max-h-[30vh] overflow-auto px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 md:max-h-none md:overflow-visible md:p-5">
-        <p className="font-body text-[0.9375rem] leading-snug text-markaj-primary">
+      <div className="flex items-center gap-3 px-3 py-2 md:block md:p-5">
+        <p className="min-w-0 flex-1 font-body text-[0.8125rem] leading-snug text-markaj-primary md:text-[0.9375rem]">
           Statistiques de visite (Google Analytics) uniquement avec votre accord.{" "}
           <Link
             href="/politique-confidentialite"
@@ -137,8 +142,9 @@ export function CookieBanner() {
             En savoir plus
           </Link>
         </p>
-        <div className="mt-2.5 grid grid-cols-2 gap-2 md:mt-4">
+        <div className="grid w-[11.5rem] shrink-0 grid-cols-2 gap-2 md:mt-4 md:w-auto">
           <button
+            ref={firstButtonRef}
             type="button"
             className={choiceButtonClass}
             onClick={() => {

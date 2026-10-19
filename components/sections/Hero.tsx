@@ -5,17 +5,12 @@ import { CtaPair } from "@/components/sections/CtaPair";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { isDevisHref } from "@/lib/analytics/consent";
-import { siteConfig } from "@/lib/seo/site-config";
 import { cn } from "@/lib/utils";
 
 interface HeroProps {
   title: string;
   subtitle: string;
-  /** Nom de marque affiché en signal secondaire (pages avec image plein cadre). */
-  brand?: string;
   eyebrow?: string;
-  /** Adresse affichée près de la zone Fribourg / téléphone (fold bleed). */
-  addressLine?: string;
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
   image?: {
@@ -35,9 +30,7 @@ interface HeroProps {
 export function Hero({
   title,
   subtitle,
-  brand = siteConfig.name,
   eyebrow,
-  addressLine,
   primaryCta,
   secondaryCta,
   image,
@@ -123,22 +116,8 @@ export function Hero({
         />
         <div className="relative z-10 mx-auto flex min-h-[min(88vh,44rem)] max-w-content flex-col justify-end px-4 pb-14 pt-24 sm:px-6 sm:pb-16 sm:pt-28 lg:px-8 lg:pb-20">
           <div className="max-w-2xl">
-            <p className="font-heading text-base leading-snug text-markaj-white sm:text-lg md:text-xl">
-              {brand}
-            </p>
-            {(eyebrow || addressLine) && (
-              <div className="mt-4 flex flex-col gap-1.5 sm:gap-2">
-                {eyebrow && (
-                  <p className="marque-cote marque-cote--light">{eyebrow}</p>
-                )}
-                {addressLine && (
-                  <p className="font-body text-caption leading-relaxed text-markaj-white sm:text-body-sm">
-                    {addressLine}
-                  </p>
-                )}
-              </div>
-            )}
-            <h1 className="mt-4 font-heading text-[1.75rem] leading-tight text-balance text-markaj-crepi sm:mt-5 sm:text-heading-1 md:text-display">
+            {eyebrow && <p className="hero-eyebrow hero-eyebrow--light">{eyebrow}</p>}
+            <h1 className={cn("font-heading text-[1.75rem] leading-tight text-balance text-markaj-crepi sm:text-heading-1 md:text-display", eyebrow && "mt-3")}>
               {title}
             </h1>
             <p className="mt-4 max-w-xl font-body text-body text-markaj-white sm:text-body-lg">
@@ -166,12 +145,7 @@ export function Hero({
         )}
       >
         <div className={cn("min-w-0", !image && "max-w-3xl")}>
-          {eyebrow && <p className="marque-cote mb-4">{eyebrow}</p>}
-          {addressLine && (
-            <p className="mb-4 font-body text-caption text-markaj-primary sm:text-body-sm">
-              {addressLine}
-            </p>
-          )}
+          {eyebrow && <p className="hero-eyebrow mb-3">{eyebrow}</p>}
           <h1 className="font-heading text-[1.75rem] leading-tight text-balance text-markaj-primary sm:text-heading-1 md:text-display">
             {title}
           </h1>
