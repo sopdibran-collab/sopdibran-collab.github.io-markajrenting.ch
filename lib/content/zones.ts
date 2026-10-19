@@ -29,6 +29,8 @@ export interface Zone {
   contexteLocal: string[];
   /** Règles cantonales sourcées (contenu local, pas de gabarit). */
   reglesLocales?: RegleLocale[];
+  /** Titre de la section règles si le texte par défaut ne suffit pas (ex. Jura + Jura bernois). */
+  reglesTitre?: string;
   faqLocal: FaqItem[];
 }
 
@@ -256,22 +258,29 @@ export const zones: Zone[] = [
       "Plâtrerie, peinture, isolation et façades à Delémont, Porrentruy et aux Franches-Montagnes. Entreprise basée à Fribourg. Devis gratuit après visite.",
     intro: "Vous cherchez un plâtrier ou un peintre dans le Jura ? Nous intervenons à Delémont, Porrentruy, Saignelégier et Moutier, ainsi que dans le Jura bernois à Saint-Imier, Tramelan et La Neuveville, pour la plâtrerie, la peinture, l'isolation intérieure et la rénovation.",
     contexteLocal: [
-      "Depuis le 1er janvier 2026, Moutier fait partie du canton du Jura. Pour un chantier à Moutier, ce sont donc désormais les règles et les services jurassiens qui s'appliquent, alors que Saint-Imier, Tramelan ou La Neuveville restent soumis aux règles bernoises.",
-      "Dans les deux cantons, un bâtiment construit avant 1990 contient probablement des polluants (amiante, PCB, peintures au plomb). Avant de poncer, percer ou démolir, un diagnostic des polluants est demandé : nous en parlons dès le premier échange pour l'intégrer au planning.",
+      "Depuis le 1er janvier 2026, Moutier fait partie du canton du Jura. Pour des travaux à Moutier, ce sont désormais les règles et les services jurassiens qui s'appliquent. Saint-Imier, Tramelan et La Neuveville restent soumis aux règles bernoises.",
+      "Partout en Suisse, le droit fédéral (OTConst) impose de vérifier la présence d'amiante avant les travaux. Dans le canton du Jura, un rapport de diagnostic des polluants (amiante, PCB, peintures au plomb) accompagne la demande de permis pour transformer ou déconstruire un bâtiment d'avant 1990. Dans le Jura bernois, la notice cantonale bernoise fixe les cas concernés. Nous intégrons ce diagnostic au planning dès votre demande de devis.",
       "Aux Franches-Montagnes et sur les hauteurs du Jura bernois, l'hiver est long : nous choisissons les doublages isolants et les finitions en fonction de l'exposition et du chauffage des locaux."
     ],
+    reglesTitre: "Avant des travaux dans le Jura et le Jura bernois",
     reglesLocales: [
       {
-        "titre": "Canton du Jura : diagnostic des polluants avant 1990",
+        "titre": "Canton du Jura : diagnostic des polluants pour les bâtiments d'avant 1990",
         "texte": "Pour une transformation ou une déconstruction touchant un bâtiment édifié avant 1990, un rapport de diagnostic des polluants établi par un spécialiste doit être fourni avec la demande de permis de construire. Au-delà d'environ 200 m³ de déchets, un plan d'élimination des déchets est aussi demandé.",
         "sourceLabel": "République et Canton du Jura – Déchets de chantier",
         "sourceUrl": "https://www.jura.ch/fr/Autorites/Administration/DEC/ENV/Dechets/Dechets-de-chantier/.html"
       },
       {
-        "titre": "Jura bernois : diagnostic des polluants et plan d'élimination",
+        "titre": "Jura bernois (canton de Berne) : diagnostic des polluants et plan d'élimination",
         "texte": "Dans le Jura bernois, ce sont les règles du canton de Berne qui s'appliquent. La notice cantonale décrit quand un diagnostic des polluants et un plan d'élimination des déchets doivent accompagner la demande de permis.",
         "sourceLabel": "Canton de Berne – Notice diagnostic des polluants et plan d'élimination des déchets (PDF)",
         "sourceUrl": "https://www.bvd.be.ch/content/dam/bvd/dokumente/fr/awa/umwelt/abfall/merkblatt-schadstoffermittlung-und-entsorgungskonzept-fr.pdf"
+      },
+      {
+        "titre": "Moutier : canton du Jura depuis le 1er janvier 2026",
+        "texte": "La ville de Moutier a rejoint le canton du Jura le 1er janvier 2026. Pour des travaux à Moutier, ce sont donc les règles et les services jurassiens qui s'appliquent.",
+        "sourceLabel": "République et Canton du Jura – Moutier dans le Jura, guide pratique",
+        "sourceUrl": "https://www.jura.ch/fr/Autorites/Moutier/Guide-pratique/Guide-pratique.html"
       }
     ],
     faqLocal: [
@@ -281,11 +290,11 @@ export const zones: Zone[] = [
       },
       {
         "question": "Moutier est passé au canton du Jura : qu'est-ce que cela change pour mes travaux ?",
-        "answer": "Depuis le 1er janvier 2026, une demande de permis à Moutier suit les règles jurassiennes, y compris pour le diagnostic des polluants. Pour les travaux eux-mêmes, rien ne change : nous intervenons à Moutier comme avant."
+        "answer": "Depuis le 1er janvier 2026, une demande de permis à Moutier suit les règles jurassiennes, y compris pour le diagnostic des polluants. Pour les travaux eux-mêmes, rien ne change : nous intervenons à Moutier."
       },
       {
         "question": "Couvrez-vous Saint-Imier, Tramelan et La Neuveville ?",
-        "answer": "Oui. Nous intervenons dans le Jura bernois, à Saint-Imier, Tramelan, La Neuveville et dans les communes voisines, pour la plâtrerie, la peinture, l'isolation intérieure et la rénovation."
+        "answer": "Oui. Nous intervenons à Saint-Imier, Tramelan, La Neuveville et dans les communes voisines du Jura bernois."
       }
     ],
   },
