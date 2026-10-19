@@ -1,5 +1,13 @@
 import type { FaqItem } from "@/lib/content/services";
 
+/** Règle cantonale citée sur une page zone, avec sa source officielle. */
+export interface RegleLocale {
+  titre: string;
+  texte: string;
+  sourceLabel: string;
+  sourceUrl: string;
+}
+
 export interface Zone {
   slug: string;
   /** Dernière modification du contenu (YYYY-MM-DD). Repli du lastmod. */
@@ -19,6 +27,8 @@ export interface Zone {
   metaDescription: string;
   intro: string;
   contexteLocal: string[];
+  /** Règles cantonales sourcées (contenu local, pas de gabarit). */
+  reglesLocales?: RegleLocale[];
   faqLocal: FaqItem[];
 }
 
@@ -224,80 +234,59 @@ export const zones: Zone[] = [
   },
   {
     slug: "jura",
-    updated: "2026-10-08",
-    name: "Canton du Jura",
+    updated: "2026-10-19",
+    name: "Canton du Jura et Jura bernois",
     shortName: "Jura",
     h1: "Plâtrerie et peinture dans le Jura",
     locative: "dans le Jura",
     canton: "JU",
-    description:
-      "De Delémont à Porrentruy et aux Franches-Montagnes, nous réalisons des travaux de second œuvre pour particuliers, entreprises et collectivités.",
-    villes: ["Delémont", "Porrentruy", "Saignelégier"],
+    description: "Nous intervenons à Delémont, en Ajoie, aux Franches-Montagnes, à Moutier et dans le Jura bernois (Saint-Imier, Tramelan, La Neuveville) pour la plâtrerie, la peinture, l'isolation intérieure et la rénovation.",
+    villes: [
+      "Delémont",
+      "Porrentruy",
+      "Saignelégier",
+      "Moutier",
+      "Saint-Imier",
+      "Tramelan",
+      "La Neuveville"
+    ],
     chantiers: ["Rénovation intérieure", "Plâtrerie", "Peinture", "Isolation"],
     metaTitle: "Plâtrerie-peinture dans le Jura",
     metaDescription:
       "Plâtrerie, peinture, isolation et façades à Delémont, Porrentruy et aux Franches-Montagnes. Entreprise basée à Fribourg. Devis gratuit après visite.",
-    intro:
-      "Vous cherchez un plâtrier ou un peintre dans le Jura ? Markaj Renting SA intervient à Delémont, Porrentruy et Saignelégier pour plâtrerie, peinture, isolation et rénovation intérieure.",
+    intro: "Vous cherchez un plâtrier ou un peintre dans le Jura ? Nous intervenons à Delémont, Porrentruy, Saignelégier et Moutier, ainsi que dans le Jura bernois à Saint-Imier, Tramelan et La Neuveville, pour la plâtrerie, la peinture, l'isolation intérieure et la rénovation.",
     contexteLocal: [
-      "Le canton du Jura combine habitat urbain à Delémont, villages de l'Ajoie autour de Porrentruy et constructions des Franches-Montagnes où l'isolation et le confort thermique sont prioritaires.",
-      "Nous prenons en charge rénovations d'appartements, reprises de plâtre et peinture pour particuliers, PME et collectivités, avec un interlocuteur unique pour le second œuvre.",
+      "Depuis le 1er janvier 2026, Moutier fait partie du canton du Jura. Pour un chantier à Moutier, ce sont donc désormais les règles et les services jurassiens qui s'appliquent, alors que Saint-Imier, Tramelan ou La Neuveville restent soumis aux règles bernoises.",
+      "Dans les deux cantons, un bâtiment construit avant 1990 contient probablement des polluants (amiante, PCB, peintures au plomb). Avant de poncer, percer ou démolir, un diagnostic des polluants est demandé : nous en parlons dès le premier échange pour l'intégrer au planning.",
+      "Aux Franches-Montagnes et sur les hauteurs du Jura bernois, l'hiver est long : nous choisissons les doublages isolants et les finitions en fonction de l'exposition et du chauffage des locaux."
+    ],
+    reglesLocales: [
+      {
+        "titre": "Canton du Jura : diagnostic des polluants avant 1990",
+        "texte": "Pour une transformation ou une déconstruction touchant un bâtiment édifié avant 1990, un rapport de diagnostic des polluants établi par un spécialiste doit être fourni avec la demande de permis de construire. Au-delà d'environ 200 m³ de déchets, un plan d'élimination des déchets est aussi demandé.",
+        "sourceLabel": "République et Canton du Jura – Déchets de chantier",
+        "sourceUrl": "https://www.jura.ch/fr/Autorites/Administration/DEC/ENV/Dechets/Dechets-de-chantier/.html"
+      },
+      {
+        "titre": "Jura bernois : diagnostic des polluants et plan d'élimination",
+        "texte": "Dans le Jura bernois, ce sont les règles du canton de Berne qui s'appliquent. La notice cantonale décrit quand un diagnostic des polluants et un plan d'élimination des déchets doivent accompagner la demande de permis.",
+        "sourceLabel": "Canton de Berne – Notice diagnostic des polluants et plan d'élimination des déchets (PDF)",
+        "sourceUrl": "https://www.bvd.be.ch/content/dam/bvd/dokumente/fr/awa/umwelt/abfall/merkblatt-schadstoffermittlung-und-entsorgungskonzept-fr.pdf"
+      }
     ],
     faqLocal: [
       {
-        question: "Intervenez-vous à Delémont pour de la peinture et plâtrerie ?",
-        answer:
-          "Oui. Nous couvrons Delémont et les communes voisines pour cloisons, finitions et peinture intérieure ou extérieure.",
+        "question": "Intervenez-vous à Delémont et à Porrentruy ?",
+        "answer": "Oui. Nous intervenons à Delémont, en Ajoie et aux Franches-Montagnes pour les cloisons, les finitions, la peinture intérieure et l'isolation."
       },
       {
-        question: "Proposez-vous l'isolation à Porrentruy et aux Franches-Montagnes ?",
-        answer:
-          "Oui. Doublages et isolation adaptés au climat jurassien, pour améliorer le confort et réduire les déperditions.",
+        "question": "Moutier est passé au canton du Jura : qu'est-ce que cela change pour mes travaux ?",
+        "answer": "Depuis le 1er janvier 2026, une demande de permis à Moutier suit les règles jurassiennes, y compris pour le diagnostic des polluants. Pour les travaux eux-mêmes, rien ne change : nous intervenons à Moutier comme avant."
       },
       {
-        question: "Comment obtenir un devis dans le canton du Jura ?",
-        answer:
-          "Via le formulaire de contact ou par téléphone : nous planifions une visite et remettons un devis détaillé, sans engagement.",
-      },
-    ],
-  },
-  {
-    slug: "berne",
-    updated: "2026-10-08",
-    name: "Canton de Berne (partie francophone)",
-    shortName: "Jura bernois",
-    h1: "Plâtrerie et peinture dans le Jura bernois",
-    locative: "dans le Jura bernois",
-    canton: "BE",
-    description:
-      "Nous couvrons la partie francophone du canton de Berne : Bienne et le Jura bernois, pour des chantiers résidentiels, tertiaires et industriels.",
-    villes: ["Bienne", "Moutier", "Saint-Imier", "La Neuveville"],
-    chantiers: ["Rénovation d'appartements", "Faux-plafonds commerciaux", "Peinture intérieure", "Doublages isolants"],
-    metaTitle: "Plâtrerie-peinture Jura bernois",
-    metaDescription:
-      "Plâtrerie, peinture et isolation à Bienne, Moutier, Saint-Imier et La Neuveville (partie francophone du canton de Berne). Devis gratuit après visite.",
-    intro:
-      "Vous cherchez un peintre ou un plâtrier à Bienne et dans le Jura bernois ? Markaj Renting SA intervient à Bienne, Moutier, Saint-Imier et La Neuveville pour plâtrerie, peinture, isolation et faux-plafonds.",
-    contexteLocal: [
-      "À Bienne, le tissu mixte (logements, commerces, industrie légère) génère des besoins en rénovation intérieure, faux-plafonds commerciaux et doublages isolants. Nous adaptons planning et finitions aux sites occupés.",
-      "Dans le Jura bernois (Moutier, Saint-Imier, La Neuveville), nous traitons aussi des rénovations d'appartements et de la peinture intérieure pour un bâti souvent plus ancien, avec reprise soignée des supports.",
-    ],
-    faqLocal: [
-      {
-        question: "Faites-vous de la plâtrerie et peinture à Bienne ?",
-        answer:
-          "Oui. Cloisons, finitions, peinture et faux-plafonds à Bienne pour particuliers, commerces et locaux professionnels.",
-      },
-      {
-        question: "Couvrez-vous Moutier et Saint-Imier ?",
-        answer:
-          "Oui. Nous intervenons dans le Jura bernois francophone, y compris Moutier, Saint-Imier et La Neuveville.",
-      },
-      {
-        question: "Quels services sont disponibles dans le Jura bernois ?",
-        answer:
-          "L'ensemble de nos expertises : plâtrerie, peinture, isolation, faux-plafonds, rénovation et façades, selon le projet.",
-      },
+        "question": "Couvrez-vous Saint-Imier, Tramelan et La Neuveville ?",
+        "answer": "Oui. Nous intervenons dans le Jura bernois, à Saint-Imier, Tramelan, La Neuveville et dans les communes voisines, pour la plâtrerie, la peinture, l'isolation intérieure et la rénovation."
+      }
     ],
   },
 ];

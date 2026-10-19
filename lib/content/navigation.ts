@@ -32,7 +32,6 @@ export const footerNav = {
     { label: "Neuchâtel", href: "/zones/neuchatel" },
     { label: "Valais", href: "/zones/valais" },
     { label: "Jura", href: "/zones/jura" },
-    { label: "Jura bernois", href: "/zones/berne" },
   ],
   legal: [
     { label: "Mentions légales", href: "/mentions-legales" },
