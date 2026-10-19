@@ -29,6 +29,8 @@ export interface Zone {
   contexteLocal: string[];
   /** Règles cantonales sourcées (contenu local, pas de gabarit). */
   reglesLocales?: RegleLocale[];
+  /** Titre de la section règles si le texte par défaut ne suffit pas (ex. Jura + Jura bernois). */
+  reglesTitre?: string;
   faqLocal: FaqItem[];
 }
 
@@ -175,9 +177,9 @@ export const zones: Zone[] = [
     metaTitle: "Plâtrerie-peinture à Neuchâtel",
     metaDescription:
       "Plâtrerie, peinture, isolation et façades à Neuchâtel, La Chaux-de-Fonds, Le Locle et Val-de-Ruz. Entreprise basée à Fribourg. Devis gratuit après visite.",
-    intro: "Vous cherchez un plâtrier ou un peintre à Neuchâtel ? Nous intervenons à Neuchâtel, La Chaux-de-Fonds, Le Locle, au Val-de-Ruz et sur le Littoral pour la plâtrerie, la peinture, l'isolation intérieure et la rénovation.",
+    intro: "Des cloisons à refaire à Neuchâtel, une isolation à revoir à La Chaux-de-Fonds ? Nous intervenons à Neuchâtel, La Chaux-de-Fonds, Le Locle, au Val-de-Ruz et sur le Littoral pour la plâtrerie, la peinture, l'isolation intérieure et la rénovation.",
     contexteLocal: [
-      "Le canton de Neuchâtel a son propre seuil : pour une transformation importante ou une démolition soumise à permis, le diagnostic des polluants concerne les immeubles construits avant 1994, et pas seulement avant 1991 comme dans d'autres cantons. Il porte sur l'amiante, les PCB et les peintures au plomb.",
+      "À Neuchâtel, le seuil est plus tardif qu'ailleurs : pour une transformation importante ou une démolition soumise à permis, un diagnostic des polluants est exigé pour les immeubles construits avant 1994. Il porte sur l'amiante, les PCB et les peintures au plomb. Avant tous travaux, le droit fédéral (OTConst) impose déjà de vérifier la présence d'amiante.",
       "Entre le Littoral et les Montagnes, l'altitude et le climat changent d'une commune à l'autre. Nous choisissons les doublages isolants, les enduits et les peintures en fonction de l'exposition et de l'usage des locaux."
     ],
     reglesLocales: [
@@ -201,11 +203,11 @@ export const zones: Zone[] = [
       },
       {
         "question": "Mon immeuble à Neuchâtel date de 1992 : un diagnostic polluants est-il nécessaire ?",
-        "answer": "Pour une transformation importante ou une démolition soumise à permis, oui : le seuil neuchâtelois est fixé aux immeubles construits avant 1994. Pour des travaux plus légers, décrivez-nous le chantier et nous vérifions avec vous ce qui s'applique."
+        "answer": "Pour une transformation importante ou une démolition soumise à permis, oui : le seuil neuchâtelois est fixé aux immeubles construits avant 1994. Pour des travaux plus légers, la règle peut être différente : précisez-nous la nature des travaux dans votre demande."
       },
       {
         "question": "Intervenez-vous aussi au Locle et au Val-de-Ruz ?",
-        "answer": "Oui. Nous intervenons au Locle, au Val-de-Ruz et dans les communes voisines pour la plâtrerie, la peinture, l'isolation intérieure et la rénovation."
+        "answer": "Oui. Nous intervenons au Locle, au Val-de-Ruz et dans les communes voisines."
       }
     ],
   },
