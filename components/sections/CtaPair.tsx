@@ -8,7 +8,6 @@ import { cn } from "@/lib/utils";
 /** Libellé des CTA devis hors header. Le header mobile reste sur « Devis ». */
 const DEVIS_LABEL = "Devis gratuit";
 
-const PHONE_ARIA_LABEL = "Appeler le 079 430 18 13";
 
 interface CtaEndpoint {
   label: string;
@@ -91,7 +90,8 @@ export function CtaPair({
           variant="secondary"
           tone={secondaryToneDark ? "dark" : "default"}
           size={secondary.size ?? "md"}
-          aria-label={PHONE_ARIA_LABEL}
+          /* WCAG 2.5.3 : le nom accessible reprend le texte visible (« Appeler » + numéro). */
+          aria-label={secondary.label.startsWith("Appeler") ? secondary.label : undefined}
           className={cn(
             mobileButtonClass,
             "btn-appeler gap-2",

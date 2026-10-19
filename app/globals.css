@@ -398,6 +398,17 @@
     @apply h-2 w-2 shrink-0 border border-markaj-primary bg-markaj-crepi;
   }
 
+  /* Eyebrow unique au-dessus du H1 (audit /jury) : petites capitales navy, 13–14 px. */
+  .hero-eyebrow {
+    @apply block font-body text-[0.8125rem] font-semibold text-markaj-primary sm:text-[0.875rem];
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-eyebrow--light {
+    @apply text-markaj-white;
+  }
+
   /* Variante claire pour sections bleu nuit / hero photo */
   .marque-cote--light {
     @apply text-markaj-white;
