@@ -12,7 +12,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const choiceButtonClass =
-  "inline-flex h-11 min-h-11 w-full items-center justify-center rounded-none bg-markaj-primary px-3 font-body text-[13px] font-bold uppercase tracking-[0.08em] text-white shadow-none hover:bg-markaj-primary-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-markaj-crepi focus-visible:ring-offset-2";
+  "inline-flex h-11 min-h-11 w-full items-center justify-center rounded-none bg-markaj-primary px-3 font-body text-[13px] font-bold uppercase tracking-[0.08em] text-white shadow-none hover:bg-markaj-primary-light focus:outline-none focus-visible:ring-2 focus-visible:ring-markaj-crepi focus-visible:ring-offset-2";
 
 function rememberDismiss(): void {
   try {
@@ -91,7 +91,8 @@ export function CookieBanner() {
     if (open) {
       node.removeAttribute("inert");
       /* Focus sur le premier bouton à l'ouverture, sans faire défiler la page. */
-      firstButtonRef.current?.focus({ preventScroll: true });
+      /* focusVisible: false : pas de contour à l'ouverture, seulement au clavier (:focus-visible). */
+      firstButtonRef.current?.focus({ preventScroll: true, focusVisible: false } as FocusOptions);
     }
     else node.setAttribute("inert", "");
   }, [open, present]);
@@ -128,7 +129,7 @@ export function CookieBanner() {
       role="region"
       aria-label="Préférences cookies"
       className={cn(
-        "fixed inset-x-0 bottom-0 z-40 max-h-[100px] border-t border-[#DBCFB0] bg-white max-md:pb-[env(safe-area-inset-bottom)] motion-safe:transition-opacity motion-safe:duration-150 md:inset-x-auto md:bottom-6 md:max-h-none md:left-6 md:w-[25rem] md:border md:border-t md:border-markaj-primary/15 md:shadow-[6px_6px_0_#DBCFB0]",
+        "fixed inset-x-0 bottom-0 z-40 max-h-[100px] border-t border-[#DBCFB0] bg-white max-md:pb-[env(safe-area-inset-bottom)] motion-safe:transition-opacity motion-safe:duration-150 md:inset-x-auto md:bottom-6 md:max-h-none md:left-6 lg:left-auto lg:right-6 md:w-[25rem] md:border md:border-t md:border-markaj-primary/15 md:shadow-[6px_6px_0_#DBCFB0]",
         open ? "opacity-100" : "pointer-events-none opacity-0"
       )}
     >
