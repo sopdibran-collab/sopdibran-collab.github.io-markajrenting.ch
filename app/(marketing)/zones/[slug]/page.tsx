@@ -75,9 +75,9 @@ export default function ZoneDetailPage({ params }: PageProps) {
       {zone.reglesLocales && zone.reglesLocales.length > 0 && (
         <Section background="white">
           <SectionHeading
-            subtitle="Règles cantonales"
-            title={`Avant des travaux ${zone.locative}`}
-            intro="Ce que demande le canton, avec le lien vers la source officielle."
+            subtitle="Règles à connaître"
+            title={zone.reglesTitre ?? `Avant des travaux ${zone.locative}`}
+            intro="Avant de commencer, voici ce que les autorités exigent, avec la source officielle pour chaque règle."
           />
           <ul className="grid max-w-prose gap-6">
             {zone.reglesLocales.map((regle) => (

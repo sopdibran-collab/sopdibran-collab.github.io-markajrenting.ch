@@ -29,6 +29,8 @@ export interface Zone {
   contexteLocal: string[];
   /** Règles cantonales sourcées (contenu local, pas de gabarit). */
   reglesLocales?: RegleLocale[];
+  /** Titre de la section règles si le texte par défaut ne suffit pas (ex. Jura + Jura bernois). */
+  reglesTitre?: string;
   faqLocal: FaqItem[];
 }
 
@@ -201,15 +203,15 @@ export const zones: Zone[] = [
     h1: "Plâtrerie (gypserie) et peinture en Valais",
     locative: "en Valais",
     canton: "VS",
-    description: "Nous intervenons dans le Valais romand, en plaine comme en station, pour la gypserie, la peinture, le crépi, l'isolation intérieure et les faux-plafonds, en résidence principale ou secondaire, en hôtellerie et en commerce.",
+    description: "Nous intervenons dans le Valais romand, en plaine comme en station, pour la gypserie, la peinture, le crépi, l'isolation intérieure et les faux-plafonds.",
     villes: ["Sion", "Sierre", "Martigny", "Monthey", "Verbier", "Crans-Montana"],
     chantiers: ["Rénovation de chalets et appartements", "Crépi et façades", "Peinture décorative", "Faux-plafonds"],
     metaTitle: "Gypserie-peinture en Valais",
     metaDescription:
       "Plâtrerie, peinture, isolation et façades en Valais : Sion, Sierre, Martigny, Monthey, Verbier, Crans-Montana. Entreprise basée à Fribourg. Devis gratuit.",
-    intro: "Vous cherchez un plâtrier (gypsier) ou un peintre en Valais ? Nous intervenons à Sion, Sierre, Martigny et Monthey, ainsi qu'à Verbier et Crans-Montana, pour la gypserie, la peinture, le crépi et la rénovation intérieure.",
+    intro: "Un chalet à rénover à Verbier, un appartement à repeindre à Sion ? Nous intervenons à Sion, Sierre, Martigny et Monthey, ainsi qu'à Verbier et Crans-Montana, pour la gypserie, la peinture, le crépi et la rénovation intérieure.",
     contexteLocal: [
-      "En Valais, le Service de l'environnement demande un diagnostic des polluants du bâti (amiante, PCB, plomb, HAP) pour les bâtiments construits avant 1991. Pour les bâtiments industriels ou commerciaux, ce diagnostic peut être demandé quel que soit leur âge, selon l'usage passé des locaux.",
+      "Avant tous travaux, le droit fédéral (OTConst) impose de vérifier la présence d'amiante. En Valais, la notice du Service de l'environnement précise que, pour une transformation ou une démolition, un diagnostic des polluants du bâti (amiante, PCB, plomb, HAP) est requis pour les bâtiments construits avant 1991.",
       "En station, l'accès, la saison et l'occupation des chalets et des appartements dictent le planning. Nous en discutons avec vous avant de fixer les dates du chantier."
     ],
     reglesLocales: [
@@ -237,7 +239,7 @@ export const zones: Zone[] = [
       },
       {
         "question": "Mon local commercial à Sion date de 2000 : un diagnostic polluants peut-il être demandé ?",
-        "answer": "Oui, c'est possible. En Valais, pour les bâtiments commerciaux ou industriels, un diagnostic peut être demandé quel que soit leur âge si l'usage antérieur présente un risque. Décrivez-nous l'historique des locaux et nous vérifions avec vous."
+        "answer": "Oui, c'est possible si l'usage passé des locaux présente un risque. Indiquez-nous ce qu'ils accueillaient avant dans votre demande de devis."
       }
     ],
   },
