@@ -29,6 +29,8 @@ export interface Zone {
   contexteLocal: string[];
   /** Règles cantonales sourcées (contenu local, pas de gabarit). */
   reglesLocales?: RegleLocale[];
+  /** Titre de la section règles si le texte par défaut ne suffit pas (ex. Jura + Jura bernois). */
+  reglesTitre?: string;
   faqLocal: FaqItem[];
 }
 
@@ -129,15 +131,15 @@ export const zones: Zone[] = [
     metaTitle: "Gypserie-peinture à Genève",
     metaDescription:
       "Plâtrerie (gypserie), peinture et faux-plafonds à Genève. Chantiers publiés : plateaux de bureaux OMS, immeuble rue de Lausanne 119. Devis gratuit.",
-    intro: "Vous cherchez un plâtrier (gypsier) ou un peintre à Genève ? Nous intervenons à Genève, Carouge, Lancy, Vernier et Meyrin pour la gypserie, la peinture intérieure, les faux-plafonds et l'aménagement de bureaux.",
+    intro: "Des bureaux à réaménager ou un appartement à repeindre à Genève ? Nous intervenons à Genève, Carouge, Lancy, Vernier et Meyrin pour la gypserie, la peinture intérieure, les faux-plafonds et l'aménagement de bureaux.",
     contexteLocal: [
-      "À Genève, la plupart des immeubles ont été construits avant 1991. Le canton demande un diagnostic amiante avant tous travaux sur ces bâtiments, et, pour un chantier soumis à autorisation, le formulaire G01 doit accompagner la requête. Nous en parlons dès le premier échange pour que le chantier démarre dans les règles.",
+      "Dans tout bâtiment construit avant 1991, le droit fédéral (OTConst) exige un diagnostic amiante avant les travaux. À Genève, si le chantier est soumis à autorisation, ce diagnostic doit être fait avant le dépôt de la requête, et le formulaire G01 l'accompagne. Nous en tenons compte dans le planning.",
       "En appartement PPE, en bureaux au centre-ville ou en zone aéroportuaire, nous organisons les travaux en site occupé, avec protection des parties communes et coordination avec la régie, l'architecte ou l'entreprise générale."
     ],
     reglesLocales: [
       {
         "titre": "Diagnostic amiante avant tous travaux (bâtiments d'avant 1991)",
-        "texte": "Avant toute intervention sur un bâtiment ou une partie de bâtiment construit avant 1991, un diagnostic amiante avant travaux doit être réalisé par un bureau spécialisé. Pour des travaux soumis à autorisation, il doit être fait avant le dépôt de la requête.",
+        "texte": "Le diagnostic amiante avant travaux découle du droit fédéral (art. 3 OTConst). À Genève, la directive SABRA précise qu'il est réalisé par un bureau spécialisé sur tout bâtiment construit avant 1991 et, pour des travaux soumis à autorisation, avant le dépôt de la requête.",
         "sourceLabel": "ge.ch – Directives amiante (SABRA)",
         "sourceUrl": "https://www.ge.ch/document/directives-amiante"
       },
@@ -151,11 +153,11 @@ export const zones: Zone[] = [
     faqLocal: [
       {
         "question": "Intervenez-vous pour de la peinture à Genève ?",
-        "answer": "Oui. Nous intervenons à Genève et dans les communes du canton (Carouge, Lancy, Vernier, Meyrin) pour la peinture intérieure, la préparation des supports et les finitions."
+        "answer": "Oui. Nous intervenons à Genève et dans les communes du canton, de Carouge à Meyrin, pour la peinture intérieure, avec la préparation des supports."
       },
       {
         "question": "Faut-il un diagnostic amiante avant de refaire des faux-plafonds dans des bureaux genevois ?",
-        "answer": "Si le bâtiment date d'avant 1991, oui : le canton demande un diagnostic amiante avant tous travaux, et les anciennes plaques de faux-plafond font partie des matériaux à contrôler. Si vous avez déjà un diagnostic, transmettez-le-nous avec votre demande."
+        "answer": "Si le bâtiment date d'avant 1991, oui : le droit fédéral (OTConst) exige un diagnostic amiante avant les travaux. Si vous avez déjà un diagnostic, transmettez-le-nous avec votre demande."
       },
       {
         "question": "Proposez-vous la gypserie pour l'aménagement de bureaux à Genève ?",
