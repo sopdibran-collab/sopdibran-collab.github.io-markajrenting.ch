@@ -1,5 +1,13 @@
 import type { FaqItem } from "@/lib/content/services";
 
+/** Règle cantonale citée sur une page zone, avec sa source officielle. */
+export interface RegleLocale {
+  titre: string;
+  texte: string;
+  sourceLabel: string;
+  sourceUrl: string;
+}
+
 export interface Zone {
   slug: string;
   /** Dernière modification du contenu (YYYY-MM-DD). Repli du lastmod. */
@@ -19,6 +27,8 @@ export interface Zone {
   metaDescription: string;
   intro: string;
   contexteLocal: string[];
+  /** Règles cantonales sourcées (contenu local, pas de gabarit). */
+  reglesLocales?: RegleLocale[];
   faqLocal: FaqItem[];
 }
 
@@ -146,41 +156,57 @@ export const zones: Zone[] = [
   },
   {
     slug: "neuchatel",
-    updated: "2026-10-08",
+    updated: "2026-10-19",
     name: "Canton de Neuchâtel",
     shortName: "Neuchâtel",
     h1: "Plâtrerie et peinture à Neuchâtel",
     locative: "à Neuchâtel",
     canton: "NE",
-    description:
-      "Du Littoral aux Montagnes neuchâteloises, nous prenons en charge des travaux de plâtrerie, peinture et isolation adaptés au bâti ancien comme aux constructions récentes.",
-    villes: ["Neuchâtel", "La Chaux-de-Fonds", "Le Locle", "Val-de-Ruz"],
+    description: "Nous intervenons sur le Littoral, au Val-de-Ruz, au Val-de-Travers et dans les Montagnes neuchâteloises pour la plâtrerie, la peinture, l'isolation intérieure et la rénovation.",
+    villes: [
+      "Neuchâtel",
+      "La Chaux-de-Fonds",
+      "Le Locle",
+      "Val-de-Ruz",
+      "Boudry",
+      "Milvignes"
+    ],
     chantiers: ["Rénovation intérieure", "Isolation de combles", "Peinture et plâtrerie", "Façades"],
     metaTitle: "Plâtrerie-peinture à Neuchâtel",
     metaDescription:
       "Plâtrerie, peinture, isolation et façades à Neuchâtel, La Chaux-de-Fonds, Le Locle et Val-de-Ruz. Entreprise basée à Fribourg. Devis gratuit après visite.",
-    intro:
-      "Vous cherchez un plâtrier ou un peintre à Neuchâtel ? Markaj Renting SA intervient sur le Littoral et dans les Montagnes (La Chaux-de-Fonds, Le Locle) pour plâtrerie, peinture, isolation et façades.",
+    intro: "Vous cherchez un plâtrier ou un peintre à Neuchâtel ? Nous intervenons à Neuchâtel, La Chaux-de-Fonds, Le Locle, au Val-de-Ruz et sur le Littoral pour la plâtrerie, la peinture, l'isolation intérieure et la rénovation.",
     contexteLocal: [
-      "Le bâti neuchâtelois alterne immeubles du Littoral, habitat densifié à La Chaux-de-Fonds et constructions en altitude où l'isolation et les façades jouent un rôle critique face au climat. Nous adaptons matériaux et mises en œuvre à ces contraintes.",
-      "Rénovation intérieure, isolation de combles et reprise de crépi font partie de nos chantiers récurrents pour particuliers et entreprises du canton.",
+      "Le canton de Neuchâtel a son propre seuil : pour une transformation importante ou une démolition soumise à permis, le diagnostic des polluants concerne les immeubles construits avant 1994, et pas seulement avant 1991 comme dans d'autres cantons. Il porte sur l'amiante, les PCB et les peintures au plomb.",
+      "Entre le Littoral et les Montagnes, l'altitude et le climat changent d'une commune à l'autre. Nous choisissons les doublages isolants, les enduits et les peintures en fonction de l'exposition et de l'usage des locaux."
+    ],
+    reglesLocales: [
+      {
+        "titre": "Diagnostic bâtiment pour les immeubles d'avant 1994",
+        "texte": "En cas de démolition ou de transformation importante soumise à permis de construire sur un immeuble construit avant 1994, la demande doit comprendre un diagnostic de présence d'amiante, de PCB, de peinture au plomb et d'autres polluants liés à l'usage du bâtiment (art. 8a RELConstr.).",
+        "sourceLabel": "RSN 720.1 – Règlement d'exécution de la loi sur les constructions, art. 8a",
+        "sourceUrl": "https://rsn.ne.ch/DATA/program/books/rsne/htm/720.1.htm"
+      },
+      {
+        "titre": "Assainissement et plan de gestion des déchets",
+        "texte": "Si une de ces substances est présente, la demande de permis comprend aussi un programme d'assainissement et un plan de gestion des déchets. La commune contrôle que ces documents respectent les normes cantonales.",
+        "sourceLabel": "Canton de Neuchâtel – Le diagnostic des polluants du bâtiment (PDF)",
+        "sourceUrl": "https://www.ne.ch/sites/default/files/2026-01/Modele_final_DiagnosticBat.pdf"
+      }
     ],
     faqLocal: [
       {
-        question: "Faites-vous de l'isolation à Neuchâtel et La Chaux-de-Fonds ?",
-        answer:
-          "Oui. Doublages isolants intérieurs et traitement acoustique pour logements et locaux professionnels sur le Littoral et dans les Montagnes neuchâteloises.",
+        "question": "Faites-vous de l'isolation intérieure à Neuchâtel et La Chaux-de-Fonds ?",
+        "answer": "Oui. Nous intervenons sur le Littoral et dans les Montagnes neuchâteloises pour les doublages isolants intérieurs et le traitement acoustique, en logement comme en locaux professionnels."
       },
       {
-        question: "Intervenez-vous aussi au Locle et Val-de-Ruz ?",
-        answer:
-          "Oui. Nous couvrons Le Locle, Val-de-Ruz et les communes environnantes pour l'ensemble de nos prestations second œuvre.",
+        "question": "Mon immeuble à Neuchâtel date de 1992 : un diagnostic polluants est-il nécessaire ?",
+        "answer": "Pour une transformation importante ou une démolition soumise à permis, oui : le seuil neuchâtelois est fixé aux immeubles construits avant 1994. Pour des travaux plus légers, décrivez-nous le chantier et nous vérifions avec vous ce qui s'applique."
       },
       {
-        question: "Comment demander un devis façades dans le canton de Neuchâtel ?",
-        answer:
-          "Appelez-nous ou utilisez le formulaire de contact : une visite permet d'évaluer l'état du crépi et de chiffrer ravalement ou peinture de façade.",
-      },
+        "question": "Intervenez-vous aussi au Locle et au Val-de-Ruz ?",
+        "answer": "Oui. Nous intervenons au Locle, au Val-de-Ruz et dans les communes voisines pour la plâtrerie, la peinture, l'isolation intérieure et la rénovation."
+      }
     ],
   },
   {
