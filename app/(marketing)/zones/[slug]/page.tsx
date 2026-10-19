@@ -72,6 +72,35 @@ export default function ZoneDetailPage({ params }: PageProps) {
         </AnimateIn>
       </Section>
 
+      {zone.reglesLocales && zone.reglesLocales.length > 0 && (
+        <Section background="white">
+          <SectionHeading
+            subtitle="Règles à connaître"
+            title={zone.reglesTitre ?? `Avant des travaux ${zone.locative}`}
+            intro="Avant de commencer, voici ce que les autorités exigent, avec la source officielle pour chaque règle."
+          />
+          <ul className="grid max-w-prose gap-6">
+            {zone.reglesLocales.map((regle) => (
+              <li key={regle.titre}>
+                <h3 className="font-heading text-heading-3 text-markaj-primary">{regle.titre}</h3>
+                <p className="mt-2 font-body text-body text-markaj-primary/90">{regle.texte}</p>
+                <p className="mt-2 font-body text-body-sm text-markaj-primary">
+                  Source :{" "}
+                  <a
+                    href={regle.sourceUrl}
+                    className="underline underline-offset-4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {regle.sourceLabel}
+                  </a>
+                </p>
+              </li>
+            ))}
+          </ul>
+        </Section>
+      )}
+
       <Section background="surface" texture="paint">
         <AnimateIn>
           <SectionHeading
