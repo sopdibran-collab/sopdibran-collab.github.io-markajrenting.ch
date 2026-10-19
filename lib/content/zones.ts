@@ -103,13 +103,13 @@ export const zones: Zone[] = [
       "Plâtrerie, peinture, isolation et faux-plafonds à Lausanne, Morges, Nyon, Vevey, Montreux et Yverdon. Entreprise basée à Fribourg. Devis gratuit.",
     intro: "Un appartement à rafraîchir à Lausanne, des bureaux à réaménager à Morges ou à Nyon ? Nous intervenons à Lausanne, Morges, Nyon, Vevey, Montreux et Yverdon-les-Bains pour la plâtrerie, la peinture, l'isolation intérieure et les faux-plafonds.",
     contexteLocal: [
-      "Dans un bâtiment construit avant 1991, le droit fédéral (OTConst) exige un diagnostic amiante avant de poncer, percer ou démolir une cloison. Si les travaux demandent un permis, le canton de Vaud exige en plus que ce diagnostic soit joint à la demande. Nous l'intégrons au planning dès votre demande de devis, pour éviter un arrêt de chantier.",
+      "Avant de poncer, percer ou démolir une cloison, le droit fédéral (OTConst) impose de vérifier la présence d'amiante. Si les travaux demandent un permis et que le bâtiment date d'avant 1991, le canton de Vaud exige en plus qu'un diagnostic amiante soit joint à la demande. Nous l'intégrons au planning dès votre demande de devis, pour éviter un arrêt de chantier.",
       "Pour un appartement loué ou des bureaux occupés, nous organisons les travaux pièce par pièce, avec protection des sols et des parties communes, en lien avec la régie, l'architecte ou le propriétaire."
     ],
     reglesLocales: [
       {
         "titre": "Diagnostic amiante avant travaux (bâtiments d'avant 1991)",
-        "texte": "Pour des travaux soumis à permis de construire sur un bâtiment antérieur à 1991, un diagnostic amiante avant travaux doit être joint à la demande de permis (art. 103a LATC). Même sans permis, le droit fédéral exige ce diagnostic avant toute intervention sur ces bâtiments (art. 3 OTConst).",
+        "texte": "Pour des travaux soumis à permis de construire sur un bâtiment antérieur à 1991, un diagnostic amiante avant travaux doit être joint à la demande de permis (art. 103a LATC). Même sans permis, le droit fédéral impose de vérifier la présence d'amiante avant les travaux (art. 3 OTConst).",
         "sourceLabel": "État de Vaud – Amiante : diagnostic et assainissement",
         "sourceUrl": "https://www.vd.ch/territoire-et-construction/amiante-1/diagnostic-et-assainissement"
       },
