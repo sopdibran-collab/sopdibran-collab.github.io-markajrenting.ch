@@ -1,5 +1,13 @@
 import type { FaqItem } from "@/lib/content/services";
 
+/** Règle cantonale citée sur une page zone, avec sa source officielle. */
+export interface RegleLocale {
+  titre: string;
+  texte: string;
+  sourceLabel: string;
+  sourceUrl: string;
+}
+
 export interface Zone {
   slug: string;
   /** Dernière modification du contenu (YYYY-MM-DD). Repli du lastmod. */
@@ -19,6 +27,8 @@ export interface Zone {
   metaDescription: string;
   intro: string;
   contexteLocal: string[];
+  /** Règles cantonales sourcées (contenu local, pas de gabarit). */
+  reglesLocales?: RegleLocale[];
   faqLocal: FaqItem[];
 }
 
@@ -185,41 +195,50 @@ export const zones: Zone[] = [
   },
   {
     slug: "valais",
-    updated: "2026-10-08",
+    updated: "2026-10-19",
     name: "Canton du Valais",
     shortName: "Valais",
     h1: "Plâtrerie (gypserie) et peinture en Valais",
     locative: "en Valais",
     canton: "VS",
-    description:
-      "Dans le Valais romand, nous intervenons en plaine comme en station : résidences principales et secondaires, hôtellerie et locaux commerciaux.",
+    description: "Nous intervenons dans le Valais romand, en plaine comme en station, pour la gypserie, la peinture, le crépi, l'isolation intérieure et les faux-plafonds, en résidence principale ou secondaire, en hôtellerie et en commerce.",
     villes: ["Sion", "Sierre", "Martigny", "Monthey", "Verbier", "Crans-Montana"],
     chantiers: ["Rénovation de chalets et appartements", "Crépi et façades", "Peinture décorative", "Faux-plafonds"],
     metaTitle: "Gypserie-peinture en Valais",
     metaDescription:
       "Plâtrerie, peinture, isolation et façades en Valais : Sion, Sierre, Martigny, Monthey, Verbier, Crans-Montana. Entreprise basée à Fribourg. Devis gratuit.",
-    intro:
-      "Vous cherchez un peintre ou un plâtrier en Valais ? Markaj Renting SA intervient à Sion, Martigny, Monthey, Sierre et en station (Verbier, Crans-Montana) pour plâtrerie, peinture, crépi et rénovation.",
+    intro: "Vous cherchez un plâtrier (gypsier) ou un peintre en Valais ? Nous intervenons à Sion, Sierre, Martigny et Monthey, ainsi qu'à Verbier et Crans-Montana, pour la gypserie, la peinture, le crépi et la rénovation intérieure.",
     contexteLocal: [
-      "En plaine (Sion, Martigny, Monthey, Sierre), nous réalisons rénovations d'appartements, commerces et finitions neuves. Les exigences thermiques et les façades exposées au soleil valaisan guident le choix des enduits et peintures.",
-      "En station, chalets et résidences secondaires demandent des plannings flexibles et des finitions résistantes. Nous coordonnons plâtrerie, peinture et faux-plafonds selon les fenêtres de chantier hors haute saison lorsque possible.",
+      "En Valais, le Service de l'environnement demande un diagnostic des polluants du bâti (amiante, PCB, plomb, HAP) pour les bâtiments construits avant 1991. Pour les bâtiments industriels ou commerciaux, ce diagnostic peut être demandé quel que soit leur âge, selon l'usage passé des locaux.",
+      "En station, l'accès, la saison et l'occupation des chalets et des appartements dictent le planning. Nous en discutons avec vous avant de fixer les dates du chantier."
+    ],
+    reglesLocales: [
+      {
+        "titre": "Diagnostic des polluants pour les bâtiments d'avant 1991",
+        "texte": "Pour une transformation ou une démolition, un diagnostic des polluants du bâti est requis pour les bâtiments construits avant 1991. Il est établi par une entreprise indépendante, avec du personnel certifié, et accompagne le plan d'élimination des déchets.",
+        "sourceLabel": "Canton du Valais, SEN – Notice diagnostic des polluants et plan d'élimination des déchets (PDF)",
+        "sourceUrl": "https://www.vs.ch/documents/19415/13830766/20211105_def_MerkblattNotice_FR.pdf/a90b7390-d1df-cb6c-c25b-3b8bce57b9a7?t=1636370992265"
+      },
+      {
+        "titre": "Bâtiments commerciaux et industriels",
+        "texte": "Pour les bâtiments industriels, commerciaux ou d'infrastructure, la même notice prévoit un diagnostic quel que soit l'âge du bâtiment lorsqu'il existe un risque lié à son usage antérieur.",
+        "sourceLabel": "Canton du Valais, SEN – même notice (PDF)",
+        "sourceUrl": "https://www.vs.ch/documents/19415/13830766/20211105_def_MerkblattNotice_FR.pdf/a90b7390-d1df-cb6c-c25b-3b8bce57b9a7?t=1636370992265"
+      }
     ],
     faqLocal: [
       {
-        question: "Intervenez-vous pour de la plâtrerie à Sion et Martigny ?",
-        answer:
-          "Oui. Cloisons, doublages et finitions à Sion, Martigny, Monthey et Sierre, pour particuliers, hôtellerie et locaux commerciaux.",
+        "question": "Intervenez-vous pour de la gypserie à Sion et Martigny ?",
+        "answer": "Oui. Nous intervenons à Sion, Martigny, Monthey et Sierre pour les cloisons, les doublages et les finitions, en logement, en hôtellerie et en commerce."
       },
       {
-        question: "Travaillez-vous sur des chalets à Verbier ou Crans-Montana ?",
-        answer:
-          "Oui. Rénovation intérieure, peinture et façades pour résidences en station, avec planning adapté aux contraintes d'accès et de saison.",
+        "question": "Travaillez-vous sur des chalets à Verbier ou Crans-Montana ?",
+        "answer": "Oui. Nous intervenons en station pour la rénovation intérieure, la peinture et le crépi. Nous fixons les dates avec vous, en tenant compte de l'accès et de la saison."
       },
       {
-        question: "Proposez-vous un devis crépi ou façade en Valais ?",
-        answer:
-          "Oui. Après inspection de façade, nous chiffrons reprise d'enduit, crépi ou peinture de protection. Devis gratuit sous 5 jours ouvrés environ.",
-      },
+        "question": "Mon local commercial à Sion date de 2000 : un diagnostic polluants peut-il être demandé ?",
+        "answer": "Oui, c'est possible. En Valais, pour les bâtiments commerciaux ou industriels, un diagnostic peut être demandé quel que soit leur âge si l'usage antérieur présente un risque. Décrivez-nous l'historique des locaux et nous vérifions avec vous."
+      }
     ],
   },
   {
