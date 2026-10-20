@@ -137,41 +137,50 @@ export const zones: Zone[] = [
   },
   {
     slug: "geneve",
-    updated: "2026-10-08",
+    updated: "2026-10-19",
     name: "Canton de Genève",
     shortName: "Genève",
     h1: "Plâtrerie (gypserie) et peinture à Genève",
     locative: "à Genève",
     canton: "GE",
-    description:
-      "À Genève et dans les communes du canton, nos équipes interviennent sur des chantiers de finition exigeants : appartements, bureaux, commerces et immeubles de rendement.",
+    description: "Nous intervenons en ville de Genève et dans les communes du canton pour la gypserie, la peinture, les faux-plafonds et l'aménagement de bureaux, en logement comme en tertiaire.",
     villes: ["Genève", "Carouge", "Lancy", "Vernier", "Meyrin"],
     chantiers: ["Peinture intérieure", "Plâtrerie technique", "Aménagement de bureaux", "Rénovation d'immeubles"],
     metaTitle: "Gypserie-peinture à Genève",
     metaDescription:
       "Plâtrerie (gypserie), peinture et faux-plafonds à Genève. Chantiers publiés : plateaux de bureaux OMS, immeuble rue de Lausanne 119. Devis gratuit.",
-    intro:
-      "Vous cherchez un plâtrier ou un peintre à Genève ? Markaj Renting SA intervient dans le canton pour la plâtrerie technique, la peinture intérieure, l'aménagement de bureaux et la rénovation d'immeubles.",
+    intro: "Des bureaux à réaménager ou un appartement à repeindre à Genève ? Nous intervenons à Genève, Carouge, Lancy, Vernier et Meyrin pour la gypserie, la peinture intérieure, les faux-plafonds et l'aménagement de bureaux.",
     contexteLocal: [
-      "Le parc bâti genevois exige souvent des finitions soignées : appartements en PPE, bureaux au centre et en zone aéroportuaire (Meyrin, Vernier), commerces à Carouge et Lancy. Nous livrons des surfaces prêtes à peindre (Q3/Q4) et des plafonds techniques intégrés.",
-      "Pour les régies et promoteurs, nous planifions des chantiers en site occupé avec protection des parties communes et coordination des corps de métier.",
+      "Le droit fédéral (OTConst) impose de vérifier la présence d'amiante avant les travaux. À Genève, tout bâtiment construit avant 1991 doit faire l'objet d'un diagnostic par un bureau spécialisé et, si le chantier est soumis à autorisation, avant le dépôt de la requête, accompagné du formulaire G01. Nous en tenons compte dans le planning.",
+      "En appartement PPE, en bureaux au centre-ville ou en zone aéroportuaire, nous organisons les travaux en site occupé, avec protection des parties communes et coordination avec la régie, l'architecte ou l'entreprise générale."
+    ],
+    reglesLocales: [
+      {
+        "titre": "Diagnostic amiante avant tous travaux (bâtiments d'avant 1991)",
+        "texte": "Le diagnostic amiante avant travaux découle du droit fédéral (art. 3 OTConst). À Genève, la directive SABRA précise qu'il est réalisé par un bureau spécialisé sur tout bâtiment construit avant 1991 et, pour des travaux soumis à autorisation, avant le dépôt de la requête.",
+        "sourceLabel": "ge.ch – Directives amiante (SABRA)",
+        "sourceUrl": "https://www.ge.ch/document/directives-amiante"
+      },
+      {
+        "titre": "Formulaire G01 : attestation de substances dangereuses",
+        "texte": "La demande d'autorisation de construire comprend l'attestation G01 de présence ou d'absence d'amiante et de PCB pour les parties du bâtiment touchées par les travaux (art. 15B LaLPE).",
+        "sourceLabel": "ge.ch – G01, attestation de présence ou d'absence de substances dangereuses",
+        "sourceUrl": "https://www.ge.ch/document/g01-attestation-presence-absence-substances-dangereuses"
+      }
     ],
     faqLocal: [
       {
-        question: "Intervenez-vous pour de la peinture à Genève ?",
-        answer:
-          "Oui. Peinture intérieure et extérieure, préparation des supports et finitions durables à Genève et dans les communes du canton (Carouge, Lancy, Vernier, Meyrin).",
+        "question": "Intervenez-vous pour de la peinture à Genève ?",
+        "answer": "Oui. Nous intervenons à Genève et dans les communes du canton, de Carouge à Meyrin, pour la peinture intérieure, avec la préparation des supports."
       },
       {
-        question: "Proposez-vous la plâtrerie pour bureaux à Genève ?",
-        answer:
-          "Oui. Cloisons, doublages, faux-plafonds acoustiques et finitions pour aménagements tertiaires, en lien avec architectes et entreprises générales.",
+        "question": "Faut-il un diagnostic amiante avant de refaire des faux-plafonds dans des bureaux genevois ?",
+        "answer": "Si le bâtiment date d'avant 1991, oui : à Genève, la directive SABRA demande un diagnostic amiante avant les travaux. Si vous avez déjà un diagnostic, transmettez-le-nous avec votre demande."
       },
       {
-        question: "Quels délais pour un devis à Genève ?",
-        answer:
-          "Après prise de contact, nous organisons une visite et remettons un devis gratuit sous 5 jours ouvrés environ, selon la complexité du chantier.",
-      },
+        "question": "Proposez-vous la gypserie pour l'aménagement de bureaux à Genève ?",
+        "answer": "Oui. Cloisons, doublages, faux-plafonds acoustiques et finitions pour les aménagements tertiaires, en lien avec les architectes et les entreprises générales."
+      }
     ],
   },
   {
