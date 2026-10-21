@@ -45,7 +45,7 @@ export default function ServicesPage() {
         </div>
         <SectionHeading
           subtitle="Expertises"
-          title="Six domaines d'intervention"
+          title="Nos domaines d'intervention"
           intro="Choisissez un service pour le détail technique, ou demandez directement un devis ciblé."
         />
         <div className="grid gap-5 md:grid-cols-2 md:gap-6">

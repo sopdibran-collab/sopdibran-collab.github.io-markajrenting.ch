@@ -94,6 +94,10 @@ export default function ZonesPage() {
           <Link href="/services/faux-plafonds" className="inline-flex min-h-11 items-center text-markaj-primary hover:underline">Faux-plafonds</Link>
           <Link href="/services/isolation" className="inline-flex min-h-11 items-center text-markaj-primary hover:underline">Isolation</Link>
           <Link href="/services/renovation" className="inline-flex min-h-11 items-center text-markaj-primary hover:underline">Rénovation</Link>
+          <Link href="/services/isolation-peripherique" className="inline-flex min-h-11 items-center text-markaj-primary hover:underline">Isolation périphérique</Link>
+          <Link href="/services/crepi-interieur" className="inline-flex min-h-11 items-center text-markaj-primary hover:underline">Crépi intérieur</Link>
+          <Link href="/services/lissage" className="inline-flex min-h-11 items-center text-markaj-primary hover:underline">Lissage</Link>
+          <Link href="/services/schichtex" className="inline-flex min-h-11 items-center text-markaj-primary hover:underline">Schichtex</Link>
           <Link href="/services/facades" className="inline-flex min-h-11 items-center text-markaj-primary hover:underline">Façades</Link>
         </div>
       </Section>

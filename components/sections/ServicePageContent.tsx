@@ -10,6 +10,7 @@ import { serviceVisuals } from "@/lib/content/service-visuals";
 import { SERVICE_TITLE_LOCATION, zones } from "@/lib/content/zones";
 import { getGlossaryForService } from "@/lib/seo/glossary";
 import { siteConfig } from "@/lib/seo/site-config";
+import Image from "next/image";
 import Link from "next/link";
 
 interface ServicePageContentProps {
@@ -25,6 +26,7 @@ function withDefiniteArticle(article: Service["definiteArticle"], noun: string) 
 function withAPlusArticle(article: Service["definiteArticle"], noun: string) {
   if (article === "les") return `aux ${noun}`;
   if (article === "l'") return `à l'${noun}`;
+  if (article === "le") return `au ${noun}`;
   return `à la ${noun}`;
 }
 
@@ -65,7 +67,7 @@ function RichParagraph({ parts }: { parts: InlinePart[] }) {
 export function ServicePageContent({ service }: ServicePageContentProps) {
   const glossary = getGlossaryForService(service.slug);
   const hasGlossary = glossary.length > 0;
-  const label = service.title.toLowerCase();
+  const label = service.title.charAt(0).toLowerCase() + service.title.slice(1);
   const labelled = withDefiniteArticle(service.definiteArticle, label);
   const aLabelled = withAPlusArticle(service.definiteArticle, label);
   const deLabel = withDe(label);
@@ -153,6 +155,31 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
             {service.definition}
           </p>
         </AnimateIn>
+        {service.gallery && service.gallery.length > 0 && (
+          <div className="mt-10">
+            <p className="marque-cote mb-4">Photos de nos chantiers</p>
+            <ul className="grid list-none grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+              {service.gallery.map((photo) => (
+                <li key={photo.src}>
+                  <figure>
+                    <div className="relative aspect-[3/4] overflow-hidden bg-markaj-crepi-light">
+                      <Image
+                        src={photo.src}
+                        alt={photo.alt}
+                        fill
+                        sizes="(min-width: 1024px) 25vw, 50vw"
+                        className="object-cover"
+                      />
+                    </div>
+                    <figcaption className="mt-2 font-body text-caption text-markaj-primary/80">
+                      {photo.legend}
+                    </figcaption>
+                  </figure>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </Section>
 
       {service.offerings.length > 0 && (

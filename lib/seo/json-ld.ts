@@ -321,6 +321,10 @@ const SERVICE_SLUGS_WITHOUT_HOWTO = new Set([
   "facades",
   "platrerie",
   "peinture",
+  "isolation-peripherique",
+  "crepi-interieur",
+  "lissage",
+  "schichtex",
 ]);
 
 export function buildServicePageSchemas(service: Service): JsonLdObject[] {

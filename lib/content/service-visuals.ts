@@ -47,4 +47,10 @@ export const serviceVisuals: Record<string, ServiceVisual> = {
     legend: "Façade",
     alt: "Immeuble de la rue de Lausanne 119 après surélévation de trois étages en attique",
   },
+  schichtex: {
+    updated: "2026-10-22",
+    src: "/images/chantier/panneaux-laine-de-bois-isolant-01.webp",
+    legend: "Panneaux et isolant",
+    alt: "Panneaux en fibres de bois posés au plafond, isolant visible dans l'ossature, sur chantier Markaj",
+  },
 };
