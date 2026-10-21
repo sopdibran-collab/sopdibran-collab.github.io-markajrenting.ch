@@ -65,7 +65,7 @@ export interface Service {
   materials: string[];
   faq: FaqItem[];
   /** Photos de chantier réelles (Markaj), affichées sous la définition. */
-  gallery?: { src: string; alt: string; legend: string }[];
+  gallery?: { src: string; alt: string; legend: string; width: number; height: number }[];
 }
 
 export const services: Service[] = [
@@ -227,10 +227,10 @@ export const services: Service[] = [
       "Ragréages et primaires d'accrochage",
     ],
     gallery: [
-      { src: "/images/chantier/cloison-placo-01.webp", legend: "Cloisons en plaques", alt: "Cloisons en plaques de plâtre montées sur ossature métallique, sur chantier Markaj" },
-      { src: "/images/chantier/ossature-metallique-placo-02.webp", legend: "Ossature métallique", alt: "Ossature métallique de cloisons en cours de montage sur un plateau, sur chantier Markaj" },
-      { src: "/images/chantier/doublage-isolant-placo-01.webp", legend: "Doublage isolant", alt: "Ouvrier Markaj posant un doublage avec isolant et panneaux de renfort sur ossature métallique" },
-      { src: "/images/chantier/cloison-placo-03.webp", legend: "Plateau cloisonné", alt: "Plateau de bureaux avec cloisons en plaques de plâtre avant joints, sur chantier Markaj" },
+      { src: "/images/chantier/cloison-placo-01.webp", legend: "Cloisons en plaques", alt: "Cloisons en plaques de plâtre sur ossature métallique avant joints, avec garde-corps de chantier, sur chantier Markaj", width: 1200, height: 1600 },
+      { src: "/images/chantier/ossature-metallique-placo-02.webp", legend: "Ossature métallique", alt: "Ossature métallique de cloisons montée sur un plateau, échelle et outillage au sol, sur chantier Markaj", width: 1600, height: 1200 },
+      { src: "/images/chantier/doublage-isolant-placo-01.webp", legend: "Doublage et fonds en bois", alt: "Ouvrier Markaj vissant des bandes de contreplaqué sur une ossature métallique, devant un isolant à parement aluminium", width: 1600, height: 1200 },
+      { src: "/images/chantier/cloison-placo-03.webp", legend: "Plateau cloisonné", alt: "Plateau de bureaux avec cloisons en plaques de plâtre avant joints et escalier en chantier, sur chantier Markaj", width: 1600, height: 900 },
     ],
     faq: [
       {
@@ -485,7 +485,7 @@ export const services: Service[] = [
       },
     ],
     offeringsNote: [
-      "Pour isoler le plafond d'une cave, d'un garage ou d'un parking, voir la page ",
+      "Pour isoler le plafond d'une cave, d'un garage ou d'un parking, consultez la page ",
       { href: "/services/schichtex", label: "panneaux Schichtex" },
       ".",
     ],
@@ -503,10 +503,13 @@ export const services: Service[] = [
       "Systèmes coupe-feu selon exigences",
     ],
     gallery: [
-      { src: "/images/chantier/faux-plafond-placo-pose-01.webp", legend: "Pose en cours", alt: "Ouvrier Markaj posant une plaque de plâtre perforée au faux-plafond" },
-      { src: "/images/chantier/faux-plafond-placo-perfore-04.webp", legend: "Plafond perforé", alt: "Faux-plafond acoustique en plaques de plâtre perforées avec spots intégrés, sur chantier Markaj" },
-      { src: "/images/chantier/faux-plafond-placo-perfore-03.webp", legend: "Découpe ronde", alt: "Faux-plafond perforé avec grande découpe circulaire pour puits de lumière, sur chantier Markaj" },
-      { src: "/images/chantier/faux-plafond-placo-perfore-02.webp", legend: "Intégration réseaux", alt: "Faux-plafond en plaques perforées avec bouche technique intégrée, sur chantier Markaj" },
+      { src: "/images/chantier/faux-plafond-placo-pose-01.webp", legend: "Pose en cours", alt: "Ouvrier Markaj posant une plaque de plâtre perforée dans un faux-plafond, trappe ouverte", width: 943, height: 1673 },
+      { src: "/images/chantier/faux-plafond-placo-perfore-04.webp", legend: "Plafond perforé", alt: "Faux-plafond en plaques de plâtre perforées avec spots encastrés au-dessus d'une baie vitrée, sur chantier Markaj", width: 943, height: 1254 },
+      { src: "/images/chantier/faux-plafond-placo-perfore-03.webp", legend: "Ouverture circulaire", alt: "Faux-plafond en plaques de plâtre perforées autour d'une grande ouverture circulaire vitrée, sur chantier Markaj", width: 943, height: 1254 },
+      { src: "/images/chantier/faux-plafond-placo-perfore-02.webp", legend: "Intégration réseaux", alt: "Faux-plafond en plaques de plâtre perforées avec bouche technique intégrée, au-dessus d'une structure noire, sur chantier Markaj", width: 943, height: 1254 },
+      { src: "/images/chantier/panneaux-laine-de-bois-isolant-01.webp", legend: "Panneau et isolant", alt: "Panneaux en fibres de bois posés sous un plafond, main tenant l'isolant visible entre les lambourdes, sur chantier Markaj", width: 943, height: 1254 },
+      { src: "/images/chantier/faux-plafond-laine-de-bois-04.webp", legend: "Plafond en fibres de bois", alt: "Plafond en panneaux de fibres de bois sur lambourdes en bois, au-dessus d'une façade vitrée, sur chantier Markaj", width: 943, height: 1673 },
+      { src: "/images/chantier/faux-plafond-laine-de-bois-pose-01.webp", legend: "Pose en cours", alt: "Échafaudage roulant sous un plafond en panneaux de fibres de bois en cours de pose, sur chantier Markaj", width: 943, height: 1673 },
     ],
     faq: [
       { question: "Quel faux-plafond pour une bonne acoustique ?", answer: "Les plaques perforées avec matelas acoustique ou les dalles minérales à haute absorption sont recommandées pour les bureaux, salles de réunion et espaces publics." },
@@ -946,7 +949,7 @@ export const services: Service[] = [
       "Produits anti-mousse et hydrofuges",
     ],
     gallery: [
-      { src: "/images/chantier/facade-echafaudage-01.webp", legend: "Façade sur échafaudage", alt: "Ouvriers Markaj sur échafaudage de façade d'un immeuble" },
+      { src: "/images/chantier/facade-echafaudage-01.webp", legend: "Façade sur échafaudage", alt: "Ouvriers Markaj travaillant sur l'échafaudage de façade d'un immeuble", width: 943, height: 1673 },
     ],
     faq: [
       {
@@ -994,14 +997,14 @@ export const services: Service[] = [
     shortTitle: "Isolation périphérique",
     definiteArticle: "l'",
     metaDescription:
-      "Isolation périphérique crépie (ITEC) en Suisse romande : panneaux isolants collés-chevillés, armature, crépi de finition, norme SIA 243. Devis gratuit.",
+      "Isolation périphérique crépie (ITEC) en Suisse romande : panneaux isolants collés et chevillés, armature, crépi de finition, selon la norme SIA 243.",
     intro:
       "Nous intervenons en Suisse romande pour isoler les façades par l'extérieur : panneaux isolants, couche d'armature et crépi de finition, selon la norme SIA 243.",
     benefit: "Une façade isolée et crépie d'un seul tenant, sans perdre de surface habitable.",
     audience: ["Particuliers", "Régies", "Copropriétés", "Architectes"],
     projectTypes: ["Rénovation énergétique", "Neuf", "Façade crépie"],
     definition:
-      "L'isolation périphérique, ou isolation thermique extérieure crépie (ITEC), consiste à coller et cheviller des panneaux isolants sur la face extérieure des murs, puis à les recouvrir d'une couche d'armature et d'un crépi. Le mur porteur reste du côté chaud, et la plupart des ponts thermiques des dalles et des murs de refend sont couverts.",
+      "L'isolation périphérique, ou isolation thermique extérieure crépie (ITEC), consiste à coller et cheviller des panneaux isolants sur la face extérieure des murs, puis à les recouvrir d'une couche d'armature et d'un crépi. Le mur porteur reste du côté chaud, et la plupart des ponts thermiques au droit des dalles et des murs de refend sont traités.",
     offerings: [
       {
         title: "Pose des panneaux isolants",
@@ -1023,7 +1026,7 @@ export const services: Service[] = [
       {
         title: "Raccords et détails",
         description:
-          "Embrasures, tablettes de fenêtre, raccords de toiture et de socle : ce sont les points où l'eau entre si le détail est mal fait.",
+          "Embrasures, tablettes de fenêtre, raccords de toiture et de socle : c'est par ces points que l'eau s'infiltre quand le détail est mal exécuté.",
       },
     ],
     guides: [
@@ -1031,7 +1034,7 @@ export const services: Service[] = [
         title: "Isolation périphérique : comment est composé le système ?",
         paragraphs: [
           [
-            "Une isolation périphérique crépie est un système complet, vendu et testé comme un ensemble par le fabricant : colle, panneau isolant, chevilles, mortier d'armature, treillis, fixatif et crépi. Les produits d'un même système se posent ensemble. Mélanger les marques peut faire perdre la garantie du système.",
+            "Une isolation périphérique crépie est un système complet, vendu et testé comme un ensemble par le fabricant : colle, panneau isolant, chevilles, mortier d'armature, treillis, fixatif et crépi. Les produits d'un même système se posent ensemble : mélanger les marques peut faire perdre la garantie du fabricant.",
           ],
           [
             "En Suisse, la norme SIA 243 « Isolations thermiques extérieures crépies » décrit la conception et l'exécution de ces systèmes. La protection thermique des bâtiments est traitée dans la norme SIA 180, et les exigences énergétiques par les lois cantonales sur l'énergie. Les normes sont publiées par la ",
@@ -1075,7 +1078,7 @@ export const services: Service[] = [
       { href: "/blog/choisir-isolant-selon-paroi", label: "Laine minérale, fibre de bois ou XPS" },
     ],
     ctaDescription:
-      "Décrivez votre façade : surface, type de mur, année de construction. Devis gratuit, interventions en Suisse romande.",
+      "Décrivez votre façade : surface, type de mur, année de construction. Nous intervenons en Suisse romande.",
     ctaHref: "/contact?service=isolation-peripherique",
     process: [
       { step: "01", title: "Relevé de la façade", description: "État du support, surfaces, embrasures, socle et raccords de toiture. Choix du système et de l'épaisseur d'isolant." },
@@ -1110,7 +1113,7 @@ export const services: Service[] = [
       {
         question: "Faut-il une autorisation pour isoler sa façade par l'extérieur ?",
         answer:
-          "Cela dépend de la commune, du secteur et du changement d'aspect. L'épaisseur ajoutée peut aussi toucher les distances aux limites. La commune indique s'il faut une autorisation ou une annonce. Cette réponse est générale.",
+          "Cela dépend de la commune, du secteur et du changement d'aspect. L'épaisseur ajoutée peut aussi toucher les distances aux limites. La commune indique s'il faut une autorisation ou une annonce.",
       },
       {
         question: "Existe-t-il des subventions ?",
@@ -1120,7 +1123,7 @@ export const services: Service[] = [
       {
         question: "Dans quelles régions intervenez-vous pour l'isolation périphérique ?",
         answer:
-          "Nous intervenons à Fribourg, dans les cantons de Vaud, Neuchâtel, Genève, du Valais et du Jura.",
+          "Nous intervenons dans les cantons de Fribourg, Vaud, Neuchâtel, Genève, du Valais et du Jura.",
       },
     ],
   },
@@ -1132,14 +1135,14 @@ export const services: Service[] = [
     shortTitle: "Crépi intérieur",
     definiteArticle: "le",
     metaDescription:
-      "Crépi intérieur en Suisse romande : crépi ribé, roulé ou taloché sur murs et plafonds, préparation du support, fixatif et peinture. Devis gratuit.",
+      "Crépi intérieur en Suisse romande : crépi ribé, roulé ou taloché sur murs et plafonds, préparation du support, fixatif et peinture.",
     intro:
       "Nous intervenons en Suisse romande pour poser du crépi intérieur sur murs et plafonds : préparation du support, fixatif, crépi au grain choisi et peinture si besoin.",
     benefit: "Un mur résistant aux chocs, au grain régulier, qui masque les petits défauts du support.",
     audience: ["Particuliers", "Régies", "Entreprises", "Architectes"],
     projectTypes: ["Logements", "Cages d'escalier", "Locaux commerciaux"],
     definition:
-      "Le crépi intérieur est un enduit de finition à grain, appliqué en couche mince sur un mur ou un plafond préparé. On le trouve dans de nombreux logements et cages d'escalier en Suisse. Selon l'outil et la taille du grain, il donne un aspect ribé (rayé), taloché ou roulé. Il peut rester dans sa teinte ou être peint.",
+      "Le crépi intérieur est un enduit de finition à grain, appliqué en couche mince sur un mur ou un plafond préparé. Il est courant dans les logements et les cages d'escalier en Suisse. Selon l'outil et la taille du grain, il donne un aspect ribé (rayé), taloché ou roulé. Il peut rester dans sa teinte ou être peint.",
     offerings: [
       {
         title: "Crépi ribé, taloché ou roulé",
@@ -1159,7 +1162,7 @@ export const services: Service[] = [
       {
         title: "Peinture sur crépi",
         description:
-          "Peinture des murs crépis, rouleau à poils longs pour bien couvrir le grain.",
+          "Peinture des murs crépis au rouleau à poils longs, pour couvrir le fond du grain.",
         href: "/services/peinture",
         linkLabel: "Peinture intérieure",
       },
@@ -1169,7 +1172,7 @@ export const services: Service[] = [
         title: "Crépi ou lissage : que choisir ?",
         paragraphs: [
           [
-            "Le crépi donne un mur à relief, qui résiste bien aux frottements et cache les petites irrégularités. Il convient aux couloirs, cages d'escalier et pièces de passage. Le lissage donne au contraire un mur plat, pour une peinture mate ou satinée.",
+            "Le crépi donne un mur à relief, qui résiste bien aux frottements et cache les petites irrégularités. Il convient aux couloirs, cages d'escalier et pièces de passage. Le lissage donne au contraire un mur plat, prêt pour une peinture mate ou satinée.",
           ],
           [
             "Un crépi existant peut aussi être lissé pour obtenir un mur plat : le détail est sur la page ",
@@ -1208,7 +1211,7 @@ export const services: Service[] = [
       { href: "/services/platrerie", label: "Plâtrerie" },
     ],
     ctaDescription:
-      "Décrivez vos murs : surface, support, aspect voulu. Devis gratuit, interventions en Suisse romande.",
+      "Décrivez vos murs : surface, support, aspect voulu. Nous intervenons en Suisse romande.",
     ctaHref: "/contact?service=crepi-interieur",
     process: [
       { step: "01", title: "Choix de l'aspect", description: "Type de crépi, grain et teinte, sur échantillon si besoin. Contrôle du support existant." },
@@ -1247,7 +1250,7 @@ export const services: Service[] = [
       {
         question: "Dans quelles régions posez-vous du crépi intérieur ?",
         answer:
-          "Nous intervenons à Fribourg, dans les cantons de Vaud, Neuchâtel, Genève, du Valais et du Jura.",
+          "Dans toute la Suisse romande : cantons de Fribourg, Vaud, Neuchâtel, Genève, du Valais et du Jura.",
       },
     ],
   },
@@ -1259,7 +1262,7 @@ export const services: Service[] = [
     shortTitle: "Lissage",
     definiteArticle: "le",
     metaDescription:
-      "Lissage de murs et plafonds en Suisse romande : enduit de lissage, ponçage, finition Q3 ou Q4 avant peinture, lissage d'un ancien crépi. Devis gratuit.",
+      "Lissage de murs et plafonds en Suisse romande : enduit de lissage, ponçage, finition Q3 ou Q4 avant peinture, lissage d'un ancien crépi.",
     intro:
       "Nous intervenons en Suisse romande pour lisser murs et plafonds : enduit de lissage, ponçage et finition prête à peindre, en neuf comme en rénovation.",
     benefit: "Des murs plats, sans relief ni joints visibles, prêts pour une peinture mate, satinée ou laquée.",
@@ -1301,7 +1304,7 @@ export const services: Service[] = [
             "Les niveaux de qualité Q1 à Q4 décrivent la finition des surfaces en plâtre. En Q3, joints et surfaces sont enduits et poncés : c'est le niveau courant sous une peinture mate. En Q4, toute la surface reçoit un enduit lissé : le mur reste plat même en lumière rasante, ce qu'il faut sous une peinture satinée ou laquée.",
           ],
           [
-            "Plus de détails sur les niveaux de finition sont sur la page ",
+            "Les niveaux de finition sont détaillés sur la page ",
             { href: "/services/platrerie", label: "plâtrerie" },
             ". Les travaux de plâtrerie et de crépissage sont décrits par la norme SIA 242, publiée par la ",
             { href: "https://www.sia.ch/fr/", label: "SIA" },
@@ -1313,7 +1316,7 @@ export const services: Service[] = [
         title: "Pourquoi la lumière rasante compte",
         paragraphs: [
           [
-            "Une lumière qui arrive presque parallèle au mur, depuis une grande fenêtre ou un éclairage encastré, révèle le moindre défaut. Dans ces pièces, un lissage soigné évite de voir les joints et les reprises après la peinture.",
+            "Une lumière qui arrive presque parallèle au mur, depuis une grande fenêtre ou un éclairage encastré, fait ressortir les défauts. Dans ces pièces, un lissage soigné évite de voir les joints et les reprises après la peinture.",
           ],
         ],
       },
@@ -1334,7 +1337,7 @@ export const services: Service[] = [
       { href: "/services/peinture", label: "Peinture intérieure et extérieure" },
     ],
     ctaDescription:
-      "Décrivez vos murs : surface, support, finition voulue. Devis gratuit, interventions en Suisse romande.",
+      "Décrivez vos murs : surface, support, finition voulue. Nous intervenons en Suisse romande.",
     ctaHref: "/contact?service=lissage",
     process: [
       { step: "01", title: "Diagnostic du support", description: "Type de support, fissures, relief existant, adhérence de l'ancienne peinture. Choix du niveau Q3 ou Q4." },
@@ -1363,7 +1366,7 @@ export const services: Service[] = [
       {
         question: "Quelle différence entre lissage et ragréage ?",
         answer:
-          "Le ragréage désigne surtout le rattrapage des irrégularités, sur un sol ou un béton. Le lissage est la finition fine d'un mur ou d'un plafond avant peinture. Sur un mur très abîmé, on fait souvent les deux.",
+          "Le ragréage sert surtout à rattraper les irrégularités d'un sol ou d'un béton. Le lissage est la finition fine d'un mur ou d'un plafond avant peinture. Sur un mur très abîmé, on fait souvent les deux.",
       },
       {
         question: "Faut-il lisser avant de peindre ?",
@@ -1373,7 +1376,7 @@ export const services: Service[] = [
       {
         question: "Dans quelles régions intervenez-vous pour le lissage ?",
         answer:
-          "Nous intervenons à Fribourg, dans les cantons de Vaud, Neuchâtel, Genève, du Valais et du Jura.",
+          "Nous lissons murs et plafonds dans les cantons de Fribourg, Vaud, Neuchâtel, Genève, du Valais et du Jura.",
       },
     ],
   },
@@ -1388,7 +1391,7 @@ export const services: Service[] = [
       "Pose de panneaux Schichtex en Suisse romande : panneaux isolants multicouches pour plafonds de caves, garages et parkings. Isolation thermique et phonique.",
     intro:
       "Nous intervenons en Suisse romande pour poser des panneaux isolants multicouches type Schichtex sous les plafonds de caves, de garages et de parkings.",
-    benefit: "Un plafond de sous-sol isolé, qui garde les pièces du dessus au chaud, avec une face robuste et propre.",
+    benefit: "Un plafond de sous-sol isolé, qui limite les pertes de chaleur vers le bas, avec une face résistante aux chocs.",
     audience: ["Particuliers", "Régies", "Copropriétés", "Architectes", "Entreprises"],
     projectTypes: ["Caves", "Garages", "Parkings souterrains"],
     definition:
@@ -1397,7 +1400,7 @@ export const services: Service[] = [
       {
         title: "Isolation des plafonds de caves",
         description:
-          "Panneaux fixés sous la dalle de la cave, pour que le froid du sous-sol ne passe plus dans le logement du dessus.",
+          "Panneaux fixés sous la dalle de la cave, pour limiter le froid qui remonte dans le logement du dessus.",
       },
       {
         title: "Plafonds de garages et parkings",
@@ -1432,10 +1435,10 @@ export const services: Service[] = [
         ],
       },
       {
-        title: "Panneaux multicouches : comment ils sont faits",
+        title: "Comment sont faits les panneaux multicouches",
         paragraphs: [
           [
-            "Un panneau à deux couches a une face en fibres de bois liées au ciment et une âme isolante. Un panneau à trois couches a une face de chaque côté. La face visible reste brute, ou se peint. Sa structure en fibres absorbe aussi une partie du bruit dans le local.",
+            "Un panneau à deux couches a une face en fibres de bois liées au ciment et une âme isolante. Un panneau à trois couches a une face de chaque côté. La face visible peut rester brute ou être peinte. Sa structure en fibres absorbe aussi une partie du bruit dans le local.",
           ],
           [
             "D'autres panneaux en fibres de bois servent de plafonds acoustiques dans les bureaux et les écoles : voir la page ",
@@ -1461,7 +1464,7 @@ export const services: Service[] = [
       { href: "/services/isolation-peripherique", label: "Isolation périphérique" },
     ],
     ctaDescription:
-      "Décrivez votre sous-sol : surface, hauteur, conduites au plafond. Devis gratuit, interventions en Suisse romande.",
+      "Décrivez votre sous-sol : surface, hauteur, conduites au plafond. Nous intervenons en Suisse romande.",
     ctaHref: "/contact?service=schichtex",
     process: [
       { step: "01", title: "Relevé du plafond", description: "Surface, hauteur libre, conduites, luminaires et exigences incendie. Choix du panneau et de son épaisseur." },
@@ -1480,7 +1483,7 @@ export const services: Service[] = [
       {
         question: "Qu'est-ce qu'un panneau Schichtex ?",
         answer:
-          "Schichtex désigne un panneau isolant multicouche : une âme isolante entre une ou deux faces en fibres de bois liées au ciment ou à la magnésite. On l'utilise surtout sous les plafonds de caves, de garages et de parkings.",
+          "Schichtex est un nom de produit, souvent utilisé pour désigner les panneaux isolants multicouches : une âme isolante entre une ou deux faces en fibres de bois liées au ciment ou à la magnésite. On les pose surtout sous les plafonds de caves, de garages et de parkings.",
       },
       {
         question: "Quelle épaisseur de panneau choisir ?",
@@ -1495,7 +1498,7 @@ export const services: Service[] = [
       {
         question: "Peut-on peindre les panneaux ?",
         answer:
-          "Oui, avec une peinture adaptée aux fibres de bois liées au ciment, en général appliquée au pistolet ou au rouleau. Beaucoup de panneaux existent aussi en blanc ou en couleur d'usine.",
+          "Oui, avec une peinture adaptée aux fibres de bois liées au ciment, en général appliquée au pistolet ou au rouleau. Certains panneaux sont aussi livrés blancs ou teintés d'usine.",
       },
       {
         question: "Les panneaux sont-ils admis dans un parking ?",
@@ -1505,13 +1508,8 @@ export const services: Service[] = [
       {
         question: "Dans quelles régions posez-vous des panneaux Schichtex ?",
         answer:
-          "Nous intervenons à Fribourg, dans les cantons de Vaud, Neuchâtel, Genève, du Valais et du Jura.",
+          "Nous posons ces panneaux dans les cantons de Fribourg, Vaud, Neuchâtel, Genève, du Valais et du Jura.",
       },
-    ],
-    gallery: [
-      { src: "/images/chantier/panneaux-laine-de-bois-isolant-01.webp", legend: "Panneau et isolant", alt: "Panneaux en fibres de bois posés au plafond, isolant visible dans l'ossature, sur chantier Markaj" },
-      { src: "/images/chantier/faux-plafond-laine-de-bois-04.webp", legend: "Plafond en fibres de bois", alt: "Plafond en panneaux de fibres de bois et lambourdes en bois, sur chantier Markaj" },
-      { src: "/images/chantier/faux-plafond-laine-de-bois-pose-01.webp", legend: "Pose en cours", alt: "Pose d'un plafond en panneaux de fibres de bois depuis un échafaudage roulant, sur chantier Markaj" },
     ],
   },
 ];

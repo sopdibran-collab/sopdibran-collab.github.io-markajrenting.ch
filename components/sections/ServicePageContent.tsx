@@ -162,15 +162,15 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
               {service.gallery.map((photo) => (
                 <li key={photo.src}>
                   <figure>
-                    <div className="relative aspect-[3/4] overflow-hidden bg-markaj-crepi-light">
-                      <Image
-                        src={photo.src}
-                        alt={photo.alt}
-                        fill
-                        sizes="(min-width: 1024px) 25vw, 50vw"
-                        className="object-cover"
-                      />
-                    </div>
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      width={photo.width}
+                      height={photo.height}
+                      loading="lazy"
+                      sizes="(min-width: 1024px) 25vw, 50vw"
+                      className="aspect-[4/5] h-auto w-full bg-markaj-crepi-light object-cover"
+                    />
                     <figcaption className="mt-2 font-body text-caption text-markaj-primary/80">
                       {photo.legend}
                     </figcaption>
