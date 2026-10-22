@@ -95,7 +95,7 @@ export const services: Service[] = [
       {
         title: "Joints et finitions Q3 / Q4",
         description:
-          "Joints et finitions plâtrerie Q3 (standard) ou Q4 (haut de gamme), conformes aux usages suisses. Surfaces planes, prêtes à peindre ou à laquer.",
+          "Joints et finitions plâtrerie Q3 (standard) ou Q4 (haut de gamme), conformes aux usages suisses. Surfaces planes, prêtes à peindre.",
       },
       {
         title: "Doublages",
@@ -144,7 +144,7 @@ export const services: Service[] = [
         title: "Finitions Q2, Q3 ou Q4 : laquelle demander ?",
         paragraphs: [
           [
-            "La finition Q2 correspond à des joints remplis. Elle suffit sous un revêtement à relief. La Q3 est le niveau courant des logements : joints poncés, adaptée à une peinture mate ou à un papier peint fin. La Q4 est lisse, y compris en lumière rasante. Elle se demande pour une peinture satinée ou laquée.",
+            "En Q1, les joints sont simplement remplis. La Q2 est la finition standard des joints, sans ressaut avec le carton, poncée si besoin : elle suffit sous les peintures mates. La Q3 reprend la Q2, avec des joints élargis et les pores du carton fermés, pour les revêtements fins. En Q4, toute la surface reçoit un enduit de plus de 1 mm, pour des peintures jusqu'à brillance moyenne : les effets de la lumière rasante sont réduits, sans être supprimés. Ces niveaux figurent dans la norme SIA 242:2012, annexe B (informative), basée sur la Merkblatt 2 de l'industrie du plâtre.",
           ],
           [
             "Le niveau se choisit selon la peinture et la lumière de la pièce. Le guide ",
@@ -241,7 +241,7 @@ export const services: Service[] = [
       {
         question: "Combien de temps faut-il pour monter une cloison en placo ?",
         answer:
-          "Selon la surface et la complexité, comptez en général 2 à 5 jours ouvrables pour une cloison standard, finitions comprises.",
+          "Le délai dépend de la surface, de la hauteur, du niveau de finition et du temps de séchage des joints. Il est fixé au devis.",
       },
       {
         question: "Faut-il un plâtrier ou un peintre pour lisser des murs ?",
@@ -485,7 +485,7 @@ export const services: Service[] = [
       },
     ],
     offeringsNote: [
-      "Pour isoler le plafond d'une cave, d'un garage ou d'un parking, consultez la page ",
+      "Pour isoler le plafond d'une cave, d'un garage ou d'un dépôt, consultez la page ",
       { href: "/services/schichtex", label: "panneaux Schichtex" },
       ".",
     ],
@@ -507,9 +507,9 @@ export const services: Service[] = [
       { src: "/images/chantier/faux-plafond-placo-perfore-04.webp", legend: "Plafond perforé", alt: "Faux-plafond en plaques de plâtre perforées avec spots encastrés au-dessus d'une baie vitrée, sur chantier Markaj", width: 943, height: 1254 },
       { src: "/images/chantier/faux-plafond-placo-perfore-03.webp", legend: "Ouverture circulaire", alt: "Faux-plafond en plaques de plâtre perforées autour d'une grande ouverture circulaire vitrée, sur chantier Markaj", width: 943, height: 1254 },
       { src: "/images/chantier/faux-plafond-placo-perfore-02.webp", legend: "Intégration réseaux", alt: "Faux-plafond en plaques de plâtre perforées avec bouche technique intégrée, au-dessus d'une structure noire, sur chantier Markaj", width: 943, height: 1254 },
-      { src: "/images/chantier/panneaux-laine-de-bois-isolant-01.webp", legend: "Panneau et isolant", alt: "Panneaux en fibres de bois posés sous un plafond, main tenant l'isolant visible entre les lambourdes, sur chantier Markaj", width: 943, height: 1254 },
-      { src: "/images/chantier/faux-plafond-laine-de-bois-04.webp", legend: "Plafond en fibres de bois", alt: "Plafond en panneaux de fibres de bois sur lambourdes en bois, au-dessus d'une façade vitrée, sur chantier Markaj", width: 943, height: 1673 },
-      { src: "/images/chantier/faux-plafond-laine-de-bois-pose-01.webp", legend: "Pose en cours", alt: "Échafaudage roulant sous un plafond en panneaux de fibres de bois en cours de pose, sur chantier Markaj", width: 943, height: 1673 },
+      { src: "/images/chantier/panneaux-laine-de-bois-isolant-01.webp", legend: "Panneau et isolant", alt: "Panneaux en laine de bois posés sous un plafond, main tenant l'isolant visible entre les lambourdes, sur chantier Markaj", width: 943, height: 1254 },
+      { src: "/images/chantier/faux-plafond-laine-de-bois-04.webp", legend: "Plafond en laine de bois", alt: "Plafond en panneaux de laine de bois sur lambourdes en bois, au-dessus d'une façade vitrée, sur chantier Markaj", width: 943, height: 1673 },
+      { src: "/images/chantier/faux-plafond-laine-de-bois-pose-01.webp", legend: "Pose en cours", alt: "Échafaudage roulant sous un plafond en panneaux de laine de bois en cours de pose, sur chantier Markaj", width: 943, height: 1673 },
     ],
     faq: [
       { question: "Quel faux-plafond pour une bonne acoustique ?", answer: "Les plaques perforées avec matelas acoustique ou les dalles minérales à haute absorption sont recommandées pour les bureaux, salles de réunion et espaces publics." },
@@ -980,7 +980,7 @@ export const services: Service[] = [
       {
         question: "À quelle fréquence rénover une façade ?",
         answer:
-          "En Suisse, un crépi ou une peinture de façade dure en général 15 à 25 ans selon l'exposition, l'orientation et l'entretien. Une inspection tous les 5 ans est recommandée.",
+          "La durée dépend de l'exposition, de l'orientation, du système posé et de l'entretien. Un contrôle régulier permet de repérer tôt les fissures et les zones creuses.",
       },
       {
         question: "Intervenez-vous sur les fissures ?",
@@ -1034,10 +1034,12 @@ export const services: Service[] = [
         title: "Isolation périphérique : comment est composé le système ?",
         paragraphs: [
           [
-            "Une isolation périphérique crépie est un système complet, vendu et testé comme un ensemble par le fabricant : colle, panneau isolant, chevilles, mortier d'armature, treillis, fixatif et crépi. Les produits d'un même système se posent ensemble : mélanger les marques peut faire perdre la garantie du fabricant.",
+            "Une isolation périphérique crépie est un système complet, vendu et testé comme un ensemble par le fabricant : colle, panneau isolant, chevilles, mortier d'armature, treillis, fixatif et crépi.",
           ],
           [
-            "En Suisse, la norme SIA 243 « Isolations thermiques extérieures crépies » décrit la conception et l'exécution de ces systèmes. La protection thermique des bâtiments est traitée dans la norme SIA 180, et les exigences énergétiques par les lois cantonales sur l'énergie. Les normes sont publiées par la ",
+            "En Suisse, la norme SIA 243 « Isolations thermiques extérieures crépies » décrit ces systèmes ; son édition 2026 est en vigueur depuis le 1er février 2026 (",
+            { href: "https://www.smgv.ch/fr/news-applica/norme-revisee-sia-243", label: "ASEPP, norme révisée SIA 243" },
+            "). La norme SIA 180 « Protection thermique, protection contre l'humidité et climat intérieur dans les bâtiments » traite la protection thermique ; les exigences énergétiques relèvent des lois cantonales sur l'énergie. Les normes sont publiées par la ",
             { href: "https://www.sia.ch/fr/", label: "Société suisse des ingénieurs et des architectes (SIA)" },
             ".",
           ],
@@ -1047,10 +1049,10 @@ export const services: Service[] = [
         title: "EPS, laine minérale ou fibre de bois ?",
         paragraphs: [
           [
-            "Le polystyrène expansé (EPS) est léger et courant sur les maisons et petits immeubles. La laine minérale est incombustible et se prescrit quand les règles incendie l'exigent, par exemple sur certains bâtiments de grande hauteur. La fibre de bois laisse mieux passer la vapeur d'eau et apporte de l'inertie en été.",
+            "Le polystyrène expansé (EPS) est léger et courant sur les maisons et petits immeubles. La laine minérale est incombustible. La fibre de bois laisse mieux passer la vapeur d'eau et apporte de l'inertie en été.",
           ],
           [
-            "Le choix dépend du support, de la hauteur du bâtiment et des prescriptions de protection incendie de l'",
+            "Le choix dépend du support et du projet. Les exigences de protection incendie applicables au bâtiment sont celles des prescriptions de l'",
             { href: "https://www.bsvonline.ch/fr/", label: "AEAI" },
             ". Le comparatif des isolants est dans le guide ",
             { href: "/blog/choisir-isolant-selon-paroi", label: "laine minérale, fibre de bois ou XPS" },
@@ -1064,7 +1066,7 @@ export const services: Service[] = [
           [
             "L'isolation de l'enveloppe d'un bâtiment existant peut être soutenue par ",
             { href: "https://www.leprogrammebatiments.ch/fr/", label: "le Programme Bâtiments" },
-            ". Les conditions et les montants sont fixés par chaque canton, et la demande doit en général être déposée avant le début des travaux.",
+            ". Les conditions à jour sont publiées sur le site officiel du programme, à consulter avant le projet.",
           ],
           [
             "Une isolation périphérique épaissit le mur et peut changer l'aspect de la façade. Selon la commune et le secteur, elle demande une autorisation ou une annonce. La commune du bâtiment indique la démarche.",
@@ -1092,7 +1094,7 @@ export const services: Service[] = [
       "Mortier d'armature et treillis en fibre de verre",
       "Profilés de départ, d'angle et d'embrasure",
       "Crépis minéraux, silicate ou siloxane",
-      "Norme SIA 243 (ITEC), SIA 180 (protection thermique)",
+      "Normes SIA 243 (ITEC, édition 2026) et SIA 180",
     ],
     faq: [
       {
@@ -1118,7 +1120,7 @@ export const services: Service[] = [
       {
         question: "Existe-t-il des subventions ?",
         answer:
-          "Le Programme Bâtiments soutient l'isolation de l'enveloppe des bâtiments existants. Les conditions sont cantonales, et la demande se fait en général avant le début des travaux.",
+          "Le Programme Bâtiments peut soutenir l'isolation de l'enveloppe des bâtiments existants. Les conditions à jour sont sur son site officiel, leprogrammebatiments.ch.",
       },
       {
         question: "Dans quelles régions intervenez-vous pour l'isolation périphérique ?",
@@ -1147,7 +1149,7 @@ export const services: Service[] = [
       {
         title: "Crépi ribé, taloché ou roulé",
         description:
-          "Crépi minéral ou synthétique, grain de 1 à 3 mm selon l'aspect voulu. Pose sur murs et plafonds, en neuf comme en rénovation.",
+          "Crépi minéral ou synthétique, grain choisi selon l'aspect voulu. Pose sur murs et plafonds, en neuf comme en rénovation.",
       },
       {
         title: "Préparation du support",
@@ -1188,7 +1190,7 @@ export const services: Service[] = [
             "Un crépi minéral, à base de chaux ou de ciment, laisse passer la vapeur d'eau. Un crépi synthétique, à base de résine, est plus souple et souvent prêt à l'emploi. Le choix dépend du support et de la pièce. Les temps de séchage et les conditions de pose figurent sur la fiche technique du produit.",
           ],
           [
-            "Les travaux de crépissage et de plâtrerie sont décrits par la norme SIA 242, publiée par la ",
+            "Ces travaux relèvent de la norme SIA 242:2012 « Plâtrerie, crépissage, construction à sec », publiée par la ",
             { href: "https://www.sia.ch/fr/", label: "SIA" },
             ".",
           ],
@@ -1198,7 +1200,9 @@ export const services: Service[] = [
         title: "Ancien bâtiment : vérifier l'amiante avant de poncer",
         paragraphs: [
           [
-            "Certains anciens crépis et colles contiennent de l'amiante. Avant de poncer, percer ou démolir dans un bâtiment ancien, le droit fédéral (OTConst) impose de vérifier la présence d'amiante. La ",
+            "Certains anciens crépis et colles contiennent de l'amiante. Avant de poncer, percer ou démolir, en cas de soupçon d'amiante, le droit fédéral impose d'identifier et d'évaluer le danger avant les travaux (art. 3 al. 2 OTConst, voir la ",
+            { href: "https://www.ekas.admin.ch/fileadmin/Dokumente/Richtlinien/gueltig/06503_f.pdf", label: "directive CFST amiante" },
+            "). La ",
             { href: "https://www.suva.ch/fr-ch", label: "Suva" },
             " publie les règles de protection sur les chantiers.",
           ],
@@ -1224,18 +1228,18 @@ export const services: Service[] = [
       "Fixatifs et couches d'accrochage",
       "Mastics de rebouchage",
       "Peintures murales intérieures",
-      "Norme SIA 242 (crépissage et plâtrerie)",
+      "Norme SIA 242:2012 « Plâtrerie, crépissage, construction à sec »",
     ],
     faq: [
       {
         question: "Quel grain de crépi choisir pour un mur intérieur ?",
         answer:
-          "Un grain fin, vers 1 mm, donne un relief discret. Un grain de 2 à 3 mm cache mieux les défauts et résiste mieux aux chocs, mais il retient davantage la poussière. L'aspect se choisit sur échantillon.",
+          "Un grain fin donne un relief discret. Un grain plus gros cache mieux les défauts, mais il retient davantage la poussière. L'aspect se choisit sur échantillon.",
       },
       {
         question: "Peut-on poser du crépi sur une plaque de plâtre ?",
         answer:
-          "Oui, après traitement des joints et application d'une couche d'accrochage adaptée. Une finition Q2 des joints suffit en général sous un crépi.",
+          "Oui, après traitement des joints et application d'une couche d'accrochage adaptée. Le niveau de finition des joints à prévoir sous le crépi est indiqué par la fiche technique du fabricant.",
       },
       {
         question: "Peut-on peindre un crépi intérieur ?",
@@ -1245,7 +1249,7 @@ export const services: Service[] = [
       {
         question: "Comment enlever ou cacher un vieux crépi ?",
         answer:
-          "On peut le recouvrir d'un lissage pour obtenir un mur plat, ou poser un doublage en plaques de plâtre. Le retirer est plus long. Dans un bâtiment ancien, la présence d'amiante doit être vérifiée avant de poncer.",
+          "On peut le recouvrir d'un lissage pour obtenir un mur plat, ou poser un doublage en plaques de plâtre. Le retirer est plus long. En cas de soupçon d'amiante, le danger doit être identifié et évalué avant de poncer (art. 3 al. 2 OTConst).",
       },
       {
         question: "Dans quelles régions posez-vous du crépi intérieur ?",
@@ -1265,7 +1269,7 @@ export const services: Service[] = [
       "Lissage de murs et plafonds en Suisse romande : enduit de lissage, ponçage, finition Q3 ou Q4 avant peinture, lissage d'un ancien crépi.",
     intro:
       "Nous intervenons en Suisse romande pour lisser murs et plafonds : enduit de lissage, ponçage et finition prête à peindre, en neuf comme en rénovation.",
-    benefit: "Des murs plats, sans relief ni joints visibles, prêts pour une peinture mate, satinée ou laquée.",
+    benefit: "Des murs plats, sans relief ni joints visibles, prêts pour une peinture mate ou de brillance moyenne.",
     audience: ["Particuliers", "Régies", "Architectes", "Entreprises"],
     projectTypes: ["Rénovation", "Neuf", "Avant peinture"],
     definition:
@@ -1301,13 +1305,13 @@ export const services: Service[] = [
         title: "Q2, Q3 ou Q4 : quel niveau de lissage demander ?",
         paragraphs: [
           [
-            "Les niveaux de qualité Q1 à Q4 décrivent la finition des surfaces en plâtre. En Q3, joints et surfaces sont enduits et poncés : c'est le niveau courant sous une peinture mate. En Q4, toute la surface reçoit un enduit lissé : le mur reste plat même en lumière rasante, ce qu'il faut sous une peinture satinée ou laquée.",
+            "Les niveaux de qualité Q1 à Q4 décrivent la finition des surfaces en plaques de plâtre. Ils figurent dans la norme SIA 242:2012, annexe B (informative), basée sur la Merkblatt 2 de l'industrie du plâtre. La Q2 suffit sous les peintures mates. La Q3 ajoute des joints élargis et ferme les pores du carton, pour les revêtements fins. En Q4, toute la surface reçoit un enduit de plus de 1 mm, pour des peintures jusqu'à brillance moyenne : les effets de la lumière rasante sont réduits, sans être supprimés.",
           ],
           [
             "Les niveaux de finition sont détaillés sur la page ",
             { href: "/services/platrerie", label: "plâtrerie" },
-            ". Les travaux de plâtrerie et de crépissage sont décrits par la norme SIA 242, publiée par la ",
-            { href: "https://www.sia.ch/fr/", label: "SIA" },
+            ". Source sur les niveaux : la ",
+            { href: "https://www.gips.de/fileadmin/user_upload/download/merkblaetter/gipsplatten_und_gipsfaserplatten/IGG-_MB2_Stand_Nov._2017_Online.pdf", label: "Merkblatt 2 de l'industrie allemande du plâtre (IGG)" },
             ".",
           ],
         ],
@@ -1324,7 +1328,9 @@ export const services: Service[] = [
         title: "Ancien bâtiment : vérifier l'amiante avant de poncer",
         paragraphs: [
           [
-            "Le lissage commence souvent par un ponçage de l'ancien support. Avant de poncer dans un bâtiment ancien, le droit fédéral (OTConst) impose de vérifier la présence d'amiante. La ",
+            "Le lissage commence souvent par un ponçage de l'ancien support. Avant de poncer, percer ou démolir, en cas de soupçon d'amiante, le droit fédéral impose d'identifier et d'évaluer le danger avant les travaux (art. 3 al. 2 OTConst, voir la ",
+            { href: "https://www.ekas.admin.ch/fileadmin/Dokumente/Richtlinien/gueltig/06503_f.pdf", label: "directive CFST amiante" },
+            "). La ",
             { href: "https://www.suva.ch/fr-ch", label: "Suva" },
             " publie les règles de protection sur les chantiers.",
           ],
@@ -1350,7 +1356,7 @@ export const services: Service[] = [
       "Enduits de dressage pour supports irréguliers",
       "Bandes d'armature pour fissures",
       "Ponceuses avec aspiration",
-      "Niveaux de qualité Q1 à Q4, norme SIA 242",
+      "Niveaux Q1 à Q4 (SIA 242:2012, annexe B informative)",
     ],
     faq: [
       {
@@ -1361,7 +1367,7 @@ export const services: Service[] = [
       {
         question: "Peut-on lisser un mur crépi sans retirer le crépi ?",
         answer:
-          "Oui, si le crépi adhère bien. On applique une couche de dressage pour combler le relief, puis un enduit de finition. Dans un bâtiment ancien, la présence d'amiante est vérifiée avant de poncer.",
+          "Oui, si le crépi adhère bien. On applique une couche de dressage pour combler le relief, puis un enduit de finition. En cas de soupçon d'amiante, le danger est identifié et évalué avant de poncer (art. 3 al. 2 OTConst).",
       },
       {
         question: "Quelle différence entre lissage et ragréage ?",
@@ -1371,7 +1377,7 @@ export const services: Service[] = [
       {
         question: "Faut-il lisser avant de peindre ?",
         answer:
-          "Pas toujours. Pour une peinture mate sur un mur sain, une finition Q3 suffit. Pour une peinture satinée ou laquée, ou un mur éclairé en lumière rasante, un lissage Q4 est recommandé.",
+          "Pas toujours. Sous une peinture mate, une finition Q2 suffit en général. Pour un revêtement fin, on vise la Q3. Pour une peinture de brillance moyenne ou un mur en lumière rasante, on choisit la Q4, qui réduit les effets de la lumière rasante sans les supprimer.",
       },
       {
         question: "Dans quelles régions intervenez-vous pour le lissage ?",
@@ -1388,14 +1394,14 @@ export const services: Service[] = [
     shortTitle: "Schichtex",
     definiteArticle: "les",
     metaDescription:
-      "Pose de panneaux Schichtex en Suisse romande : panneaux isolants multicouches pour plafonds de caves, garages et parkings. Isolation thermique et phonique.",
+      "Pose de panneaux Schichtex en Suisse romande : panneaux isolants multicouches en laine de bois pour plafonds de caves, garages, halles et dépôts.",
     intro:
-      "Nous intervenons en Suisse romande pour poser des panneaux isolants multicouches type Schichtex sous les plafonds de caves, de garages et de parkings.",
+      "Nous intervenons en Suisse romande pour poser des panneaux isolants multicouches type Schichtex sous les plafonds de caves, de garages, de halles et de dépôts.",
     benefit: "Un plafond de sous-sol isolé, qui limite les pertes de chaleur vers le bas, avec une face résistante aux chocs.",
     audience: ["Particuliers", "Régies", "Copropriétés", "Architectes", "Entreprises"],
-    projectTypes: ["Caves", "Garages", "Parkings souterrains"],
+    projectTypes: ["Caves", "Garages", "Halles et dépôts"],
     definition:
-      "Les panneaux de type Schichtex sont des panneaux isolants multicouches. Une âme isolante, en polystyrène ou en laine minérale, est prise entre une ou deux couches de fibres de bois liées au ciment ou à la magnésite. Fixés sous la dalle d'une cave, d'un garage ou d'un parking, ils isolent le plancher des pièces chauffées au-dessus et atténuent le bruit dans le local.",
+      "Les panneaux de type Schichtex sont des panneaux isolants multicouches. Une âme isolante, en laine de roche ou en polystyrène expansé (EPS), est prise entre une ou deux couches de laine de bois liée au ciment ou à la magnésite. Fixés sous la dalle d'une cave, d'un garage, d'une halle ou d'un dépôt, ils isolent le plancher des pièces chauffées au-dessus et atténuent le bruit dans le local.",
     offerings: [
       {
         title: "Isolation des plafonds de caves",
@@ -1403,14 +1409,14 @@ export const services: Service[] = [
           "Panneaux fixés sous la dalle de la cave, pour limiter le froid qui remonte dans le logement du dessus.",
       },
       {
-        title: "Plafonds de garages et parkings",
+        title: "Plafonds de garages, halles et dépôts",
         description:
-          "Panneaux à face en fibres de bois liées au ciment, qui résistent aux chocs et à l'humidité des locaux non chauffés.",
+          "Panneaux à face en laine de bois liée au ciment, qui résistent aux chocs et à l'humidité des locaux non chauffés.",
       },
       {
         title: "Fixation sur dalle existante",
         description:
-          "Pose par chevilles à frapper ou vis, avec rondelles, selon le support et les indications du fabricant.",
+          "Pose par chevilles ou vis, avec rondelles, selon le support et les indications du fabricant.",
       },
       {
         title: "Découpes et raccords",
@@ -1423,14 +1429,14 @@ export const services: Service[] = [
         title: "Pourquoi isoler le plafond d'une cave ou d'un garage ?",
         paragraphs: [
           [
-            "Une cave, un garage ou un parking n'est en général pas chauffé. Sans isolation, la dalle entre ce local et le logement du dessus laisse passer la chaleur : le sol du rez-de-chaussée reste froid. Isoler par en dessous traite le problème sans toucher au sol habité.",
+            "Une cave, un garage ou un dépôt n'est en général pas chauffé. Sans isolation, la dalle entre ce local et le logement du dessus laisse passer la chaleur : le sol du rez-de-chaussée reste froid. Isoler par en dessous traite le problème sans toucher au sol habité.",
           ],
           [
-            "La protection thermique des bâtiments est décrite par la norme SIA 180, publiée par la ",
+            "La norme SIA 180 « Protection thermique, protection contre l'humidité et climat intérieur dans les bâtiments » est publiée par la ",
             { href: "https://www.sia.ch/fr/", label: "SIA" },
-            ". L'isolation d'éléments contre des locaux non chauffés peut être soutenue par ",
-            { href: "https://www.leprogrammebatiments.ch/fr/", label: "le Programme Bâtiments" },
-            ", selon les conditions du canton.",
+            ". Pour une éventuelle subvention, les conditions à jour sont sur le site officiel du ",
+            { href: "https://www.leprogrammebatiments.ch/fr/", label: "Programme Bâtiments" },
+            ".",
           ],
         ],
       },
@@ -1438,22 +1444,27 @@ export const services: Service[] = [
         title: "Comment sont faits les panneaux multicouches",
         paragraphs: [
           [
-            "Un panneau à deux couches a une face en fibres de bois liées au ciment et une âme isolante. Un panneau à trois couches a une face de chaque côté. La face visible peut rester brute ou être peinte. Sa structure en fibres absorbe aussi une partie du bruit dans le local.",
+            "Un panneau à deux couches a une face en laine de bois liée au ciment et une âme isolante. Un panneau à trois couches a une face de chaque côté. La face visible peut rester brute ou être peinte. Sa structure en laine de bois absorbe aussi une partie du bruit dans le local.",
           ],
           [
-            "D'autres panneaux en fibres de bois servent de plafonds acoustiques dans les bureaux et les écoles : voir la page ",
+            "Exemple de produit : les panneaux multicouches UNITEX de Dietrich Isol, avec âme en laine de roche (RF1) ou en EPS (RF2), selon la ",
+            { href: "https://www.dietrich-isol.ch/produkt/siteListExtend/unitex-mehrschichtplatten", label: "fiche du fabricant" },
+            ". La classe RF indique le comportement au feu. Le produit posé est celui prévu par le projet.",
+          ],
+          [
+            "D'autres panneaux en laine de bois servent de plafonds acoustiques dans les bureaux et les écoles : voir la page ",
             { href: "/services/faux-plafonds", label: "faux-plafonds" },
             ".",
           ],
         ],
       },
       {
-        title: "Protection incendie dans les parkings et sous-sols",
+        title: "Protection incendie",
         paragraphs: [
           [
-            "Dans un parking ou un local technique, la réaction au feu de l'isolant est réglementée. Les panneaux à âme en laine minérale sont souvent prescrits quand le polystyrène n'est pas admis. Les exigences figurent dans les prescriptions de protection incendie de l'",
+            "Selon le local et le bâtiment, des exigences de protection incendie peuvent s'appliquer à l'isolant. Elles figurent dans les prescriptions de l'",
             { href: "https://www.bsvonline.ch/fr/", label: "AEAI" },
-            ". Le produit posé est celui prévu par le projet ou validé avec l'autorité.",
+            ". Le choix entre âme en laine de roche et âme en EPS se fait avec le projet et, si besoin, avec l'autorité compétente.",
           ],
         ],
       },
@@ -1473,37 +1484,37 @@ export const services: Service[] = [
       { step: "04", title: "Finitions", description: "Raccords aux murs et aux poutres, peinture de la face si prévue, nettoyage du local." },
     ],
     materials: [
-      "Panneaux multicouches à âme EPS ou laine minérale",
-      "Faces en fibres de bois liées au ciment ou à la magnésite",
-      "Chevilles à frapper, vis et rondelles de fixation",
-      "Peintures pour panneaux en fibres de bois",
-      "Normes SIA 180 et prescriptions AEAI",
+      "Panneaux multicouches à âme en laine de roche ou en EPS",
+      "Faces en laine de bois liée au ciment ou à la magnésite",
+      "Exemple : panneaux UNITEX (Dietrich Isol), âme laine de roche RF1 ou EPS RF2",
+      "Chevilles, vis et rondelles de fixation",
+      "Norme SIA 180, prescriptions de protection incendie AEAI",
     ],
     faq: [
       {
         question: "Qu'est-ce qu'un panneau Schichtex ?",
         answer:
-          "Schichtex est un nom de produit, souvent utilisé pour désigner les panneaux isolants multicouches : une âme isolante entre une ou deux faces en fibres de bois liées au ciment ou à la magnésite. On les pose surtout sous les plafonds de caves, de garages et de parkings.",
+          "Schichtex est un nom de produit, souvent utilisé pour désigner les panneaux isolants multicouches : une âme isolante entre une ou deux faces en laine de bois liée au ciment ou à la magnésite. On les pose surtout sous les plafonds de caves, de garages, de halles et de dépôts.",
       },
       {
         question: "Quelle épaisseur de panneau choisir ?",
         answer:
-          "Elle dépend de l'isolation visée, de la hauteur libre du local et des exigences du canton. Plus le panneau est épais, plus il isole, mais plus il réduit la hauteur sous plafond.",
+          "Elle dépend de l'isolation visée, de la hauteur libre du local et des exigences du projet. Plus le panneau est épais, plus il isole, mais plus il réduit la hauteur sous plafond.",
       },
       {
         question: "Les panneaux Schichtex isolent-ils aussi du bruit ?",
         answer:
-          "Leur face en fibres de bois absorbe une partie du bruit dans le local, ce qui réduit l'écho d'un garage ou d'un parking. Ils ne remplacent pas une isolation phonique complète entre deux logements.",
+          "Leur face en laine de bois absorbe une partie du bruit dans le local, ce qui réduit l'écho d'un garage ou d'un dépôt. Ils ne remplacent pas une isolation phonique complète entre deux logements.",
       },
       {
         question: "Peut-on peindre les panneaux ?",
         answer:
-          "Oui, avec une peinture adaptée aux fibres de bois liées au ciment, en général appliquée au pistolet ou au rouleau. Certains panneaux sont aussi livrés blancs ou teintés d'usine.",
+          "Oui, avec une peinture adaptée à la laine de bois liée au ciment, en général appliquée au pistolet ou au rouleau. Certains panneaux sont aussi livrés blancs ou teintés d'usine.",
       },
       {
-        question: "Les panneaux sont-ils admis dans un parking ?",
+        question: "Âme en laine de roche ou en EPS ?",
         answer:
-          "Cela dépend de leur réaction au feu et des exigences du bâtiment. Les panneaux à âme en laine minérale sont souvent choisis dans les parkings. Les prescriptions de l'AEAI et le projet fixent le produit.",
+          "La laine de roche est incombustible ; l'EPS est plus léger. Chez UNITEX par exemple, l'âme en laine de roche est classée RF1 et l'âme en EPS RF2. Le choix dépend des exigences de protection incendie du local, fixées par le projet.",
       },
       {
         question: "Dans quelles régions posez-vous des panneaux Schichtex ?",
