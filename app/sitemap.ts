@@ -105,7 +105,9 @@ const faqEntry: LastmodSource = {
 };
 
 const serviceEntries = services.map((service) => serviceEntry(service.slug));
-const serviceVisualsEntries = services.map((service) => serviceVisual(service.slug));
+const serviceVisualsEntries = services
+  .filter((service) => serviceVisuals[service.slug])
+  .map((service) => serviceVisual(service.slug));
 const zoneEntries = zones.map((zone) => zoneEntry(zone.slug));
 const postEntries = blogPosts.map((post) => postEntry(post.slug));
 const realisationEntries = realisations.map((item) => realisationEntry(item.id));
@@ -208,7 +210,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
         path: `/services/${service.slug}`,
         changeFrequency: "monthly",
         priority: 0.85,
-        sources: [page("app/(marketing)/services/[slug]/page.tsx"), serviceEntry(service.slug), serviceVisual(service.slug)],
+        sources: [
+          page("app/(marketing)/services/[slug]/page.tsx"),
+          serviceEntry(service.slug),
+          ...(serviceVisuals[service.slug] ? [serviceVisual(service.slug)] : []),
+        ],
       }),
     ),
     ...zones.map((zone) =>

@@ -157,7 +157,7 @@ export function Hero({
         </div>
 
         {image && (
-          <div className="relative order-first aspect-[4/3] w-full min-w-0 overflow-hidden border border-markaj-primary/15 lg:order-none lg:aspect-[5/4]">
+          <div className="relative order-first aspect-[4/3] max-h-[220px] w-full min-w-0 sm:max-h-none overflow-hidden border border-markaj-primary/15 lg:order-none lg:aspect-[5/4]">
             <Image
               src={image.src}
               alt={image.alt}

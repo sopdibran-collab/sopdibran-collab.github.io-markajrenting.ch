@@ -14,6 +14,10 @@ export const footerNav = {
     { label: "Isolation", href: "/services/isolation" },
     { label: "Rénovation", href: "/services/renovation" },
     { label: "Façades", href: "/services/facades" },
+    { label: "Isolation périphérique", href: "/services/isolation-peripherique" },
+    { label: "Crépi intérieur", href: "/services/crepi-interieur" },
+    { label: "Lissage", href: "/services/lissage" },
+    { label: "Schichtex", href: "/services/schichtex" },
   ],
   entreprise: [
     { label: "À propos", href: "/a-propos" },

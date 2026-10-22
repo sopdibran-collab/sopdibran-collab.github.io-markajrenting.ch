@@ -12,6 +12,10 @@ const SERVICE_LABELS: Record<string, string> = {
   isolation: "Isolation",
   renovation: "Rénovation",
   facades: "Façades",
+  "isolation-peripherique": "Isolation périphérique",
+  "crepi-interieur": "Crépi intérieur",
+  lissage: "Lissage",
+  schichtex: "Panneaux Schichtex",
   autre: "Autre",
 };
 
