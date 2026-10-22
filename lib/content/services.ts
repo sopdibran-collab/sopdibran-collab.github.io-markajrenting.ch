@@ -95,7 +95,7 @@ export const services: Service[] = [
       {
         title: "Joints et finitions Q3 / Q4",
         description:
-          "Joints et finitions plâtrerie Q3 (standard) ou Q4 (haut de gamme), conformes aux usages suisses. Surfaces planes, prêtes à peindre.",
+          "Joints et finitions plâtrerie Q3 ou Q4 selon le revêtement prévu, conformes aux usages suisses. Surfaces planes, prêtes à peindre.",
       },
       {
         title: "Doublages",
@@ -1038,7 +1038,7 @@ export const services: Service[] = [
           ],
           [
             "En Suisse, la norme SIA 243 « Isolations thermiques extérieures crépies » décrit ces systèmes ; son édition 2026 est en vigueur depuis le 1er février 2026 (",
-            { href: "https://www.smgv.ch/fr/news-applica/norme-revisee-sia-243", label: "ASEPP, norme révisée SIA 243" },
+            { href: "https://shop.sia.ch/normenwerk/architekt/243_2026_f/F/Product/", label: "SIA, norme SIA 243:2026" },
             "). La norme SIA 180 « Protection thermique, protection contre l'humidité et climat intérieur dans les bâtiments » traite la protection thermique ; les exigences énergétiques relèvent des lois cantonales sur l'énergie. Les normes sont publiées par la ",
             { href: "https://www.sia.ch/fr/", label: "Société suisse des ingénieurs et des architectes (SIA)" },
             ".",
@@ -1200,7 +1200,7 @@ export const services: Service[] = [
         title: "Ancien bâtiment : vérifier l'amiante avant de poncer",
         paragraphs: [
           [
-            "Certains anciens crépis et colles contiennent de l'amiante. Avant de poncer, percer ou démolir, en cas de soupçon d'amiante, le droit fédéral impose d'identifier et d'évaluer le danger avant les travaux (art. 3 al. 2 OTConst, voir la ",
+            "Certains anciens crépis et colles contiennent de l'amiante. En cas de soupçon d'amiante, le droit fédéral impose d'identifier et d'évaluer le danger avant de poncer, percer ou démolir (art. 3 al. 2 OTConst, voir la ",
             { href: "https://www.ekas.admin.ch/fileadmin/Dokumente/Richtlinien/gueltig/06503_f.pdf", label: "directive CFST amiante" },
             "). La ",
             { href: "https://www.suva.ch/fr-ch", label: "Suva" },
@@ -1269,7 +1269,7 @@ export const services: Service[] = [
       "Lissage de murs et plafonds en Suisse romande : enduit de lissage, ponçage, finition Q3 ou Q4 avant peinture, lissage d'un ancien crépi.",
     intro:
       "Nous intervenons en Suisse romande pour lisser murs et plafonds : enduit de lissage, ponçage et finition prête à peindre, en neuf comme en rénovation.",
-    benefit: "Des murs plats, sans relief ni joints visibles, prêts pour une peinture mate ou de brillance moyenne.",
+    benefit: "Des murs plats et réguliers, prêts pour une peinture mate ou de brillance moyenne.",
     audience: ["Particuliers", "Régies", "Architectes", "Entreprises"],
     projectTypes: ["Rénovation", "Neuf", "Avant peinture"],
     definition:
@@ -1278,7 +1278,7 @@ export const services: Service[] = [
       {
         title: "Lissage sur plaques de plâtre",
         description:
-          "Enduit de surface sur toute la plaque, au-delà des seuls joints, pour atteindre une finition Q3 ou Q4.",
+          "Enduit des joints élargis (Q3) ou de toute la surface de la plaque (Q4).",
         href: "/services/platrerie",
         linkLabel: "Plâtrerie et finitions Q3/Q4",
       },
@@ -1328,7 +1328,7 @@ export const services: Service[] = [
         title: "Ancien bâtiment : vérifier l'amiante avant de poncer",
         paragraphs: [
           [
-            "Le lissage commence souvent par un ponçage de l'ancien support. Avant de poncer, percer ou démolir, en cas de soupçon d'amiante, le droit fédéral impose d'identifier et d'évaluer le danger avant les travaux (art. 3 al. 2 OTConst, voir la ",
+            "Le lissage commence souvent par un ponçage de l'ancien support. En cas de soupçon d'amiante, le droit fédéral impose d'identifier et d'évaluer le danger avant de poncer, percer ou démolir (art. 3 al. 2 OTConst, voir la ",
             { href: "https://www.ekas.admin.ch/fileadmin/Dokumente/Richtlinien/gueltig/06503_f.pdf", label: "directive CFST amiante" },
             "). La ",
             { href: "https://www.suva.ch/fr-ch", label: "Suva" },
