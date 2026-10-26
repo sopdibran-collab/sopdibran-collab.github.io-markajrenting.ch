@@ -21,6 +21,12 @@ export interface Zone {
   locative: string;
   canton: string;
   description: string;
+  /**
+   * Teaser court pour la carte du hub /zones.
+   * S'il est défini, le hub n'affiche pas description + villes + chantiers
+   * (évite le near-duplicate avec la page cantonale).
+   */
+  hubTeaser?: string;
   villes: string[];
   chantiers: string[];
   metaTitle: string;
@@ -144,6 +150,8 @@ export const zones: Zone[] = [
     locative: "à Genève",
     canton: "GE",
     description: "Nous intervenons en ville de Genève et dans les communes du canton pour la gypserie, la peinture, les faux-plafonds et l'aménagement de bureaux, en logement comme en tertiaire.",
+    hubTeaser:
+      "Nous intervenons à Genève et dans les communes du canton. Gypserie, peinture, faux-plafonds et aménagement de bureaux : le détail est sur la page Genève.",
     villes: ["Genève", "Carouge", "Lancy", "Vernier", "Meyrin"],
     chantiers: ["Peinture intérieure", "Plâtrerie technique", "Aménagement de bureaux", "Rénovation d'immeubles"],
     metaTitle: "Gypserie-peinture à Genève",

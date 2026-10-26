@@ -47,38 +47,49 @@ export default function ZonesPage() {
       <Section background="surface" texture="paint">
         <SectionHeading subtitle="Cantons couverts" title="Où intervenons-nous ?" />
         <div className="grid gap-8 md:grid-cols-2">
-          {zones.map((zone) => (
-            <article key={zone.slug} className="panel-chantier">
-              <p className="marque-cote">{zone.canton}</p>
-              <h2 className="mt-1 font-heading text-heading-3 text-markaj-primary">
-                <Link href={`/zones/${zone.slug}`} className="hover:text-markaj-primary-light">
-                  {zone.name}
-                </Link>
-              </h2>
-              <p className="mt-3 font-body text-body text-markaj-primary/90">{zone.description}</p>
-              <p className="mt-4 font-body text-body-sm tracking-wide text-markaj-primary/80">
-                {zone.villes.join(" · ")}
-              </p>
-              <h3 className="mt-4 font-body text-body-sm font-semibold text-markaj-primary">
-                Types de chantiers
-              </h3>
-              <ul className="mt-2 space-y-1">
-                {zone.chantiers.map((c) => (
-                  <li key={c} className="font-body text-body-sm text-markaj-primary/80">
-                    — {c}
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-5">
-                <Link
-                  href={`/zones/${zone.slug}`}
-                  className="font-body text-body-sm font-medium text-markaj-primary underline-offset-4 hover:underline"
-                >
-                  Voir la page {zone.shortName} →
-                </Link>
-              </p>
-            </article>
-          ))}
+          {zones.map((zone) => {
+            const href = `/zones/${zone.slug}`;
+            const isTeaser = Boolean(zone.hubTeaser);
+
+            return (
+              <article key={zone.slug} className="panel-chantier">
+                <p className="marque-cote">{zone.canton}</p>
+                <h2 className="mt-1 font-heading text-heading-3 text-markaj-primary">
+                  <Link href={href} className="hover:text-markaj-primary-light">
+                    {zone.name}
+                  </Link>
+                </h2>
+                <p className="mt-3 font-body text-body text-markaj-primary/90">
+                  {zone.hubTeaser ?? zone.description}
+                </p>
+                {!isTeaser && (
+                  <>
+                    <p className="mt-4 font-body text-body-sm tracking-wide text-markaj-primary/80">
+                      {zone.villes.join(" · ")}
+                    </p>
+                    <h3 className="mt-4 font-body text-body-sm font-semibold text-markaj-primary">
+                      Types de chantiers
+                    </h3>
+                    <ul className="mt-2 space-y-1">
+                      {zone.chantiers.map((c) => (
+                        <li key={c} className="font-body text-body-sm text-markaj-primary/80">
+                          — {c}
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+                <p className="mt-5">
+                  <Link
+                    href={href}
+                    className="font-body text-body-sm font-medium text-markaj-primary underline-offset-4 hover:underline"
+                  >
+                    Voir la page {zone.shortName} →
+                  </Link>
+                </p>
+              </article>
+            );
+          })}
         </div>
       </Section>
 

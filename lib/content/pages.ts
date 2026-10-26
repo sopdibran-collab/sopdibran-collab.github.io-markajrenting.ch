@@ -9,7 +9,7 @@ export const pageFileUpdated = {
   "app/(marketing)/page.tsx": "2026-10-10",
   "app/(marketing)/services/page.tsx": "2026-10-10",
   "app/(marketing)/services/[slug]/page.tsx": "2026-10-08",
-  "app/(marketing)/zones/page.tsx": "2026-10-14",
+  "app/(marketing)/zones/page.tsx": "2026-10-26",
   "app/(marketing)/zones/[slug]/page.tsx": "2026-10-14",
   "app/(marketing)/zones/fribourg/page.tsx": "2026-10-14",
   "app/(marketing)/realisations/page.tsx": "2026-10-10",
