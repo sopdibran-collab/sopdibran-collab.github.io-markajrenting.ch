@@ -151,7 +151,7 @@ export const zones: Zone[] = [
     canton: "GE",
     description: "Nous intervenons en ville de Genève et dans les communes du canton pour la gypserie, la peinture, les faux-plafonds et l'aménagement de bureaux, en logement comme en tertiaire.",
     hubTeaser:
-      "Nous intervenons à Genève et dans les communes du canton. Gypserie, peinture, faux-plafonds et aménagement de bureaux : le détail est sur la page Genève.",
+      "Nous intervenons à Genève et dans les communes du canton. Gypserie, peinture, faux-plafonds et aménagement de bureaux. Le détail est sur la page Genève.",
     villes: ["Genève", "Carouge", "Lancy", "Vernier", "Meyrin"],
     chantiers: ["Peinture intérieure", "Plâtrerie technique", "Aménagement de bureaux", "Rénovation d'immeubles"],
     metaTitle: "Gypserie-peinture à Genève",
