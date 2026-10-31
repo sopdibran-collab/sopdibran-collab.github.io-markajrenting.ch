@@ -53,6 +53,19 @@ export default function MentionsLegalesPage() {
             Toutefois, elle ne saurait être tenue responsable des omissions, inexactitudes ou carences
             dans la mise à jour des informations.
           </p>
+
+          <h2 className="mt-10 font-heading text-heading-3 text-markaj-primary">Conception du site</h2>
+          <p className="mt-3 font-body text-body text-markaj-primary">
+            Site, développement et référencement :{" "}
+            <a
+              href="https://www.linkedin.com/in/dibransop"
+              target="_blank"
+              rel="noopener"
+              className="underline underline-offset-2 hover:text-markaj-primary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-markaj-primary focus-visible:ring-offset-2"
+            >
+              Dibran Sopjani
+            </a>
+          </p>
         </div>
       </Section>
     </>
