@@ -60,10 +60,11 @@ export default function MentionsLegalesPage() {
             <a
               href="https://www.linkedin.com/in/dibransop"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               className="underline underline-offset-2 hover:text-markaj-primary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-markaj-primary focus-visible:ring-offset-2"
             >
               Dibran Sopjani
+              <span className="sr-only"> (nouvel onglet)</span>
             </a>
           </p>
         </div>

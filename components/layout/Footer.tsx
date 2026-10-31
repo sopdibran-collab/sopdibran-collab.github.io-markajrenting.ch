@@ -142,16 +142,17 @@ export function Footer() {
             <ManageCookiesButton />
           </div>
         </div>
-        <div className="mx-auto max-w-content px-4 pb-3 font-body text-caption text-markaj-crepi sm:px-6 lg:px-8">
-          <p>
+        <div className="mx-auto max-w-content px-4 pb-2 font-body text-caption text-markaj-crepi sm:px-6 lg:px-8">
+          <p className="inline-flex min-h-11 flex-wrap items-center gap-x-1">
             Site, développement et référencement :{" "}
             <a
               href="https://www.linkedin.com/in/dibransop"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               className="underline underline-offset-2 hover:text-markaj-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-markaj-crepi focus-visible:ring-offset-2 focus-visible:ring-offset-markaj-primary"
             >
               Dibran Sopjani
+              <span className="sr-only"> (nouvel onglet)</span>
             </a>
           </p>
         </div>
