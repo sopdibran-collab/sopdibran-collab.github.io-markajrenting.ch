@@ -32,7 +32,7 @@ export function AudienceStrip() {
       <ul className="divide-y divide-markaj-primary/15 border-y border-markaj-primary/15">
         {audiences.map((item) => (
           <li key={item.title} className="py-4 sm:py-5">
-            <h3 className="font-heading text-heading-4 text-markaj-primary">{item.title}</h3>
+            <h3 className="type-h3 text-markaj-primary">{item.title}</h3>
             <p className="mt-1.5 max-w-prose font-body text-body-sm text-markaj-primary">{item.description}</p>
           </li>
         ))}

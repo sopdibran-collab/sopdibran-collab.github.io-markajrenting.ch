@@ -50,7 +50,7 @@ export function ExpertisesGrid() {
 
               <div className="min-w-0">
                 {visual && <p className="marque-cote">{visual.legend}</p>}
-                <h3 className="mt-3 font-heading text-heading-3 text-markaj-primary sm:text-heading-2">
+                <h3 className="mt-3 type-h3 text-markaj-primary">
                   <Link
                     href={`/services/${service.slug}`}
                     className="inline-flex min-h-11 items-center transition-colors hover:text-markaj-primary-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-markaj-primary"

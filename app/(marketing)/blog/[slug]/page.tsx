@@ -56,7 +56,7 @@ function BlogContent({ blocks }: { blocks: BlogBlock[] }) {
           return (
             <h2
               key={i}
-              className="pt-4 font-heading text-heading-3 text-markaj-primary"
+              className="pt-4 type-h2 text-markaj-primary"
             >
               {block.text}
             </h2>

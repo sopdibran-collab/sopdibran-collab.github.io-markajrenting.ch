@@ -24,7 +24,7 @@ export function ZonesTeaser() {
               className="group flex h-full min-h-11 flex-col justify-center border border-markaj-primary/15 bg-markaj-white p-5"
             >
               <p className="marque-cote">{zone.canton}</p>
-              <h3 className="mt-1 font-heading text-heading-4 text-markaj-primary transition-colors group-hover:text-markaj-primary-light">
+              <h3 className="mt-1 type-h3 text-markaj-primary transition-colors group-hover:text-markaj-primary-light">
                 {zone.name}
               </h3>
               <p className="mt-2 font-body text-caption text-markaj-primary">

@@ -46,7 +46,7 @@ export default function AboutPage() {
 
       <Section background="white">
         <div className="max-w-prose">
-          <h2 className="font-heading text-heading-3 text-markaj-primary">
+          <h2 className="type-h2 text-markaj-primary">
             Qui est Markaj Renting SA ?
           </h2>
           <p className="mt-4 font-body text-body-lg text-markaj-primary">
@@ -109,7 +109,7 @@ export default function AboutPage() {
         <div className="grid gap-8 md:grid-cols-2">
           {values.map((value) => (
             <div key={value.title}>
-              <h3 className="font-heading text-heading-4 text-markaj-primary">{value.title}</h3>
+              <h3 className="type-h3 text-markaj-primary">{value.title}</h3>
               <p className="mt-2 font-body text-body text-markaj-primary">{value.description}</p>
             </div>
           ))}

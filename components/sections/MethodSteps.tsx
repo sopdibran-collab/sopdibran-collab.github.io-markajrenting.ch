@@ -44,7 +44,7 @@ export function MethodSteps() {
                   className="mb-3 block h-2 w-2 border border-markaj-primary bg-markaj-crepi"
                   aria-hidden="true"
                 />
-                <h3 className="font-heading text-heading-4 text-markaj-primary">
+                <h3 className="type-h3 text-markaj-primary">
                   {item.title}
                 </h3>
                 <p className="mt-2 font-body text-body-sm text-markaj-primary">

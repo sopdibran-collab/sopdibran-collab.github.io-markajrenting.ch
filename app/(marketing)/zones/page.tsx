@@ -54,7 +54,7 @@ export default function ZonesPage() {
             return (
               <article key={zone.slug} className="panel-chantier">
                 <p className="marque-cote">{zone.canton}</p>
-                <h2 className="mt-1 font-heading text-heading-3 text-markaj-primary">
+                <h2 className="mt-1 type-h2 text-markaj-primary">
                   <Link href={href} className="hover:text-markaj-primary-light">
                     {zone.name}
                   </Link>
@@ -67,7 +67,7 @@ export default function ZonesPage() {
                     <p className="mt-4 font-body text-body-sm tracking-wide text-markaj-primary/80">
                       {zone.villes.join(" · ")}
                     </p>
-                    <h3 className="mt-4 font-body text-body-sm font-semibold text-markaj-primary">
+                    <h3 className="mt-4 type-h3 text-markaj-primary">
                       Types de chantiers
                     </h3>
                     <ul className="mt-2 space-y-1">

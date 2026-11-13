@@ -38,6 +38,14 @@ const config: Config = {
         "body": ["1.125rem", { lineHeight: "1.7" }],
         "body-sm": ["1rem", { lineHeight: "1.65" }],
         "caption": ["0.875rem", { lineHeight: "1.5", letterSpacing: "0.02em" }],
+        /* Échelle unique des titres (docs/DESIGN.md) : mobile puis desktop (md). */
+        "h2": ["1.625rem", { lineHeight: "1.25", letterSpacing: "-0.01em" }],
+        "h2-lg": ["2.25rem", { lineHeight: "1.2", letterSpacing: "-0.01em" }],
+        "h3": ["1.3125rem", { lineHeight: "1.35" }],
+        "h3-lg": ["1.5rem", { lineHeight: "1.3" }],
+        "h4": ["1.125rem", { lineHeight: "1.4" }],
+        /* Légendes, crédits photo : 13 / 1.45, plancher lisible. */
+        "legend": ["0.8125rem", { lineHeight: "1.45" }],
       },
       spacing: {
         "18": "4.5rem",
@@ -46,7 +54,9 @@ const config: Config = {
       },
       maxWidth: {
         content: "72rem",
-        prose: "42rem",
+        /* Colonne de texte : 34 rem ≈ 73 car. à 18 px ; chapô 37 rem à 20 px. */
+        prose: "34rem",
+        lead: "37rem",
       },
       /* Direction « Trait de chantier » : angles vifs partout */
       borderRadius: {
