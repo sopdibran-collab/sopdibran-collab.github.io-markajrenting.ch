@@ -119,6 +119,12 @@
     @apply font-heading text-card-title font-normal md:text-card-title-lg;
   }
 
+  /* Sous-titre dans une carte (h3 sous un card-title) : 17/1.4 Source Sans 600,
+     toujours plus petit que le card-title (20/22). */
+  .type-card-subtitle {
+    @apply font-body text-card-subtitle font-semibold;
+  }
+
   /* Bordure ≥ 3:1 sur blanc, exemple de saisie ≥ 4.5:1. */
   .form-input {
     @apply w-full min-h-11 rounded-markaj border bg-markaj-white px-4 py-3 font-body text-base text-markaj-primary focus:border-markaj-primary focus:outline-none focus:ring-1 focus:ring-markaj-primary;

@@ -47,6 +47,8 @@ const config: Config = {
         /* Titres de carte (h2 sémantiques dans une grille) : 20/1.35 → 22/1.3. */
         "card-title": ["1.25rem", { lineHeight: "1.35" }],
         "card-title-lg": ["1.375rem", { lineHeight: "1.3" }],
+        /* Sous-titre de carte : toujours plus petit que le card-title. */
+        "card-subtitle": ["1.0625rem", { lineHeight: "1.4" }],
         /* Légendes, crédits photo : 13 / 1.45, plancher lisible. */
         "legend": ["0.8125rem", { lineHeight: "1.45" }],
       },

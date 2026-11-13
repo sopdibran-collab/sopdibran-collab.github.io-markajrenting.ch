@@ -67,7 +67,7 @@ export default function ZonesPage() {
                     <p className="mt-4 font-body text-body-sm tracking-wide text-markaj-primary/80">
                       {zone.villes.join(" · ")}
                     </p>
-                    <h3 className="mt-4 type-h3 text-markaj-primary">
+                    <h3 className="mt-4 type-card-subtitle text-markaj-primary">
                       Types de chantiers
                     </h3>
                     <ul className="mt-2 space-y-1">
