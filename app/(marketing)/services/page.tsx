@@ -52,7 +52,7 @@ export default function ServicesPage() {
           {services.map((service) => (
             <Card key={service.slug} hover className="flex h-full flex-col">
               <Badge className="mb-3 w-fit">{service.shortTitle}</Badge>
-              <h2 className="type-h2 text-markaj-primary">
+              <h2 className="type-card-title text-markaj-primary">
                 <Link
                   href={`/services/${service.slug}`}
                   className="transition-colors hover:text-markaj-primary-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-markaj-primary"

@@ -29,7 +29,8 @@ typography:
   display:   { fontFamily: "Playfair Display", fontSize: 48px, fontWeight: 400, lineHeight: 1.15, letterSpacing: -0.02em, mobile: { fontSize: 28px, lineHeight: 1.25 } }   # H1, inchangé
   heading-2: { fontFamily: "Playfair Display", fontSize: 36px, fontWeight: 400, lineHeight: 1.2, letterSpacing: -0.01em, mobile: { fontSize: 26px, lineHeight: 1.25 } }  # current 40 ou 24 desktop / 20 ou 24 mobile
   heading-3: { fontFamily: "Playfair Display", fontSize: 24px, fontWeight: 400, lineHeight: 1.3, letterSpacing: 0, mobile: { fontSize: 21px, lineHeight: 1.35 } }        # current 32/24/20 desktop, 24/20 mobile
-  heading-4: { fontFamily: "Source Sans 3", fontSize: 18px, fontWeight: 600, lineHeight: 1.4, letterSpacing: 0 }   # nouveau niveau pour titres de cartes / étapes
+  heading-4: { fontFamily: "Source Sans 3", fontSize: 18px, fontWeight: 600, lineHeight: 1.4, letterSpacing: 0 }   # nouveau niveau pour étapes et sous-titres (h4)
+  card-title: { fontFamily: "Playfair Display", fontSize: 22px, fontWeight: 400, lineHeight: 1.3, letterSpacing: 0, mobile: { fontSize: 20px, lineHeight: 1.35 } }   # titres de carte (h2 sémantiques en grille : réalisations, normes, publics, blog, services, zones, prestations) ; niveau Hn inchangé
   lead:      { fontFamily: "Source Sans 3", fontSize: 20px, fontWeight: 400, lineHeight: 1.7, maxWidth: 37rem, mobile: { fontSize: 18px } }
   body:      { fontFamily: "Source Sans 3", fontSize: 18px, fontWeight: 400, lineHeight: 1.7, maxWidth: 34rem }   # current OK sauf largeur (672–768 px → 84–95 car.)
   body-sm:   { fontFamily: "Source Sans 3", fontSize: 16px, fontWeight: 400, lineHeight: 1.6 }  # current 16/1.65 OK ; 14/1.5 stats OK (≥15 conseillé)
@@ -98,6 +99,7 @@ Markaj Renting a déjà une identité « chantier soigné » : marine profond, c
 | H2 | **40 / 1.2** (accueil, zones, contact, blog) · **24 / 1.3** (services) | **20 / 1.4** (accueil, zones, blog, contact) · 24 (services) | **36 / 1.2** partout | **26 / 1.25** partout |
 | H3 | 32 (accueil) · 24 (zones) · 20 (services) | **24** (accueil, zones) · 20 (services) | **24 / 1.3** | **21 / 1.35** |
 | H4 | absent | absent | 18 / 1.4 Source Sans 600 | 18 / 1.4 |
+| Titre de carte | 20–24 (h2 en carte) | 20–24 | **22 / 1.3** Playfair | **20 / 1.35** |
 | Chapô | 20 / 1.7 | 18–20 / 1.7 | 20 / 1.7, max 37 rem | 18 / 1.7 |
 | Corps | 18 / 1.7 ✔ | 18 / 1.7 ✔ | 18 / 1.7, **max 34 rem** | 18 / 1.7 |
 | Petits blocs | 16 / 1.65 ✔ · 14 / 1.5 (stats) | idem | 16 / 1.6 (stats ≥ 15 / 1.5) | idem |
@@ -109,7 +111,7 @@ Markaj Renting a déjà une identité « chantier soigné » : marine profond, c
 
 ### Principles
 1. **60–75 caractères par ligne.** Aujourd'hui, les paragraphes de 672–768 px de large font 84–95 car. sur desktop (89/91/90 sur Peinture). À 18 px de Source Sans 3, 1 caractère ≈ 7,4 px : `max-width: 34rem` donne ≈ 73 car. Le chapô à 20 px passe à `37rem`. Sur mobile (41–51 car.), rien ne change.
-2. **Une seule échelle de titres pour tous les gabarits.** H2 > H3 > H4 à chaque taille d'écran. Il n'y aura plus de H2 mobile plus petit que H3.
+2. **Une seule échelle de titres pour tous les gabarits.** H2 > H3 > H4 à chaque taille d'écran. Il n'y aura plus de H2 mobile plus petit que H3. Exception assumée : un H2 qui sert de titre de carte dans une grille prend le style `card-title` (22/1.3, mobile 20/1.35) ; les H2 de section restent 36/26.
 3. **Pas de texte en capitales sous 13 px.** Les boutons sont l'action principale : 14 px minimum, tracking réduit.
 4. Interlignages : corps ≥ 1.6 (1.7 actuel conservé), petits blocs ≥ 1.5, légendes ≥ 1.45. Titres : 1.15–1.35.
 5. Pas d'italique décoratif, pas de troisième famille.

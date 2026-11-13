@@ -44,6 +44,9 @@ const config: Config = {
         "h3": ["1.3125rem", { lineHeight: "1.35" }],
         "h3-lg": ["1.5rem", { lineHeight: "1.3" }],
         "h4": ["1.125rem", { lineHeight: "1.4" }],
+        /* Titres de carte (h2 sémantiques dans une grille) : 20/1.35 → 22/1.3. */
+        "card-title": ["1.25rem", { lineHeight: "1.35" }],
+        "card-title-lg": ["1.375rem", { lineHeight: "1.3" }],
         /* Légendes, crédits photo : 13 / 1.45, plancher lisible. */
         "legend": ["0.8125rem", { lineHeight: "1.45" }],
       },

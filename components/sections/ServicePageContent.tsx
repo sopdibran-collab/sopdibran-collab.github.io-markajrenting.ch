@@ -203,7 +203,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
             {service.offerings.map((offering, index) => (
               <AnimateIn key={offering.title} delay={index * 50}>
                 <article>
-                  <h2 className="type-h2 text-markaj-primary">
+                  <h2 className="type-card-title text-markaj-primary">
                     {offering.title}
                   </h2>
                   <p className="mt-3 font-body text-body text-markaj-primary/90">

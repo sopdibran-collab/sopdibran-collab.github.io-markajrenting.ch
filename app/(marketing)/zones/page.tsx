@@ -54,7 +54,7 @@ export default function ZonesPage() {
             return (
               <article key={zone.slug} className="panel-chantier">
                 <p className="marque-cote">{zone.canton}</p>
-                <h2 className="mt-1 type-h2 text-markaj-primary">
+                <h2 className="mt-1 type-card-title text-markaj-primary">
                   <Link href={href} className="hover:text-markaj-primary-light">
                     {zone.name}
                   </Link>
