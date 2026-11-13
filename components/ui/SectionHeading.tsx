@@ -41,7 +41,7 @@ export function SectionHeading({
       {intro && (
         <p
           className={cn(
-            "mt-4 max-w-lead text-body-lg",
+            "mt-4 text-body-lg",
             light ? "text-markaj-white/85" : "text-markaj-primary"
           )}
         >
