@@ -95,7 +95,7 @@ export default function ProfessionnelsPage() {
         <div className="grid gap-8 md:grid-cols-2">
           {audiences.map((item) => (
             <div key={item.title} className="border-l-2 border-markaj-primary/20 pl-6">
-              <h2 className="font-heading text-heading-4 text-markaj-primary">{item.title}</h2>
+              <h2 className="type-card-title text-markaj-primary">{item.title}</h2>
               <p className="mt-2 font-body text-body text-markaj-primary">
                 {item.description}
               </p>
@@ -112,7 +112,7 @@ export default function ProfessionnelsPage() {
         <div className="grid gap-8 md:grid-cols-2">
           {capabilities.map((item) => (
             <div key={item.title}>
-              <h3 className="font-heading text-heading-4 text-markaj-primary">{item.title}</h3>
+              <h3 className="type-h3 text-markaj-primary">{item.title}</h3>
               <p className="mt-2 font-body text-body text-markaj-primary">{item.text}</p>
             </div>
           ))}

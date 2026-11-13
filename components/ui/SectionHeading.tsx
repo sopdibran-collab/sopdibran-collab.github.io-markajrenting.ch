@@ -20,7 +20,7 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        "mb-10 max-w-prose",
+        "mb-10 max-w-lead",
         align === "center" && "mx-auto text-center",
         className
       )}
@@ -32,7 +32,7 @@ export function SectionHeading({
       )}
       <h2
         className={cn(
-          "font-heading text-xl sm:text-heading-2 md:text-heading-1",
+          "type-h2",
           light ? "text-markaj-white" : "text-markaj-primary"
         )}
       >

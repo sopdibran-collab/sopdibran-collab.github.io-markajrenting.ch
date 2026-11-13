@@ -148,7 +148,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
 
       <Section background="white">
         <AnimateIn className="max-w-prose">
-          <h2 className="font-heading text-heading-3 text-markaj-primary">
+          <h2 className="type-h2 text-markaj-primary">
             {definitionTitle}
           </h2>
           <p className="mt-4 font-body text-body-lg text-markaj-primary/90">
@@ -203,7 +203,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
             {service.offerings.map((offering, index) => (
               <AnimateIn key={offering.title} delay={index * 50}>
                 <article>
-                  <h2 className="font-heading text-heading-3 text-markaj-primary">
+                  <h2 className="type-card-title text-markaj-primary">
                     {offering.title}
                   </h2>
                   <p className="mt-3 font-body text-body text-markaj-primary/90">
@@ -235,7 +235,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
           background={index % 2 === 0 ? "white" : "sand"}
         >
           <AnimateIn className="max-w-prose">
-            <h2 className="font-heading text-heading-3 text-markaj-primary">{guide.title}</h2>
+            <h2 className="type-h2 text-markaj-primary">{guide.title}</h2>
             {guide.paragraphs.map((paragraph, paragraphIndex) => (
               <RichParagraph key={paragraphIndex} parts={paragraph} />
             ))}
@@ -257,7 +257,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
                 className="mb-3 block h-2 w-2 border border-markaj-primary bg-markaj-crepi"
                 aria-hidden="true"
               />
-              <h3 className="font-heading text-heading-4 text-markaj-primary">{step.title}</h3>
+              <h3 className="type-h3 text-markaj-primary">{step.title}</h3>
               <p className="mt-2 font-body text-body-sm text-markaj-primary">{step.description}</p>
             </li>
           ))}
@@ -374,7 +374,8 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
           service.ctaDescription ??
           "Décrivez votre chantier : devis gratuit, réponse sous 5 jours ouvrés. Siège à Fribourg, interventions en Suisse romande."
         }
-        primaryHref={service.ctaHref}
+        /* Même préremplissage que le hero et « Contact & devis ». */
+        primaryHref={service.ctaHref ?? `/contact?service=${service.slug}`}
       />
     </>
   );

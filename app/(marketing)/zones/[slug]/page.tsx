@@ -82,7 +82,7 @@ export default function ZoneDetailPage({ params }: PageProps) {
           <ul className="grid max-w-prose gap-6">
             {zone.reglesLocales.map((regle) => (
               <li key={regle.titre}>
-                <h3 className="font-heading text-heading-3 text-markaj-primary">{regle.titre}</h3>
+                <h3 className="type-h3 text-markaj-primary">{regle.titre}</h3>
                 <p className="mt-2 font-body text-body text-markaj-primary/90">{regle.texte}</p>
                 <p className="mt-2 font-body text-body-sm text-markaj-primary">
                   Source :{" "}

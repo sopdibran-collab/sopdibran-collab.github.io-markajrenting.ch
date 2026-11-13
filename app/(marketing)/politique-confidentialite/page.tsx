@@ -32,7 +32,7 @@ export default function PolitiqueConfidentialitePage() {
             vos informations conformément à la loi fédérale suisse sur la protection des données (LPD).
           </p>
 
-          <h2 className="mt-10 font-heading text-heading-3 text-markaj-primary">
+          <h2 className="mt-10 type-h2 text-markaj-primary">
             Données collectées
           </h2>
           <p className="mt-3 font-body text-body text-markaj-primary">
@@ -42,7 +42,7 @@ export default function PolitiqueConfidentialitePage() {
             Des données de navigation anonymisées peuvent être collectées à des fins statistiques.
           </p>
 
-          <h2 className="mt-10 font-heading text-heading-3 text-markaj-primary">
+          <h2 className="mt-10 type-h2 text-markaj-primary">
             Utilisation des données
           </h2>
           <p className="mt-3 font-body text-body text-markaj-primary">
@@ -51,7 +51,7 @@ export default function PolitiqueConfidentialitePage() {
             Elles ne sont ni vendues ni transmises à des tiers à des fins marketing.
           </p>
 
-          <h2 className="mt-10 font-heading text-heading-3 text-markaj-primary">
+          <h2 className="mt-10 type-h2 text-markaj-primary">
             Vos droits
           </h2>
           <p className="mt-3 font-body text-body text-markaj-primary">
@@ -62,7 +62,7 @@ export default function PolitiqueConfidentialitePage() {
             </a>.
           </p>
 
-          <h2 className="mt-10 font-heading text-heading-3 text-markaj-primary">
+          <h2 className="mt-10 type-h2 text-markaj-primary">
             Protection du formulaire
           </h2>
           <p className="mt-3 font-body text-body text-markaj-primary">
@@ -73,7 +73,7 @@ export default function PolitiqueConfidentialitePage() {
             publicitaires et ne sont pas vendues.
           </p>
 
-          <h2 className="mt-10 font-heading text-heading-3 text-markaj-primary">
+          <h2 className="mt-10 type-h2 text-markaj-primary">
             Mesure d&apos;audience (Google Analytics 4)
           </h2>
           <p className="mt-3 font-body text-body text-markaj-primary">
@@ -111,7 +111,7 @@ export default function PolitiqueConfidentialitePage() {
             pas connue au moment de la rédaction et ne doit pas être inventée.]
           </p>
 
-          <h2 className="mt-10 font-heading text-heading-3 text-markaj-primary">
+          <h2 className="mt-10 type-h2 text-markaj-primary">
             Cookies
           </h2>
           <p className="mt-3 font-body text-body text-markaj-primary">

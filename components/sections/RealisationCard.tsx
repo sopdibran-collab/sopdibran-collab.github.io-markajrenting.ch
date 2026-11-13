@@ -84,7 +84,7 @@ export function RealisationCard({ project, index = 0, featured = false }: Realis
               <Badge variant="outline">{String(project.year)}</Badge>
             )}
           </div>
-          <h2 className="mt-3 font-heading text-heading-4 text-markaj-primary transition-colors group-hover:text-markaj-primary-light">
+          <h2 className="mt-3 type-card-title text-markaj-primary transition-colors group-hover:text-markaj-primary-light">
             {project.title}
           </h2>
           <p className="mt-2 font-body text-body-sm text-markaj-primary">{project.description}</p>
@@ -98,7 +98,7 @@ export function RealisationCard({ project, index = 0, featured = false }: Realis
               Matériaux : {project.materials}
             </p>
           )}
-          <p className="mt-3 font-body text-[0.6875rem] uppercase tracking-[0.14em] text-markaj-primary">
+          <p className="mt-3 font-body text-legend uppercase tracking-[0.06em] text-markaj-primary">
             {project.credit}
           </p>
         </div>

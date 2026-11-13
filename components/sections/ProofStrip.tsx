@@ -38,7 +38,7 @@ export function ProofStrip() {
             <span
               className={cn(
                 "flex h-9 w-9 shrink-0 items-center justify-center border border-markaj-white/35",
-                item.icon === "founded" && "font-heading text-[0.65rem] font-semibold leading-tight tracking-wide"
+                item.icon === "founded" && "font-heading text-[0.75rem] font-semibold leading-tight tracking-normal"
               )}
               aria-hidden
             >

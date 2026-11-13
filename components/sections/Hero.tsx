@@ -95,7 +95,7 @@ export function Hero({
   if (image && layout === "bleed") {
     return (
       <section
-        className="relative isolate min-h-[min(88vh,44rem)] overflow-hidden bg-markaj-primary"
+        className="relative isolate min-h-[min(80vh,44rem)] overflow-hidden bg-markaj-primary sm:min-h-[min(88vh,44rem)]"
         data-analytics-location={analyticsLocation}
       >
         <Image
@@ -107,20 +107,18 @@ export function Hero({
           className="object-cover"
         />
         {/*
-          Voile directionnel : navy ≥ 88 % derrière le texte (crépi AA sur photo claire),
-          photo lisible en haut sur mobile et à droite sur desktop.
+          Voile : navy ≥ 88 % derrière le texte (crépi et blanc ≥ 4.5:1, mesuré),
+          dégradé vers une photo nette au-dessus du texte sur mobile,
+          à droite sur desktop. Voir .hero-voile dans globals.css.
         */}
-        <div
-          className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgb(10_43_94/0.94)_0%,rgb(10_43_94/0.9)_46%,rgb(10_43_94/0.32)_74%,rgb(10_43_94/0.08)_100%)] lg:bg-[linear-gradient(90deg,rgb(10_43_94/0.92)_0%,rgb(10_43_94/0.88)_40rem,rgb(10_43_94/0.36)_60rem,rgb(10_43_94/0.08)_100%)]"
-          aria-hidden="true"
-        />
-        <div className="relative z-10 mx-auto flex min-h-[min(88vh,44rem)] max-w-content flex-col justify-end px-4 pb-14 pt-24 sm:px-6 sm:pb-16 sm:pt-28 lg:px-8 lg:pb-20">
+        <div className="hero-voile pointer-events-none absolute inset-0" aria-hidden="true" />
+        <div className="relative z-10 mx-auto flex min-h-[min(80vh,44rem)] max-w-content flex-col justify-end px-4 pb-14 pt-16 sm:min-h-[min(88vh,44rem)] sm:px-6 sm:pb-16 sm:pt-28 lg:px-8 lg:pb-20">
           <div className="max-w-2xl">
             {eyebrow && <p className="hero-eyebrow hero-eyebrow--light">{eyebrow}</p>}
             <h1 className={cn("font-heading text-[1.75rem] leading-tight text-balance text-markaj-crepi sm:text-heading-1 md:text-display", eyebrow && "mt-3")}>
               {title}
             </h1>
-            <p className="mt-4 max-w-xl font-body text-body text-markaj-white sm:text-body-lg">
+            <p className="mt-4 max-w-lead font-body text-body text-markaj-white sm:text-body-lg">
               {subtitle}
             </p>
             {actions}
@@ -149,7 +147,7 @@ export function Hero({
           <h1 className="font-heading text-[1.75rem] leading-tight text-balance text-markaj-primary sm:text-heading-1 md:text-display">
             {title}
           </h1>
-          <p className="mt-5 font-body text-body text-markaj-primary sm:text-body-lg">
+          <p className="mt-5 max-w-lead font-body text-body text-markaj-primary sm:text-body-lg">
             {subtitle}
           </p>
           {actions}

@@ -50,7 +50,7 @@ export default function BlogPage() {
                   {post.readTime}
                 </span>
               </p>
-              <h2 className="mt-3 max-w-prose font-heading text-heading-3 text-markaj-primary">
+              <h2 className="mt-3 max-w-prose type-card-title text-markaj-primary">
                 <Link
                   href={`/blog/${post.slug}`}
                   className="transition-colors hover:text-markaj-primary-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-markaj-primary"

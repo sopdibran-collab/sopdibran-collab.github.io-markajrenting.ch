@@ -77,12 +77,63 @@
   h4 {
     @apply font-heading;
   }
+
+  /*
+   * Longueur de ligne (docs/DESIGN.md) : paragraphes courants à 34 rem
+   * (≈ 73 car. à 18 px), chapô à 37 rem. Les max-w-* explicites priment.
+   */
+  main p {
+    max-width: 34rem;
+  }
+
+  main p.text-body-lg,
+  main p.sm\:text-body-lg {
+    max-width: 37rem;
+  }
 }
 
 @layer components {
+  /*
+   * Échelle unique des titres (docs/DESIGN.md), identique sur tous les gabarits.
+   * H2 26/1.25 → 36/1.2 ; H3 21/1.35 → 24/1.3 ; H4 18/1.4 Source Sans 600.
+   * Le H1 n'est pas concerné.
+   */
+  .type-h2 {
+    @apply font-heading text-h2 font-normal md:text-h2-lg;
+  }
+
+  .type-h3 {
+    @apply font-heading text-h3 font-normal md:text-h3-lg;
+  }
+
+  .type-h4 {
+    @apply font-body text-h4 font-semibold;
+  }
+
+  /*
+   * Titre de carte : h2 sémantique dans une grille de cartes (réalisations,
+   * normes, publics, blog, services, zones, prestations). Le niveau Hn ne
+   * change pas ; seule la taille suit ce token. Les H2 de section restent 36/26.
+   */
+  .type-card-title {
+    @apply font-heading text-card-title font-normal md:text-card-title-lg;
+  }
+
+  /* Sous-titre dans une carte (h3 sous un card-title) : 17/1.4 Source Sans 600,
+     toujours plus petit que le card-title (20/22). */
+  .type-card-subtitle {
+    @apply font-body text-card-subtitle font-semibold;
+  }
+
+  /* Bordure ≥ 3:1 sur blanc, exemple de saisie ≥ 4.5:1. */
   .form-input {
     @apply w-full min-h-11 rounded-markaj border bg-markaj-white px-4 py-3 font-body text-base text-markaj-primary focus:border-markaj-primary focus:outline-none focus:ring-1 focus:ring-markaj-primary;
-    border-color: rgb(10 43 94 / 0.25);
+    border-color: rgb(10 43 94 / 0.55);
+  }
+
+  .form-input::placeholder {
+    color: #6b7280;
+    opacity: 1;
   }
 
   .form-input[aria-invalid="true"] {
@@ -154,6 +205,47 @@
    * ============================================================
    */
 
+  /*
+   * Hero photo de l'accueil. Sous 1024 px, le texte est calé en bas :
+   * voile plein (≥ 85 %, contraste mesuré ≥ 4.5:1) sur la hauteur du texte, puis dégradé
+   * rapide pour laisser voir la photo au-dessus. Desktop : inchangé.
+   */
+  .hero-voile {
+    /* Hauteur du bloc texte mesurée depuis le bas du hero (+ ≈ 1 rem de marge). */
+    --voile-plein: 24.5rem;
+    background-image: linear-gradient(
+      to top,
+      rgb(10 43 94 / 0.92) 0,
+      rgb(10 43 94 / 0.85) var(--voile-plein),
+      rgb(10 43 94 / 0.25) calc(var(--voile-plein) + 5rem),
+      rgb(10 43 94 / 0) 100%
+    );
+  }
+
+  @media (min-width: 390px) {
+    .hero-voile {
+      --voile-plein: 23rem;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .hero-voile {
+      --voile-plein: 25.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-voile {
+      background-image: linear-gradient(
+        90deg,
+        rgb(10 43 94 / 0.92) 0%,
+        rgb(10 43 94 / 0.88) 40rem,
+        rgb(10 43 94 / 0.36) 60rem,
+        rgb(10 43 94 / 0.08) 100%
+      );
+    }
+  }
+
   /* Trame millimétrée pour les sections hero / clés (fond quasi invisible) */
   .bg-grid-chantier {
     background-image:
@@ -165,9 +257,10 @@
   /* 1 — Bouton « Bloc » : matière posée, ombre franche décalée (pas de flou)
      Hauteur / padding gérés par size sm|md|lg sur <Button /> */
   .btn-bloc {
-    @apply relative inline-flex max-w-full shrink-0 items-center justify-center gap-2 border-2 border-markaj-primary bg-markaj-primary font-body text-[0.8125rem] font-semibold uppercase tracking-[0.12em] text-markaj-white transition-all duration-150 ease-out;
+    @apply relative inline-flex max-w-full shrink-0 items-center justify-center gap-2 border-2 border-markaj-primary bg-markaj-primary font-body text-[0.9375rem] font-semibold uppercase tracking-[0.06em] text-markaj-white transition-all duration-150 ease-out md:text-[0.875rem];
     box-shadow: 5px 5px 0 0 theme("colors.markaj.crepi");
-    padding-inline-end: calc(var(--btn-pad-x, 1.75rem) + 0.12em);
+    /* Compense l'espacement de la dernière lettre */
+    padding-inline-end: calc(var(--btn-pad-x, 1.75rem) + 0.06em);
   }
 
   .btn-bloc:hover {
@@ -200,9 +293,9 @@
 
   /* 2 — Bouton « Cote » : repères de cotation fixes (pas d'animation) */
   .btn-cote {
-    @apply relative inline-flex max-w-full shrink-0 items-center justify-center bg-markaj-crepi-light font-body text-[0.8125rem] font-semibold uppercase tracking-[0.12em] text-markaj-primary transition-colors duration-200;
+    @apply relative inline-flex max-w-full shrink-0 items-center justify-center bg-markaj-crepi-light font-body text-[0.9375rem] font-semibold uppercase tracking-[0.06em] text-markaj-primary transition-colors duration-200 md:text-[0.875rem];
     border: 1px solid rgb(10 43 94 / 0.55);
-    padding-inline-end: calc(var(--btn-pad-x, 1.75rem) + 0.12em);
+    padding-inline-end: calc(var(--btn-pad-x, 1.75rem) + 0.06em);
   }
 
   .btn-cote::before,
@@ -251,6 +344,21 @@
 
   .btn-cote--light:hover {
     @apply bg-markaj-white text-markaj-primary;
+  }
+
+  /*
+   * « Appeler » sur photo/fond marine (hero accueil) : équerres crépi,
+   * sinon les équerres marine disparaissent dans le voile. Même bouton
+   * que sur les pages internes.
+   */
+  .btn-cote.btn-appeler--sombre::before {
+    border-top-color: theme("colors.markaj.crepi");
+    border-left-color: theme("colors.markaj.crepi");
+  }
+
+  .btn-cote.btn-appeler--sombre::after {
+    border-bottom-color: theme("colors.markaj.crepi");
+    border-right-color: theme("colors.markaj.crepi");
   }
 
   /*

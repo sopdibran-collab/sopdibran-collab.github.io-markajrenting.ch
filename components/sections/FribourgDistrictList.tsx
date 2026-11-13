@@ -66,7 +66,7 @@ export function FribourgDistrictList({ districts }: { districts: FribourgDistric
       >
         {districts.map((entry) => (
           <li key={entry.district} className="border border-markaj-primary/15 bg-markaj-white p-5">
-            <h3 className="font-heading text-heading-4 text-markaj-primary">{entry.district}</h3>
+            <h3 className="type-h3 text-markaj-primary">{entry.district}</h3>
             <div className="mt-2">
               <DistrictBody entry={entry} />
             </div>

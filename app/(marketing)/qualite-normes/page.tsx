@@ -73,7 +73,7 @@ export default function QualiteNormesPage() {
         <div className="grid gap-8 md:grid-cols-2">
           {normes.map((norme) => (
             <div key={norme.title} className="border-l-2 border-markaj-primary/20 pl-6">
-              <h2 className="font-heading text-heading-4 text-markaj-primary">{norme.title}</h2>
+              <h2 className="type-card-title text-markaj-primary">{norme.title}</h2>
               <p className="mt-2 font-body text-body text-markaj-primary">{norme.description}</p>
             </div>
           ))}

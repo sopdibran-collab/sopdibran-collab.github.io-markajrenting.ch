@@ -11,8 +11,9 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
+/* Refuser et Accepter : même poids, cible 44 px, 13 px minimum en capitales. */
 const choiceButtonClass =
-  "inline-flex h-11 min-h-11 w-full items-center justify-center rounded-none bg-markaj-primary px-3 font-body text-[13px] font-bold uppercase tracking-[0.08em] text-white shadow-none hover:bg-markaj-primary-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-markaj-crepi focus-visible:ring-offset-2";
+  "inline-flex h-11 min-h-11 w-full items-center justify-center rounded-none bg-markaj-primary px-2 font-body text-[13px] font-bold uppercase tracking-[0.04em] text-white shadow-none hover:bg-markaj-primary-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-markaj-crepi focus-visible:ring-offset-2 md:px-4 md:tracking-[0.06em]";
 
 function rememberDismiss(): void {
   try {
@@ -128,21 +129,26 @@ export function CookieBanner() {
       role="region"
       aria-label="Préférences cookies"
       className={cn(
-        "fixed inset-x-0 bottom-0 z-40 max-h-[100px] border-t border-[#DBCFB0] bg-white max-md:pb-[env(safe-area-inset-bottom)] motion-safe:transition-opacity motion-safe:duration-150 md:inset-x-auto md:bottom-6 md:max-h-none md:left-6 md:w-[25rem] md:border md:border-t md:border-markaj-primary/15 md:shadow-[6px_6px_0_#DBCFB0]",
+        /*
+         * Mobile : bande compacte (≤ 64 px dès 360 px de large ; ≈ 70 px à 320 px, texte inchangé), texte à gauche,
+         * boutons à droite. Desktop : une ligne discrète en bas à gauche, sans ombre.
+         */
+        "fixed inset-x-0 bottom-0 z-40 border-t border-[#DBCFB0] bg-white max-md:pb-[env(safe-area-inset-bottom)] motion-safe:transition-opacity motion-safe:duration-150 md:inset-x-auto md:bottom-4 md:left-4 md:w-auto md:max-w-[38rem] md:border md:border-markaj-primary/20",
         open ? "opacity-100" : "pointer-events-none opacity-0"
       )}
     >
-      <div className="flex items-center gap-3 px-3 py-2 md:block md:p-5">
-        <p className="min-w-0 flex-1 font-body text-[0.8125rem] leading-snug text-markaj-primary md:text-[0.9375rem]">
+      <div className="flex items-center gap-1.5 px-3 py-1 min-[375px]:gap-2 min-[375px]:py-1.5 md:gap-4 md:py-2.5 md:pl-4 md:pr-3">
+        <p className="min-w-0 flex-1 font-body text-[0.75rem] leading-[1.25] text-markaj-primary min-[375px]:text-[0.8125rem] min-[375px]:leading-[1.3] md:text-[0.875rem] md:leading-[1.4]">
           Statistiques de visite (Google Analytics) uniquement avec votre accord.{" "}
           <Link
             href="/politique-confidentialite"
-            className="font-semibold underline underline-offset-[3px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-markaj-crepi focus-visible:ring-offset-2"
+            /* Lien en ligne : padding vertical pour une cible de 44 px sans changer la hauteur de ligne. */
+            className="whitespace-nowrap py-3.5 font-semibold underline underline-offset-[3px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-markaj-crepi focus-visible:ring-offset-2"
           >
             En savoir plus
           </Link>
         </p>
-        <div className="grid w-[11.5rem] shrink-0 grid-cols-2 gap-2 md:mt-4 md:w-auto">
+        <div className="grid w-[10rem] shrink-0 grid-cols-2 gap-1.5 min-[375px]:w-[11rem] md:w-auto md:gap-2">
           <button
             ref={firstButtonRef}
             type="button"

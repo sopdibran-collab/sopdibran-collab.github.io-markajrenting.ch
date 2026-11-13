@@ -25,7 +25,7 @@ export function CtaBanner({
       <AnimateIn>
         <div className="flex min-w-0 flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div className="min-w-0 max-w-xl">
-            <h2 className="font-heading text-xl text-markaj-white sm:text-heading-2 md:text-heading-1">
+            <h2 className="type-h2 text-markaj-white">
               {title}
             </h2>
             <p className="mt-3 font-body text-body text-markaj-white/80 sm:text-body-lg">

@@ -51,7 +51,7 @@ export function WhyMarkaj() {
                       <Check className="h-3.5 w-3.5" strokeWidth={2.5} />
                     </span>
                     <div className="min-w-0">
-                      <h3 className="font-heading text-heading-4 text-markaj-primary">
+                      <h3 className="type-h3 text-markaj-primary">
                         {reason.title}
                       </h3>
                       <p className="mt-1.5 font-body text-body-sm text-markaj-primary">
