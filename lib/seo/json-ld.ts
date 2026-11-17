@@ -56,10 +56,15 @@ export function buildOrganizationSchema(): JsonLdObject {
       "Plâtrerie",
       "Peinture",
       "Faux-plafonds",
+      "Isolation",
+      "Rénovation",
+      "Façades",
+      "Isolation périphérique",
+      "Crépi intérieur",
+      "Lissage",
+      "Panneaux Schichtex",
       "Isolation thermique",
       "Isolation phonique",
-      "Rénovation intérieure",
-      "Façades",
     ],
   };
 }
@@ -125,6 +130,10 @@ export function buildLocalBusinessSchema(): JsonLdObject {
         "Isolation",
         "Rénovation",
         "Façades",
+        "Isolation périphérique",
+        "Crépi intérieur",
+        "Lissage",
+        "Panneaux Schichtex",
       ].map((service) => ({
         "@type": "Offer",
         itemOffered: {
@@ -244,7 +253,7 @@ export function buildArticleSchema(post: BlogPost): JsonLdObject {
     headline: post.title,
     description: post.excerpt,
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.updated,
     author: {
       "@type": "Organization",
       name: legalName,
