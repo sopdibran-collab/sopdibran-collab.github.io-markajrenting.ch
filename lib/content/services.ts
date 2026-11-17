@@ -526,18 +526,18 @@ export const services: Service[] = [
     slug: "isolation",
     updated: "2026-10-11",
     title: "Isolation",
-    metaTitle: "Isolation thermique et phonique Fribourg",
+    metaTitle: "Isolation intérieure à Fribourg : thermique et phonique",
     shortTitle: "Isolation",
     definiteArticle: "l'",
     metaDescription:
-      "Isolation thermique et phonique à Fribourg : doublages isolants, ponts thermiques, bruits entre voisins, projets Minergie. Devis gratuit — 079 430 18 13.",
+      "Isolation intérieure à Fribourg : doublage thermique des murs, isolation phonique des cloisons et plafonds. Solutions pour logements, bureaux et locaux professionnels. Devis sur demande.",
     intro:
-      "Basés à Fribourg, nous réalisons l'isolation thermique et acoustique en Suisse romande : doublages isolants intérieurs et traitement des ponts thermiques.",
+      "À Fribourg et en Suisse romande, nous réalisons des travaux d’isolation intérieure thermique et phonique : doublages de murs, cloisons et plafonds. Le système est défini selon la paroi, l’usage du local et les contraintes du bâtiment.",
     benefit: "Confort thermique et acoustique, conformité aux exigences suisses.",
     audience: ["Particuliers", "Promoteurs", "Architectes"],
     projectTypes: ["Doublages isolants", "Ponts thermiques", "Minergie"],
     definition:
-      "L'isolation consiste à limiter les déperditions de chaleur et les nuisances sonores par la pose de matériaux isolants (laine minérale, mousse, fibres) dans les murs, plafonds et combles. Sur cette page, les travaux décrits sont les doublages isolants intérieurs. L'isolation périphérique, au sens suisse, est l'isolation thermique extérieure crépie (ITEC, norme SIA 243).",
+      "L’isolation intérieure limite les déperditions de chaleur et peut réduire la transmission des bruits par des doublages de murs, des cloisons ou des plafonds adaptés. Cette page concerne les solutions posées du côté intérieur du bâtiment. L’isolation périphérique est un système distinct : elle traite les façades par l’extérieur (ITEC).",
     offerings: [
       {
         title: "Isolation thermique",
@@ -823,13 +823,13 @@ export const services: Service[] = [
     slug: "facades",
     updated: "2026-10-22",
     title: "Façades",
-    metaTitle: "Rénovation de façade et crépi Fribourg",
+    metaTitle: "Rénovation de façade à Fribourg : crépi et peinture",
     shortTitle: "Façades",
     definiteArticle: "les",
     metaDescription:
-      "Rénovation de façade à Fribourg : diagnostic des fissures, crépi, enduits, peinture siloxane ou silicate. Particuliers, régies, PPE. Devis gratuit.",
+      "Entreprise de rénovation de façade à Fribourg : réparation des fissures, crépi, enduits et peinture extérieure. Pour bâtiments neufs et en rénovation. Demandez un devis.",
     intro:
-      "Basés à Fribourg, nous réalisons ravalement, crépi et peinture de façades en Suisse romande : enduits, réparations et finitions protectrices.",
+      "À Fribourg et en Suisse romande, Markaj Renting SA réalise la rénovation de façades : contrôle des supports, réparation des fissures et des enduits, crépi et peinture extérieure. Chaque intervention est définie selon l’état du mur et le système de finition adapté.",
     benefit: "Façades protégées, crépis et peintures adaptés au climat suisse.",
     audience: ["Particuliers", "Régies", "Copropriétés", "Architectes"],
     projectTypes: ["Ravalement", "Crépi", "Peinture extérieure"],
@@ -889,7 +889,7 @@ export const services: Service[] = [
           ],
           [
             "La définition de l'isolation extérieure crépie (ITEC, norme SIA 243) est sur la page ",
-            { href: "/services/isolation", label: "isolation thermique et phonique" },
+            { href: "/services/isolation-peripherique", label: "isolation périphérique et ITEC" },
             ". Le choix d'un isolant selon la paroi est dans le guide ",
             {
               href: "/blog/choisir-isolant-selon-paroi",
