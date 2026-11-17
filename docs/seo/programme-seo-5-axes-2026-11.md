@@ -125,7 +125,7 @@ Actions :
 - Obtenir des liens éditoriaux pertinents depuis associations professionnelles, partenaires, fournisseurs, architectes, annuaires professionnels sérieux et médias locaux. Éviter les achats de liens en masse.
 - Uniformiser les informations d'entreprise et corriger les éventuelles incohérences avant de renforcer les données structurées.
 
-Données à confirmer avant publication : date de fondation, nombre actuel de collaborateurs, adresse exacte, horaires, rayon réel d'intervention, services réellement exécutés, certifications/adhésions, autorisation de citer les clients et projets.
+Données confirmées par le responsable de l'entreprise : les dix prestations listées dans le catalogue sont bien réalisées par Markaj Renting SA. Aucune de ces dix prestations ne doit être supprimée au motif qu'elle serait supposée ou inventée. Restent à vérifier avant publication : date de fondation, nombre actuel de collaborateurs, adresse exacte, horaires, rayon réel d'intervention, certifications/adhésions et autorisation de citer les clients et projets.
 
 ## 6. Axe E — CTR et présentation dans Google
 
